@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazon PPC Management & Advertising Agency — Growisto</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy:    #0F1F3D;
+  --teal:    #2B7A8B;
+  --teal-lt: #E6F4F6;
+  --mint:    #EBF5F4;
+  --orange:  #E35D34;
+  --orange-h:#C94D28;
+  --dark:    #1A1A2E;
+  --text:    #3D3D4E;
+  --grey:    #6B7280;
+  --grey-lt: #E8EAED;
+  --white:   #FFFFFF;
+  --card-bg: #F9FAFB;
+  --gold:    #F5B731;
+  --purple:  #6C4BA6;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Poppins', sans-serif; color: var(--text); background: var(--white); }
+
+/* ── TOP BAR ── */
+.topbar { background: var(--navy); padding: 7px 0; font-size: 12px; color: rgba(255,255,255,0.75); }
+.topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 48px; display: flex; align-items: center; gap: 28px; }
+.topbar a { color: rgba(255,255,255,0.75); text-decoration: none; }
+.topbar a:hover { color: #fff; }
+
+/* ── NAV ── */
+nav { background: var(--white); border-bottom: 1px solid var(--grey-lt); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 48px; height: 60px; display: flex; align-items: center; }
+.nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; margin-right: 40px; }
+.nav-logo span { font-size: 20px; font-weight: 700; color: var(--navy); }
+.nav-links { display: flex; gap: 24px; flex: 1; }
+.nav-links a { font-size: 13px; font-weight: 500; color: var(--text); text-decoration: none; transition: color .2s; }
+.nav-links a:hover { color: var(--teal); }
+.nav-cta { background: var(--orange); color: var(--white); font-size: 13px; font-weight: 600; padding: 9px 20px; border-radius: 6px; text-decoration: none; white-space: nowrap; transition: background .2s; }
+.nav-cta:hover { background: var(--orange-h); }
+
+/* ── HERO ── */
+.hero { background: var(--mint); padding: 48px 0 0; }
+.hero-inner { max-width: 1280px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: start; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(43,122,139,0.1); border: 1px solid rgba(43,122,139,0.25); color: var(--teal); font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+.hero h1 { font-size: 42px; font-weight: 700; line-height: 1.18; color: var(--navy); margin-bottom: 16px; }
+.hero-tagline { font-size: 18px; font-weight: 700; color: var(--teal); margin-bottom: 12px; max-width: 560px; line-height: 1.4; }
+.hero-sub { font-size: 15px; line-height: 1.7; color: var(--text); margin-bottom: 24px; max-width: 560px; }
+.hero-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.hero-bullets li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text); line-height: 1.5; }
+.hero-bullets li .check { width: 20px; height: 20px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; color: #fff; font-size: 11px; }
+.hero-badges { display: flex; gap: 10px; flex-wrap: wrap; padding-bottom: 40px; }
+.badge { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 8px; padding: 8px 14px; font-size: 11px; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 6px; }
+.badge-dot { width: 6px; height: 6px; background: var(--teal); border-radius: 50%; }
+
+/* Hero form card */
+.hero-card { background: var(--white); border-radius: 14px; box-shadow: 0 8px 40px rgba(15,31,61,0.12); overflow: hidden; position: sticky; top: 72px; margin-top: -8px; }
+.hero-card-top { background: var(--teal); padding: 16px 24px; }
+.hero-card-top p { font-size: 15px; font-weight: 700; color: var(--white); line-height: 1.3; text-align: center; }
+.hero-card-sub { font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.8); margin-top: 4px; text-align: center; }
+.hero-card-body { padding: 20px 24px 24px; }
+.form-field { margin-bottom: 10px; }
+.form-field input { width: 100%; padding: 11px 14px; border: 1.5px solid var(--grey-lt); border-radius: 7px; font-family: 'Poppins', sans-serif; font-size: 13px; color: var(--dark); background: var(--white); outline: none; transition: border-color .2s; }
+.form-field input:focus { border-color: var(--teal); }
+.form-field input::placeholder { color: #aab0ba; }
+.btn-orange { display: block; width: 100%; padding: 16px; background: var(--orange); color: var(--white); font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; border: none; border-radius: 7px; cursor: pointer; text-align: center; transition: background .2s, box-shadow .2s; text-decoration: none; margin-top: 4px; letter-spacing: 0.2px; }
+.btn-orange:hover { background: var(--orange-h); box-shadow: 0 4px 16px rgba(227,93,52,0.3); }
+.form-note { text-align: center; font-size: 11px; color: var(--grey); margin-top: 8px; }
+.form-guarantee { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 11px; color: var(--teal); font-weight: 500; margin-top: 10px; }
+
+/* ── TRUST STRIP ── */
+.trust-strip { background: var(--white); border-top: 1px solid var(--grey-lt); padding: 20px 0; overflow: hidden; }
+.trust-strip-inner { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+.trust-strip h2 { text-align: center; font-size: 12px; font-weight: 600; color: var(--grey); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.logo-scroll-wrap { overflow: hidden; position: relative; }
+.logo-scroll-wrap::before, .logo-scroll-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none; }
+.logo-scroll-wrap::before { left: 0; background: linear-gradient(to right, var(--white), transparent); }
+.logo-scroll-wrap::after { right: 0; background: linear-gradient(to left, var(--white), transparent); }
+.logo-track { display: flex; gap: 10px; animation: scroll-logos 30s linear infinite; width: max-content; }
+@keyframes scroll-logos { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.logo-track:hover { animation-play-state: paused; }
+.logo-chip { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 8px; padding: 8px 16px; font-size: 12px; font-weight: 600; color: var(--grey); white-space: nowrap; }
+
+/* ── SHARED ── */
+.section { padding: 72px 0; }
+.section-alt { background: var(--card-bg); }
+.section-dark { background: var(--navy); }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+.section-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+h2.section-title { font-size: 34px; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: 12px; }
+h2.section-title.light { color: var(--white); }
+.section-sub { font-size: 15px; color: var(--grey); line-height: 1.7; max-width: 700px; margin-bottom: 44px; }
+.section-sub.light { color: rgba(255,255,255,0.65); }
+.centered { text-align: center; }
+.centered .section-sub { margin-left: auto; margin-right: auto; }
+
+/* ── METRICS ── */
+.metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px; }
+.metric-card { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 12px; padding: 28px 20px; }
+.metric-val { font-size: 36px; font-weight: 700; color: var(--teal); line-height: 1.1; margin-bottom: 8px; }
+.metric-label { font-size: 12px; color: var(--text); line-height: 1.5; }
+.award-card { background: var(--white); border: 1.5px solid var(--gold); border-radius: 12px; padding: 20px 28px; display: flex; align-items: center; gap: 20px; margin-top: 16px; }
+.award-icon { font-size: 32px; }
+.award-tag { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple); margin-bottom: 4px; }
+.award-title { font-size: 15px; font-weight: 700; color: var(--navy); }
+.award-body { font-size: 13px; color: var(--text); line-height: 1.5; }
+.metrics-cta { text-align: center; margin-top: 28px; }
+
+/* ── SIGNS (Problems) ── */
+.signs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.sign-card { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+.sign-num { font-size: 11px; font-weight: 700; color: var(--grey); letter-spacing: 1px; }
+.sign-title { font-size: 14px; font-weight: 700; color: var(--orange); line-height: 1.35; }
+.sign-subtitle { font-size: 13px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-top: -4px; }
+.sign-body { font-size: 13px; color: var(--text); line-height: 1.65; }
+
+/* ── SERVICES TAB ── */
+.svc-layout { display: grid; grid-template-columns: 260px 1fr; gap: 16px; align-items: start; }
+.svc-nav { display: flex; flex-direction: column; gap: 4px; }
+.svc-tab { padding: 14px 16px; border-radius: 10px; cursor: pointer; font-size: 13.5px; font-weight: 600; color: var(--navy); border: 1px solid var(--grey-lt); background: var(--white); text-align: left; line-height: 1.4; transition: all .15s; width: 100%; }
+.svc-tab:hover:not(.active) { border-color: var(--teal); color: var(--teal); }
+.svc-tab.active { background: var(--teal); color: var(--white); border-color: var(--teal); }
+.svc-panel { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 12px; padding: 32px; }
+.svc-panel-title { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+.svc-panel-desc { font-size: 14px; color: var(--text); line-height: 1.75; margin-bottom: 24px; }
+.svc-panel-label { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--grey); margin-bottom: 14px; }
+.service-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.service-list li { font-size: 13.5px; color: var(--text); display: flex; align-items: flex-start; gap: 10px; line-height: 1.55; }
+.service-list li::before { content:''; width:6px; height:6px; background:var(--teal); border-radius:50%; flex-shrink:0; margin-top:6px; }
+
+/* ── FLYWHEEL ── */
+.flywheel-wrap { display: flex; align-items: center; justify-content: center; gap: 60px; }
+.flywheel-diagram { position: relative; width: 360px; height: 360px; flex-shrink: 0; }
+.flywheel-diagram svg { width: 100%; height: 100%; }
+.flywheel-steps { display: flex; flex-direction: column; gap: 18px; flex: 1; max-width: 520px; }
+.flywheel-step { display: flex; align-items: flex-start; gap: 16px; background: var(--white); border: 1px solid var(--grey-lt); border-radius: 12px; padding: 18px 20px; }
+.flywheel-step-num { width: 36px; height: 36px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: var(--white); flex-shrink: 0; }
+.flywheel-step-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.flywheel-step-body { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+/* ── FULL AD STACK ── */
+.ad-stack-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 40px; }
+.ad-stack-card { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 12px; padding: 24px; display: flex; gap: 16px; align-items: flex-start; }
+.ad-stack-icon { width: 44px; height: 44px; background: var(--teal-lt); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.ad-stack-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.ad-stack-card p { font-size: 13px; color: var(--text); line-height: 1.6; }
+.amc-box { background: var(--navy); border-radius: 14px; padding: 36px 40px; }
+.amc-box h3 { font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.amc-box .amc-intro { font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 24px; line-height: 1.6; }
+.amc-features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.amc-feature { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 16px 18px; }
+.amc-feature-title { font-size: 13px; font-weight: 700; color: var(--mint); margin-bottom: 5px; }
+.amc-feature-body { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+/* ── MID-PAGE CTA ── */
+.mid-cta-section { padding: 72px 0; background: var(--card-bg); }
+.mid-cta-outer { background: var(--teal); border-radius: 20px; padding: 14px; }
+.mid-cta-inner { background: var(--white); border-radius: 12px; padding: 40px 48px; display: grid; grid-template-columns: 1fr 400px; gap: 48px; align-items: center; }
+.mid-cta-left h2 { font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+.mid-cta-left p { font-size: 14px; color: var(--text); line-height: 1.7; margin-bottom: 20px; }
+.mid-cta-checks { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.mid-cta-checks li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text); }
+.mid-cta-checks li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+.mid-cta-form-wrap { display: flex; flex-direction: column; gap: 10px; }
+.mid-cta-form-wrap input { width: 100%; padding: 11px 14px; border: 1.5px solid var(--grey-lt); border-radius: 7px; font-family: 'Poppins', sans-serif; font-size: 13px; color: var(--dark); background: var(--white); outline: none; transition: border-color .2s; }
+.mid-cta-form-wrap input:focus { border-color: var(--teal); }
+.mid-cta-form-wrap input::placeholder { color: #aab0ba; }
+
+/* ── CASE STUDIES CAROUSEL ── */
+.cases-carousel { position: relative; }
+.cases-track-wrap { overflow: hidden; }
+.cases-track { display: flex; gap: 20px; transition: transform .4s ease; }
+.case-card { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 14px; padding: 28px; flex-shrink: 0; }
+.case-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.case-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
+.case-tag.teal   { background: var(--teal-lt); color: var(--teal); }
+.case-tag.orange { background: #FEF0EB; color: var(--orange); }
+.case-tag.purple { background: #F0EBF8; color: var(--purple); }
+.case-tag.green  { background: #EBF5EE; color: #2D7A4F; }
+.case-brand-logo { width: 64px; height: 36px; background: var(--grey-lt); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; color: var(--grey); text-align: center; line-height: 1.3; }
+.case-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 10px; }
+.case-desc { font-size: 13px; color: var(--grey); line-height: 1.6; margin-bottom: 20px; }
+.results-box { background: var(--card-bg); border-radius: 10px; padding: 16px 20px; margin-bottom: 20px; }
+.results-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+.results-label::before { content:''; width:8px; height:8px; background:var(--teal); border-radius:50%; }
+.results-row { display: flex; gap: 28px; flex-wrap: wrap; }
+.result-item .val { font-size: 22px; font-weight: 700; color: var(--orange); }
+.result-item .lbl { font-size: 11px; color: var(--grey); line-height: 1.4; margin-top: 2px; }
+.approach-box { background: var(--card-bg); border-radius: 10px; padding: 16px 20px; }
+.approach-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--grey); margin-bottom: 12px; }
+.approach-list { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; list-style: none; }
+.approach-list li { font-size: 12px; color: var(--text); display: flex; align-items: flex-start; gap: 6px; line-height: 1.5; }
+.approach-list li::before { content:'✓'; color: var(--teal); font-weight: 700; flex-shrink:0; }
+.carousel-nav { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 24px; }
+.carousel-btn { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--grey-lt); background: var(--white); color: var(--navy); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .2s; flex-shrink: 0; }
+.carousel-btn:hover { border-color: var(--teal); color: var(--teal); }
+.carousel-dots { display: flex; gap: 6px; }
+.carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--grey-lt); cursor: pointer; transition: background .2s; }
+.carousel-dot.active { background: var(--teal); }
+
+/* ── TESTIMONIALS ── */
+.testi-carousel { position: relative; }
+.testi-track-wrap { overflow: hidden; }
+.testi-track { display: flex; gap: 20px; transition: transform .4s ease; }
+.testi-card { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 14px; padding: 28px 24px; flex-shrink: 0; }
+.testi-quote { font-size: 36px; color: var(--teal-lt); line-height: 1; margin-bottom: 12px; }
+.testi-text { font-size: 13px; color: var(--text); line-height: 1.75; font-style: italic; margin-bottom: 20px; }
+.testi-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+.testi-role { font-size: 12px; color: var(--grey); margin-top: 2px; }
+
+/* ── COMPARISON ── */
+.comp-header-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px; }
+.comp-col-hdr { padding: 13px 20px; border-radius: 8px; font-size: 15px; font-weight: 700; color: var(--white); text-align: center; }
+.comp-col-hdr.good { background: var(--teal); }
+.comp-col-hdr.bad  { background: #B03B3B; }
+.comp-rows { display: flex; flex-direction: column; gap: 6px; margin-bottom: 36px; }
+.comp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.comp-cell { padding: 14px 18px; border-radius: 8px; background: var(--white); border: 1px solid var(--grey-lt); }
+.comp-cell.alt { background: var(--card-bg); }
+.comp-cell-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+.comp-cell.good .comp-cell-title { color: var(--teal); }
+.comp-cell.bad  .comp-cell-title { color: #B03B3B; }
+.comp-cell-desc { font-size: 11.5px; color: var(--grey); line-height: 1.6; }
+
+/* ── AI SECTION ── */
+.ai-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.ai-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; overflow: hidden; }
+.ai-card-hdr { background: rgba(43,122,139,0.35); padding: 16px 22px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mint); min-height: 56px; display: flex; align-items: center; }
+.ai-card-body { padding: 22px; display: flex; flex-direction: column; gap: 16px; }
+.ai-tool { font-size: 14px; color: rgba(220,235,234,0.9); display: flex; gap: 10px; line-height: 1.6; align-items: flex-start; }
+.ai-tool-num { color: var(--mint); font-weight: 700; flex-shrink: 0; width: 28px; }
+
+/* ── PRICING ── */
+.pricing-grid { display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: start; }
+.pricing-text p { font-size: 15px; color: var(--text); line-height: 1.8; margin-bottom: 18px; }
+.pricing-card { background: var(--white); border: 1.5px solid var(--teal); border-radius: 14px; padding: 28px; position: sticky; top: 80px; }
+.pricing-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.pricing-card p { font-size: 13px; color: var(--grey); line-height: 1.6; margin-bottom: 20px; }
+.pricing-checks { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.pricing-checks li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text); line-height: 1.5; }
+.pricing-checks li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+
+/* ── FAQ ── */
+.faq-list { display: flex; flex-direction: column; gap: 6px; }
+.faq-item { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 10px; overflow: hidden; border-left: 3px solid var(--teal); }
+.faq-q { padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
+.faq-q h3 { font-size: 14px; font-weight: 600; color: var(--navy); flex: 1; padding-right: 16px; line-height: 1.4; }
+.faq-toggle { font-size: 22px; color: var(--teal); font-weight: 300; transition: transform .3s; flex-shrink: 0; }
+.faq-a { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .3s; }
+.faq-a p { font-size: 13px; color: var(--text); line-height: 1.7; padding-bottom: 16px; }
+.faq-item.open .faq-a { max-height: 500px; }
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+.faq-item.open { border-left-color: var(--orange); }
+
+/* ── FINAL CTA ── */
+.final-cta-section { background: linear-gradient(135deg, var(--navy) 0%, #1A3A50 100%); padding: 80px 0; text-align: center; position: relative; overflow: hidden; }
+.final-cta-section::before { content: ''; position: absolute; top: -100px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(43,122,139,0.2) 0%, transparent 70%); }
+.final-cta-section::after { content: ''; position: absolute; bottom: -60px; right: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(43,122,139,0.15) 0%, transparent 70%); }
+.final-cta-section h2 { font-size: 38px; font-weight: 700; color: var(--white); margin-bottom: 12px; position: relative; }
+.final-cta-section > .container > p { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 40px; position: relative; }
+.final-form { background: var(--white); border-radius: 14px; padding: 32px 36px; max-width: 560px; margin: 0 auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3); position: relative; }
+.final-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.final-form input { width: 100%; padding: 11px 14px; border: 1.5px solid var(--grey-lt); border-radius: 7px; font-family: 'Poppins', sans-serif; font-size: 13px; color: var(--dark); background: var(--white); outline: none; }
+.final-form input:focus { border-color: var(--teal); }
+.final-divider { display: flex; align-items: center; gap: 14px; margin: 20px 0; }
+.final-divider span { font-size: 12px; color: var(--grey); white-space: nowrap; }
+.final-divider::before, .final-divider::after { content: ''; flex: 1; height: 1px; background: var(--grey-lt); }
+.btn-cal { display: block; width: 100%; padding: 14px; background: transparent; border: 2px solid var(--teal); color: var(--teal); font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; border-radius: 7px; cursor: pointer; text-align: center; text-decoration: none; transition: all .2s; }
+.btn-cal:hover { background: var(--teal); color: var(--white); }
+
+/* ── FOOTER ── */
+footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid var(--teal); }
+.footer-grid { display: grid; grid-template-columns: 240px 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-logo { font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.footer-tagline { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 16px; }
+.footer-contact a { display: block; font-size: 12px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 5px; }
+.footer-contact a:hover { color: var(--mint); }
+.footer-col-label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.footer-col li a { font-size: 12px; color: rgba(255,255,255,0.55); text-decoration: none; }
+.footer-col li a:hover { color: var(--mint); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.4); }
+.footer-socials { display: flex; gap: 12px; }
+.footer-socials a { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.6); text-decoration: none; border: 1px solid rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 4px; }
+.footer-socials a:hover { color: var(--mint); border-color: var(--teal); }
+
+/* Utility */
+.btn-teal-outline { display: inline-block; padding: 12px 28px; border: 2px solid var(--teal); color: var(--teal); font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; border-radius: 7px; text-decoration: none; background: transparent; cursor: pointer; transition: all .2s; }
+.btn-teal-outline:hover { background: var(--teal); color: var(--white); }
+.text-center { text-align: center; }
+.mt-36 { margin-top: 36px; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="mailto:growth@growisto.com">✉ growth@growisto.com</a>
+    <a href="tel:+918828272657">📞 +91 88282 72657</a>
+    <a href="tel:+16282809076">📞 +1-628-280-9076</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><span>Growisto</span></a>
+    <div class="nav-links">
+      <a href="#">Our Services</a>
+      <a href="#">Industries</a>
+      <a href="#">Our Clients</a>
+      <a href="#">Resources</a>
+      <a href="#">About Us</a>
+      <a href="#">Careers</a>
+    </div>
+    <a href="#hero-form" class="nav-cta">Book a Strategy Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Amazon PPC Management Agency</div>
+      <h1>Amazon PPC Management &amp; Advertising Agency for <span style="color:var(--orange)">Profitable Growth</span></h1>
+      <p class="hero-tagline">Lower TACoS. Higher Margins. Ads that compound over time.</p>
+      <p class="hero-sub">We own your complete Amazon advertising stack — Sponsored Products, Sponsored Brands, Sponsored Display, DSP, campaign architecture, bid strategy, keyword, product &amp; category targeting — so your ad growth is actually profitable, including Alexa for Shopping readiness so AI-driven discovery works in your favour.</p>
+      <ul class="hero-bullets">
+        <li><span class="check">✓</span> Profitable growth optimized for TACoS, not just ACoS</li>
+        <li><span class="check">✓</span> PPC and SEO working together for compounding results</li>
+        <li><span class="check">✓</span> Dedicated team of 2–3 specialists managing your account</li>
+      </ul>
+      <div class="hero-badges">
+        <span class="badge"><span class="badge-dot"></span> Amazon SPN Verified Partner</span>
+        <span class="badge"><span class="badge-dot"></span> Amazon Ads Verified Partner</span>
+        <span class="badge"><span class="badge-dot"></span> 50+ Certified Experts</span>
+      </div>
+    </div>
+    <div class="hero-card" id="hero-form">
+      <div class="hero-card-top">
+        <p>Get Your Free Amazon Advertising Audit</p>
+        <p class="hero-card-sub">Share your store link — we'll audit your campaigns before we talk</p>
+      </div>
+      <div class="hero-card-body">
+        <div class="form-field"><input type="text" placeholder="Your Name*"></div>
+        <div class="form-field"><input type="email" placeholder="Work Email*"></div>
+        <div class="form-field"><input type="text" placeholder="Phone Number*"></div>
+        <div class="form-field"><input type="text" placeholder="Amazon Store URL*"></div>
+        <button class="btn-orange">Schedule a 30-Min Free Consultation Call</button>
+        <p class="form-note">We'll respond within 24 hours</p>
+        <div class="form-guarantee">🔒 No commitment. No spam. Just clarity.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT LOGOS -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <h2>Amazon Brands That Trust Our PPC Agency</h2>
+    <div class="logo-scroll-wrap">
+      <div class="logo-track">
+        <span class="logo-chip">Puma</span>
+        <span class="logo-chip">GuruNanda</span>
+        <span class="logo-chip">Wella</span>
+        <span class="logo-chip">Mayorga Coffee</span>
+        <span class="logo-chip">GNC</span>
+        <span class="logo-chip">Voyager Harness</span>
+        <span class="logo-chip">MSI</span>
+        <span class="logo-chip">Neuma Beauty</span>
+        <span class="logo-chip">Dermasensa</span>
+        <span class="logo-chip">Jean Rish</span>
+        <span class="logo-chip">YoTreasure</span>
+        <span class="logo-chip">Puriya</span>
+        <span class="logo-chip">Jewelili</span>
+        <span class="logo-chip">Ultrahuman</span>
+        <span class="logo-chip">Everlayer</span>
+        <span class="logo-chip">Silverist</span>
+        <span class="logo-chip">Victorinox</span>
+        <!-- duplicate for infinite scroll -->
+        <span class="logo-chip">Puma</span>
+        <span class="logo-chip">GuruNanda</span>
+        <span class="logo-chip">Wella</span>
+        <span class="logo-chip">Mayorga Coffee</span>
+        <span class="logo-chip">GNC</span>
+        <span class="logo-chip">Voyager Harness</span>
+        <span class="logo-chip">MSI</span>
+        <span class="logo-chip">Neuma Beauty</span>
+        <span class="logo-chip">Dermasensa</span>
+        <span class="logo-chip">Jean Rish</span>
+        <span class="logo-chip">YoTreasure</span>
+        <span class="logo-chip">Puriya</span>
+        <span class="logo-chip">Jewelili</span>
+        <span class="logo-chip">Ultrahuman</span>
+        <span class="logo-chip">Everlayer</span>
+        <span class="logo-chip">Silverist</span>
+        <span class="logo-chip">Victorinox</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- METRICS -->
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-label centered">Our Amazon Advertising Results</p>
+    <h2 class="section-title centered">Our Amazon Advertising Results</h2>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-val">$2B+</div>
+        <div class="metric-label">Revenue Managed Across Amazon</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">$6M+</div>
+        <div class="metric-label">Total Ad Spend Managed Per Quarter</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">56%</div>
+        <div class="metric-label">Avg ACoS Decrease (18 months)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">100+</div>
+        <div class="metric-label">Brands Scaled on Amazon</div>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🏆</div>
+      <div>
+        <div class="award-tag">Recognition</div>
+        <div class="award-title">Finalist 2024 — Amazon Ads Partner Awards</div>
+        <div class="award-body">Global Expansion category — recognising our work scaling brands across international Amazon marketplaces.</div>
+      </div>
+    </div>
+    <div class="metrics-cta">
+      <a href="#hero-form" class="btn-teal-outline">See What This Looks Like for Your Account</a>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNS YOUR ADS ARE UNDERPERFORMING -->
+<section class="section">
+  <div class="container">
+    <p class="section-label">Warning Signs</p>
+    <h2 class="section-title">Signs Your Amazon Ads Are Underperforming</h2>
+    <p class="section-sub">Most of these problems are invisible in standard reporting. They only show up when you look at the right data.</p>
+    <div class="signs-grid">
+      <div class="sign-card">
+        <span class="sign-num">01</span>
+        <p class="sign-title">ACoS improves but organic rankings don't move</p>
+        <p class="sign-subtitle">Rising Costs, No Rank Improvement</p>
+        <p class="sign-body">Your agency optimizes ACoS without tracking what it costs your organic rank. Cutting bids reduces spend but also reduces the sales velocity that builds organic position.</p>
+      </div>
+      <div class="sign-card">
+        <span class="sign-num">02</span>
+        <p class="sign-title">Budget consumed by irrelevant search terms</p>
+        <p class="sign-subtitle">Search Term Bleed</p>
+        <p class="sign-body">Your budget is funding searches that will never convert. Without weekly harvesting and a tight negative keyword protocol, campaigns quietly drain spend on irrelevant queries.</p>
+      </div>
+      <div class="sign-card">
+        <span class="sign-num">03</span>
+        <p class="sign-title">Your ads are reaching existing customers more than new ones</p>
+        <p class="sign-subtitle">Low New-to-Brand Rate</p>
+        <p class="sign-body">Your campaigns are not acquiring new customers at the rate they should. Most of your ad sales go to repeat buyers while your category share stays flat.</p>
+      </div>
+      <div class="sign-card">
+        <span class="sign-num">04</span>
+        <p class="sign-title">ACoS looks fine but TACoS is 20%+</p>
+        <p class="sign-subtitle">TACoS Above Benchmark</p>
+        <p class="sign-body">Ads are carrying all the revenue load because organic rank isn't growing alongside them. The two strategies are running in parallel, not compounding.</p>
+      </div>
+      <div class="sign-card">
+        <span class="sign-num">05</span>
+        <p class="sign-title">Campaigns were set up once and never restructured</p>
+        <p class="sign-subtitle">No Campaign Architecture</p>
+        <p class="sign-body">Budget flows to your highest volume keywords and your most profitable targets never get funded. Without BCG separation and match type structure, spend concentrates where it is least efficient.</p>
+      </div>
+      <div class="sign-card">
+        <span class="sign-num">06</span>
+        <p class="sign-title">Ads and SEO managed by different teams targeting different keywords</p>
+        <p class="sign-subtitle">Siloed Strategy</p>
+        <p class="sign-body">Your ad spend builds revenue but not organic rank. The flywheel never starts because neither strategy knows what the other is doing.</p>
+      </div>
+    </div>
+    <div class="text-center mt-36">
+      <a href="#hero-form" class="btn-teal-outline">Find Out Where Your Ad Spend Is Leaking</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-title">Full-Stack Amazon PPC Management Services</h2>
+    <p class="section-sub">From campaign architecture to bid optimization to DSP and beyond — we cover the full Amazon advertising stack so nothing is left to chance. All built to work alongside your organic SEO, not independently of it.</p>
+    <div class="svc-layout">
+      <div class="svc-nav" id="svcNav">
+        <button class="svc-tab active" onclick="setSvc(0)">Sponsored Products</button>
+        <button class="svc-tab" onclick="setSvc(1)">Sponsored Brands &amp; Display</button>
+        <button class="svc-tab" onclick="setSvc(2)">Amazon DSP</button>
+        <button class="svc-tab" onclick="setSvc(3)">Campaign Architecture</button>
+        <button class="svc-tab" onclick="setSvc(4)">Listing Optimization</button>
+        <button class="svc-tab" onclick="setSvc(5)">Reporting &amp; Analytics</button>
+      </div>
+      <div class="svc-panel" id="svcPanel"></div>
+    </div>
+    <div class="text-center mt-36">
+      <a href="#hero-form" class="btn-teal-outline">Talk to Our Amazon Ads Experts</a>
+    </div>
+  </div>
+</section>
+
+<!-- FLYWHEEL -->
+<section class="section">
+  <div class="container">
+    <p class="section-label">Our Methodology</p>
+    <h2 class="section-title">Growisto's Amazon Ads Flywheel That Builds Your Profitable Sales</h2>
+    <p class="section-sub">Most agencies run your campaigns in isolation. We connect your advertising directly to your organic rank — so every sale through paid campaigns signals relevance to Amazon's algorithm and moves you up organically.</p>
+    <div class="flywheel-wrap">
+      <!-- Circular SVG diagram -->
+      <div class="flywheel-diagram">
+        <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer ring -->
+          <circle cx="180" cy="180" r="160" fill="none" stroke="#E8EAED" stroke-width="2"/>
+          <!-- Rotating arrows around the ring -->
+          <path d="M 180 20 A 160 160 0 0 1 340 180" fill="none" stroke="#2B7A8B" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 340 180 A 160 160 0 0 1 180 340" fill="none" stroke="#2B7A8B" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 180 340 A 160 160 0 0 1 20 180" fill="none" stroke="#2B7A8B" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 20 180 A 160 160 0 0 1 180 20" fill="none" stroke="#2B7A8B" stroke-width="3" stroke-linecap="round"/>
+          <!-- Arrowheads -->
+          <polygon points="330,155 350,180 320,185" fill="#2B7A8B"/>
+          <polygon points="155,330 180,350 185,320" fill="#2B7A8B"/>
+          <polygon points="30,205 10,180 40,175" fill="#2B7A8B"/>
+          <polygon points="205,30 180,10 175,40" fill="#2B7A8B"/>
+          <!-- Center circle -->
+          <circle cx="180" cy="180" r="68" fill="#2B7A8B"/>
+          <text x="180" y="172" text-anchor="middle" font-family="Poppins, sans-serif" font-size="13" font-weight="700" fill="white">TACoS</text>
+          <text x="180" y="190" text-anchor="middle" font-family="Poppins, sans-serif" font-size="13" font-weight="700" fill="white">Decreases</text>
+          <text x="180" y="208" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11" fill="rgba(255,255,255,0.75)">↓ Compounds</text>
+          <!-- Stage nodes -->
+          <!-- Top: Ad-Driven Sales -->
+          <circle cx="180" cy="30" r="28" fill="#E35D34"/>
+          <text x="180" y="25" text-anchor="middle" font-family="Poppins, sans-serif" font-size="8.5" font-weight="700" fill="white">Ad-Driven</text>
+          <text x="180" y="37" text-anchor="middle" font-family="Poppins, sans-serif" font-size="8.5" font-weight="700" fill="white">Sales</text>
+          <!-- Right: A9 Signal -->
+          <circle cx="330" cy="180" r="28" fill="#0F1F3D"/>
+          <text x="330" y="175" text-anchor="middle" font-family="Poppins, sans-serif" font-size="8.5" font-weight="700" fill="white">A9 Ranking</text>
+          <text x="330" y="187" text-anchor="middle" font-family="Poppins, sans-serif" font-size="8.5" font-weight="700" fill="white">Signal</text>
+          <!-- Bottom: Organic Rank -->
+          <circle cx="180" cy="330" r="28" fill="#0F1F3D"/>
+          <text x="180" y="325" text-anchor="middle" font-family="Poppins, sans-serif" font-size="8" font-weight="700" fill="white">Organic Rank</text>
+          <text x="180" y="337" text-anchor="middle" font-family="Poppins, sans-serif" font-size="8" font-weight="700" fill="white">Improves</text>
+          <!-- Left: TACoS -->
+          <circle cx="30" cy="180" r="28" fill="#E35D34"/>
+          <text x="30" y="175" text-anchor="middle" font-family="Poppins, sans-serif" font-size="8" font-weight="700" fill="white">Free Traffic</text>
+          <text x="30" y="187" text-anchor="middle" font-family="Poppins, sans-serif" font-size="8" font-weight="700" fill="white">Grows</text>
+        </svg>
+      </div>
+      <!-- Steps -->
+      <div class="flywheel-steps">
+        <div class="flywheel-step">
+          <div class="flywheel-step-num">1</div>
+          <div>
+            <div class="flywheel-step-title">Ad-Driven Sales</div>
+            <div class="flywheel-step-body">Sponsored Products and DSP campaigns generate sales velocity across your catalogue.</div>
+          </div>
+        </div>
+        <div class="flywheel-step">
+          <div class="flywheel-step-num">2</div>
+          <div>
+            <div class="flywheel-step-title">A9 Ranking Signal</div>
+            <div class="flywheel-step-body">Sales velocity signals product relevance to Amazon's ranking algorithm.</div>
+          </div>
+        </div>
+        <div class="flywheel-step">
+          <div class="flywheel-step-num">3</div>
+          <div>
+            <div class="flywheel-step-title">Organic Rank Improves</div>
+            <div class="flywheel-step-body">Higher organic rank generates free traffic alongside paid campaigns.</div>
+          </div>
+        </div>
+        <div class="flywheel-step">
+          <div class="flywheel-step-num">4</div>
+          <div>
+            <div class="flywheel-step-title">TACoS Decreases</div>
+            <div class="flywheel-step-body">Freed budget reinvests into campaigns — the cycle compounds. 56% average ACoS reduction for brands engaged 18 months.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL AD STACK + AMC -->
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-label">The Full Stack</p>
+    <h2 class="section-title">The Full Amazon Advertising Stack</h2>
+    <p class="section-sub">Most brands run Sponsored Products. The fastest-growing brands run all four — and use AMC to make every campaign sharper.</p>
+    <div class="ad-stack-grid">
+      <div class="ad-stack-card">
+        <div class="ad-stack-icon">🎯</div>
+        <div>
+          <h3>Sponsored Products</h3>
+          <p>Driving conversions from buyers actively searching your category. The foundation of every profitable Amazon ads strategy.</p>
+        </div>
+      </div>
+      <div class="ad-stack-card">
+        <div class="ad-stack-icon">📢</div>
+        <div>
+          <h3>Sponsored Brands &amp; Display</h3>
+          <p>Building category share of voice and retargeting product page visitors. Custom video and headline strategies for brand authority.</p>
+        </div>
+      </div>
+      <div class="ad-stack-card">
+        <div class="ad-stack-icon">🌐</div>
+        <div>
+          <h3>Amazon DSP</h3>
+          <p>Reaching Amazon audiences on and off the platform before they search. Upper-funnel programmatic for full-funnel growth.</p>
+        </div>
+      </div>
+      <div class="ad-stack-card">
+        <div class="ad-stack-icon">📊</div>
+        <div>
+          <h3>Amazon Marketing Cloud (AMC)</h3>
+          <p>Custom audience targeting, new-to-brand attribution, and path-to-purchase analysis — capabilities standard Seller Central can't provide.</p>
+        </div>
+      </div>
+    </div>
+    <!-- AMC deep dive -->
+    <div class="amc-box">
+      <h3>What AMC Unlocks</h3>
+      <p class="amc-intro">AMC is Amazon's advanced analytics and audience platform. It became broadly available in 2024 and gives brands capabilities that standard Seller Central reporting cannot provide.</p>
+      <div class="amc-features">
+        <div class="amc-feature">
+          <div class="amc-feature-title">Behavior-Based Audiences</div>
+          <div class="amc-feature-body">Target shoppers who added to cart but didn't convert, viewed your listing three times, or bought from a competitor in the last 90 days.</div>
+        </div>
+        <div class="amc-feature">
+          <div class="amc-feature-title">New-to-Brand Attribution</div>
+          <div class="amc-feature-body">See exactly how many of your ad sales are reaching customers who have never bought from you before.</div>
+        </div>
+        <div class="amc-feature">
+          <div class="amc-feature-title">Path-to-Purchase Analysis</div>
+          <div class="amc-feature-body">Understand the full journey from first impression to conversion across all your ad types.</div>
+        </div>
+        <div class="amc-feature">
+          <div class="amc-feature-title">Audience Overlap</div>
+          <div class="amc-feature-body">Identify where your Sponsored Products and DSP audiences intersect so you stop paying twice for the same shopper.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MID-PAGE CTA -->
+<section class="mid-cta-section">
+  <div class="container">
+    <div class="mid-cta-outer">
+      <div class="mid-cta-inner">
+        <div class="mid-cta-left">
+          <h2>Get Your Free Amazon Advertising Audit</h2>
+          <p>Get a free Amazon ads audit showing exactly where your ad spend is leaking and what to fix first.</p>
+          <ul class="mid-cta-checks">
+            <li>Full Campaign Architecture Review</li>
+            <li>Wasted Spend Analysis</li>
+            <li>7 Days Delivery Time</li>
+            <li>Zero Cost or Commitment</li>
+            <li>100% Confidential</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mid-cta-form-wrap">
+            <input type="text" placeholder="Your Name*">
+            <input type="email" placeholder="Work Email*">
+            <input type="text" placeholder="Phone Number*">
+            <input type="text" placeholder="Amazon Store URL*">
+            <button class="btn-orange">Get My Free Ads Audit</button>
+            <p class="form-note">We'll respond within 24 hours</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-label">Proven Results</p>
+    <h2 class="section-title">How We've Grown Amazon Brands Through Advertising</h2>
+    <p class="section-sub">Real results across categories — from oral care to activewear to large-catalogue brands.</p>
+    <div class="cases-carousel">
+      <div class="cases-track-wrap">
+        <div class="cases-track" id="casesTrack">
+          <!-- Card 1: GuruNanda -->
+          <div class="case-card">
+            <div class="case-header">
+              <span class="case-tag teal">Oral Care</span>
+              <div class="case-brand-logo">Guru<br>Nanda</div>
+            </div>
+            <h3>Category-Specific Playbook Scales Brand from $1M to $50M+ as #1 Leader</h3>
+            <p class="case-desc">GuruNanda needed to scale from $1M to become the #1 oil pulling brand across all e-commerce channels while expanding into new oral care categories and international markets.</p>
+            <div class="results-box">
+              <div class="results-label">Results</div>
+              <div class="results-row">
+                <div class="result-item"><div class="val">$50M+</div><div class="lbl">Annual Revenue</div></div>
+                <div class="result-item"><div class="val">6+</div><div class="lbl">International Markets</div></div>
+                <div class="result-item"><div class="val">$1M→$5M</div><div class="lbl">First 2 Years</div></div>
+              </div>
+            </div>
+            <div class="approach-box">
+              <div class="approach-label">Strategic Approach</div>
+              <ul class="approach-list">
+                <li>Comprehensive marketplace growth strategy</li>
+                <li>Portfolio expansion into new oral care categories</li>
+                <li>Data-driven advertising with category-specific targeting</li>
+                <li>International expansion into 6+ markets</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Card 2: Nobero -->
+          <div class="case-card">
+            <div class="case-header">
+              <span class="case-tag purple">Activewear</span>
+              <div class="case-brand-logo">Nobero</div>
+            </div>
+            <h3>378% YoY Ad Sales Growth with Full-Funnel Brand Building</h3>
+            <p class="case-desc">Nobero faced low brand share of voice, premium pricing challenges, niche portfolio limitations, and 62% of sales concentrated in winter months.</p>
+            <div class="results-box">
+              <div class="results-label">Results</div>
+              <div class="results-row">
+                <div class="result-item"><div class="val">+378%</div><div class="lbl">YoY Ad Sales Growth</div></div>
+                <div class="result-item"><div class="val">+560%</div><div class="lbl">Ad Orders</div></div>
+                <div class="result-item"><div class="val">#1</div><div class="lbl">New Customer Acquisition</div></div>
+              </div>
+            </div>
+            <div class="approach-box">
+              <div class="approach-label">Strategic Approach</div>
+              <ul class="approach-list">
+                <li>SB Video targeting travel affinity audiences</li>
+                <li>367% growth in glance views share</li>
+                <li>AI automation (Drona) + seasonal planning</li>
+                <li>206% growth in repeat customers</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Card 3: Puma -->
+          <div class="case-card">
+            <div class="case-header">
+              <span class="case-tag orange">Sports & Lifestyle</span>
+              <div class="case-brand-logo">Puma</div>
+            </div>
+            <h3>Custom Automation Optimizes 10K+ SKUs, Drives 1.7x Revenue Growth</h3>
+            <p class="case-desc">Puma needed to optimize product listings for over 15,000 SKUs on Amazon India while increasing organic visibility and revenue without compromising brand integrity.</p>
+            <div class="results-box">
+              <div class="results-label">Results</div>
+              <div class="results-row">
+                <div class="result-item"><div class="val">1.7x</div><div class="lbl">YoY Revenue Growth</div></div>
+                <div class="result-item"><div class="val">+32%</div><div class="lbl">Customer Reviews</div></div>
+                <div class="result-item"><div class="val">18K+</div><div class="lbl">Listings Optimized</div></div>
+              </div>
+            </div>
+            <div class="approach-box">
+              <div class="approach-label">Strategic Approach</div>
+              <ul class="approach-list">
+                <li>Custom automation tool for large-scale content</li>
+                <li>Brand gating on top-performing listings</li>
+                <li>Targeted review email campaigns</li>
+                <li>Structured listing SEO strategy</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Card 4: Skincare -->
+          <div class="case-card">
+            <div class="case-header">
+              <span class="case-tag green">Skincare</span>
+              <div class="case-brand-logo">Premium<br>Skincare</div>
+            </div>
+            <h3>AI-Led Listing Optimization That Drove a 59% Surge in Overall CVR</h3>
+            <p class="case-desc">A premium skincare brand needed to build credibility on Amazon — inconsistent listings, no cohesive visual identity, and conversion rates that didn't reflect product quality.</p>
+            <div class="results-box">
+              <div class="results-label">Results</div>
+              <div class="results-row">
+                <div class="result-item"><div class="val">+59%</div><div class="lbl">Overall CVR Growth</div></div>
+                <div class="result-item"><div class="val">+40%</div><div class="lbl">Ads CVR Improvement</div></div>
+                <div class="result-item"><div class="val">+40%</div><div class="lbl">Ads CTR Improvement</div></div>
+              </div>
+            </div>
+            <div class="approach-box">
+              <div class="approach-label">Strategic Approach</div>
+              <ul class="approach-list">
+                <li>AI-generated content, image concepts, creative prompts</li>
+                <li>Premium visual system around dermatologist expertise</li>
+                <li>Listing images & A+ content restructured</li>
+                <li>Portfolio, Brand Story & Storefront in 3 months</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="casesPrev">&#8592;</button>
+        <div class="carousel-dots" id="casesDots"></div>
+        <button class="carousel-btn" id="casesNext">&#8594;</button>
+      </div>
+    </div>
+    <div class="text-center mt-36">
+      <a href="#hero-form" class="btn-teal-outline">See How We Can Do This for Your Brand</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container">
+    <p class="section-label">Client Stories</p>
+    <h2 class="section-title">What Amazon Brands Say About Our PPC Management</h2>
+    <div class="testi-carousel">
+      <div class="testi-track-wrap">
+        <div class="testi-track" id="testiTrack">
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <p class="testi-text">We have been most pleased with Growisto's handling of our brand on Amazon. Their understanding and expertise on the digital platforms required to achieve this growth are most solid. Our weekly engagements are thorough, to the point, and review every aspect of the results achieved.</p>
+            <div class="testi-name">Maria Uspenski</div>
+            <div class="testi-role">CEO, The Tea Spot</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <p class="testi-text">Consistent pro-activeness and constant innovation are two defining qualities that the Growisto team has always exhibited.</p>
+            <div class="testi-name">Puneet Nanda</div>
+            <div class="testi-role">CEO, GuruNanda</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <p class="testi-text">Growisto's right strategy at the right time and precise execution with data-driven approach helped us in the growth story of Amazon. There was a 176% growth in ad sales from Q3 to Q4 and some of the top ranked SKUs in Amazon.</p>
+            <div class="testi-name">Bala Satish</div>
+            <div class="testi-role">Co-Founder, Nobero</div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="testiPrev">&#8592;</button>
+        <div class="carousel-dots" id="testiDots"></div>
+        <button class="carousel-btn" id="testiNext">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE GROWISTO -->
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-label">Why Growisto</p>
+    <h2 class="section-title">Why Leading Brands Choose Our Full-Spectrum Approach</h2>
+    <p class="section-sub" style="margin-bottom:32px;">What separates a specialist Amazon PPC agency from a generic ads management service.</p>
+    <div class="comp-header-row">
+      <div class="comp-col-hdr good">✓ Growisto</div>
+      <div class="comp-col-hdr bad">✕ Typical Amazon Agencies</div>
+    </div>
+    <div class="comp-rows">
+      <div class="comp-row">
+        <div class="comp-cell good"><div class="comp-cell-title">✓ Dedicated Strategic Team</div><div class="comp-cell-desc">Each account managed by maximum 2–3 team members, giving 4–8x more strategic attention and faster turnaround.</div></div>
+        <div class="comp-cell bad alt"><div class="comp-cell-title">✕ Shared Resources</div><div class="comp-cell-desc">One account manager handles 10–20+ brands, resulting in delayed responses and generic strategies.</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell good"><div class="comp-cell-title">✓ PPC and SEO Managed From the Same Team</div><div class="comp-cell-desc">Ad-driven sales velocity is a direct A9 ranking signal. TACoS decreases as organic improves.</div></div>
+        <div class="comp-cell bad alt"><div class="comp-cell-title">✕ Ads and SEO Managed Separately</div><div class="comp-cell-desc">Campaigns cannibalize organic rank. TACoS doesn't improve even as spend grows.</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell good"><div class="comp-cell-title">✓ Amazon Marketing Cloud (AMC) Attribution</div><div class="comp-cell-desc">New-to-brand customer rate, audience overlap, and full path-to-purchase data — not just last-click ACoS.</div></div>
+        <div class="comp-cell bad alt"><div class="comp-cell-title">✕ No AMC Access</div><div class="comp-cell-desc">Restricted to basic Seller Central data. No new-to-brand attribution, no audience analysis.</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell good"><div class="comp-cell-title">✓ Profitability-First Growth Strategy</div><div class="comp-cell-desc">Optimize for margins and TACoS. SKU-level profitability analysis ensures revenue growth translates to actual profit.</div></div>
+        <div class="comp-cell bad alt"><div class="comp-cell-title">✕ Revenue-Only Focus</div><div class="comp-cell-desc">Celebrate top-line sales growth without tracking actual profitability impact.</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell good"><div class="comp-cell-title">✓ Category-Specific Expertise</div><div class="comp-cell-desc">300+ accounts in beauty, fashion, food &amp; beverage, health, and electronics.</div></div>
+        <div class="comp-cell bad alt"><div class="comp-cell-title">✕ Generic Tactics Across Categories</div><div class="comp-cell-desc">Missing category-specific opportunities that impact your bottom line.</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell good"><div class="comp-cell-title">✓ AI-First Reporting &amp; Analysis</div><div class="comp-cell-desc">Analytics for SKU-level profitability tracking and competitor insights.</div></div>
+        <div class="comp-cell bad alt"><div class="comp-cell-title">✕ Limited Data &amp; Reporting Access</div><div class="comp-cell-desc">Surface-level metrics without deep profitability or competitive context.</div></div>
+      </div>
+    </div>
+    <div class="text-center">
+      <a href="#hero-form" class="btn-teal-outline">Get Your Free Amazon Audit</a>
+    </div>
+  </div>
+</section>
+
+<!-- AI SECTION -->
+<section class="section section-dark">
+  <div class="container">
+    <p class="section-label" style="color:var(--mint)">AI-Powered</p>
+    <h2 class="section-title light">AI Built for Amazon Ads That Gives Our Experts a Second Brain on Every Account</h2>
+    <p class="section-sub light">15 purpose-built agents working across your listings and campaigns simultaneously — so our experts spend every hour on decisions that move your performance.</p>
+    <div class="ai-grid">
+      <div class="ai-card">
+        <div class="ai-card-hdr">Listing &amp; Content</div>
+        <div class="ai-card-body">
+          <div class="ai-tool"><span class="ai-tool-num">1</span><span>AI-assisted Listing Writer</span></div>
+          <div class="ai-tool"><span class="ai-tool-num">2</span><span>AI-assisted Listing Audit</span></div>
+          <div class="ai-tool"><span class="ai-tool-num">3</span><span>Review Sentiment Analysis</span></div>
+        </div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-hdr">Performance &amp; Competitive Intelligence</div>
+        <div class="ai-card-body">
+          <div class="ai-tool"><span class="ai-tool-num">1</span><span>ASIN-Level Performance Tool</span></div>
+          <div class="ai-tool"><span class="ai-tool-num">2</span><span>Organic × Ads Keywords Analyzer</span></div>
+          <div class="ai-tool"><span class="ai-tool-num">3</span><span>AI-assisted Competitor Analysis</span></div>
+          <div class="ai-tool"><span class="ai-tool-num">4</span><span>Automated Category Trend Tracker</span></div>
+        </div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-hdr">Campaign Strategy &amp; Setup</div>
+        <div class="ai-card-body">
+          <div class="ai-tool"><span class="ai-tool-num">1</span><span>AI-assisted Search Term Analysis</span></div>
+          <div class="ai-tool"><span class="ai-tool-num">2</span><span>Search Term to Keyword Gap Tool</span></div>
+          <div class="ai-tool"><span class="ai-tool-num">3</span><span>Automated Bulk Campaign Launches</span></div>
+          <div class="ai-tool"><span class="ai-tool-num">4</span><span>AI-assisted Campaign Audit</span></div>
+          <div class="ai-tool"><span class="ai-tool-num">5</span><span>Automated Search Term Harvesting</span></div>
+        </div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-hdr">Campaign Optimization</div>
+        <div class="ai-card-body">
+          <div class="ai-tool"><span class="ai-tool-num">1</span><span>Automated Day-parting</span></div>
+          <div class="ai-tool"><span class="ai-tool-num">2</span><span>Rule-Based Auto Negations</span></div>
+          <div class="ai-tool"><span class="ai-tool-num">3</span><span>Automated Bid Optimization</span></div>
+          <div class="ai-tool"><span class="ai-tool-num">4</span><span>AI-assisted Bid Optimization</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section">
+  <div class="container">
+    <p class="section-label">Investment</p>
+    <h2 class="section-title">How Much Does Amazon PPC Management Cost?</h2>
+    <div class="pricing-grid">
+      <div class="pricing-text">
+        <p>Amazon Ads pricing depends on your ad spends, the scope of your catalogue, the competitiveness of your category, and the depth of engagement you need. A brand with 50 SKUs in one marketplace has different requirements from one with 2,000 SKUs.</p>
+        <p>Every Growisto engagement is scoped individually — built around what your account actually needs, the timeframe that makes sense for your growth stage, and the level of involvement that fits your team.</p>
+        <p>The fastest way to get an accurate picture is a free 30-minute Amazon Discovery Call. We review your store before the call so you get specific answers, not a generic agency pitch.</p>
+      </div>
+      <div class="pricing-card">
+        <h3>Book a Free Amazon Discovery Call</h3>
+        <p>30 minutes with a senior Amazon ads strategist. We'll review your account before we talk.</p>
+        <ul class="pricing-checks">
+          <li>30-minute call with senior consultant</li>
+          <li>Pre-call campaign account review</li>
+          <li>TACoS &amp; profitability analysis</li>
+          <li>Category-specific roadmap</li>
+          <li>No commitment required</li>
+        </ul>
+        <a href="#hero-form" class="btn-orange" style="display:block;text-align:center;padding:14px;">Book a Free 30-Min Audit Call</a>
+        <p class="form-note" style="margin-top:10px;">We'll respond within 24 hours</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-label">FAQ</p>
+    <h2 class="section-title">Common Questions About Amazon PPC Management</h2>
+    <div class="faq-list" style="margin-top:36px;">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>What does an Amazon advertising agency do?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Manages and optimises your complete Amazon ads stack — Sponsored Products, Sponsored Brands, Sponsored Display, and DSP campaigns. Connects advertising strategy to organic SEO, listing quality, and overall profitability metrics like TACoS.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>Who is this Amazon advertising service for?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Brands already selling on Amazon that want to scale profitably — particularly those spending $5,000+ per month on ads, managing 50+ SKUs, or struggling with rising ACoS and TACoS despite growing ad spend.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>How is Growisto different from other Amazon PPC agencies?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Maximum 2–3 team members per account, we optimise for TACoS and profitability not just ACoS and revenue, and connect advertising strategy to organic SEO and listing quality so campaigns compound rather than cannibalize organic rank.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>Do you manage all types of Amazon ads including DSP?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Yes. Sponsored Products, Sponsored Brands (video and non-video), Sponsored Display, Amazon DSP (upper-funnel programmatic), and Amazon Marketing Cloud (AMC) for attribution and audience analysis.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>How do you measure success in Amazon advertising?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>TACoS (Total ACoS) as the primary profitability metric. We also track new-to-brand customer acquisition rate, contribution margin per ASIN, and organic rank movement alongside paid metrics.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>What kind of results can I expect and in what timeframe?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Initial improvements in campaign structure and wasted spend are typically visible within the first 4–6 weeks. Meaningful TACoS improvement and organic rank gains usually appear within 90 days.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>How much does Amazon advertising cost?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Scoped per account based on ad spend under management, number of ASINs, and the breadth of services required. We don't use fixed percentage-of-spend models — book a discovery call for a specific scope.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>Can you reduce ad spend while increasing performance?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Yes — in many accounts we find significant wasted spend in the first audit. Common issues include over-matched broad keywords, uncontrolled product targeting, and campaigns without negative keyword protocols.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>Do you handle keyword research and campaign optimization?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Yes. Keyword research combines search volume data, Amazon search query data, Brand Analytics search frequency rank, and buyer sentiment analysis from reviews and Q&amp;As.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>How does onboarding work with your Amazon advertising agency?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Onboarding starts with a full account audit covering campaign structure, keyword coverage, TACoS trends, wasted spend, and competitive benchmarks. We begin execution within the first 2 weeks.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>Do you support multiple marketplaces and global campaigns?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Yes. We manage Amazon advertising across US, UK, India, and Germany marketplaces. Each marketplace gets a dedicated strategy, not a copy-paste of your primary market setup.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>Is PPC better than SEO on Amazon?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Neither is better — they compound each other. Ad-driven sales velocity is a direct A9 ranking signal. Higher organic rank reduces dependence on paid traffic and lowers TACoS over time.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>What is Alexa for Shopping and how does it affect Amazon advertising?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Amazon's AI shopping assistant surfaces products through conversational queries, not just keyword search. We build Alexa for Shopping readiness into every campaign structure — benefit-first copy, complete attributes, and Q&amp;A content structured for AI citation.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>Why choose Growisto as your Amazon ads agency?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>$6M+ in monthly ad spend managed, Amazon Ads Verified Partner, Amazon SPN Verified Partner, 56% average ACoS reduction for brands engaged 18+ months.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta-section">
+  <div class="container">
+    <h2>Find Out Where Your Ad Spend Is Leaking</h2>
+    <p>No commitment required. We'll audit your campaigns and show you exactly where the budget is going and what to fix.</p>
+    <div class="final-form">
+      <div class="final-form-row">
+        <input type="text" placeholder="Your Name*">
+        <input type="email" placeholder="Work Email*">
+      </div>
+      <div class="final-form-row">
+        <input type="text" placeholder="Phone Number*">
+        <input type="text" placeholder="Amazon Store URL*">
+      </div>
+      <button class="btn-orange">Find Out Where Your Ad Spend Is Leaking</button>
+      <div class="final-divider"><span>or</span></div>
+      <a href="https://cal.com/growisto" class="btn-cal">📅 Schedule a Strategy Call</a>
+      <p class="form-note" style="margin-top:12px;">No commitment. We'll respond within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Growisto</div>
+        <div class="footer-tagline">Full-funnel Amazon growth — ads, SEO, and listing strategy managed as one.</div>
+        <div class="footer-contact">
+          <a href="mailto:growth@growisto.com">growth@growisto.com</a>
+          <a href="tel:+918828272657">+91 88282 72657</a>
+          <a href="tel:+16282809076">+1-628-280-9076</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-label">Amazon Marketing</p>
+        <ul>
+          <li><a href="#">Amazon Consulting</a></li>
+          <li><a href="#">Amazon SEO</a></li>
+          <li><a href="#">Amazon Ads Strategy</a></li>
+          <li><a href="#">Product Launch</a></li>
+          <li><a href="#">Account Management</a></li>
+          <li><a href="#">Listing Optimization</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-label">Other Services</p>
+        <ul>
+          <li><a href="#">CRO</a></li>
+          <li><a href="#">GEO / SEO</a></li>
+          <li><a href="#">TikTok Shop</a></li>
+          <li><a href="#">Walmart</a></li>
+          <li><a href="#">A+ Content</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-label">About</p>
+        <ul>
+          <li><a href="#">Who We Are</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Our Clients</a></li>
+          <li><a href="#">Terms &amp; Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Growisto Inc. All rights reserved.</span>
+      <div class="footer-socials">
+        <a href="#">LinkedIn</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── SERVICES DATA ── */
+const svcData = [
+  {
+    title: 'Sponsored Products Management',
+    desc: 'The engine of your Amazon ads strategy — architected for long-term rank building and margin growth, not just short-term ACoS reduction.',
+    items: [
+      'Full campaign architecture build or restructure for existing accounts',
+      'Keyword research combining search volume data with buyer sentiment from reviews and Q&As',
+      'Match type strategy across exact, phrase, and broad with dedicated negative keyword protocols',
+      'Search term harvesting on a defined weekly cadence',
+      'Bid optimization based on ACoS targets and margin thresholds per product',
+      'Integration with organic keyword data so sponsored and organic targeting reinforce each other',
+    ]
+  },
+  {
+    title: 'Sponsored Brands & Sponsored Display',
+    desc: 'Build category share of voice and retarget intent-rich audiences across the funnel.',
+    items: [
+      'Sponsored Brands campaign setup with custom headline copy and landing page strategy',
+      'Sponsored Brand Video production briefs and performance optimization',
+      'Sponsored Display audience targeting: category, competitor ASIN, and remarketing segments',
+      'Competitor conquesting strategy to capture traffic from adjacent category leaders',
+      'Creative performance testing across headlines, imagery, and landing page variants',
+    ]
+  },
+  {
+    title: 'Amazon DSP (Demand-Side Platform)',
+    desc: 'Reach Amazon audiences on and off the platform — before they even search.',
+    items: [
+      'DSP audience strategy across awareness, consideration, and purchase-intent tiers',
+      'On-Amazon and off-Amazon display campaign management',
+      'Retargeting sequences for product detail page visitors, category browsers, and competitor ASIN viewers',
+      'Lookalike audience building using purchase data from high-value customer segments',
+    ]
+  },
+  {
+    title: 'Campaign Architecture & Restructuring',
+    desc: 'Fix the foundation so every dollar you spend goes further.',
+    items: [
+      'Full account audit covering campaign structure, keyword coverage, and negative keyword gaps',
+      'ACoS and TACoS benchmarking by product, category, and campaign tier',
+      'Campaign consolidation and restructure to eliminate internal keyword cannibalization',
+      'Negative keyword framework build — exact, phrase, and campaign-level negatives',
+      'Budget allocation model across campaign types, match types, and catalogue priority tiers',
+      'Amazon Marketing Cloud (AMC) strategy to unlock audience intelligence',
+    ]
+  },
+  {
+    title: 'Listing Optimization for Ad Performance',
+    desc: 'Ads drive traffic. Listings convert it. We optimize both from the same team.',
+    items: [
+      'Keyword and buyer sentiment analysis to identify top purchase triggers by product',
+      'Title, bullet point, and description rewrite aligned with ad targeting keywords',
+      'A+ content strategy and copy briefs for brand-registered sellers',
+      'Backend search term optimization to maximize organic indexing coverage',
+      'Conversion rate tracking pre- and post-optimization to measure lift',
+    ]
+  },
+  {
+    title: 'Reporting, Analytics & Strategic Reviews',
+    desc: 'Full visibility into performance — weekly, monthly, and at the SKU level.',
+    items: [
+      'Weekly performance reports: ACoS, TACoS, ad sales, ROAS, CTR, and CVR by campaign and product',
+      'Monthly strategic review with senior account team',
+      'Competitor share-of-voice tracking to flag category shifts before they affect your account',
+      'Seasonal preparation calendar for Prime Day and peak Q4, planned 4+ weeks in advance',
+    ]
+  }
+];
+
+function setSvc(idx) {
+  document.querySelectorAll('.svc-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
+  const d = svcData[idx];
+  document.getElementById('svcPanel').innerHTML = `
+    <div class="svc-panel-title">${d.title}</div>
+    <div class="svc-panel-desc">${d.desc}</div>
+    <div class="svc-panel-label">What's Included</div>
+    <ul class="service-list">${d.items.map(i => `<li>${i}</li>`).join('')}</ul>
+  `;
+}
+setSvc(0);
+
+/* ── CAROUSEL FACTORY ── */
+function makeCarousel(trackId, prevId, nextId, dotsId, visCount) {
+  const track = document.getElementById(trackId);
+  const prev  = document.getElementById(prevId);
+  const next  = document.getElementById(nextId);
+  const dotsEl= document.getElementById(dotsId);
+  const cards = track.children;
+  let cur = 0;
+
+  function setWidths() {
+    const wrapW = track.parentElement.clientWidth;
+    const GAP = 20;
+    const cardW = (wrapW - GAP * (visCount - 1)) / visCount;
+    Array.from(cards).forEach(c => c.style.width = cardW + 'px');
+  }
+
+  function render() {
+    const wrapW = track.parentElement.clientWidth;
+    const GAP = 20;
+    const cardW = parseFloat(cards[0].style.width) || wrapW;
+    track.style.transform = `translateX(-${cur * (cardW + GAP)}px)`;
+    Array.from(dotsEl.children).forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+
+  const total = cards.length;
+  const maxIdx = Math.max(0, total - visCount);
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => { cur = Math.min(i, maxIdx); render(); });
+    dotsEl.appendChild(dot);
+  }
+
+  prev.addEventListener('click', () => { cur = Math.max(0, cur - 1); render(); });
+  next.addEventListener('click', () => { cur = Math.min(maxIdx, cur + 1); render(); });
+  window.addEventListener('resize', () => { setWidths(); render(); });
+  setWidths(); render();
+}
+
+makeCarousel('casesTrack', 'casesPrev', 'casesNext', 'casesDots', 2);
+makeCarousel('testiTrack', 'testiPrev', 'testiNext', 'testiDots', 2);
+
+/* ── FAQ ── */
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
