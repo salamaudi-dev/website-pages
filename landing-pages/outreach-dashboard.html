@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growisto Outreach Dashboard</title>
+<style>
+:root {
+  --bg: #0c1220;
+  --surface: #131e30;
+  --surface-2: #1a2840;
+  --border: #243350;
+  --border-2: #304567;
+  --text: #dde4ef;
+  --muted: #6b7f9a;
+  --dim: #3d5070;
+  --accent: #3d82c4;
+  --accent-dim: #1a3a5c;
+  --ok: #1a9e5a;
+  --ok-bg: #0a2018;
+  --ok-text: #4cd98a;
+  --warn: #b87a10;
+  --warn-bg: #221500;
+  --warn-text: #f5b93e;
+  --danger: #b53028;
+  --danger-bg: #220a08;
+  --danger-text: #ff7066;
+  --radius: 4px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 13px; line-height: 1.5; min-height: 100vh; }
+
+/* HEADER */
+.hdr { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; border-bottom: 1px solid var(--border); background: var(--surface); position: sticky; top: 0; z-index: 100; }
+.hdr-left { display: flex; align-items: center; gap: 10px; }
+.hdr-title { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+.hdr-title em { font-style: normal; color: var(--accent); }
+.hdr-right { display: flex; align-items: center; gap: 14px; }
+.mode-badge { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; border: 1px solid; }
+.mode-demo { color: var(--warn-text); border-color: var(--warn); background: var(--warn-bg); }
+.mode-live { color: var(--ok-text); border-color: var(--ok); background: var(--ok-bg); }
+.last-upd { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.refresh-btn { font-size: 11px; color: var(--accent); background: none; border: 1px solid var(--accent-dim); border-radius: var(--radius); padding: 4px 10px; cursor: pointer; font-family: var(--font); }
+.refresh-btn:hover { background: var(--accent-dim); }
+.refresh-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ALERTS */
+#alerts { padding: 0 20px; }
+.alert-bar { display: flex; align-items: flex-start; gap: 10px; padding: 9px 14px; border-left: 3px solid; margin-top: 10px; border-radius: 0 var(--radius) var(--radius) 0; }
+.alert-bar.danger { border-color: var(--danger); background: var(--danger-bg); color: var(--danger-text); }
+.alert-bar.warn { border-color: var(--warn); background: var(--warn-bg); color: var(--warn-text); }
+.alert-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; margin-top: 5px; flex-shrink: 0; }
+.alert-text { font-size: 12px; line-height: 1.4; }
+
+/* LAYOUT */
+.main { display: grid; grid-template-columns: 1fr 1fr; }
+.panel { padding: 16px 20px; border-right: 1px solid var(--border); }
+.panel:last-child { border-right: none; }
+
+/* PANEL HEADER */
+.panel-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.panel-title { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.panel-sub { font-size: 11px; color: var(--dim); }
+
+/* SECTION LABEL */
+.slabel { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); margin-bottom: 8px; margin-top: 16px; }
+
+/* STAT CARDS */
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.stat-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 12px; }
+.stat-lbl { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.stat-val { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; line-height: 1; }
+.stat-sub { font-size: 10px; color: var(--muted); margin-top: 3px; }
+.c-ok { color: var(--ok-text); }
+.c-warn { color: var(--warn-text); }
+.c-danger { color: var(--danger-text); }
+.c-muted { color: var(--muted); }
+.c-accent { color: var(--accent); }
+
+/* AGENCY TABLE */
+.agency-hdr { display: grid; grid-template-columns: 80px 1fr 1fr 1fr 40px 40px; gap: 8px; padding: 4px 10px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+.agency-row { display: grid; grid-template-columns: 80px 1fr 1fr 1fr 40px 40px; gap: 8px; padding: 8px 10px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); font-size: 12px; font-variant-numeric: tabular-nums; margin-bottom: 4px; }
+.acol { text-align: right; }
+.acol-name { font-weight: 600; }
+
+/* KPI BARS */
+.kpi-list { display: flex; flex-direction: column; gap: 10px; }
+.kpi-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; }
+.kpi-lbl { font-size: 12px; color: var(--text); margin-bottom: 4px; }
+.kpi-track { height: 5px; background: var(--surface-2); border-radius: 2px; overflow: hidden; }
+.kpi-fill { height: 100%; border-radius: 2px; background: var(--accent); transition: width 0.4s; }
+.kpi-fill.ok { background: var(--ok); }
+.kpi-fill.warn { background: var(--warn); }
+.kpi-fill.danger { background: var(--danger); }
+.kpi-nums { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+
+/* TABLE */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); }
+table { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+thead th { background: var(--surface-2); padding: 7px 10px; text-align: left; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+tbody tr { border-bottom: 1px solid var(--border); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--surface-2); }
+td { padding: 8px 10px; color: var(--text); vertical-align: middle; }
+tr.rdanger td:first-child { border-left: 2px solid var(--danger); padding-left: 8px; }
+tr.rwarn td:first-child { border-left: 2px solid var(--warn); padding-left: 8px; }
+
+/* STAGE PILLS */
+.stage { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.05em; padding: 2px 7px; border-radius: 3px; border: 1px solid; white-space: nowrap; }
+.s-lmr { color: #7bb8f0; border-color: #264a6e; background: #0e1e30; }
+.s-audit { color: #a78bfa; border-color: #4c2f8f; background: #140e28; }
+.s-booked { color: var(--warn-text); border-color: var(--warn); background: var(--warn-bg); }
+.s-done { color: #5bccb0; border-color: #1d6554; background: #091e18; }
+.s-qual { color: var(--ok-text); border-color: var(--ok); background: var(--ok-bg); }
+.s-poc { color: #93c5fd; border-color: #2563a0; background: #0c1e38; }
+.s-closed { color: var(--muted); border-color: var(--border); background: var(--surface-2); }
+
+/* Q2 BAR */
+.q2-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 12px; }
+.q2-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+.q2-big { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.q2-track { height: 7px; background: var(--bg); border-radius: 3px; overflow: hidden; }
+.q2-fill { height: 100%; border-radius: 3px; transition: width 0.4s; }
+.q2-fill.ok { background: var(--ok); }
+.q2-fill.warn { background: var(--warn); }
+.q2-fill.danger { background: var(--danger); }
+
+/* TODOS */
+.todo-section { display: flex; flex-direction: column; gap: 14px; }
+.todo-grp-lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.todo-cnt { font-size: 9px; background: var(--surface); color: var(--muted); padding: 1px 5px; border-radius: 2px; border: 1px solid var(--border); }
+.todo-item { display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--border); }
+.todo-item:last-child { border-bottom: none; }
+.todo-item input[type="checkbox"] { margin-top: 2px; flex-shrink: 0; width: 13px; height: 13px; cursor: pointer; accent-color: var(--accent); }
+.todo-txt { font-size: 12px; color: var(--text); line-height: 1.4; flex: 1; cursor: pointer; }
+.todo-item.done .todo-txt { color: var(--dim); text-decoration: line-through; }
+.todo-meta { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+.pri-high { font-size: 9px; font-weight: 700; color: var(--danger-text); }
+.due { font-size: 10px; color: var(--muted); }
+.due.overdue { color: var(--danger-text); }
+.owner-tag { font-size: 10px; color: var(--dim); }
+
+/* DIVIDER */
+.divider { height: 1px; background: var(--border); margin: 16px 0; }
+
+/* RESOURCES */
+.resources { border-top: 1px solid var(--border); padding: 14px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.res-title { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.res-links { display: flex; flex-direction: column; gap: 5px; }
+.res-a { font-size: 12px; color: var(--accent); text-decoration: none; }
+.res-a:hover { color: var(--text); }
+.res-a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.res-note { font-size: 11px; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .main { grid-template-columns: 1fr; }
+  .panel { border-right: none; border-bottom: 1px solid var(--border); }
+  .resources { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-left">
+    <span class="hdr-title">Growisto <em>Outreach</em></span>
+    <span class="mode-badge mode-demo" id="mode-badge">Demo</span>
+  </div>
+  <div class="hdr-right">
+    <span class="last-upd" id="last-upd">—</span>
+    <button class="refresh-btn" onclick="doRefresh()">↻ Refresh</button>
+  </div>
+</header>
+
+<div id="alerts"></div>
+
+<div class="main">
+  <div class="panel" id="panel-ce"></div>
+  <div class="panel" id="panel-nl"></div>
+</div>
+
+<div class="resources" id="resources"></div>
+
+<script>
+// ── CONFIG ──────────────────────────────────────────────────
+// Paste your Google Sheets "Publish to web → CSV" URLs here.
+// Leave empty to use demo data.
+const CFG = {
+  csvLeads:  '',   // Newsletter_Leads tab
+  csvWeekly: '',   // Weekly_Summary tab
+  csvGoals:  '',   // Goals tab
+  csvTodos:  '',   // ToDos tab
+  refresh:   5 * 60 * 1000,
+};
+
+// ── DEMO DATA ────────────────────────────────────────────────
+const DEMO_LEADS = [
+  {n:'Ben Zeronsa',         co:'Unknown',             stage:'Lead Magnet Reply', src:'Substack',    lad:'2026-06-29', mtg:'',           next:'Find email + respond to Substack comment',          i:'N',fu1:'N',fu2:'N',sql:'N'},
+  {n:'EcomCircle Lead #1',  co:'—',                   stage:'Lead Magnet Reply', src:'EcomCircle',  lad:'2026-06-29', mtg:'',           next:'Rhythm responding — send audit',                    i:'N',fu1:'N',fu2:'N',sql:'N'},
+  {n:'EcomCircle Lead #2',  co:'—',                   stage:'Lead Magnet Reply', src:'EcomCircle',  lad:'2026-06-29', mtg:'',           next:'Rhythm responding — send audit',                    i:'N',fu1:'N',fu2:'N',sql:'N'},
+  {n:'EcomCircle Lead #3',  co:'—',                   stage:'Lead Magnet Reply', src:'EcomCircle',  lad:'2026-06-29', mtg:'',           next:'Send audit response',                               i:'N',fu1:'N',fu2:'N',sql:'N'},
+  {n:'EcomCircle Lead #4',  co:'—',                   stage:'Lead Magnet Reply', src:'EcomCircle',  lad:'2026-06-29', mtg:'',           next:'Send audit response',                               i:'N',fu1:'N',fu2:'N',sql:'N'},
+  {n:'DripDrop (Natalie)',   co:'DripDrop',            stage:'Lead Magnet Reply', src:'EcomCircle',  lad:'2026-06-18', mtg:'',           next:'Send nurture sequence + booking link',              i:'Y',fu1:'N',fu2:'N',sql:'N'},
+  {n:'Shea Terra (Tammie)', co:'Shea Terra Organics', stage:'Audit Sent',        src:'EcomCircle',  lad:'2026-06-18', mtg:'',           next:'Follow up on Amazon audit',                         i:'Y',fu1:'N',fu2:'N',sql:'N'},
+  {n:'RSP Nutrition',       co:'RSP Nutrition',        stage:'Audit Sent',        src:'Lead Magnet', lad:'2026-06-17', mtg:'',           next:'Follow up on CRO audit',                            i:'Y',fu1:'N',fu2:'N',sql:'N'},
+  {n:'Arthur Court (Scott)',co:'Arthur Court Designs', stage:'Audit Sent',        src:'Lead Magnet', lad:'2026-06-17', mtg:'',           next:'Follow up on CRO audit',                            i:'Y',fu1:'N',fu2:'N',sql:'N'},
+  {n:'Petite Pommes',       co:'Petite Pommes',        stage:'Meeting Booked',    src:'EcomCircle',  lad:'2026-06-17', mtg:'2026-07-01', next:'Send FU1 nurture (3 days before = today!)',          i:'Y',fu1:'N',fu2:'N',sql:'N'},
+  {n:'TruWood (Taylor)',    co:'TruWood',              stage:'Meeting Done',       src:'Lead Magnet', lad:'2026-06-18', mtg:'2026-06-18', next:'Qualify / next steps with Dhanak',                  i:'Y',fu1:'Y',fu2:'Y',sql:'Y'},
+  {n:'Ecoright',            co:'Ecoright',             stage:'Meeting Done',       src:'EcomCircle',  lad:'2026-06-19', mtg:'2026-06-19', next:'Qualify / send proposal',                           i:'Y',fu1:'Y',fu2:'Y',sql:'N'},
+  {n:'Garzini',             co:'Garzini',              stage:'Meeting Done',       src:'EcomCircle',  lad:'2026-06-19', mtg:'2026-06-19', next:'Qualify / send proposal',                           i:'Y',fu1:'Y',fu2:'Y',sql:'N'},
+  {n:'Wearnala',            co:'Wearnala',             stage:'Meeting Done',       src:'EcomCircle',  lad:'2026-06-03', mtg:'2026-06-03', next:'Follow up — proposal pending',                      i:'Y',fu1:'Y',fu2:'Y',sql:'N'},
+  {n:'10th Whiskey (Ryan)', co:'10th Whiskey',         stage:'POC/Proposal',       src:'EcomCircle',  lad:'2026-06-22', mtg:'2026-05-28', next:'Monitor POC delivery',                              i:'Y',fu1:'Y',fu2:'Y',sql:'Y'},
+];
+
+const DEMO_WEEKLY = [
+  {we:'2026-06-29', ed:1, lmr:5, cep:660, ces:225, cor:35, cee:0, nmb:1, nmd:1, cmb:0, cmd:0},
+  {we:'2026-06-22', ed:2, lmr:1, cep:400, ces:80,  cor:38, cee:0, nmb:0, nmd:2, cmb:0, cmd:0},
+  {we:'2026-06-15', ed:2, lmr:3, cep:200, ces:60,  cor:42, cee:0, nmb:3, nmd:2, cmb:0, cmd:0},
+];
+
+const DEMO_GOALS = {
+  nl_ed:2, nl_mb:8, nl_md:3, nl_mql:24,
+  ce_total:15000, ce_mb:2, ce_md:2, ce_or:38,
+};
+
+const DEMO_TODOS = [
+  {id:'ce-d-1', t:'Provide Rhythm with verified contact batch (100–200 contacts)',  ch:'Cold Email',  tp:'Daily',    ow:'Salama', hi:true,  due:''},
+  {id:'ce-d-2', t:'Run new contacts through Emailable before sending',              ch:'Cold Email',  tp:'Daily',    ow:'Salama', hi:true,  due:''},
+  {id:'ce-d-3', t:'Check cold email analytics from Rhythm (open rate, bounces)',    ch:'Cold Email',  tp:'Daily',    ow:'Salama', hi:false, due:''},
+  {id:'ce-d-4', t:'Cross-check new contacts against already-sent list',             ch:'Cold Email',  tp:'Daily',    ow:'Salama', hi:false, due:''},
+  {id:'ce-o-1', t:"Get Rhythm's tracker with nurture stage breakdown",              ch:'Cold Email',  tp:'One-Time', ow:'Salama', hi:true,  due:'2026-06-30'},
+  {id:'ce-o-2', t:'Resolve grace@growisto.io spam issue (warmup strategy)',         ch:'Cold Email',  tp:'One-Time', ow:'Salama', hi:true,  due:''},
+  {id:'ce-o-3', t:'Confirm contact sourcing from expanded StoreLeads filters',      ch:'Cold Email',  tp:'One-Time', ow:'Salama', hi:false, due:''},
+  {id:'nl-d-1', t:"Check Dhanak's email for lead replies from newsletter",          ch:'Newsletter',  tp:'Daily',    ow:'Salama', hi:true,  due:''},
+  {id:'nl-d-2', t:'Check if any meeting within 48h → send FU1 nurture',            ch:'Newsletter',  tp:'Daily',    ow:'Salama', hi:true,  due:''},
+  {id:'nl-d-3', t:'Check if any meeting within 24h → send FU2 nurture',            ch:'Newsletter',  tp:'Daily',    ow:'Salama', hi:true,  due:''},
+  {id:'nl-d-4', t:'Check lead magnet replies needing audit (respond within 24h)',   ch:'Newsletter',  tp:'Daily',    ow:'Salama', hi:true,  due:''},
+  {id:'nl-d-5', t:'Update CRM sheet with new bookings / stage changes',             ch:'Newsletter',  tp:'Daily',    ow:'Salama', hi:false, due:''},
+  {id:'nl-w-1', t:'Get click data from Rhythm after each newsletter send',          ch:'Newsletter',  tp:'Weekly',   ow:'Salama', hi:false, due:''},
+  {id:'nl-w-2', t:'Review content calendar for upcoming newsletters',               ch:'Newsletter',  tp:'Weekly',   ow:'Salama', hi:false, due:''},
+  {id:'nl-w-3', t:'Send images/examples to Avdhoot for next article',              ch:'Newsletter',  tp:'Weekly',   ow:'Salama', hi:false, due:''},
+  {id:'nl-w-4', t:"Check Nitin's cal.com slots — confirm US time coverage (till 1am IST)", ch:'Newsletter', tp:'Weekly', ow:'Salama', hi:false, due:''},
+  {id:'nl-o-1', t:'Send nurture responses to 5 new leads from June 29 newsletter',  ch:'Newsletter',  tp:'One-Time', ow:'Salama', hi:true,  due:'2026-06-30'},
+  {id:'nl-o-2', t:'Finalize ecomcoffeebreak partnership (Anurag approval pending)', ch:'Newsletter',  tp:'One-Time', ow:'Anurag', hi:false, due:''},
+  {id:'nl-o-3', t:"Get next month's newsletter topics approved by Anurag",          ch:'Newsletter',  tp:'One-Time', ow:'Salama', hi:false, due:''},
+  {id:'nl-o-4', t:'Confirm Shopify Plus article topic with Anurag/Rhythm',          ch:'Newsletter',  tp:'One-Time', ow:'Salama', hi:false, due:''},
+];
+
+// ── STATE ────────────────────────────────────────────────────
+let S = {
+  leads: DEMO_LEADS,
+  weekly: DEMO_WEEKLY,
+  goals: DEMO_GOALS,
+  todos: DEMO_TODOS,
+  isDemo: true,
+  lastUpd: null,
+};
+
+// ── TODO STORE ───────────────────────────────────────────────
+const TS = {
+  KEY: 'gw-todos-v1',
+  DATE: 'gw-todos-date',
+  get() {
+    const today = new Date().toDateString();
+    let ch = {};
+    try { ch = JSON.parse(localStorage.getItem(this.KEY) || '{}'); } catch(e) {}
+    if (localStorage.getItem(this.DATE) !== today) {
+      const kept = {};
+      Object.keys(ch).forEach(id => { if (id.includes('-o-')) kept[id] = true; });
+      ch = kept;
+      localStorage.setItem(this.DATE, today);
+      localStorage.setItem(this.KEY, JSON.stringify(ch));
+    }
+    return ch;
+  },
+  set(id, val) {
+    const ch = this.get();
+    if (val) ch[id] = true; else delete ch[id];
+    localStorage.setItem(this.KEY, JSON.stringify(ch));
+  },
+};
+
+// ── CSV PARSER ───────────────────────────────────────────────
+function parseCSV(txt) {
+  const lines = txt.trim().split('\n');
+  if (!lines.length) return [];
+  const heads = splitLine(lines[0]).map(h => h.toLowerCase().trim().replace(/\s+/g,'_'));
+  return lines.slice(1).filter(l=>l.trim()).map(line => {
+    const vals = splitLine(line);
+    const o = {};
+    heads.forEach((h,i) => { o[h] = (vals[i]||'').trim(); });
+    return o;
+  });
+}
+function splitLine(line) {
+  const r=[]; let cur='', q=false;
+  for (let c of line) {
+    if (c==='"') q=!q;
+    else if (c===',' && !q) { r.push(cur); cur=''; }
+    else cur+=c;
+  }
+  r.push(cur); return r;
+}
+
+// ── DATA LOAD ────────────────────────────────────────────────
+async function loadData() {
+  if (!CFG.csvLeads && !CFG.csvWeekly) { S.isDemo=true; S.lastUpd=new Date(); return; }
+  async function get(url) {
+    if (!url) return null;
+    try { const r=await fetch(url); return r.ok ? parseCSV(await r.text()) : null; } catch { return null; }
+  }
+  const [leads,weekly,goalsR,todosR] = await Promise.all([get(CFG.csvLeads),get(CFG.csvWeekly),get(CFG.csvGoals),get(CFG.csvTodos)]);
+  if (leads) S.leads = leads.map(r=>({n:r.lead_name||'',co:r.company||'',stage:r.stage||'',src:r.source||'',lad:r.last_action_date||'',mtg:r.meeting_date||'',next:r.next_action||'',i:r.intro_sent||'N',fu1:r.fu1_sent||'N',fu2:r.fu2_sent||'N',sql:r.sql||'N'}));
+  if (weekly) S.weekly = weekly.map(r=>({we:r.week_ending,ed:+r.newsletter_editions||0,lmr:+r.lead_magnet_replies||0,cep:+r.ce_contacts_provided||0,ces:+r.ce_emails_sent||0,cor:+r.ce_open_rate||0,cee:+r.ce_engaged||0,nmb:+r.newsletter_mb||0,nmd:+r.newsletter_md||0,cmb:+r.ce_mb||0,cmd:+r.ce_md||0}));
+  if (goalsR) { const g={}; goalsR.forEach(r=>{ g[(r.channel||'')+'_'+(r.metric||'').toLowerCase().replace(/\s/g,'_')]=+r.target||0; }); S.goals={...DEMO_GOALS,...g}; }
+  if (todosR) S.todos = todosR.map((r,i)=>({id:r.id||`t${i}`,t:r.task||'',ch:r.channel||'',tp:r.type||'One-Time',ow:r.owner||'Salama',hi:(r.priority||'').toLowerCase()==='high',due:r.due_date||''}));
+  S.isDemo=false; S.lastUpd=new Date();
+}
+
+// ── FLAGS ────────────────────────────────────────────────────
+function flags() {
+  const f=[], w=S.weekly[0]||{}, now=new Date(), dow=now.getDay();
+  const g=S.goals;
+
+  // CE pace
+  const totalCE = S.weekly.reduce((s,wk)=>s+(wk.cep||0),0);
+  const wkTarget = Math.round(g.ce_total/20);
+  if ((w.cep||0) < wkTarget*0.6) f.push({s:'danger',t:`Cold email: ${w.cep||0} contacts this week — below 60% of weekly pace (target ~${wkTarget.toLocaleString()}/wk)`});
+
+  // Newsletter editions
+  if (dow>=3 && (w.ed||0)<1) f.push({s:'danger',t:`Newsletter: No edition published this week (Wednesday or later)`});
+
+  // Unanswered lead magnet replies
+  S.leads.forEach(l=>{
+    if (l.stage==='Lead Magnet Reply' && l.i!=='Y') {
+      const d=daysSince(l.lad);
+      if (d>=2) f.push({s:'danger',t:`${l.n}: Lead magnet reply unanswered for ${d} day${d>1?'s':''}`});
+    }
+  });
+
+  // Meeting booked, no intro sent
+  S.leads.forEach(l=>{
+    if (l.stage==='Meeting Booked' && l.i!=='Y') {
+      const hrs=Math.floor((now-new Date(l.lad))/3600000);
+      if (hrs>24) f.push({s:'danger',t:`${l.n}: Meeting booked ${Math.floor(hrs/24)}d ago — no intro nurture sent`});
+    }
+    // FU1 due
+    if (l.stage==='Meeting Booked' && l.mtg && l.fu1!=='Y') {
+      const du=daysUntil(l.mtg);
+      if (du>=0 && du<=3) f.push({s:'warn',t:`${l.n}: Meeting in ${du}d — FU1 nurture not sent yet`});
+    }
+  });
+
+  return f;
+}
+
+// ── HELPERS ──────────────────────────────────────────────────
+function daysSince(d) { if(!d)return 999; const v=new Date(d); return isNaN(v)?999:Math.floor((new Date()-v)/86400000); }
+function daysUntil(d) { if(!d)return 999; const v=new Date(d); return isNaN(v)?999:Math.ceil((v-new Date())/86400000); }
+function pct(a,b) { return b?Math.min(100,Math.round(a/b*100)):0; }
+function cls(p) { return p>=90?'ok':p>=60?'warn':'danger'; }
+function fmtD(d) { if(!d)return '—'; try{return new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'short'});}catch{return d;} }
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function stageCls(s) {
+  const l=s.toLowerCase();
+  if(l.includes('magnet'))return 's-lmr';
+  if(l.includes('audit'))return 's-audit';
+  if(l.includes('booked'))return 's-booked';
+  if(l.includes('done'))return 's-done';
+  if(l.includes('qualif'))return 's-qual';
+  if(l.includes('poc')||l.includes('proposal'))return 's-poc';
+  if(l.includes('closed')||l.includes('lost'))return 's-closed';
+  return 's-lmr';
+}
+function stageShort(s) {
+  if(s==='Lead Magnet Reply')return 'LM Reply';
+  if(s==='POC/Proposal')return 'POC';
+  return s;
+}
+
+// ── KPI BAR ──────────────────────────────────────────────────
+function kpiBar(label,actual,target,unit='') {
+  const p=pct(actual,target), c=cls(p);
+  return `<div>
+    <div class="kpi-row">
+      <div>
+        <div class="kpi-lbl">${esc(label)}</div>
+        <div class="kpi-track"><div class="kpi-fill ${c}" style="width:${p}%"></div></div>
+      </div>
+      <div class="kpi-nums"><span class="c-${c}">${actual}${unit}</span> <span class="c-muted">/ ${target}${unit}</span></div>
+    </div>
+  </div>`;
+}
+
+// ── RENDER ALERTS ────────────────────────────────────────────
+function renderAlerts() {
+  const el=document.getElementById('alerts');
+  const fs=flags();
+  el.innerHTML=fs.map(f=>`<div class="alert-bar ${f.s}"><div class="alert-dot"></div><div class="alert-text">${esc(f.t)}</div></div>`).join('');
+}
+
+// ── RENDER TODOS ─────────────────────────────────────────────
+function renderTodos(ch) {
+  const items=S.todos.filter(t=>t.ch===ch);
+  const chk=TS.get();
+  const today=new Date().toISOString().split('T')[0];
+  const groups=['Daily','Weekly','One-Time'];
+  let h='<div class="todo-section">';
+  groups.forEach(tp=>{
+    const its=items.filter(t=>t.tp===tp);
+    if(!its.length)return;
+    const done=its.filter(t=>chk[t.id]).length;
+    h+=`<div><div class="todo-grp-lbl">${tp} <span class="todo-cnt">${done}/${its.length}</span></div>`;
+    its.forEach(td=>{
+      const isDone=!!chk[td.id];
+      const over=td.due&&td.due<today&&!isDone;
+      h+=`<div class="todo-item${isDone?' done':''}" id="tw-${esc(td.id)}">
+        <input type="checkbox" id="tc-${esc(td.id)}"${isDone?' checked':''} onchange="toggle('${esc(td.id)}',this.checked)">
+        <label class="todo-txt" for="tc-${esc(td.id)}">${esc(td.t)}</label>
+        <div class="todo-meta">
+          ${td.hi&&!isDone?'<span class="pri-high">!</span>':''}
+          ${td.due?`<span class="due${over?' overdue':''}">${fmtD(td.due)}</span>`:''}
+          ${td.ow!=='Salama'?`<span class="owner-tag">${esc(td.ow)}</span>`:''}
+        </div>
+      </div>`;
+    });
+    h+='</div>';
+  });
+  h+='</div>';
+  return h;
+}
+
+// ── RENDER COLD EMAIL ────────────────────────────────────────
+function renderCE() {
+  const w=S.weekly[0]||{}, g=S.goals;
+  const total=S.weekly.reduce((s,wk)=>s+(wk.cep||0),0);
+  const wkTgt=Math.round(g.ce_total/20);
+  const pc=w.cep>=wkTgt?'c-ok':w.cep>=wkTgt*0.6?'c-warn':'c-danger';
+  const or=w.cor||0;
+
+  let h=`
+    <div class="slabel" style="margin-top:0">This Week</div>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-lbl">Contacts / Week</div>
+        <div class="stat-val ${pc}">${(w.cep||0).toLocaleString()}</div>
+        <div class="stat-sub">target ~${wkTgt.toLocaleString()}/wk</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-lbl">Emails Sent</div>
+        <div class="stat-val">${(w.ces||0).toLocaleString()}</div>
+        <div class="stat-sub">~${Math.round((w.ces||0)/7)}/day est.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-lbl">Total Reached</div>
+        <div class="stat-val">${total.toLocaleString()}</div>
+        <div class="stat-sub">of ${g.ce_total/1000|0}k goal</div>
+      </div>
+    </div>
+
+    <div class="slabel">Agencies</div>
+    <div class="agency-hdr">
+      <span>Agency</span><span class="acol">Contacts</span><span class="acol">Sent</span><span class="acol">Open%</span><span class="acol">MB</span><span class="acol">MD</span>
+    </div>
+    <div class="agency-row">
+      <span class="acol-name">Rhythm</span>
+      <span class="acol">${(w.cep||0).toLocaleString()}</span>
+      <span class="acol">${(w.ces||0).toLocaleString()}</span>
+      <span class="acol ${or>=35?'c-ok':'c-warn'}">${or}%</span>
+      <span class="acol">${w.cmb||0}</span>
+      <span class="acol">${w.cmd||0}</span>
+    </div>
+
+    <div class="slabel">KPIs vs Goals</div>
+    <div class="kpi-list">
+      ${kpiBar('Total contacts reached',total,g.ce_total)}
+      ${kpiBar('Open rate (this week)',or,g.ce_or,'%')}
+      ${kpiBar('Meetings Booked (this week)',w.cmb||0,g.ce_mb)}
+      ${kpiBar('Meetings Done (this week)',w.cmd||0,g.ce_md)}
+    </div>
+
+    <div class="divider"></div>
+    <div class="slabel" style="margin-top:0">To-Dos</div>
+    ${renderTodos('Cold Email')}
+  `;
+
+  document.getElementById('panel-ce').innerHTML=`
+    <div class="panel-hdr">
+      <span class="panel-title">Cold Email</span>
+      <span class="panel-sub">via Rhythm / Kit</span>
+    </div>${h}`;
+}
+
+// ── RENDER NEWSLETTER ────────────────────────────────────────
+function renderNL() {
+  const w=S.weekly[0]||{}, g=S.goals;
+  const mqlStages=['meeting done','qualified','poc/proposal','poc','closed'];
+  const mqls=S.leads.filter(l=>mqlStages.some(s=>l.stage.toLowerCase().includes(s))).length;
+  const active=S.leads.filter(l=>!l.stage.toLowerCase().includes('closed')).length;
+
+  const sorted=[...S.leads].sort((a,b)=>(a.lad||'').localeCompare(b.lad||''));
+
+  let rows='';
+  sorted.forEach(l=>{
+    const d=daysSince(l.lad);
+    const rc=d>=5?'rdanger':d>=3?'rwarn':'';
+    const dc=d>=5?'c-danger':d>=3?'c-warn':'c-muted';
+    const ds=d===0?'Today':d===1?'1d ago':`${d}d ago`;
+    let mtgH='—';
+    if(l.mtg){
+      const du=daysUntil(l.mtg);
+      if(du<0) mtgH=`<span class="c-muted">${fmtD(l.mtg)}</span>`;
+      else if(du===0) mtgH=`<span class="c-danger">Today</span>`;
+      else if(du<=2) mtgH=`<span class="c-warn">in ${du}d</span>`;
+      else mtgH=fmtD(l.mtg);
+    }
+    rows+=`<tr class="${rc}">
+      <td style="font-weight:500;white-space:nowrap">${esc(l.n)}</td>
+      <td><span class="stage ${stageCls(l.stage)}">${esc(stageShort(l.stage))}</span></td>
+      <td class="c-muted">${esc(l.src||'—')}</td>
+      <td><span class="${dc}">${ds}</span></td>
+      <td>${mtgH}</td>
+      <td style="color:var(--muted);max-width:160px">${esc(l.next||'—')}</td>
+    </tr>`;
+  });
+
+  const qp=pct(mqls,g.nl_mql);
+
+  let h=`
+    <div class="slabel" style="margin-top:0">Weekly Pulse</div>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-lbl">Editions</div>
+        <div class="stat-val ${(w.ed||0)>=g.nl_ed?'c-ok':'c-warn'}">${w.ed||0}</div>
+        <div class="stat-sub">of ${g.nl_ed} target</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-lbl">LM Replies</div>
+        <div class="stat-val">${w.lmr||0}</div>
+        <div class="stat-sub">this week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-lbl">Active Leads</div>
+        <div class="stat-val">${active}</div>
+        <div class="stat-sub">in pipeline</div>
+      </div>
+    </div>
+
+    <div class="slabel">Lead Pipeline</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th>Lead</th><th>Stage</th><th>Source</th><th>Last Action</th><th>Meeting</th><th>Next Action</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+
+    <div class="slabel">KPIs vs Goals</div>
+    <div class="kpi-list">
+      ${kpiBar('Editions this week',w.ed||0,g.nl_ed)}
+      ${kpiBar('Meetings Booked this week',w.nmb||0,g.nl_mb)}
+      ${kpiBar('Meetings Done this week',w.nmd||0,g.nl_md)}
+    </div>
+
+    <div class="slabel">Q2 MQL Progress</div>
+    <div class="q2-card">
+      <div class="q2-top">
+        <div>
+          <div class="stat-lbl">MQLs this quarter</div>
+          <div class="stat-sub">Meeting Done / Qualified / POC / Closed</div>
+        </div>
+        <div class="q2-big c-${cls(qp)}">${mqls} <span style="font-size:13px;font-weight:400;color:var(--muted)">/ ${g.nl_mql}</span></div>
+      </div>
+      <div class="q2-track"><div class="q2-fill ${cls(qp)}" style="width:${qp}%"></div></div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="slabel" style="margin-top:0">To-Dos</div>
+    ${renderTodos('Newsletter')}
+  `;
+
+  document.getElementById('panel-nl').innerHTML=`
+    <div class="panel-hdr">
+      <span class="panel-title">Newsletter</span>
+      <span class="panel-sub">EcomCircle · Growth Tribe</span>
+    </div>${h}`;
+}
+
+// ── RENDER RESOURCES ─────────────────────────────────────────
+function renderResources() {
+  document.getElementById('resources').innerHTML=`
+    <div>
+      <div class="res-title">Newsletter</div>
+      <div class="res-links">
+        <a class="res-a" href="https://docs.google.com/spreadsheets/d/1c3XlN3mEqec-kYHQ25iS5kIK5mdbNZogUQ94yeJJwSE" target="_blank">↗ CRM / Lead Tracker (Google Sheet)</a>
+        <a class="res-a" href="https://docs.google.com/document/d/1dhs3F9ajV-9L9bXYQuUNoQKX_qG9o7byI0ykLU2Fp3Y" target="_blank">↗ Nurture Email Templates (Google Doc)</a>
+        <a class="res-a" href="https://cal.com/team/growisto/ecom-circle-x-growisto-amazon-audit" target="_blank">↗ Amazon Audit Booking (cal.com)</a>
+        <a class="res-a" href="https://cal.com/team/growisto/growisto-cro-website-discovery-call" target="_blank">↗ CRO Discovery Call Booking (cal.com)</a>
+        <span class="res-note">Claude: /email-nurture · /email-nurture-lead-magnet</span>
+      </div>
+    </div>
+    <div>
+      <div class="res-title">Cold Email</div>
+      <div class="res-links">
+        <a class="res-a" href="https://docs.google.com/spreadsheets/d/1OgdoQPTbkLFFWuL6HZiGMIzN32ypqJB_" target="_blank">↗ Contact List Sheet (Google Sheet)</a>
+        <a class="res-a" href="https://docs.google.com/document/d/1m-Sk8uYVeg-W4faGpbeBDjyf_24KH4WcIgOvoGJ6cAw" target="_blank">↗ Email Sequence Doc (Google Doc)</a>
+        <span class="res-note">Kit: grace@growisto.io · kiran@growisto.io</span>
+        <span class="res-note">Scripts: map_deliverability.py · sort_contacts.py · filter_beauty_brands.py</span>
+      </div>
+    </div>`;
+}
+
+// ── HEADER ───────────────────────────────────────────────────
+function renderHeader() {
+  const b=document.getElementById('mode-badge');
+  b.textContent=S.isDemo?'Demo':'Live';
+  b.className='mode-badge '+(S.isDemo?'mode-demo':'mode-live');
+  if(S.lastUpd) document.getElementById('last-upd').textContent='Updated '+S.lastUpd.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+}
+
+// ── FULL RENDER ──────────────────────────────────────────────
+function render() {
+  renderHeader();
+  renderAlerts();
+  renderCE();
+  renderNL();
+  renderResources();
+}
+
+// ── TOGGLE TODO ──────────────────────────────────────────────
+function toggle(id, val) {
+  TS.set(id, val);
+  const w=document.getElementById('tw-'+id);
+  if(w) w.classList.toggle('done', val);
+}
+
+// ── REFRESH ──────────────────────────────────────────────────
+async function doRefresh() {
+  const b=document.querySelector('.refresh-btn');
+  if(b) b.textContent='↻ Refreshing…';
+  await loadData();
+  render();
+  if(b) b.textContent='↻ Refresh';
+}
+
+// ── INIT ─────────────────────────────────────────────────────
+(async()=>{
+  await loadData();
+  render();
+  setInterval(doRefresh, CFG.refresh);
+})();
+</script>
+</body>
+</html>
