@@ -214,22 +214,25 @@ const CFG = {
 };
 
 // ── DEMO DATA ────────────────────────────────────────────────
+// Synced from Zoho CRM — 2026-06-30
+// Filter: Lead_Source = "Referral Partner" + Sales_Attribution contains Rhythm/EcomCircle
+// + known newsletter leads confirmed from WhatsApp/context
 const DEMO_LEADS = [
-  {n:'Ben Zeronsa',         co:'Unknown',             stage:'Lead Magnet Reply', src:'Substack',    lad:'2026-06-29', mtg:'',           next:'Find email + respond to Substack comment',          i:'N',fu1:'N',fu2:'N',sql:'N'},
-  {n:'EcomCircle Lead #1',  co:'—',                   stage:'Lead Magnet Reply', src:'EcomCircle',  lad:'2026-06-29', mtg:'',           next:'Rhythm responding — send audit',                    i:'N',fu1:'N',fu2:'N',sql:'N'},
-  {n:'EcomCircle Lead #2',  co:'—',                   stage:'Lead Magnet Reply', src:'EcomCircle',  lad:'2026-06-29', mtg:'',           next:'Rhythm responding — send audit',                    i:'N',fu1:'N',fu2:'N',sql:'N'},
-  {n:'EcomCircle Lead #3',  co:'—',                   stage:'Lead Magnet Reply', src:'EcomCircle',  lad:'2026-06-29', mtg:'',           next:'Send audit response',                               i:'N',fu1:'N',fu2:'N',sql:'N'},
-  {n:'EcomCircle Lead #4',  co:'—',                   stage:'Lead Magnet Reply', src:'EcomCircle',  lad:'2026-06-29', mtg:'',           next:'Send audit response',                               i:'N',fu1:'N',fu2:'N',sql:'N'},
-  {n:'DripDrop (Natalie)',   co:'DripDrop',            stage:'Lead Magnet Reply', src:'EcomCircle',  lad:'2026-06-18', mtg:'',           next:'Send nurture sequence + booking link',              i:'Y',fu1:'N',fu2:'N',sql:'N'},
-  {n:'Shea Terra (Tammie)', co:'Shea Terra Organics', stage:'Audit Sent',        src:'EcomCircle',  lad:'2026-06-18', mtg:'',           next:'Follow up on Amazon audit',                         i:'Y',fu1:'N',fu2:'N',sql:'N'},
-  {n:'RSP Nutrition',       co:'RSP Nutrition',        stage:'Audit Sent',        src:'Lead Magnet', lad:'2026-06-17', mtg:'',           next:'Follow up on CRO audit',                            i:'Y',fu1:'N',fu2:'N',sql:'N'},
-  {n:'Arthur Court (Scott)',co:'Arthur Court Designs', stage:'Audit Sent',        src:'Lead Magnet', lad:'2026-06-17', mtg:'',           next:'Follow up on CRO audit',                            i:'Y',fu1:'N',fu2:'N',sql:'N'},
-  {n:'Petite Pommes',       co:'Petite Pommes',        stage:'Meeting Booked',    src:'EcomCircle',  lad:'2026-06-17', mtg:'2026-07-01', next:'Send FU1 nurture (3 days before = today!)',          i:'Y',fu1:'N',fu2:'N',sql:'N'},
-  {n:'TruWood (Taylor)',    co:'TruWood',              stage:'Meeting Done',       src:'Lead Magnet', lad:'2026-06-18', mtg:'2026-06-18', next:'Qualify / next steps with Dhanak',                  i:'Y',fu1:'Y',fu2:'Y',sql:'Y'},
-  {n:'Ecoright',            co:'Ecoright',             stage:'Meeting Done',       src:'EcomCircle',  lad:'2026-06-19', mtg:'2026-06-19', next:'Qualify / send proposal',                           i:'Y',fu1:'Y',fu2:'Y',sql:'N'},
-  {n:'Garzini',             co:'Garzini',              stage:'Meeting Done',       src:'EcomCircle',  lad:'2026-06-19', mtg:'2026-06-19', next:'Qualify / send proposal',                           i:'Y',fu1:'Y',fu2:'Y',sql:'N'},
-  {n:'Wearnala',            co:'Wearnala',             stage:'Meeting Done',       src:'EcomCircle',  lad:'2026-06-03', mtg:'2026-06-03', next:'Follow up — proposal pending',                      i:'Y',fu1:'Y',fu2:'Y',sql:'N'},
-  {n:'10th Whiskey (Ryan)', co:'10th Whiskey',         stage:'POC/Proposal',       src:'EcomCircle',  lad:'2026-06-22', mtg:'2026-05-28', next:'Monitor POC delivery',                              i:'Y',fu1:'Y',fu2:'Y',sql:'Y'},
+  // New Leads (just entered pipeline — CRM status: New Lead)
+  {n:'Jay Perkins',          co:'Living.Fit',        stage:'New Lead',              src:'EcomCircle',  lad:'2026-06-29', mtg:'',           next:'Send intro + audit response',       i:'N',fu1:'N',fu2:'N'},
+  {n:'Hardeep Singh',        co:'Ecoright',          stage:'New Lead',              src:'EcomCircle',  lad:'2026-06-18', mtg:'',           next:'Follow up — audit sent',            i:'Y',fu1:'N',fu2:'N'},
+  {n:'Scott Haas',           co:'Arthur Court',      stage:'New Lead',              src:'EcomCircle',  lad:'2026-06-16', mtg:'',           next:'Follow up on CRO audit',            i:'Y',fu1:'N',fu2:'N'},
+  {n:'Taylor Stewart',       co:'TruWood',           stage:'New Lead',              src:'EcomCircle',  lad:'2026-06-16', mtg:'',           next:'Follow up on CRO audit',            i:'Y',fu1:'N',fu2:'N'},
+  {n:'Anna Rodhe',           co:'Petite Pommes',     stage:'New Lead',              src:'EcomCircle',  lad:'2026-05-26', mtg:'2026-07-01', next:'Send FU1 nurture (meeting Jul 1)',   i:'Y',fu1:'N',fu2:'N'},
+  // In Progress (CRM status: Opportunity - Working)
+  {n:'Alexandra Mamalider',  co:'Traditions',        stage:'Opportunity - Working', src:'EcomCircle',  lad:'2026-06-10', mtg:'',           next:'Book discovery call',               i:'Y',fu1:'N',fu2:'N'},
+  {n:'Jim -',                co:'Glam Haus Beauty',  stage:'Opportunity - Working', src:'EcomCircle',  lad:'2026-06-10', mtg:'',           next:'Book discovery call',               i:'Y',fu1:'N',fu2:'N'},
+  // Meeting Done (CRM status: Meeting Done)
+  {n:'Celine De Fauw',       co:'Garzini',           stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-19', mtg:'2026-06-19', next:'Qualify / send proposal',           i:'Y',fu1:'Y',fu2:'Y'},
+  {n:'Evan Lucas',           co:'Vitalyte',          stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-15', mtg:'2026-06-15', next:'Send proposal',                     i:'Y',fu1:'Y',fu2:'Y'},
+  {n:'Chase Larson',         co:'Chamelo',           stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-15', mtg:'2026-06-15', next:'Qualify / proposal',                i:'Y',fu1:'Y',fu2:'Y'},
+  {n:'Christian Champion',   co:'Ocean Crawler',     stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-10', mtg:'2026-06-10', next:'Qualify / proposal',                i:'Y',fu1:'Y',fu2:'Y'},
+  {n:'Jordan -',             co:'Wearnala',          stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-03', mtg:'2026-06-03', next:'Follow up — proposal pending',      i:'Y',fu1:'Y',fu2:'Y'},
 ];
 
 const DEMO_WEEKLY = [
@@ -382,19 +385,27 @@ function cls(p) { return p>=90?'ok':p>=60?'warn':'danger'; }
 function fmtD(d) { if(!d)return '—'; try{return new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'short'});}catch{return d;} }
 function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function stageCls(s) {
-  const l=s.toLowerCase();
-  if(l.includes('magnet'))return 's-lmr';
-  if(l.includes('audit'))return 's-audit';
-  if(l.includes('booked'))return 's-booked';
-  if(l.includes('done'))return 's-done';
-  if(l.includes('qualif'))return 's-qual';
-  if(l.includes('poc')||l.includes('proposal'))return 's-poc';
-  if(l.includes('closed')||l.includes('lost'))return 's-closed';
-  return 's-lmr';
+  const r=stageRank(s);
+  if(r===0) return 's-lmr';
+  if(r===1) return 's-audit';
+  if(r===2) return 's-booked';
+  if(r===3) return 's-done';
+  if(r===4) return 's-poc';
+  if(r===5) return 's-qual';
+  return 's-closed'; // lost / -1
 }
 function stageShort(s) {
-  if(s==='Lead Magnet Reply')return 'LM Reply';
-  if(s==='POC/Proposal')return 'POC';
+  const l=s.toLowerCase();
+  if(l==='new lead')            return 'New Lead';
+  if(l.includes('opportunity')) return 'In Progress';
+  if(l.includes('nurture'))     return 'Nurture';
+  if(l==='meeting done')        return 'Mtg Done';
+  if(l.includes('moved to'))    return 'Closed';
+  if(l.includes('converted'))   return 'Closed';
+  if(l==='lead magnet reply')   return 'LM Reply';
+  if(l==='poc/proposal')        return 'POC';
+  if(l==='audit sent')          return 'Audit Sent';
+  if(l==='meeting booked')      return 'Booked';
   return s;
 }
 
@@ -512,15 +523,17 @@ function renderCE() {
 }
 
 // ── FUNNEL ───────────────────────────────────────────────────
+// Handles both CRM Lead_Status names (New Lead, Opportunity - Working, Meeting Done…)
+// and custom stage names (Lead Magnet Reply, Audit Sent, Meeting Booked…)
 function stageRank(s) {
   const l = s.toLowerCase();
-  if (l.includes('magnet'))                         return 0;
-  if (l.includes('audit'))                          return 1;
+  if (l === 'new lead' || l.includes('magnet'))     return 0;
+  if (l.includes('opportunity') || l.includes('nurture') || l.includes('audit')) return 1;
   if (l.includes('booked'))                         return 2;
-  if (l.includes('done'))                           return 3;
+  if (l === 'meeting done' || (l.includes('meeting') && l.includes('done'))) return 3;
   if (l.includes('qualif') || l.includes('poc') || l.includes('proposal')) return 4;
-  if (l.includes('closed') || l.includes('won'))    return 5;
-  if (l.includes('lost'))                           return -1;
+  if (l.includes('moved to deals') || l.includes('converted') || l.includes('closed') || l.includes('won')) return 5;
+  if (l.includes('dead') || l.includes('not qualified') || l.includes('do not pursue') || l.includes('lost')) return -1;
   return 0;
 }
 
@@ -530,12 +543,12 @@ function renderFunnel() {
   if (!total) return '<div class="c-muted" style="font-size:12px;padding:8px 0">No leads yet.</div>';
 
   const STAGES = [
-    { label: 'Total Leads',       rank: 0, color: '#3d82c4' },
-    { label: 'Audit / Intro Sent',rank: 1, color: '#7c6be8' },
-    { label: 'Meeting Booked',    rank: 2, color: '#b87a10' },
-    { label: 'Meeting Done',      rank: 3, color: '#1d9e8a' },
-    { label: 'Qualified / POC',   rank: 4, color: '#1a9e5a' },
-    { label: 'Closed Won',        rank: 5, color: '#4cd98a' },
+    { label: 'Total Leads',          rank: 0, color: '#3d82c4' },
+    { label: 'In Progress',          rank: 1, color: '#7c6be8' },
+    { label: 'Meeting Booked',       rank: 2, color: '#b87a10' },
+    { label: 'Meeting Done',         rank: 3, color: '#1d9e8a' },
+    { label: 'Proposal / POC',       rank: 4, color: '#1a9e5a' },
+    { label: 'Closed (Moved to Deals)', rank: 5, color: '#4cd98a' },
   ];
 
   // Cumulative counts: leads who reached at least this rank
@@ -693,7 +706,10 @@ function renderNL() {
   document.getElementById('panel-nl').innerHTML=`
     <div class="panel-hdr">
       <span class="panel-title">Newsletter</span>
-      <span class="panel-sub">EcomCircle · Growth Tribe</span>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span class="panel-sub">EcomCircle · Growth Tribe</span>
+        <span style="font-size:9px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:1px 6px;border-radius:2px;border:1px solid var(--ok);color:var(--ok-text);background:var(--ok-bg)">Zoho CRM</span>
+      </div>
     </div>${h}`;
 }
 
