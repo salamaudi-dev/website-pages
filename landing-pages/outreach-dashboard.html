@@ -141,6 +141,25 @@ tr.rwarn td:first-child { border-left: 2px solid var(--warn); padding-left: 8px;
 .due.overdue { color: var(--danger-text); }
 .owner-tag { font-size: 10px; color: var(--dim); }
 
+/* FUNNEL */
+.funnel { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.funnel-row { display: grid; grid-template-columns: 130px 1fr 52px 64px; align-items: center; gap: 10px; padding: 8px 12px; border-bottom: 1px solid var(--border); background: var(--surface); }
+.funnel-row:last-child { border-bottom: none; }
+.funnel-row:hover { background: var(--surface-2); }
+.funnel-stage-name { font-size: 11px; font-weight: 500; color: var(--text); white-space: nowrap; }
+.funnel-bar-wrap { position: relative; height: 18px; background: var(--bg); border-radius: 2px; overflow: hidden; }
+.funnel-bar-fill { position: absolute; left: 0; top: 0; height: 100%; border-radius: 2px; transition: width 0.5s ease; }
+.funnel-bar-label { position: absolute; left: 7px; top: 0; height: 100%; display: flex; align-items: center; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.85); pointer-events: none; white-space: nowrap; }
+.funnel-count { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; text-align: right; }
+.funnel-conv { font-size: 10px; text-align: right; font-variant-numeric: tabular-nums; }
+.funnel-conv-up { color: var(--ok-text); }
+.funnel-conv-down { color: var(--warn-text); }
+.funnel-conv-na { color: var(--dim); }
+.funnel-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
+.funnel-stat { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 10px; text-align: center; }
+.funnel-stat-val { font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.funnel-stat-lbl { font-size: 10px; color: var(--muted); margin-top: 2px; letter-spacing: 0.05em; }
+
 /* DIVIDER */
 .divider { height: 1px; background: var(--border); margin: 16px 0; }
 
@@ -492,6 +511,93 @@ function renderCE() {
     </div>${h}`;
 }
 
+// ── FUNNEL ───────────────────────────────────────────────────
+function stageRank(s) {
+  const l = s.toLowerCase();
+  if (l.includes('magnet'))                         return 0;
+  if (l.includes('audit'))                          return 1;
+  if (l.includes('booked'))                         return 2;
+  if (l.includes('done'))                           return 3;
+  if (l.includes('qualif') || l.includes('poc') || l.includes('proposal')) return 4;
+  if (l.includes('closed') || l.includes('won'))    return 5;
+  if (l.includes('lost'))                           return -1;
+  return 0;
+}
+
+function renderFunnel() {
+  const leads = S.leads.filter(l => stageRank(l.stage) >= 0); // exclude Lost for now
+  const total = leads.length;
+  if (!total) return '<div class="c-muted" style="font-size:12px;padding:8px 0">No leads yet.</div>';
+
+  const STAGES = [
+    { label: 'Total Leads',       rank: 0, color: '#3d82c4' },
+    { label: 'Audit / Intro Sent',rank: 1, color: '#7c6be8' },
+    { label: 'Meeting Booked',    rank: 2, color: '#b87a10' },
+    { label: 'Meeting Done',      rank: 3, color: '#1d9e8a' },
+    { label: 'Qualified / POC',   rank: 4, color: '#1a9e5a' },
+    { label: 'Closed Won',        rank: 5, color: '#4cd98a' },
+  ];
+
+  // Cumulative counts: leads who reached at least this rank
+  const counts = STAGES.map(st =>
+    st.rank === 0 ? total : leads.filter(l => stageRank(l.stage) >= st.rank).length
+  );
+
+  // Currently sitting at each exact stage (not yet advanced)
+  const atStage = STAGES.map(st =>
+    leads.filter(l => stageRank(l.stage) === st.rank).length
+  );
+
+  let rows = '';
+  STAGES.forEach((st, i) => {
+    const n     = counts[i];
+    const prev  = i === 0 ? null : counts[i - 1];
+    const barW  = total ? Math.round((n / total) * 100) : 0;
+    const conv  = (prev !== null && prev > 0) ? Math.round((n / prev) * 100) : null;
+    const convCls = conv === null ? 'funnel-conv-na' : conv >= 50 ? 'funnel-conv-up' : 'funnel-conv-down';
+    const convStr = conv === null ? '—' : `${conv}% from prev`;
+    const stuck   = atStage[i];
+
+    rows += `<div class="funnel-row">
+      <div class="funnel-stage-name">${esc(st.label)}</div>
+      <div class="funnel-bar-wrap">
+        <div class="funnel-bar-fill" style="width:${barW}%;background:${st.color}22;border-right:2px solid ${st.color}"></div>
+        <div class="funnel-bar-label" style="color:${st.color}">${n} lead${n!==1?'s':''} · ${barW}%${stuck > 0 && i < 5 ? ` · <span style="opacity:.7">${stuck} here now</span>` : ''}</div>
+      </div>
+      <div class="funnel-count" style="color:${st.color}">${n}</div>
+      <div class="funnel-conv ${convCls}">${convStr}</div>
+    </div>`;
+  });
+
+  // Summary stats
+  const mbCount  = counts[2]; // reached meeting booked
+  const mdCount  = counts[3]; // meeting done
+  const pocCount = counts[4]; // qualified/poc
+  const closedN  = counts[5];
+  const lostN    = leads.filter(l => stageRank(l.stage) === -1).length;
+  const leadToMtg  = total ? Math.round((mdCount / total) * 100) : 0;
+  const mtgToProp  = mdCount ? Math.round((pocCount / mdCount) * 100) : 0;
+  const overallCvr = total ? Math.round((closedN / total) * 100) : 0;
+
+  const summary = `
+    <div class="funnel-summary">
+      <div class="funnel-stat">
+        <div class="funnel-stat-val c-accent">${leadToMtg}%</div>
+        <div class="funnel-stat-lbl">Lead → Meeting</div>
+      </div>
+      <div class="funnel-stat">
+        <div class="funnel-stat-val c-ok">${mtgToProp}%</div>
+        <div class="funnel-stat-lbl">Meeting → Proposal</div>
+      </div>
+      <div class="funnel-stat">
+        <div class="funnel-stat-val ${closedN > 0 ? 'c-ok' : 'c-muted'}">${overallCvr}%</div>
+        <div class="funnel-stat-lbl">Overall Closed</div>
+      </div>
+    </div>`;
+
+  return `<div class="funnel">${rows}</div>${summary}`;
+}
+
 // ── RENDER NEWSLETTER ────────────────────────────────────────
 function renderNL() {
   const w=S.weekly[0]||{}, g=S.goals;
@@ -546,6 +652,9 @@ function renderNL() {
         <div class="stat-sub">in pipeline</div>
       </div>
     </div>
+
+    <div class="slabel">Funnel — All Time</div>
+    ${renderFunnel()}
 
     <div class="slabel">Lead Pipeline</div>
     <div class="tbl-wrap">
