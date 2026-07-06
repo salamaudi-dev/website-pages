@@ -218,22 +218,24 @@ const CFG = {
 // Sources: Lead_Source = "Referral Partner" + Sales_Attribution contains Rhythm variants
 // + eCom Circle Partnership (CRM ID: 319412000055746057, POC: Rhythm Singhal)
 const DEMO_LEADS = [
-  // New Leads (just entered pipeline — CRM status: New Lead)
+  // New Leads (CRM: New Lead)
   {n:'Jay Perkins',          co:'Living.Fit',        stage:'New Lead',              src:'EcomCircle',  lad:'2026-06-29', mtg:'',           next:'Send intro + audit response',       i:'N',fu1:'N',fu2:'N'},
   {n:'Hardeep Singh',        co:'Ecoright',          stage:'New Lead',              src:'EcomCircle',  lad:'2026-06-18', mtg:'',           next:'Follow up — audit sent',            i:'Y',fu1:'N',fu2:'N'},
   {n:'Scott Haas',           co:'Arthur Court',      stage:'New Lead',              src:'EcomCircle',  lad:'2026-06-16', mtg:'',           next:'Follow up on CRO audit',            i:'Y',fu1:'N',fu2:'N'},
-  {n:'Taylor Stewart',       co:'TruWood',           stage:'New Lead',              src:'EcomCircle',  lad:'2026-06-16', mtg:'',           next:'Follow up on CRO audit',            i:'Y',fu1:'N',fu2:'N'},
   {n:'Kelechi Okere',        co:'Truefit Nutrition', stage:'New Lead',              src:'EcomCircle',  lad:'2026-06-16', mtg:'',           next:'Send intro / CRO audit',            i:'N',fu1:'N',fu2:'N'},
-  {n:'Anna Rodhe',           co:'Petite Pommes',     stage:'New Lead',              src:'EcomCircle',  lad:'2026-05-26', mtg:'2026-07-01', next:'Send FU1 nurture (meeting Jul 1)',   i:'Y',fu1:'N',fu2:'N'},
-  // In Progress (CRM status: Opportunity - Working)
+  // In Nurture / Opportunity (CRM: Opportunity - Working)
+  {n:'Anna Rodhe',           co:'Petite Pommes',     stage:'Opportunity - Working', src:'EcomCircle',  lad:'2026-05-26', mtg:'2026-07-01', next:'Nurture sequence — meeting Jul 1',  i:'Y',fu1:'N',fu2:'N'},
   {n:'Alexandra Mamalider',  co:'Traditions',        stage:'Opportunity - Working', src:'EcomCircle',  lad:'2026-06-10', mtg:'',           next:'Book discovery call',               i:'Y',fu1:'N',fu2:'N'},
   {n:'Jim -',                co:'Glam Haus Beauty',  stage:'Opportunity - Working', src:'EcomCircle',  lad:'2026-06-10', mtg:'',           next:'Book discovery call',               i:'Y',fu1:'N',fu2:'N'},
-  // Meeting Done (CRM status: Meeting Done)
+  // Meeting Done (CRM: Meeting Done)
+  {n:'Taylor Stewart',       co:'TruWood',           stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-16', mtg:'2026-06-16', next:'Qualify / send proposal',           i:'Y',fu1:'Y',fu2:'Y'},
   {n:'Celine De Fauw',       co:'Garzini',           stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-19', mtg:'2026-06-19', next:'Qualify / send proposal',           i:'Y',fu1:'Y',fu2:'Y'},
   {n:'Evan Lucas',           co:'Vitalyte',          stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-15', mtg:'2026-06-15', next:'Send proposal',                     i:'Y',fu1:'Y',fu2:'Y'},
   {n:'Chase Larson',         co:'Chamelo',           stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-15', mtg:'2026-06-15', next:'Qualify / proposal',                i:'Y',fu1:'Y',fu2:'Y'},
   {n:'Christian Champion',   co:'Ocean Crawler',     stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-10', mtg:'2026-06-10', next:'Qualify / proposal',                i:'Y',fu1:'Y',fu2:'Y'},
   {n:'Jordan -',             co:'Wearnala',          stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-03', mtg:'2026-06-03', next:'Follow up — proposal pending',      i:'Y',fu1:'Y',fu2:'Y'},
+  // Closed Won (CRM: Moved to Deals)
+  {n:'Ryan Thompson',        co:'10thWhiskey.com',   stage:'Moved to Deals',        src:'EcomCircle',  lad:'2026-06-23', mtg:'',           next:'Handed to deals',                  i:'Y',fu1:'Y',fu2:'Y'},
 ];
 
 const DEMO_WEEKLY = [
@@ -615,11 +617,24 @@ function renderFunnel() {
 // ── RENDER NEWSLETTER ────────────────────────────────────────
 function renderNL() {
   const w=S.weekly[0]||{}, g=S.goals;
-  const mqlStages=['meeting done','qualified','poc/proposal','poc','closed'];
-  const mqls=S.leads.filter(l=>mqlStages.some(s=>l.stage.toLowerCase().includes(s))).length;
-  const active=S.leads.filter(l=>!l.stage.toLowerCase().includes('closed')).length;
+  const active=S.leads.filter(l=>stageRank(l.stage)>=0);
 
-  const sorted=[...S.leads].sort((a,b)=>(a.lad||'').localeCompare(b.lad||''));
+  // Stage bucket counts
+  const cntNew     = active.filter(l=>stageRank(l.stage)===0).length;
+  const cntNurture = active.filter(l=>stageRank(l.stage)===1).length;
+  const cntBooked  = active.filter(l=>stageRank(l.stage)===2).length;
+  const cntMtgDone = active.filter(l=>stageRank(l.stage)===3).length;
+  const cntProposal= active.filter(l=>stageRank(l.stage)===4).length;
+  const cntClosed  = active.filter(l=>stageRank(l.stage)===5).length;
+  const totalActive= active.length;
+
+  const mqlStages=['meeting done','qualified','poc/proposal','poc','closed','moved to deals'];
+  const mqls=S.leads.filter(l=>mqlStages.some(s=>l.stage.toLowerCase().includes(s))).length;
+
+  // Lead table — sort by stage rank desc, then by last action date
+  const sorted=[...S.leads]
+    .filter(l=>stageRank(l.stage)>=0)
+    .sort((a,b)=>(stageRank(b.stage)-stageRank(a.stage))||(b.lad||'').localeCompare(a.lad||''));
 
   let rows='';
   sorted.forEach(l=>{
@@ -638,7 +653,7 @@ function renderNL() {
     rows+=`<tr class="${rc}">
       <td style="font-weight:500;white-space:nowrap">${esc(l.n)}</td>
       <td><span class="stage ${stageCls(l.stage)}">${esc(stageShort(l.stage))}</span></td>
-      <td class="c-muted">${esc(l.src||'—')}</td>
+      <td class="c-muted">${esc(l.co||'—')}</td>
       <td><span class="${dc}">${ds}</span></td>
       <td>${mtgH}</td>
       <td style="color:var(--muted);max-width:160px">${esc(l.next||'—')}</td>
@@ -647,8 +662,45 @@ function renderNL() {
 
   const qp=pct(mqls,g.nl_mql);
 
+  // Pipeline overview pills
+  const stagePills = [
+    {label:'New Lead',   count:cntNew,      cls:'s-lmr'},
+    {label:'In Nurture', count:cntNurture,  cls:'s-audit'},
+    {label:'Mtg Booked', count:cntBooked,   cls:'s-booked'},
+    {label:'Mtg Done',   count:cntMtgDone,  cls:'s-done'},
+    {label:'Proposal',   count:cntProposal, cls:'s-poc'},
+    {label:'Closed Won', count:cntClosed,   cls:'s-qual'},
+  ].filter(p=>p.count>0);
+
   let h=`
-    <div class="slabel" style="margin-top:0">Weekly Pulse</div>
+    <div class="slabel" style="margin-top:0">Pipeline Overview</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px">
+      ${stagePills.map(p=>`
+        <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:10px 16px;display:flex;flex-direction:column;gap:2px;min-width:90px">
+          <div style="font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1">${p.count}</div>
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-top:2px">${p.label}</div>
+        </div>`).join('')}
+      <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:10px 16px;display:flex;flex-direction:column;gap:2px;min-width:90px;margin-left:auto">
+        <div style="font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1">${totalActive}</div>
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-top:2px">Total</div>
+      </div>
+    </div>
+
+    <div class="slabel">Funnel — All Time</div>
+    ${renderFunnel()}
+
+    <div class="slabel">Lead Breakdown</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th>Lead</th><th>Stage</th><th>Company</th><th>Last Action</th><th>Meeting</th><th>Next Action</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+    <div class="slabel" style="margin-top:0">Weekly</div>
     <div class="stat-grid">
       <div class="stat-card">
         <div class="stat-lbl">Editions</div>
@@ -661,42 +713,15 @@ function renderNL() {
         <div class="stat-sub">this week</div>
       </div>
       <div class="stat-card">
-        <div class="stat-lbl">Active Leads</div>
-        <div class="stat-val">${active}</div>
-        <div class="stat-sub">in pipeline</div>
+        <div class="stat-lbl">MQLs</div>
+        <div class="stat-val c-${cls(qp)}">${mqls}</div>
+        <div class="stat-sub">of ${g.nl_mql} Q2 target</div>
       </div>
     </div>
-
-    <div class="slabel">Funnel — All Time</div>
-    ${renderFunnel()}
-
-    <div class="slabel">Lead Pipeline</div>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr>
-          <th>Lead</th><th>Stage</th><th>Source</th><th>Last Action</th><th>Meeting</th><th>Next Action</th>
-        </tr></thead>
-        <tbody>${rows}</tbody>
-      </table>
-    </div>
-
-    <div class="slabel">KPIs vs Goals</div>
-    <div class="kpi-list">
+    <div class="kpi-list" style="margin-top:8px">
       ${kpiBar('Editions this week',w.ed||0,g.nl_ed)}
       ${kpiBar('Meetings Booked this week',w.nmb||0,g.nl_mb)}
       ${kpiBar('Meetings Done this week',w.nmd||0,g.nl_md)}
-    </div>
-
-    <div class="slabel">Q2 MQL Progress</div>
-    <div class="q2-card">
-      <div class="q2-top">
-        <div>
-          <div class="stat-lbl">MQLs this quarter</div>
-          <div class="stat-sub">Meeting Done / Qualified / POC / Closed</div>
-        </div>
-        <div class="q2-big c-${cls(qp)}">${mqls} <span style="font-size:13px;font-weight:400;color:var(--muted)">/ ${g.nl_mql}</span></div>
-      </div>
-      <div class="q2-track"><div class="q2-fill ${cls(qp)}" style="width:${qp}%"></div></div>
     </div>
 
     <div class="divider"></div>
