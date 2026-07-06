@@ -226,13 +226,15 @@ const DEMO_LEADS = [
   // In Nurture / Opportunity (CRM: Opportunity - Working)
   {n:'Anna Rodhe',           co:'Petite Pommes',     stage:'Opportunity - Working', src:'EcomCircle',  lad:'2026-05-26', mtg:'2026-07-01', next:'Nurture sequence — meeting Jul 1',  i:'Y',fu1:'N',fu2:'N'},
   {n:'Alexandra Mamalider',  co:'Traditions',        stage:'Opportunity - Working', src:'EcomCircle',  lad:'2026-06-10', mtg:'',           next:'Book discovery call',               i:'Y',fu1:'N',fu2:'N'},
-  {n:'Jim -',                co:'Glam Haus Beauty',  stage:'Opportunity - Working', src:'EcomCircle',  lad:'2026-06-10', mtg:'',           next:'Book discovery call',               i:'Y',fu1:'N',fu2:'N'},
-  // Meeting Done (CRM: Meeting Done)
+  // Proposal Stage (sheet: Proposal stage)
+  {n:'Jim -',                co:'Glam Haus Beauty',  stage:'Proposal stage',        src:'EcomCircle',  lad:'2026-06-10', mtg:'2026-03-11', next:'Follow up on proposal',             i:'Y',fu1:'Y',fu2:'Y'},
+  {n:'Evan Lucas',           co:'Vitalyte',          stage:'Proposal stage',        src:'EcomCircle',  lad:'2026-06-15', mtg:'2026-04-24', next:'Follow up on proposal',             i:'Y',fu1:'Y',fu2:'Y'},
+  // Meeting Done (sheet: Meeting done)
   {n:'Taylor Stewart',       co:'TruWood',           stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-16', mtg:'2026-06-16', next:'Qualify / send proposal',           i:'Y',fu1:'Y',fu2:'Y'},
   {n:'Celine De Fauw',       co:'Garzini',           stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-19', mtg:'2026-06-19', next:'Qualify / send proposal',           i:'Y',fu1:'Y',fu2:'Y'},
-  {n:'Evan Lucas',           co:'Vitalyte',          stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-15', mtg:'2026-06-15', next:'Send proposal',                     i:'Y',fu1:'Y',fu2:'Y'},
-  {n:'Chase Larson',         co:'Chamelo',           stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-15', mtg:'2026-06-15', next:'Qualify / proposal',                i:'Y',fu1:'Y',fu2:'Y'},
-  {n:'Christian Champion',   co:'Ocean Crawler',     stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-10', mtg:'2026-06-10', next:'Qualify / proposal',                i:'Y',fu1:'Y',fu2:'Y'},
+  {n:'Chase Larson',         co:'Chamelo',           stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-15', mtg:'2026-05-04', next:'Qualify / proposal',                i:'Y',fu1:'Y',fu2:'Y'},
+  {n:'Christian Champion',   co:'Ocean Crawler',     stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-10', mtg:'2026-05-12', next:'Qualify / proposal',                i:'Y',fu1:'Y',fu2:'Y'},
+  {n:'Organic Traditions',   co:'Organic Traditions',stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-04-28', mtg:'2026-05-05', next:'Qualify / proposal',                i:'Y',fu1:'Y',fu2:'Y'},
   {n:'Jordan -',             co:'Wearnala',          stage:'Meeting Done',          src:'EcomCircle',  lad:'2026-06-03', mtg:'2026-06-03', next:'Follow up — proposal pending',      i:'Y',fu1:'Y',fu2:'Y'},
   // Closed Won (CRM: Moved to Deals)
   {n:'Ryan Thompson',        co:'10thWhiskey.com',   stage:'Moved to Deals',        src:'EcomCircle',  lad:'2026-06-23', mtg:'',           next:'Handed to deals',                  i:'Y',fu1:'Y',fu2:'Y'},
@@ -406,7 +408,8 @@ function stageShort(s) {
   if(l.includes('moved to'))    return 'Closed';
   if(l.includes('converted'))   return 'Closed';
   if(l==='lead magnet reply')   return 'LM Reply';
-  if(l==='poc/proposal')        return 'POC';
+  if(l==='poc/proposal')        return 'Proposal';
+  if(l.includes('proposal'))    return 'Proposal';
   if(l==='audit sent')          return 'Audit Sent';
   if(l==='meeting booked')      return 'Booked';
   return s;
