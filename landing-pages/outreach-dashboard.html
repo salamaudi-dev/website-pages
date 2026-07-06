@@ -214,15 +214,16 @@ const CFG = {
 };
 
 // ── DEMO DATA ────────────────────────────────────────────────
-// Synced from Zoho CRM — 2026-06-30
-// Filter: Lead_Source = "Referral Partner" + Sales_Attribution contains Rhythm/EcomCircle
-// + known newsletter leads confirmed from WhatsApp/context
+// Synced from Zoho CRM — 2026-07-06
+// Sources: Lead_Source = "Referral Partner" + Sales_Attribution contains Rhythm variants
+// + eCom Circle Partnership (CRM ID: 319412000055746057, POC: Rhythm Singhal)
 const DEMO_LEADS = [
   // New Leads (just entered pipeline — CRM status: New Lead)
   {n:'Jay Perkins',          co:'Living.Fit',        stage:'New Lead',              src:'EcomCircle',  lad:'2026-06-29', mtg:'',           next:'Send intro + audit response',       i:'N',fu1:'N',fu2:'N'},
   {n:'Hardeep Singh',        co:'Ecoright',          stage:'New Lead',              src:'EcomCircle',  lad:'2026-06-18', mtg:'',           next:'Follow up — audit sent',            i:'Y',fu1:'N',fu2:'N'},
   {n:'Scott Haas',           co:'Arthur Court',      stage:'New Lead',              src:'EcomCircle',  lad:'2026-06-16', mtg:'',           next:'Follow up on CRO audit',            i:'Y',fu1:'N',fu2:'N'},
   {n:'Taylor Stewart',       co:'TruWood',           stage:'New Lead',              src:'EcomCircle',  lad:'2026-06-16', mtg:'',           next:'Follow up on CRO audit',            i:'Y',fu1:'N',fu2:'N'},
+  {n:'Kelechi Okere',        co:'Truefit Nutrition', stage:'New Lead',              src:'EcomCircle',  lad:'2026-06-16', mtg:'',           next:'Send intro / CRO audit',            i:'N',fu1:'N',fu2:'N'},
   {n:'Anna Rodhe',           co:'Petite Pommes',     stage:'New Lead',              src:'EcomCircle',  lad:'2026-05-26', mtg:'2026-07-01', next:'Send FU1 nurture (meeting Jul 1)',   i:'Y',fu1:'N',fu2:'N'},
   // In Progress (CRM status: Opportunity - Working)
   {n:'Alexandra Mamalider',  co:'Traditions',        stage:'Opportunity - Working', src:'EcomCircle',  lad:'2026-06-10', mtg:'',           next:'Book discovery call',               i:'Y',fu1:'N',fu2:'N'},
