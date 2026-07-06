@@ -258,26 +258,39 @@ const DEMO_GOALS = {
 };
 
 const DEMO_TODOS = [
+  // Cold Email — Daily
   {id:'ce-d-1', t:'Provide Rhythm with verified contact batch (100–200 contacts)',  ch:'Cold Email',  tp:'Daily',    ow:'Salama', hi:true,  due:''},
   {id:'ce-d-2', t:'Run new contacts through Emailable before sending',              ch:'Cold Email',  tp:'Daily',    ow:'Salama', hi:true,  due:''},
   {id:'ce-d-3', t:'Check cold email analytics from Rhythm (open rate, bounces)',    ch:'Cold Email',  tp:'Daily',    ow:'Salama', hi:false, due:''},
   {id:'ce-d-4', t:'Cross-check new contacts against already-sent list',             ch:'Cold Email',  tp:'Daily',    ow:'Salama', hi:false, due:''},
-  {id:'ce-o-1', t:"Get Rhythm's tracker with nurture stage breakdown",              ch:'Cold Email',  tp:'One-Time', ow:'Salama', hi:true,  due:'2026-06-30'},
+  {id:'ce-d-5', t:'Sort contacts by email type — gmail priority, then Microsoft',   ch:'Cold Email',  tp:'Daily',    ow:'Salama', hi:true,  due:''},
+  // Cold Email — One-Time
+  {id:'ce-o-1', t:"Get Rhythm's tracker with nurture stage breakdown",              ch:'Cold Email',  tp:'One-Time', ow:'Salama', hi:true,  due:''},
   {id:'ce-o-2', t:'Resolve grace@growisto.io spam issue (warmup strategy)',         ch:'Cold Email',  tp:'One-Time', ow:'Salama', hi:true,  due:''},
-  {id:'ce-o-3', t:'Confirm contact sourcing from expanded StoreLeads filters',      ch:'Cold Email',  tp:'One-Time', ow:'Salama', hi:false, due:''},
+  {id:'ce-o-3', t:'Get estimate for how many contacts Rhythm requires (align with Anurag on Sam bandwidth)', ch:'Cold Email', tp:'One-Time', ow:'Salama', hi:true, due:''},
+  {id:'ce-o-4', t:'Send Shivam the contacts list (Monthly Engaged + unique)',        ch:'Cold Email',  tp:'One-Time', ow:'Salama', hi:true,  due:''},
+  {id:'ce-o-5', t:'Finalize Sync Agency',                                           ch:'Cold Email',  tp:'One-Time', ow:'Salama', hi:false, due:''},
+  // Newsletter — Daily
   {id:'nl-d-1', t:"Check Dhanak's email for lead replies from newsletter",          ch:'Newsletter',  tp:'Daily',    ow:'Salama', hi:true,  due:''},
   {id:'nl-d-2', t:'Check if any meeting within 48h → send FU1 nurture',            ch:'Newsletter',  tp:'Daily',    ow:'Salama', hi:true,  due:''},
   {id:'nl-d-3', t:'Check if any meeting within 24h → send FU2 nurture',            ch:'Newsletter',  tp:'Daily',    ow:'Salama', hi:true,  due:''},
   {id:'nl-d-4', t:'Check lead magnet replies needing audit (respond within 24h)',   ch:'Newsletter',  tp:'Daily',    ow:'Salama', hi:true,  due:''},
   {id:'nl-d-5', t:'Update CRM sheet with new bookings / stage changes',             ch:'Newsletter',  tp:'Daily',    ow:'Salama', hi:false, due:''},
+  // Newsletter — Weekly
   {id:'nl-w-1', t:'Get click data from Rhythm after each newsletter send',          ch:'Newsletter',  tp:'Weekly',   ow:'Salama', hi:false, due:''},
   {id:'nl-w-2', t:'Review content calendar for upcoming newsletters',               ch:'Newsletter',  tp:'Weekly',   ow:'Salama', hi:false, due:''},
   {id:'nl-w-3', t:'Send images/examples to Avdhoot for next article',              ch:'Newsletter',  tp:'Weekly',   ow:'Salama', hi:false, due:''},
   {id:'nl-w-4', t:"Check Nitin's cal.com slots — confirm US time coverage (till 1am IST)", ch:'Newsletter', tp:'Weekly', ow:'Salama', hi:false, due:''},
-  {id:'nl-o-1', t:'Send nurture responses to 5 new leads from June 29 newsletter',  ch:'Newsletter',  tp:'One-Time', ow:'Salama', hi:true,  due:'2026-06-30'},
-  {id:'nl-o-2', t:'Finalize ecomcoffeebreak partnership (Anurag approval pending)', ch:'Newsletter',  tp:'One-Time', ow:'Anurag', hi:false, due:''},
-  {id:'nl-o-3', t:"Get next month's newsletter topics approved by Anurag",          ch:'Newsletter',  tp:'One-Time', ow:'Salama', hi:false, due:''},
-  {id:'nl-o-4', t:'Confirm Shopify Plus article topic with Anurag/Rhythm',          ch:'Newsletter',  tp:'One-Time', ow:'Salama', hi:false, due:''},
+  {id:'nl-w-5', t:'Ask SEO team for website performance update',                    ch:'Newsletter',  tp:'Weekly',   ow:'Salama', hi:false, due:''},
+  // Newsletter — One-Time
+  {id:'nl-o-1', t:'Create lead magnet v1 for Amazon audit + CRO audit offerings',   ch:'Newsletter',  tp:'One-Time', ow:'Salama', hi:true,  due:''},
+  {id:'nl-o-2', t:'Send lead magnet copy to Anurag for review',                     ch:'Newsletter',  tp:'One-Time', ow:'Salama', hi:true,  due:''},
+  {id:'nl-o-3', t:'Write lead nurturer email for Isha — send to sales marketing',   ch:'Newsletter',  tp:'One-Time', ow:'Salama', hi:true,  due:''},
+  {id:'nl-o-4', t:'Send Shopify Plus page to Vikas + Shiv for review',             ch:'Newsletter',  tp:'One-Time', ow:'Salama', hi:false, due:''},
+  {id:'nl-o-5', t:'Send TikTok page to Srishti + SEO team for review',             ch:'Newsletter',  tp:'One-Time', ow:'Salama', hi:false, due:''},
+  {id:'nl-o-6', t:'Send TikTok slide to Nitin Kiran for US deck',                  ch:'Newsletter',  tp:'One-Time', ow:'Salama', hi:false, due:''},
+  {id:'nl-o-7', t:'Send plan for next set of website pages to Anurag',             ch:'Newsletter',  tp:'One-Time', ow:'Salama', hi:false, due:''},
+  {id:'nl-o-8', t:'Finalize ecomcoffeebreak partnership (Anurag approval pending)', ch:'Newsletter',  tp:'One-Time', ow:'Anurag', hi:false, due:''},
 ];
 
 // ── STATE ────────────────────────────────────────────────────
