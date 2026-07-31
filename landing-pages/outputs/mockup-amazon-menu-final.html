@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon Marketing Menu — Final (Flat 3-Column)</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F1F3D;
+    --orange:#E35D34;
+    --hover-bg:#FEF3EC;
+    --text:#1B1B2F;
+    --grey:#6B7280;
+    --grey-lt:#E8EAED;
+    --white:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Poppins',sans-serif;background:#F4F5F7;color:var(--text);padding:40px 24px 80px}
+  .wrap{max-width:1240px;margin:0 auto}
+  h1{font-size:26px;font-weight:700;color:var(--navy);margin-bottom:8px}
+  .sub{color:var(--grey);font-size:14px;margin-bottom:32px;max-width:800px;line-height:1.6}
+
+  /* ---- nav shell ---- */
+  .navshell{background:var(--white);border:1px solid var(--grey-lt);border-radius:8px;overflow:hidden;box-shadow:0 2px 10px rgba(15,31,61,.05);margin-bottom:44px}
+  .navbar{display:flex;align-items:center;gap:34px;padding:18px 28px;border-bottom:1px solid #F1F2F4}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:17px;color:var(--navy);margin-right:auto}
+  .logo i{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#2B7A8B,#1B4C77);display:inline-block}
+  .navlink{font-size:14px;font-weight:600;color:var(--navy);white-space:nowrap}
+  .navlink.active{color:var(--orange);border-bottom:2px solid var(--orange);padding-bottom:16px;margin-bottom:-18px}
+  .navcta{background:var(--orange);color:#fff;font-size:13px;font-weight:600;padding:11px 20px;border-radius:5px;white-space:nowrap}
+
+  /* ---- dropdown ---- */
+  .dd{display:flex;border:1px solid var(--grey-lt);border-radius:10px;margin:22px 28px 30px;overflow:hidden}
+  .rail{width:290px;flex:none;border-right:1px solid var(--grey-lt);padding:14px 0}
+  .rail-item{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;font-size:14.5px;font-weight:600;color:var(--navy);text-decoration:none}
+  .rail-item.on{background:var(--hover-bg);color:var(--orange)}
+  .rail-item span{opacity:.5;font-size:13px}
+  .panel{flex:1;padding:26px 32px}
+
+  .panel-h{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:14px}
+  .divline{height:1px;background:var(--grey-lt);margin:0 0 18px}
+  .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 34px}
+  .lnk{display:block;font-size:14px;font-weight:500;color:var(--navy);line-height:1.45;padding:8px 0;text-decoration:none}
+  .lnk:hover{color:var(--orange)}
+
+  /* ---- spec blocks ---- */
+  .card{background:#fff;border:1px solid var(--grey-lt);border-radius:8px;padding:24px 28px;margin-bottom:24px}
+  .card h2{font-size:16px;color:var(--navy);margin-bottom:14px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{text-align:left;font-weight:600;color:var(--navy);border-bottom:1px solid var(--grey-lt);padding:8px 10px 8px 0}
+  td{padding:8px 10px 8px 0;border-bottom:1px solid #F3F4F6;color:var(--text);vertical-align:top}
+  td.n{color:var(--grey);width:34px}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;background:#F3F4F6;padding:2px 6px;border-radius:3px;color:#0F1F3D}
+  pre{background:#0F1F3D;color:#E8EAED;font-family:ui-monospace,Menlo,monospace;font-size:12px;line-height:1.65;padding:20px 22px;border-radius:8px;overflow-x:auto}
+  pre .t{color:#7DD3E0}
+  pre .a{color:#F5B731}
+  pre .c{color:#8B93A5;font-style:italic}
+  ul{margin:0 0 0 18px}
+  li{font-size:13.5px;line-height:1.75;margin-bottom:6px}
+  .flag{background:#FEF3EC;border-left:4px solid var(--orange);border-radius:6px;padding:16px 20px;font-size:13.5px;line-height:1.7;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Amazon Marketing Menu — Final Layout</h1>
+  <p class="sub">Flat 3-column list, no headers of any kind. 11 links at 4 / 4 / 3. Uses the same dropdown shell, type sizes, and hover states as the Ecommerce Website Development menu — nothing new for the dev to build.</p>
+
+  <div class="navshell">
+    <div class="navbar">
+      <div class="logo"><i></i>Growisto</div>
+      <div class="navlink active">Our Services</div>
+      <div class="navlink">Industries</div><div class="navlink">Our Clients</div>
+      <div class="navlink">Resources</div><div class="navlink">About Us</div><div class="navlink">Careers</div>
+      <div class="navcta">Book a Strategy Call</div>
+    </div>
+    <div class="dd">
+      <div class="rail">
+        <div class="rail-item">Ecommerce Website Development <span>›</span></div>
+        <a class="rail-item on" href="https://www.growisto.com/amazon-marketing/" target="_blank">Amazon Marketing <span>›</span></a>
+        <div class="rail-item">GEO, AIO &amp; SEO</div>
+        <div class="rail-item">Data Engineering &amp; Business Intelligence</div>
+      </div>
+      <div class="panel">
+        <div class="cols">
+          <div>
+            <a class="lnk" target="_blank" href="https://www.growisto.com/amazon-marketing/marketplace-consulting-services/">Amazon Consulting</a>
+            <a class="lnk" target="_blank" href="https://www.growisto.com/amazon-marketing/amazon-seller-central-consultant/">Seller Central Consulting</a>
+            <a class="lnk" target="_blank" href="https://www.growisto.com/amazon-marketing/amazon-vendor-central-consultant/">Vendor Central Consulting</a>
+            <a class="lnk" target="_blank" href="https://www.growisto.com/amazon-marketing/amazon-coaching/">Amazon Coaching</a>
+          </div>
+          <div>
+            <a class="lnk" target="_blank" href="https://www.growisto.com/amazon-marketing/amazon-ads-strategy/">Amazon Ads Strategy</a>
+            <a class="lnk" target="_blank" href="https://www.growisto.com/amazon-marketing/market-entry-strategy/">Amazon Product Launch</a>
+            <a class="lnk" target="_blank" href="https://www.growisto.com/amazon-marketing/amazon-store-setup-service/">Amazon Store Setup</a>
+            <a class="lnk" target="_blank" href="https://www.growisto.com/amazon-marketing/account-management/">Amazon Account Management</a>
+          </div>
+          <div>
+            <a class="lnk" target="_blank" href="https://www.growisto.com/amazon-marketing/content-creation/">Amazon SEO</a>
+            <a class="lnk" target="_blank" href="https://www.growisto.com/amazon-marketing/amazon-listing-optimization-service/">Amazon Listing Optimization</a>
+            <a class="lnk" target="_blank" href="https://www.growisto.com/amazon-marketing/amazon-a-plus-content-services/">A+ Content Services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Link order (top to bottom, left to right)</h2>
+    <table>
+      <tr><th class="n">#</th><th style="width:31%">Column 1</th><th style="width:31%">Column 2</th><th>Column 3</th></tr>
+      <tr><td class="n">1</td><td>Amazon Consulting</td><td>Amazon Ads Strategy</td><td>Amazon SEO</td></tr>
+      <tr><td class="n">2</td><td>Seller Central Consulting</td><td>Amazon Product Launch</td><td>Amazon Listing Optimization</td></tr>
+      <tr><td class="n">3</td><td>Vendor Central Consulting</td><td>Amazon Store Setup</td><td>A+ Content Services</td></tr>
+      <tr><td class="n">4</td><td>Amazon Coaching</td><td>Amazon Account Management</td><td>—</td></tr>
+    </table>
+    <div class="flag"><b>Note on the order:</b> even without visible headers, each column is clustered by theme — consulting in column 1, ads &amp; account work in column 2, content &amp; SEO in column 3. The eye reads the grouping without needing labels, so don't re-shuffle these into alphabetical order.</div>
+  </div>
+
+  <div class="card">
+    <h2>Label → URL map <span style="font-weight:400;color:#6B7280;font-size:13px">(all verified 200, no redirects)</span></h2>
+    <table>
+      <tr><th style="width:30%">Menu label</th><th>Path (all under <code>/amazon-marketing/</code>)</th></tr>
+      <tr><td>Amazon Consulting</td><td><code>marketplace-consulting-services/</code></td></tr>
+      <tr><td>Seller Central Consulting</td><td><code>amazon-seller-central-consultant/</code></td></tr>
+      <tr><td>Vendor Central Consulting</td><td><code>amazon-vendor-central-consultant/</code></td></tr>
+      <tr><td>Amazon Coaching</td><td><code>amazon-coaching/</code></td></tr>
+      <tr><td>Amazon Ads Strategy</td><td><code>amazon-ads-strategy/</code></td></tr>
+      <tr><td>Amazon Product Launch</td><td><code>market-entry-strategy/</code> &nbsp;<span style="color:#E35D34">← slug ≠ label</span></td></tr>
+      <tr><td>Amazon Store Setup</td><td><code>amazon-store-setup-service/</code></td></tr>
+      <tr><td>Amazon Account Management</td><td><code>account-management/</code></td></tr>
+      <tr><td>Amazon SEO</td><td><code>content-creation/</code> &nbsp;<span style="color:#E35D34">← slug ≠ label</span></td></tr>
+      <tr><td>Amazon Listing Optimization</td><td><code>amazon-listing-optimization-service/</code></td></tr>
+      <tr><td>A+ Content Services</td><td><code>amazon-a-plus-content-services/</code></td></tr>
+      <tr><td style="color:#6B7280">Amazon Marketing <i>(left rail item)</i></td><td><code>/amazon-marketing/</code></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Dev notes</h2>
+    <ul>
+      <li><b>Panel structure:</b> identical to the Ecommerce Website Development panel — same left rail, same 3-column grid, same <code>34px</code> column gap. No panel header and no per-column headers; the links start at the top of the panel.</li>
+      <li><b>Link styling:</b> <code>14px</code> / weight <code>500</code> / navy, hover to orange. Slightly heavier than the Shopify sub-links because these are top-level links, not children.</li>
+      <li><b>Top alignment:</b> with no header row, the first link sits higher than the Shopify menu's first sub-link. Panel padding is <code>26px</code> top — nudge it if the two menus need to line up on hover-switch.</li>
+      <li><b>Naming:</b> "Account Management" renamed to <b>Amazon Account Management</b> so every link carries the prefix — matches the page's own H1.</li>
+      <li><b>Left rail:</b> "Amazon Marketing" should link to the <code>/amazon-marketing/</code> hub, matching how the rail behaves on the Ecommerce side.</li>
+      <li><b>Panel height:</b> 4-row columns fit in the same vertical space the current 4-link Amazon menu uses — no change needed to the dropdown shell or the nav's hover area.</li>
+      <li><b>Mobile:</b> the same 11 links stack as a single accordion list under "Amazon Marketing" — no columns below the tablet breakpoint.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Markup</h2>
+    <pre><span class="c">&lt;!-- Amazon Marketing dropdown panel --&gt;</span>
+&lt;<span class="t">div</span> <span class="a">class</span>=<span class="a">"menu-panel"</span>&gt;
+  &lt;<span class="t">div</span> <span class="a">class</span>=<span class="a">"menu-cols"</span>&gt;
+    &lt;<span class="t">ul</span>&gt;
+      &lt;<span class="t">li</span>&gt;&lt;<span class="t">a</span> <span class="a">href</span>=<span class="a">"/amazon-marketing/marketplace-consulting-services/"</span>&gt;Amazon Consulting&lt;/<span class="t">a</span>&gt;&lt;/<span class="t">li</span>&gt;
+      &lt;<span class="t">li</span>&gt;&lt;<span class="t">a</span> <span class="a">href</span>=<span class="a">"/amazon-marketing/amazon-seller-central-consultant/"</span>&gt;Seller Central Consulting&lt;/<span class="t">a</span>&gt;&lt;/<span class="t">li</span>&gt;
+      &lt;<span class="t">li</span>&gt;&lt;<span class="t">a</span> <span class="a">href</span>=<span class="a">"/amazon-marketing/amazon-vendor-central-consultant/"</span>&gt;Vendor Central Consulting&lt;/<span class="t">a</span>&gt;&lt;/<span class="t">li</span>&gt;
+      &lt;<span class="t">li</span>&gt;&lt;<span class="t">a</span> <span class="a">href</span>=<span class="a">"/amazon-marketing/amazon-coaching/"</span>&gt;Amazon Coaching&lt;/<span class="t">a</span>&gt;&lt;/<span class="t">li</span>&gt;
+    &lt;/<span class="t">ul</span>&gt;
+    &lt;<span class="t">ul</span>&gt;
+      &lt;<span class="t">li</span>&gt;&lt;<span class="t">a</span> <span class="a">href</span>=<span class="a">"/amazon-marketing/amazon-ads-strategy/"</span>&gt;Amazon Ads Strategy&lt;/<span class="t">a</span>&gt;&lt;/<span class="t">li</span>&gt;
+      &lt;<span class="t">li</span>&gt;&lt;<span class="t">a</span> <span class="a">href</span>=<span class="a">"/amazon-marketing/market-entry-strategy/"</span>&gt;Amazon Product Launch&lt;/<span class="t">a</span>&gt;&lt;/<span class="t">li</span>&gt;
+      &lt;<span class="t">li</span>&gt;&lt;<span class="t">a</span> <span class="a">href</span>=<span class="a">"/amazon-marketing/amazon-store-setup-service/"</span>&gt;Amazon Store Setup&lt;/<span class="t">a</span>&gt;&lt;/<span class="t">li</span>&gt;
+      &lt;<span class="t">li</span>&gt;&lt;<span class="t">a</span> <span class="a">href</span>=<span class="a">"/amazon-marketing/account-management/"</span>&gt;Amazon Account Management&lt;/<span class="t">a</span>&gt;&lt;/<span class="t">li</span>&gt;
+    &lt;/<span class="t">ul</span>&gt;
+    &lt;<span class="t">ul</span>&gt;
+      &lt;<span class="t">li</span>&gt;&lt;<span class="t">a</span> <span class="a">href</span>=<span class="a">"/amazon-marketing/content-creation/"</span>&gt;Amazon SEO&lt;/<span class="t">a</span>&gt;&lt;/<span class="t">li</span>&gt;
+      &lt;<span class="t">li</span>&gt;&lt;<span class="t">a</span> <span class="a">href</span>=<span class="a">"/amazon-marketing/amazon-listing-optimization-service/"</span>&gt;Amazon Listing Optimization&lt;/<span class="t">a</span>&gt;&lt;/<span class="t">li</span>&gt;
+      &lt;<span class="t">li</span>&gt;&lt;<span class="t">a</span> <span class="a">href</span>=<span class="a">"/amazon-marketing/amazon-a-plus-content-services/"</span>&gt;A+ Content Services&lt;/<span class="t">a</span>&gt;&lt;/<span class="t">li</span>&gt;
+    &lt;/<span class="t">ul</span>&gt;
+  &lt;/<span class="t">div</span>&gt;
+&lt;/<span class="t">div</span>&gt;</pre>
+    <div class="flag"><b>All 12 URLs verified live.</b> Every path above (plus the <code>/amazon-marketing/</code> hub) returns HTTP 200 with no redirects, checked 31 Jul 2026. Two slugs don't match their menu label — <code>/content-creation/</code> is the Amazon SEO page and <code>/market-entry-strategy/</code> is the Amazon Product Launch page — both confirmed against the pages' own H1s, so the labels are right and the slugs are just legacy.</div>
+  </div>
+
+</div>
+</body>
+</html>
