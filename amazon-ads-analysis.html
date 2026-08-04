@@ -112,7 +112,11 @@ h2.section-title { font-size: 32px; font-weight: 700; color: var(--navy); line-h
 .audit-row.reverse .audit-row-visual { order: 1; }
 .audit-row-num { font-size: 13px; font-weight: 700; color: var(--teal); letter-spacing: 1px; margin-bottom: 8px; }
 .audit-row-text h3 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
-.audit-row-text p { font-size: 14.5px; color: var(--text); line-height: 1.7; }
+.audit-row-text p { font-size: 14.5px; color: var(--text); line-height: 1.7; margin-bottom: 10px; }
+.audit-row-list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin: 10px 0 12px; }
+.audit-row-list li { font-size: 13.5px; color: var(--text); line-height: 1.55; padding-left: 16px; position: relative; }
+.audit-row-list li::before { content: '•'; color: var(--teal); font-weight: 700; position: absolute; left: 0; }
+.audit-row-how { font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: var(--grey); margin-top: 4px; }
 .reasons-close { font-size: 14px; color: var(--navy); font-weight: 600; text-align: center; margin: 8px 0 8px; }
 
 /* WHY CHOOSE GROWISTO COMPARISON */
@@ -220,7 +224,6 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
 </head>
 <body>
 
-<div class="review-banner">🔍 <b>Review Mockup</b> — content from amazon-ads-analysis-copy-doc.md · orange flags below mark items still pending</div>
 
 <div class="topbar">
   <div class="topbar-inner">
@@ -250,19 +253,19 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
   <div class="hero-inner">
     <div class="hero-left">
       <h1>Amazon Ads Analysis: See Every Click Turn Into a Sale</h1>
-      <p class="hero-tagline">Get a precision Amazon ads analysis from an agency that's audited 300+ brands — real analysts, not algorithms.</p>
+      <p class="hero-tagline">Get a precision Amazon ads analysis from an agency that's audited 300+ brands.</p>
       <div class="trust-badges">
         <span class="trust-badge"><span class="seal">🛡</span> SPN Verified Partner</span>
         <span class="trust-badge"><span class="seal">🛡</span> Amazon Ads Verified Partner</span>
         <span class="trust-badge"><span class="seal">✓</span> 50+ Certified Experts</span>
       </div>
-      <p class="hero-sub">A full-funnel audit that connects your ads to organic growth — from new-customer awareness to repeat purchases. Clear, prioritized insights, ranked by impact, across:</p>
+      <p class="hero-sub">A full-funnel view of your Amazon business: where customers enter, whether your channels are covered, and whether you're investing in the right places. Clear, prioritized outcomes, ranked by impact, across:</p>
       <ul class="hero-bullets">
-        <li><span class="check">✓</span> Your performance vs. competitor performance</li>
-        <li><span class="check">✓</span> Campaign structure and spend mix</li>
-        <li><span class="check">✓</span> Bidding and placement strategy</li>
-        <li><span class="check">✓</span> Search term efficiency</li>
-        <li><span class="check">✓</span> Full-funnel alignment</li>
+        <li><span class="check">✓</span> Market Share &amp; Competitor Analysis: your position vs. competitors, and where the category is moving.</li>
+        <li><span class="check">✓</span> Wasted Spend: how much spend isn't converting, and where.</li>
+        <li><span class="check">✓</span> Missed Opportunities: proven performers you haven't scaled yet.</li>
+        <li><span class="check">✓</span> Profitability &amp; Strategy: where more budget pays off, and if strategy lines up.</li>
+        <li><span class="check">✓</span> Future Growth: a revenue projection for the next 3 to 6 months, tied to specific actions.</li>
       </ul>
       <div class="hero-trust">Backed by 50+ Amazon-certified analysts and $2B+ in marketplace revenue managed.</div>
     </div>
@@ -271,7 +274,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
         <p>Get Your Free Amazon Ads Analysis</p>
       </div>
       <div class="hero-card-body">
-        <p style="font-size:12.5px;color:var(--grey);line-height:1.6;margin-bottom:14px;">We'll show you exactly where the problem is — ads, listings, or the gap between them.</p>
+        <p style="font-size:12.5px;color:var(--grey);line-height:1.6;margin-bottom:14px;">We'll show you exactly where the problem is: in ads, in listings, or in the gap between them.</p>
         <div class="form-field"><input type="text" placeholder="Your Name*"></div>
         <div class="form-field"><input type="email" placeholder="Work Email*"></div>
         <div class="form-field"><input type="text" placeholder="Company*"></div>
@@ -314,7 +317,6 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
   <div class="container centered">
     <div class="section-label">Proven Results</div>
     <h2 class="section-title">Our Track Record in Amazon Ads Analysis</h2>
-    <div class="note-flag">⚠ PENDING — confirm these 4 stats with ops before locking (see copy doc Section 3).</div>
     <div class="metrics-grid">
       <div class="metric-card"><div class="metric-val">$2B+</div><div class="metric-label">Amazon Ad Spend Analyzed</div></div>
       <div class="metric-card"><div class="metric-val">100+</div><div class="metric-label">Brands Audited</div></div>
@@ -340,21 +342,28 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
   <div class="container">
     <div class="section-label">What's Included</div>
     <h2 class="section-title">What Your Amazon Ads Audit Covers</h2>
-    <p class="section-sub">One audit, five areas.</p>
-    <div class="note-flag">⚠ PENDING — "Campaign Strategy" and "Ad Strategy" below cite specific findings (90%+, 95–100%) as recurring patterns. Confirm these hold generally, or soften to "often," before this goes live. Also — every row below has an image placeholder; drop a real screenshot/chart into each before this goes live (suggestion noted under each placeholder).</div>
+    <p class="section-sub">One audit, five outcomes. Together, they give you a full-funnel view: where customers enter, whether your channels are covered, and whether you're investing in the right places.</p>
     <div class="audit-rows">
 
       <div class="audit-row">
         <div class="audit-row-text">
           <div class="audit-row-num">01</div>
-          <h3>Competitor Analysis — Your Growth vs. Your Top Competitors</h3>
-          <p>You're losing search terms to competitors, and you can't see it. We show you their ad placements, listing tactics, and your exact share-of-voice gap, term by term. You get specific moves to act on — not a "watch your competitors" generality.</p>
+          <h3>Market Share &amp; Competitor Analysis: Your Right to Win</h3>
+          <p>Know where you stand against competitors, and where the category is moving.</p>
+          <div class="audit-row-how">How we find it</div>
+          <ul class="audit-row-list">
+            <li>Compare your sales and market share against named competitors in your category.</li>
+            <li>Check how fast the category itself is growing, and who the new entrants are.</li>
+            <li>Check your organic search ranking against category leaders, on the terms that matter most.</li>
+            <li>Flag category-level product opportunities you haven't launched yet, like a different size or variant.</li>
+          </ul>
+          <p><b>You get:</b> your real market share, category context, and where the actual fight is.</p>
         </div>
         <div class="audit-row-visual">
           <div class="visual-placeholder">
             <div class="icon">📊</div>
-            <div class="label">Share-of-Voice / Competitor Benchmark Chart</div>
-            <div class="hint">e.g. your ranking vs. named competitors on a top search term</div>
+            <div class="label">Market Share / Competitor Benchmark Chart</div>
+            <div class="hint">e.g. your ranking vs. named competitors on a top search term, or category share by price bracket</div>
           </div>
         </div>
       </div>
@@ -362,14 +371,22 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
       <div class="audit-row reverse">
         <div class="audit-row-text">
           <div class="audit-row-num">02</div>
-          <h3>Campaign Strategy — The Right Ratio of Ads for Your Campaigns</h3>
-          <p>Is your spend mix matched to what actually converts? We check Sponsored Products, Brands, and Display against where sales come from — and flag over-concentration (often 90%+ sitting in one type). You get a campaign structure rebuilt around what's working.</p>
+          <h3>Wasted Spend &amp; Spend Efficiency: Where Your Money Isn't Working</h3>
+          <p>Know exactly how much ad spend is being wasted, and where.</p>
+          <div class="audit-row-how">How we find it</div>
+          <ul class="audit-row-list">
+            <li>Compare your spend and results by category and by placement, to see where they don't match.</li>
+            <li>Check how your budget is split across ad types, like Sponsored Products versus Sponsored Brands and Display, and whether that split makes sense.</li>
+            <li>Find search terms getting clicks that never lead to a sale.</li>
+            <li>Check whether your bidding strategy is actively controlling costs, or left on autopilot.</li>
+          </ul>
+          <p><b>You get:</b> a dollar figure on wasted spend, ready to cut.</p>
         </div>
         <div class="audit-row-visual">
           <div class="visual-placeholder">
             <div class="icon">📊</div>
-            <div class="label">Campaign Spend-Mix Chart</div>
-            <div class="hint">e.g. donut/bar chart — SP vs. SB vs. SD spend share</div>
+            <div class="label">Wasted Spend Breakdown Chart</div>
+            <div class="hint">e.g. dollars wasted by search term or placement, and ad-type spend-mix chart</div>
           </div>
         </div>
       </div>
@@ -377,14 +394,22 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
       <div class="audit-row">
         <div class="audit-row-text">
           <div class="audit-row-num">03</div>
-          <h3>Ad Strategy — Bidding and Placement That Actually Perform</h3>
-          <p>Is your bidding and targeting tested, or just set and forgotten? We check your strategy against Top of Search, Rest of Search, and Product Page performance. You get one specific setup to test, backed by the gap already visible in your own data.</p>
+          <h3>Missed Opportunities: What You Haven't Captured Yet</h3>
+          <p>See what's already working that you haven't scaled.</p>
+          <div class="audit-row-how">How we find it</div>
+          <ul class="audit-row-list">
+            <li>Find search terms already converting well in broad or automatic campaigns, and move them into campaigns you can control more tightly.</li>
+            <li>Find high-intent search terms you're barely advertising on, or not advertising on at all.</li>
+            <li>Find products or categories with strong organic sales but little to no ad support.</li>
+            <li>Find easy wins, like cross-selling between your own products, that aren't being used enough.</li>
+          </ul>
+          <p><b>You get:</b> a list of proven performers you're not funding enough, or at all.</p>
         </div>
         <div class="audit-row-visual">
           <div class="visual-placeholder">
             <div class="icon">📊</div>
-            <div class="label">Placement Performance Chart</div>
-            <div class="hint">e.g. Top of Search vs. Rest of Search vs. Product Pages, by ACoS/CVR</div>
+            <div class="label">Underfunded Performers View</div>
+            <div class="hint">e.g. high-converting terms or products not yet scaled, ranked by upside</div>
           </div>
         </div>
       </div>
@@ -392,14 +417,23 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
       <div class="audit-row reverse">
         <div class="audit-row-text">
           <div class="audit-row-num">04</div>
-          <h3>Search Term Audit — Where Your Budget Is Actually Going</h3>
-          <p>Wasted spend hides in plain sight. We score every search term Good, Medium, Bad, or Not Performing, and show exactly how much is stuck on non-converters. You get a term-by-term list: what to cut, protect, and scale.</p>
+          <h3>Profitability &amp; Strategic Alignment: Is Your Ad Spend Funding the Business You Want</h3>
+          <p>Know if your ad spend is actually funding your business goals.</p>
+          <div class="audit-row-how">How we find it</div>
+          <ul class="audit-row-list">
+            <li>Break down your ad cost and return by keyword type, like your own brand name versus generic search terms.</li>
+            <li>Check which specific products give you the best return on ad spend, so you know where to put more budget.</li>
+            <li>Check whether your ad campaigns are actually built around your business and brand strategy, not just running on their own.</li>
+            <li>Check how dependent your sales are on people already searching for your brand, versus new customers finding you for the first time.</li>
+            <li>Check whether you're only capturing today's demand, or also preparing for what's ahead, like future growth and seasonal sale events.</li>
+          </ul>
+          <p><b>You get:</b> a profitability read, not just a performance read.</p>
         </div>
         <div class="audit-row-visual">
           <div class="visual-placeholder">
             <div class="icon">📊</div>
-            <div class="label">Search Term Scorecard</div>
-            <div class="hint">e.g. the Good/Medium/Bad/Not Performing table, with spend vs. sales share</div>
+            <div class="label">Profitability Breakdown Chart</div>
+            <div class="hint">e.g. ROI by product, or ad cost/return by keyword type</div>
           </div>
         </div>
       </div>
@@ -407,20 +441,27 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
       <div class="audit-row">
         <div class="audit-row-text">
           <div class="audit-row-num">05</div>
-          <h3>Full-Funnel Audit — Ads, Listings, and Organic, Working Together</h3>
-          <p>Ads and organic run separately, so you can't tell if spend is masking a listing gap. We check where ad spend is propping up a weak listing, and which paid terms could rank organically instead. You get one connected view — not a report that stops at ACoS.</p>
+          <h3>Future Growth: Your Next 3 to 6 Months, Projected</h3>
+          <p>See what your account could look like if you act on the audit.</p>
+          <div class="audit-row-how">How we find it</div>
+          <ul class="audit-row-list">
+            <li>Build a month by month growth plan, grounded in the specific, minimum actions this audit recommends, not a general estimate.</li>
+            <li>Model two paths: a steady plan and a faster, higher-investment plan, so you can choose the pace.</li>
+            <li>Set targets against your own current numbers, not generic industry benchmarks.</li>
+          </ul>
+          <p><b>You get:</b> a real revenue projection, tied to a plan, not a guess.</p>
         </div>
         <div class="audit-row-visual">
           <div class="visual-placeholder">
             <div class="icon">📊</div>
-            <div class="label">Ads-to-Organic Overlap View</div>
-            <div class="hint">e.g. paid vs. organic rank by keyword, or the listing-gap callout</div>
+            <div class="label">Growth Projection Chart</div>
+            <div class="hint">e.g. month-by-month plan, steady vs. aggressive scenarios</div>
           </div>
         </div>
       </div>
 
     </div>
-    <p class="reasons-close">Every audit ends with a roadmap: quick wins, growth moves, and a projected outcome.</p>
+    <p class="reasons-close">Every pillar above comes with a plan, not just a finding. You get quick wins in the first 30 days, and growth moves over the next 90, mapped directly to the Future Growth projection above.</p>
     <div style="text-align:center;margin-top:24px;">
       <a href="#hero-form" class="btn-orange" style="display:inline-block;width:auto;padding:16px 36px;text-decoration:none">See Your Full Audit Breakdown →</a>
     </div>
@@ -434,7 +475,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
       <div style="background:var(--white);border-radius:12px;padding:44px 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
         <div>
           <h2 style="font-size:25px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:14px;">Ready to Find Out What Your Ad Spend Is Really Doing?</h2>
-          <p style="font-size:14px;color:var(--text);line-height:1.7;margin-bottom:0;">We'll run the same audit on your account — free, no commitment.</p>
+          <p style="font-size:14px;color:var(--text);line-height:1.7;margin-bottom:0;">We'll run the same audit on your account: market share, wasted spend, missed opportunities, profitability, and future growth. Free, no commitment.</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:12px;">
           <input type="text" placeholder="Your Name*" style="width:100%;padding:13px 16px;border:1.5px solid var(--grey-lt);border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;color:var(--navy);outline:none;">
@@ -454,7 +495,6 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
   <div class="container centered">
     <div class="section-label">Client Testimonials</div>
     <h2 class="section-title">What Our Clients Say</h2>
-    <div class="note-flag" style="text-align:left;max-width:900px;margin:0 auto 24px;">⚠ Sourced from the GrowistoAI Wiki's per-brand Testimonial notes. The Nobero-Testimonial record in the wiki lists the person as "Bala Krishna" — confirmed incorrect; the correct name is Bala Satish. Corrected here; the wiki record itself still needs fixing on your end.</div>
     <div class="testi-grid">
       <div class="testi-card">
         <div class="testi-quote-mark">&ldquo;</div>
@@ -513,7 +553,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
     <div class="faq-list">
       <div class="faq-item open">
         <div class="faq-q"><h3>What's included in an Amazon PPC audit?</h3><span class="faq-toggle">+</span></div>
-        <div class="faq-a"><p>Campaign structure, spend mix, placement and bidding, search terms, keyword efficiency, and a listing-level check where relevant. A prioritized roadmap, not just a list of issues.</p></div>
+        <div class="faq-a"><p>Market share vs. competitors, wasted spend, missed opportunities, profitability and strategic alignment, and a future growth projection. All full-funnel: ads, listings, and organic checked together. A prioritized plan, not just a list of issues.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q"><h3>How is an ads audit different from full PPC management?</h3><span class="faq-toggle">+</span></div>
@@ -521,15 +561,15 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
       </div>
       <div class="faq-item">
         <div class="faq-q"><h3>How much does an Amazon ads audit cost?</h3><span class="faq-toggle">+</span></div>
-        <div class="faq-a"><div class="note-flag">⚠ PENDING — confirm pricing (free vs. paid tier) before publishing.</div></div>
+        <div class="faq-a"></div>
       </div>
       <div class="faq-item">
         <div class="faq-q"><h3>How long does an audit take?</h3><span class="faq-toggle">+</span></div>
-        <div class="faq-a"><div class="note-flag">⚠ PENDING — confirm turnaround time before publishing.</div></div>
+        <div class="faq-a"></div>
       </div>
       <div class="faq-item">
         <div class="faq-q"><h3>Do you need account access to run an audit?</h3><span class="faq-toggle">+</span></div>
-        <div class="faq-a"><div class="note-flag">⚠ PENDING — confirm whether Seller Central / Ads Console access is required.</div></div>
+        <div class="faq-a"></div>
       </div>
       <div class="faq-item">
         <div class="faq-q"><h3>Do you handle keyword research as part of the audit?</h3><span class="faq-toggle">+</span></div>
@@ -537,14 +577,13 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
       </div>
       <div class="faq-item">
         <div class="faq-q"><h3>Do you support multiple marketplaces?</h3><span class="faq-toggle">+</span></div>
-        <div class="faq-a"><div class="note-flag">⚠ PENDING — confirm supported marketplaces before publishing.</div></div>
+        <div class="faq-a"></div>
       </div>
       <div class="faq-item">
         <div class="faq-q"><h3>Why choose Growisto for an Amazon ads audit?</h3><span class="faq-toggle">+</span></div>
         <div class="faq-a"><p>The analysts on your audit are the same team managing $2B+ in live Amazon ad spend — a real account review, not a generic report.</p></div>
       </div>
     </div>
-    <div class="note-flag" style="margin-top:24px;">⚠ OPEN QUESTION — Pattern's own reference page has no FAQ section at all. Keep this trimmed FAQ as pre-CTA objection handling, or cut it entirely to match Pattern more closely?</div>
   </div>
 </section>
 
