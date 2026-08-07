@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TikTok Shop Management Services — Growisto</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy:    #0F1F3D;
+  --teal:    #2B7A8B;
+  --teal-lt: #E6F4F6;
+  --mint:    #EBF5F4;
+  --orange:  #E35D34;
+  --orange-h:#C94D28;
+  --dark:    #1A1A2E;
+  --text:    #3D3D4E;
+  --grey:    #6B7280;
+  --grey-lt: #E8EAED;
+  --white:   #FFFFFF;
+  --card-bg: #F9FAFB;
+  --gold:    #F5B731;
+  --purple:  #6C4BA6;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Poppins', sans-serif; color: var(--text); background: var(--white); }
+
+.mockup-banner { background:#111; color:#fff; text-align:center; padding:8px 16px; font-size:12px; font-family:'Poppins',sans-serif; letter-spacing:.5px; }
+.mockup-banner b { color: var(--gold); }
+
+/* ── TOP BAR ── */
+.topbar { background: var(--navy); padding: 7px 0; font-size: 12px; color: rgba(255,255,255,0.75); }
+.topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 48px; display: flex; align-items: center; gap: 28px; }
+.topbar a { color: rgba(255,255,255,0.75); text-decoration: none; }
+.topbar a:hover { color: #fff; }
+
+/* ── NAV ── */
+nav { background: var(--white); border-bottom: 1px solid var(--grey-lt); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 48px; height: 60px; display: flex; align-items: center; gap: 0; }
+.nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; margin-right: 40px; }
+.nav-logo span { font-size: 20px; font-weight: 700; color: var(--navy); }
+.nav-links { display: flex; gap: 24px; flex: 1; }
+.nav-links a { font-size: 13px; font-weight: 500; color: var(--text); text-decoration: none; transition: color .2s; }
+.nav-links a:hover { color: var(--teal); }
+.nav-cta { background: var(--orange); color: var(--white); font-size: 13px; font-weight: 600; padding: 9px 20px; border-radius: 6px; text-decoration: none; white-space: nowrap; transition: background .2s; }
+.nav-cta:hover { background: var(--orange-h); }
+
+/* ── HERO ── */
+.hero { background: var(--mint); padding: 48px 0 0; }
+.hero-inner { max-width: 1280px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: start; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(43,122,139,0.1); border: 1px solid rgba(43,122,139,0.25); color: var(--teal); font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+.hero h1 { font-size: 42px; font-weight: 700; line-height: 1.18; color: var(--navy); margin-bottom: 16px; }
+.hero-tagline { font-size: 18px; font-weight: 700; color: var(--teal); margin-bottom: 12px; max-width: 560px; line-height: 1.4; }
+.hero-differentiator { font-size: 15px; font-weight: 600; color: var(--navy); background: var(--teal-lt); border-left: 3px solid var(--teal); border-radius: 0 8px 8px 0; padding: 12px 16px; margin-bottom: 20px; max-width: 560px; line-height: 1.55; }
+.hero-sub { font-size: 15px; line-height: 1.7; color: var(--text); margin-bottom: 24px; max-width: 560px; }
+.hero-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.hero-bullets li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text); line-height: 1.5; }
+.hero-bullets li .check { width: 20px; height: 20px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; color: #fff; font-size: 11px; }
+.hero-badges { display: flex; gap: 10px; flex-wrap: wrap; padding-bottom: 40px; }
+.badge { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 8px; padding: 8px 14px; font-size: 11px; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 6px; }
+.badge-dot { width: 6px; height: 6px; background: var(--teal); border-radius: 50%; }
+
+.hero-card { background: var(--white); border-radius: 14px; box-shadow: 0 8px 40px rgba(15,31,61,0.12); overflow: hidden; position: sticky; top: 72px; margin-top: -8px; }
+.hero-card-top { background: var(--teal); padding: 16px 24px; }
+.hero-card-top p { font-size: 16px; font-weight: 700; color: var(--white); line-height: 1.3; text-align: center; }
+.hero-card-body { padding: 20px 24px 24px; }
+.form-field { margin-bottom: 10px; }
+.form-field input { width: 100%; padding: 11px 14px; border: 1.5px solid var(--grey-lt); border-radius: 7px; font-family: 'Poppins', sans-serif; font-size: 13px; color: var(--dark); background: var(--white); outline: none; transition: border-color .2s; }
+.form-field input:focus { border-color: var(--teal); }
+.form-field input::placeholder { color: #aab0ba; }
+.btn-orange { display: block; width: 100%; padding: 16px; background: var(--orange); color: var(--white); font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; border: none; border-radius: 7px; cursor: pointer; text-align: center; transition: background .2s, box-shadow .2s; text-decoration: none; margin-top: 4px; letter-spacing: 0.2px; }
+.btn-orange:hover { background: var(--orange-h); box-shadow: 0 4px 16px rgba(227,93,52,0.3); }
+.form-note { text-align: center; font-size: 11px; color: var(--grey); margin-top: 8px; }
+.form-guarantee { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 11px; color: var(--teal); font-weight: 500; margin-top: 10px; }
+
+/* ── TRUST STRIP ── */
+.trust-strip { background: var(--white); border-top: 1px solid var(--grey-lt); padding: 20px 0; }
+.trust-strip-inner { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+.trust-strip h2 { text-align: center; font-size: 12px; font-weight: 600; color: var(--grey); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.logo-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; }
+.logo-chip { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 8px; padding: 8px 16px; font-size: 12px; font-weight: 600; color: var(--grey); white-space: nowrap; }
+
+/* ── SHARED SECTION STYLES ── */
+.section { padding: 64px 0; }
+.section-alt { background: var(--card-bg); }
+.section-dark { background: var(--navy); }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+.section-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+h2.section-title { font-size: 34px; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: 12px; }
+.section-sub { font-size: 15px; color: var(--grey); line-height: 1.7; max-width: 700px; margin-bottom: 44px; }
+.centered { text-align: center; }
+.centered .section-sub { margin-left: auto; margin-right: auto; }
+
+/* ── WORKS GRID (How TikTok Shop Works) ── */
+.works-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.works-card { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 12px; padding: 28px 24px; border-top: 3px solid var(--teal); }
+.works-num { width: 44px; height: 44px; background: var(--teal-lt); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: var(--teal); margin-bottom: 16px; }
+.works-card h3 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 10px; line-height: 1.4; }
+.works-card p { font-size: 13px; color: var(--text); line-height: 1.7; }
+
+/* ── AFFILIATE PROGRAM CARDS ── */
+.aff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 20px; }
+.aff-card { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 12px; padding: 22px; }
+.aff-card h3 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+.aff-card p { font-size: 13px; color: var(--text); line-height: 1.65; }
+.aff-note { display: flex; align-items: flex-start; gap: 8px; background: var(--teal-lt); border-left: 3px solid var(--teal); border-radius: 0 8px 8px 0; padding: 12px 16px; font-size: 13px; color: var(--teal); font-style: italic; line-height: 1.6; }
+
+/* ── SERVICES TAB (reused) ── */
+.svc-layout { display: grid; grid-template-columns: 240px 1fr; gap: 16px; margin-bottom: 40px; align-items: start; }
+.svc-nav { display: flex; flex-direction: column; gap: 4px; }
+.svc-tab { padding: 14px 16px; border-radius: 10px; cursor: pointer; font-size: 13.5px; font-weight: 600; color: var(--navy); border: 1px solid var(--grey-lt); background: var(--white); text-align: left; line-height: 1.4; transition: all .15s; }
+.svc-tab:hover:not(.active) { border-color: var(--teal); color: var(--teal); }
+.svc-tab.active { background: var(--teal); color: var(--white); border-color: var(--teal); }
+.svc-panel { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 12px; padding: 32px; }
+.svc-panel-title { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+.svc-panel-desc { font-size: 14px; color: var(--text); line-height: 1.75; margin-bottom: 24px; }
+.svc-note { font-size: 12.5px; color: var(--teal); font-style: italic; margin-top: 16px; }
+.service-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.service-list li { font-size: 13.5px; color: var(--text); display: flex; align-items: flex-start; gap: 10px; line-height: 1.55; }
+.service-list li::before { content:''; width:6px; height:6px; background:var(--teal); border-radius:50%; flex-shrink:0; margin-top:6px; }
+
+/* ── PLACEHOLDER CARD (case studies / testimonials) ── */
+.placeholder-card { background: var(--white); border: 1.5px dashed #C5C8CE; border-radius: 14px; padding: 40px; text-align: center; }
+.placeholder-card h3 { font-size: 15px; font-weight: 600; color: var(--grey); margin-bottom: 10px; }
+.placeholder-card p { font-size: 13px; color: var(--grey); line-height: 1.7; max-width: 560px; margin: 0 auto; }
+.placeholder-list { list-style: none; display: inline-flex; flex-direction: column; gap: 6px; text-align: left; margin-top: 16px; }
+.placeholder-list li { font-size: 12.5px; color: var(--grey); }
+.placeholder-list li::before { content: '— '; }
+
+/* ── COMPARISON (reused) ── */
+.comp-header-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px; }
+.comp-col-hdr { padding: 13px 20px; border-radius: 8px; font-size: 15px; font-weight: 700; color: var(--white); text-align: center; }
+.comp-col-hdr.good { background: var(--teal); }
+.comp-col-hdr.bad { background: #B03B3B; }
+.comp-rows { display: flex; flex-direction: column; gap: 6px; margin-bottom: 36px; }
+.comp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.comp-cell { padding: 14px 18px; border-radius: 8px; background: var(--white); border: 1px solid var(--grey-lt); }
+.comp-cell.alt { background: var(--card-bg); }
+.comp-cell-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+.comp-cell.good .comp-cell-title { color: var(--teal); }
+.comp-cell.bad .comp-cell-title { color: #B03B3B; }
+.comp-cell-desc { font-size: 11.5px; color: var(--grey); line-height: 1.6; }
+
+/* ── PROCESS (reused) ── */
+.process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+.process-card { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 12px; padding: 28px 24px; }
+.process-num { width: 44px; height: 44px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 16px; }
+.process-card h3 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 12px; }
+.process-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.process-list li { font-size: 12.5px; color: var(--text); display: flex; gap: 8px; line-height: 1.6; }
+.process-list li::before { content:''; width:5px; height:5px; background:var(--teal); border-radius:50%; flex-shrink:0; margin-top:7px; }
+
+/* ── PRICING (reused) ── */
+.pricing-grid { display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: start; }
+.pricing-text p { font-size: 15px; color: var(--text); line-height: 1.8; margin-bottom: 18px; }
+.pricing-factors { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; }
+.factor-chip { background: var(--card-bg); border: 1px solid var(--grey-lt); border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; }
+.factor-icon { font-size: 18px; }
+.factor-label { font-size: 12px; font-weight: 500; color: var(--text); }
+.pricing-card { background: var(--white); border: 1.5px solid var(--teal); border-radius: 14px; padding: 28px; position: sticky; top: 80px; }
+.pricing-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.pricing-card p { font-size: 13px; color: var(--grey); line-height: 1.6; margin-bottom: 20px; }
+
+/* ── FAQ (reused) ── */
+.faq-list { display: flex; flex-direction: column; gap: 6px; }
+.faq-item { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 10px; overflow: hidden; border-left: 3px solid var(--teal); }
+.faq-q { padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
+.faq-q h3 { font-size: 14px; font-weight: 600; color: var(--navy); flex: 1; padding-right: 16px; line-height: 1.4; }
+.faq-toggle { font-size: 22px; color: var(--teal); font-weight: 300; transition: transform .3s; flex-shrink: 0; }
+.faq-a { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .3s; }
+.faq-a p { font-size: 13px; color: var(--text); line-height: 1.7; padding-bottom: 16px; }
+.faq-item.open .faq-a { max-height: 300px; }
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+.faq-item.open { border-left-color: var(--orange); }
+
+/* ── FINAL CTA (reused) ── */
+.final-cta-section { background: linear-gradient(135deg, var(--navy) 0%, #1A3A50 100%); padding: 80px 0; text-align: center; position: relative; overflow: hidden; }
+.final-cta-section::before { content: ''; position: absolute; top: -100px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(43,122,139,0.2) 0%, transparent 70%); }
+.final-cta-section h2 { font-size: 38px; font-weight: 700; color: var(--white); margin-bottom: 12px; position: relative; }
+.final-cta-section p { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 40px; position: relative; }
+.final-form { background: var(--white); border-radius: 14px; padding: 32px 36px; max-width: 560px; margin: 0 auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3); position: relative; }
+.final-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.final-form input { width: 100%; padding: 11px 14px; border: 1.5px solid var(--grey-lt); border-radius: 7px; font-family: 'Poppins', sans-serif; font-size: 13px; color: var(--dark); background: var(--white); outline: none; }
+.final-form input:focus { border-color: var(--teal); }
+
+/* ── FOOTER (reused) ── */
+footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid var(--teal); }
+.footer-grid { display: grid; grid-template-columns: 240px 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-logo { font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.footer-tagline { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 16px; }
+.footer-contact a { display: block; font-size: 12px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 5px; }
+.footer-contact a:hover { color: var(--mint); }
+.footer-col-label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.footer-col li a { font-size: 12px; color: rgba(255,255,255,0.55); text-decoration: none; }
+.footer-col li a:hover { color: var(--mint); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.4); }
+.footer-socials { display: flex; gap: 12px; }
+.footer-socials a { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.6); text-decoration: none; border: 1px solid rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 4px; }
+.footer-socials a:hover { color: var(--mint); border-color: var(--teal); }
+
+.btn-teal-outline { display: inline-block; padding: 12px 28px; border: 2px solid var(--teal); color: var(--teal); font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; border-radius: 7px; text-decoration: none; background: transparent; cursor: pointer; transition: all .2s; }
+.btn-teal-outline:hover { background: var(--teal); color: var(--white); }
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">MOCKUP — <b>TikTok Shop Management Services page</b> (Growisto brand-system style, matches Amazon SEO page components) — content pending Srishti/ops sign-off, not deployed</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="mailto:growth@growisto.com">✉ growth@growisto.com</a>
+    <a href="tel:+918828272657">📞 +91 88282 72657</a>
+    <a href="tel:+16282809076">📞 +1-628-280-9076</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><span>Growisto</span></a>
+    <div class="nav-links">
+      <a href="#">Our Services</a>
+      <a href="#">Industries</a>
+      <a href="#">Our Clients</a>
+      <a href="#">Resources</a>
+      <a href="#">About Us</a>
+      <a href="#">Careers</a>
+    </div>
+    <a href="#hero-form" class="nav-cta">Book a TikTok Shop Strategy Call</a>
+  </div>
+</nav>
+
+<!-- SECTION 1 — HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <h1><span style="color:var(--orange)">TikTok Shop Management Services</span> That Turn Your Reach Into Revenue</h1>
+      <p class="hero-tagline">You focus on content and growing your social reach. We make sure that reach converts into tangible TikTok Shop revenue.</p>
+      <p class="hero-sub">TikTok moves faster than any other commerce platform. That speed only pays off if the shop behind it can keep up. We own the TikTok Shop backend — listings, storefront, promotions, the affiliate program and ads — so every view, follow, and viral moment you generate actually converts into shop revenue.</p>
+      <ul class="hero-bullets">
+        <li><span class="check">✓</span> Full TikTok Shop backend management</li>
+        <li><span class="check">✓</span> Structured affiliate and creator program management</li>
+        <li><span class="check">✓</span> TikTok Shop ads managed end-to-end</li>
+      </ul>
+    </div>
+    <div class="hero-card" id="hero-form">
+      <div class="hero-card-top">
+        <p>Find out how much more your TikTok content could be converting</p>
+      </div>
+      <div class="hero-card-body">
+        <div class="form-field"><input type="text" placeholder="Your Name*"></div>
+        <div class="form-field"><input type="email" placeholder="Work Email*"></div>
+        <div class="form-field"><input type="text" placeholder="Phone Number*"></div>
+        <div class="form-field"><input type="text" placeholder="TikTok Shop or Handle Link*"></div>
+        <button class="btn-orange">Schedule a 30-min Free TikTok Shop Audit Call</button>
+        <p class="form-note">We'll respond within 24 hours</p>
+        <div class="form-guarantee">🔒 No commitment. No spam. Just clarity.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 — TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <h2>The Same Growisto Team Trusted by 100+ Marketplace Brands</h2>
+    <div class="logo-row">
+      <span class="logo-chip">Puma</span>
+      <span class="logo-chip">GuruNanda</span>
+      <span class="logo-chip">Wella</span>
+      <span class="logo-chip">Mayorga Coffee</span>
+      <span class="logo-chip">GNC</span>
+      <span class="logo-chip">Voyager Harness</span>
+      <span class="logo-chip">MSI</span>
+      <span class="logo-chip">Neuma Beauty</span>
+      <span class="logo-chip">Dermasensa</span>
+      <span class="logo-chip">Nobero</span>
+      <span class="logo-chip">YoTreasure</span>
+      <span class="logo-chip">Puriya</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 — HOW TIKTOK SHOP ACTUALLY WORKS -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">How TikTok Shop Works</div>
+    <h2 class="section-title">Your TikTok Shop Built Around How Shoppers Actually Buy on TikTok</h2>
+    <p class="section-sub">TikTok isn't just a marketplace or a social platform — it's both, moving at once. Trends turn over by the week, a single video can spike overnight, and the same app driving that virality is also where the sale closes. TikTok Shop isn't one storefront — it's four separate surfaces where a sale can happen, and most brands only optimize one.</p>
+    <div class="works-grid">
+      <div class="works-card">
+        <div class="works-num">01</div>
+        <h3>The Shop Tab — Your Owned Storefront</h3>
+        <p>Your in-app storefront, product catalog, and collections. Category node selection (from 750+ categories), title and listing optimization, and storefront design all determine whether shoppers find you and buy once they land.</p>
+      </div>
+      <div class="works-card">
+        <div class="works-num">02</div>
+        <h3>Shoppable Video &amp; LIVE — Where Discovery Turns Into Checkout</h3>
+        <p>Products get tagged directly inside videos and LIVE sessions, keeping the entire purchase in-app. Conversion depends on product pinning, pricing, and backend readiness — not just the content itself.</p>
+      </div>
+      <div class="works-card">
+        <div class="works-num">03</div>
+        <h3>The Affiliate Marketplace — Your Highest-Leverage Channel</h3>
+        <p>TikTok's built-in affiliate marketplace lets creators sell your products for a commission. Most of TikTok Shop's sales come through creators, not paid ads — which is why a managed affiliate program matters more here than on any other channel.</p>
+      </div>
+      <div class="works-card">
+        <div class="works-num">04</div>
+        <h3>Search Ads — Capturing In-App Search Intent (New for 2025)</h3>
+        <p>TikTok Shop now supports Search Ads targeting shoppers actively searching inside the app — a newer, high-intent surface most brands haven't started using yet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — AFFILIATE & CREATOR PROGRAM MANAGEMENT -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label">Affiliate &amp; Creator Program</div>
+    <h2 class="section-title">A Structured Affiliate Program, Not Ad Hoc Creator Outreach</h2>
+    <p class="section-sub">Most TikTok Shop sales come through creators, not ads. We manage the program mechanics — recruitment, commercials, and guidelines — so it scales without you reviewing every piece of content.</p>
+    <div class="aff-grid">
+      <div class="aff-card">
+        <h3>Affiliate Identification &amp; Recruitment</h3>
+        <p>Creators sourced via TikTok's native affiliate marketplace and third-party tools, filtered by niche relevance, engagement quality, audience fit, and historical shop performance — criteria-driven, not manual search.</p>
+      </div>
+      <div class="aff-card">
+        <h3>Outreach at Scale</h3>
+        <p>Templated, systematized outreach through TikTok's Affiliate Center, tracked centrally, at volume.</p>
+      </div>
+      <div class="aff-card">
+        <h3>Commission &amp; Pricing Strategy</h3>
+        <p>Commission structures, incentive tiers, and promotional pricing designed to attract quality affiliates while protecting margin.</p>
+      </div>
+      <div class="aff-card">
+        <h3>Brand-Safe Content Guidelines</h3>
+        <p>Standardized, version-controlled briefs covering messaging, mandatory and prohibited content, and format — brand safety without reviewing every individual piece.</p>
+      </div>
+    </div>
+    <div class="aff-note">This is program and commercial management — content creation itself remains with your team or your affiliates.</div>
+  </div>
+</section>
+
+<!-- SECTION 5 — SERVICES -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Our Services</div>
+    <h2 class="section-title">Comprehensive TikTok Shop Management for Every Stage of Growth</h2>
+    <p class="section-sub">From shop backend to affiliate program to paid ads — we manage what turns your content and reach into TikTok Shop revenue.</p>
+    <div class="svc-layout">
+      <nav class="svc-nav" id="svcNav">
+        <button class="svc-tab active" data-idx="0">TikTok Shop Management</button>
+        <button class="svc-tab" data-idx="1">Affiliate &amp; Creator Program</button>
+        <button class="svc-tab" data-idx="2">TikTok Ads &amp; Paid Campaigns</button>
+        <button class="svc-tab" data-idx="3">Content Calendar &amp; Scheduling</button>
+        <button class="svc-tab" data-idx="4">Reporting &amp; Analysis</button>
+      </nav>
+      <div class="svc-panel" id="svcPanel"></div>
+    </div>
+    <div style="text-align:center;">
+      <a href="#hero-form" class="btn-orange" style="display:inline-block;width:auto;padding:14px 36px;text-decoration:none;font-size:14px">Get Your Free TikTok Shop Audit — No Commitment Required →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 — MID-PAGE CTA -->
+<section class="section section-alt" id="mid-cta">
+  <div class="container">
+    <div style="background:var(--teal);border-radius:20px;padding:14px;">
+      <div style="background:var(--white);border-radius:12px;padding:44px 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+        <div>
+          <h2 style="font-size:28px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:14px;">See What's Holding Your TikTok Shop Revenue Back</h2>
+          <p style="font-size:14px;color:var(--text);line-height:1.7;margin-bottom:28px;">Get a free TikTok Shop audit showing exactly where your content-to-conversion gap is costing you sales.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;">
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--text);line-height:1.4;"><span style="color:var(--teal);font-weight:700;font-size:15px;flex-shrink:0;">✓</span> Full Shop &amp; Listing Audit</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--text);line-height:1.4;"><span style="color:var(--teal);font-weight:700;font-size:15px;flex-shrink:0;">✓</span> Affiliate Program Review</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--text);line-height:1.4;"><span style="color:var(--teal);font-weight:700;font-size:15px;flex-shrink:0;">✓</span> 7 Days Delivery Time</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--text);line-height:1.4;"><span style="color:var(--teal);font-weight:700;font-size:15px;flex-shrink:0;">✓</span> Zero Cost or Commitment</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <input type="text" placeholder="Your Name*" style="width:100%;padding:13px 16px;border:1.5px solid var(--grey-lt);border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;color:var(--navy);outline:none;" onfocus="this.style.borderColor='#2B7A8B'" onblur="this.style.borderColor='#E8EAED'">
+          <input type="email" placeholder="Work Email*" style="width:100%;padding:13px 16px;border:1.5px solid var(--grey-lt);border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;color:var(--navy);outline:none;" onfocus="this.style.borderColor='#2B7A8B'" onblur="this.style.borderColor='#E8EAED'">
+          <input type="tel" placeholder="Phone Number*" style="width:100%;padding:13px 16px;border:1.5px solid var(--grey-lt);border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;color:var(--navy);outline:none;" onfocus="this.style.borderColor='#2B7A8B'" onblur="this.style.borderColor='#E8EAED'">
+          <input type="text" placeholder="TikTok Shop or Handle Link*" style="width:100%;padding:13px 16px;border:1.5px solid var(--grey-lt);border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;color:var(--navy);outline:none;" onfocus="this.style.borderColor='#2B7A8B'" onblur="this.style.borderColor='#E8EAED'">
+          <button class="btn-orange" style="margin-top:4px;font-size:14px;">Get My Free TikTok Shop Audit →</button>
+          <p style="text-align:center;font-size:11.5px;color:var(--grey);margin:0;">We'll respond within 24 hours</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7 — CASE STUDIES (placeholder) -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label">Case Studies</div>
+    <h2 class="section-title">How We've Turned Marketplace Growth Discipline Into TikTok Shop Revenue</h2>
+    <div class="placeholder-card">
+      <h3>Case studies pending</h3>
+      <p>No confirmed TikTok Shop case studies yet. Once sales/ops supply real results, each card follows the standard format:</p>
+      <ul class="placeholder-list">
+        <li>Category tag</li>
+        <li>Headline (result-led, e.g. "X% GMV Growth in Y Months")</li>
+        <li>Challenge (2–3 sentences)</li>
+        <li>3 result stats with labels</li>
+        <li>4 "Strategic Approach" bullets</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8 — TESTIMONIALS (placeholder) -->
+<section class="section">
+  <div class="container centered">
+    <div class="section-label">Client Voices</div>
+    <h2 class="section-title">What Our Clients Say</h2>
+    <div class="placeholder-card">
+      <h3>Testimonials pending</h3>
+      <p>No confirmed TikTok Shop testimonials yet. Needs: name, title, company, and quote from sales/ops.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9 — WHY GROWISTO (COMPARISON TABLE) -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label">Why Growisto</div>
+    <h2 class="section-title">Why Brands Choose Growisto Over a Typical TikTok Shop Agency</h2>
+    <p class="section-sub">What separates a scoped, backend-first partner from an agency promising to "do everything."</p>
+    <div class="comp-header-row">
+      <div class="comp-col-hdr good">✓ &nbsp; Growisto</div>
+      <div class="comp-col-hdr bad">✕ &nbsp; Typical TikTok Shop Agencies</div>
+    </div>
+    <div class="comp-rows">
+      <div class="comp-row">
+        <div class="comp-cell good"><div class="comp-cell-title">✓ Full Backend + Program Management</div><div class="comp-cell-desc">Listings, storefront, promotions, affiliate mechanics, and ads, all managed together.</div></div>
+        <div class="comp-cell bad"><div class="comp-cell-title">✕ Content-First, Backend-Light</div><div class="comp-cell-desc">Pitch virality first, leave listings, storefront, and Seller Center under-optimized.</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell good alt"><div class="comp-cell-title">✓ Transparent Scope</div><div class="comp-cell-desc">Exactly what's agency-owned vs. brand-owned, defined from day one.</div></div>
+        <div class="comp-cell bad alt"><div class="comp-cell-title">✕ Vague "Full-Service" Promises</div><div class="comp-cell-desc">Scope blurs mid-engagement, extras get billed later.</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell good"><div class="comp-cell-title">✓ Structured Affiliate Program</div><div class="comp-cell-desc">Recruitment, commission tiers, briefs, and tracked outreach at scale.</div></div>
+        <div class="comp-cell bad"><div class="comp-cell-title">✕ Ad Hoc Creator Outreach</div><div class="comp-cell-desc">Manual, unscaled, inconsistent messaging.</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell good alt"><div class="comp-cell-title">✓ Unified Weekly Reporting</div><div class="comp-cell-desc">GMV, ads, and affiliate performance in one rhythm.</div></div>
+        <div class="comp-cell bad alt"><div class="comp-cell-title">✕ Scattered Metrics</div><div class="comp-cell-desc">Ad performance reported in isolation from shop-wide GMV.</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell good"><div class="comp-cell-title">✓ Cross-Marketplace Discipline</div><div class="comp-cell-desc">The same team managing $2B+ across Amazon and other channels.</div></div>
+        <div class="comp-cell bad"><div class="comp-cell-title">✕ TikTok-Only Generalists</div><div class="comp-cell-desc">No marketplace operations background.</div></div>
+      </div>
+    </div>
+    <a href="#hero-form" class="btn-orange" style="display:inline-block;width:auto;padding:13px 32px;text-decoration:none">Get Your Free TikTok Shop Audit →</a>
+  </div>
+</section>
+
+<!-- SECTION 10 — OUR PROCESS -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Our Process</div>
+    <h2 class="section-title">How Our TikTok Shop Process Works</h2>
+    <p class="section-sub">We don't apply templates. Every engagement starts with your shop, your catalogue, and your existing content and affiliate footprint.</p>
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-num">1</div>
+        <h3>TikTok Shop Audit &amp; Strategy</h3>
+        <ul class="process-list">
+          <li>Full audit of shop setup, listing quality, and category placement</li>
+          <li>Affiliate program status review (if one already exists)</li>
+          <li>Content-to-conversion gap analysis</li>
+          <li>Diagnosis based on data, not assumptions</li>
+        </ul>
+      </div>
+      <div class="process-card">
+        <div class="process-num">2</div>
+        <h3>Backend Setup &amp; Program Build</h3>
+        <ul class="process-list">
+          <li>Listing and storefront optimization</li>
+          <li>Affiliate recruitment and commission structure design</li>
+          <li>Ad campaign architecture and targeting setup</li>
+        </ul>
+      </div>
+      <div class="process-card">
+        <div class="process-num">3</div>
+        <h3>Launch, Optimize &amp; Scale</h3>
+        <ul class="process-list">
+          <li>Ongoing campaign optimization and bid/budget management</li>
+          <li>Seasonal campaign planning (Black Friday, 11.11, Flash Deals)</li>
+          <li>Monthly strategy reviews</li>
+          <li>Competitor and trend monitoring</li>
+        </ul>
+      </div>
+    </div>
+    <a href="#hero-form" class="btn-teal-outline" style="display:inline-block">Start With a Free TikTok Shop Audit Call →</a>
+  </div>
+</section>
+
+<!-- SECTION 11 — PRICING -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">How Much Does TikTok Shop Management Cost?</h2>
+    <div class="pricing-grid">
+      <div class="pricing-text">
+        <p>TikTok Shop pricing depends on the scope of your engagement — your current shop and catalogue size, how large an affiliate outreach effort you need, and whether paid ads are part of the scope.</p>
+        <p>Every Growisto engagement is scoped individually, built around what your shop actually needs and the level of involvement that fits your team.</p>
+        <p>The fastest way to get an accurate picture is a free 30-minute TikTok Shop Discovery Call. We review your shop before the call so you get specific answers, not a generic agency pitch.</p>
+        <div class="pricing-factors">
+          <div class="factor-chip"><span class="factor-icon">📦</span><span class="factor-label">Current TikTok Shop GMV &amp; catalogue size</span></div>
+          <div class="factor-chip"><span class="factor-icon">🤝</span><span class="factor-label">Affiliate/creator outreach volume needed</span></div>
+          <div class="factor-chip"><span class="factor-icon">📈</span><span class="factor-label">Paid ad spend under management</span></div>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <h3>Growisto TikTok Shop Engagement</h3>
+        <p>Custom — scoped to your shop and affiliate program. We review your TikTok Shop before the call so you get specific answers, not a generic pitch.</p>
+        <a href="#hero-form" class="btn-orange" style="display:block;text-align:center;text-decoration:none;padding:13px">Book a Free TikTok Shop Discovery Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 12 — FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Common Questions About TikTok Shop Management</h2>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q"><h3>What is TikTok Shop management?</h3><span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>TikTok Shop management covers everything that turns your TikTok presence into in-app sales — listings, storefront, promotions, affiliate program operations, and ads — distinct from content creation or influencer marketing.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>Does Growisto create my TikTok content or videos?</h3><span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>No. Content creation, video production, and on-camera hosting stay with your team or your affiliates. Growisto manages the backend that turns that content into shop revenue — listings, storefront, promotions, the affiliate program, and ads.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>What does your TikTok Shop service include?</h3><span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Shop setup and listing optimization, affiliate and creator program management, TikTok Ads and Spark Ads management, content calendar and scheduling, and weekly GMV/ads/affiliate reporting.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>How is TikTok Shop different from Amazon or Shopify?</h3><span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>TikTok Shop sales are driven primarily by creators and affiliates rather than search or paid ads alone, and purchases happen natively inside video and the Shop tab — not through an external storefront link. It also moves faster: trends and algorithm shifts happen weekly, not quarterly, so listings, promotions, and creator content all have to keep pace with the platform's speed.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>Do I need a large following to start selling on TikTok Shop?</h3><span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>No. TikTok Shop's algorithm prioritizes content engagement over follower count, and much of TikTok Shop's volume comes through affiliate creators rather than the brand's own account.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>How does the affiliate/creator program work?</h3><span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>We identify and recruit creators through TikTok's affiliate marketplace and third-party tools, set commission structures and incentive tiers, and provide standardized content briefs — so the program scales without you reviewing every individual piece of content.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>How long does it take to see results?</h3><span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Shop and listing optimizations typically show initial movement within a few weeks. Affiliate programs usually build meaningful GMV within 4–8 weeks as the creator pipeline and operational rhythm take hold.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>How much does TikTok Shop management cost?</h3><span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Pricing is scoped to your shop size, affiliate outreach needs, and whether paid ads are included. A free Discovery Call gives you a specific number, not a generic quote.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>Why choose Growisto as your TikTok Shop partner?</h3><span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>A marketplace growth team already managing $2B+ in revenue across Amazon and other channels, applying that same operational discipline to TikTok Shop — with clear, upfront ownership of what we do and what stays with you.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 13 — FINAL CTA -->
+<section class="final-cta-section">
+  <div class="container">
+    <h2>Find Out What's Holding Your TikTok Shop Revenue Back</h2>
+    <p>No commitment required. We'll review your shop and show you exactly where content is leaking before it becomes revenue.</p>
+    <div class="final-form">
+      <div class="final-form-row">
+        <input type="text" placeholder="Your Name*">
+        <input type="email" placeholder="Business Email*">
+      </div>
+      <div class="final-form-row">
+        <input type="text" placeholder="Phone Number*">
+        <input type="text" placeholder="TikTok Shop URL or Handle*">
+      </div>
+      <button class="btn-orange" style="width:100%;font-size:14px;padding:14px;border-radius:7px">Schedule a Strategy Call — It's Free →</button>
+      <p class="form-note" style="margin-top:10px">We'll respond within 24 hours &nbsp;·&nbsp; 🔒 No spam, ever</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Growisto</div>
+        <p class="footer-tagline">Holistic eCommerce digital marketing for ambitious brands.</p>
+        <div class="footer-contact">
+          <a href="mailto:growth@growisto.com">growth@growisto.com</a>
+          <a href="tel:+918828272657">+91 88282 72657</a>
+          <a href="tel:+16282809076">+1-628-280-9076</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-label">TikTok Shop Services</p>
+        <ul>
+          <li><a href="#">TikTok Shop Management</a></li>
+          <li><a href="#">TikTok Affiliate &amp; Creator Program</a></li>
+          <li><a href="#">TikTok Ads &amp; Spark Ads Management</a></li>
+          <li><a href="#">TikTok Shop Reporting &amp; Analytics</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-label">Other Services</p>
+        <ul>
+          <li><a href="#">Amazon Marketing</a></li>
+          <li><a href="#">CRO &amp; Website Development</a></li>
+          <li><a href="#">GEO / SEO</a></li>
+          <li><a href="#">Walmart</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-label">About</p>
+        <ul>
+          <li><a href="#">Who We Are?</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Clients</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Growisto Inc. All rights reserved. &nbsp;|&nbsp; United States &nbsp;|&nbsp; India</span>
+      <div class="footer-socials">
+        <a href="#">LinkedIn</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── FAQ accordion ──
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// ── Services tab ──
+const svcData = [
+  {
+    title: 'TikTok Shop Management',
+    desc: 'Your storefront, listings, and promotions are the shop\'s foundation. We build and maintain them so every visitor has something ready to buy.',
+    items: [
+      'Listing creation and optimization (title, category node, keyword visibility, backend fields)',
+      'Creatives recommendation and implementation for store banners and promotional visuals (creative production remains the client\'s responsibility)',
+      'Vouchers, flash deals, bundle offers, and limited-time discount management via Seller Center',
+      'Storefront setup, collections, and banner implementation'
+    ]
+  },
+  {
+    title: 'Affiliate &amp; Creator Program Management',
+    desc: 'We manage the commercial and operational layer of your affiliate program so it scales without manual chasing.',
+    items: [
+      'Affiliate identification and recruitment (criteria-driven, at volume)',
+      'Outreach and onboarding through TikTok\'s Affiliate Center',
+      'Commission structure and incentive-tier strategy',
+      'Content briefs and brand guidelines (standardized, version-controlled)'
+    ]
+  },
+  {
+    title: 'TikTok Ads &amp; Paid Campaigns',
+    desc: 'Paid media is managed as a data-led function, built on TikTok Ads Manager\'s native automation and reporting.',
+    items: [
+      'Campaign launch and structure — In-Feed Ads, TopView, and Shopping Ads tied to TikTok Shop',
+      'Spark Ads — identifying and amplifying high-performing organic and affiliate content, with whitelisting/authorization handled by Growisto',
+      'Performance monitoring and optimization on a scheduled review cadence — bids, budgets, audiences, creative rotation'
+    ]
+  },
+  {
+    title: 'Content Calendar &amp; Scheduling',
+    desc: 'We manage the planning and posting layer — not production. Video and image assets are supplied by you or your creators.',
+    items: [
+      'Monthly content calendar (post themes, formats, timing, campaign hooks) aligned to TikTok trend cycles and your promotional schedule',
+      'Posting and scheduling of approved content, including captions, hashtags, and sounds',
+      'Ongoing trend and competitor analysis feeding the monthly planning cycle'
+    ],
+    note: 'Content creation itself is not part of this service — video and image assets come from you or your creators.'
+  },
+  {
+    title: 'Reporting &amp; Analysis',
+    desc: 'Standard-format reporting on a defined cadence, covering every channel under scope.',
+    items: [
+      'Sales &amp; Shop Performance Report — GMV, units sold, conversion rate, AOV, by product and promotional period',
+      'Paid Ads Analysis &amp; Reporting — spend, impressions, CTR, CPM, CPC, ROAS, purchases, creative and ad-group breakdowns',
+      'Post-LIVE &amp; Affiliate Analytics — peak viewers, session revenue, discount utilization, creator-level GMV and commission'
+    ]
+  }
+];
+
+function renderSvcPanel(idx) {
+  const s = svcData[idx];
+  document.getElementById('svcPanel').innerHTML =
+    '<div class="svc-panel-title">' + s.title + '</div>' +
+    '<p class="svc-panel-desc">' + s.desc + '</p>' +
+    '<div class="svc-panel-label" style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--grey);margin-bottom:14px;">Services</div>' +
+    '<ul class="service-list">' +
+    s.items.map(i => '<li>' + i + '</li>').join('') +
+    '</ul>' +
+    (s.note ? '<p class="svc-note">' + s.note + '</p>' : '');
+  document.querySelectorAll('.svc-tab').forEach((t, i) =>
+    t.classList.toggle('active', i === idx));
+}
+
+const svcNav = document.getElementById('svcNav');
+if (svcNav) {
+  svcNav.addEventListener('click', e => {
+    const tab = e.target.closest('[data-idx]');
+    if (tab) renderSvcPanel(+tab.dataset.idx);
+  });
+  renderSvcPanel(0);
+}
+</script>
+</body>
+</html>
