@@ -70,6 +70,15 @@ nav { background: var(--white); border-bottom: 1px solid var(--grey-lt); positio
 .visual-placeholder .icon { font-size: 32px; margin-bottom: 10px; color: var(--grey); }
 .visual-placeholder .label { font-size: 13.5px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
 .visual-placeholder .hint { font-size: 11.5px; color: var(--grey); max-width: 280px; }
+.chart-card { border: 1px solid var(--grey-lt); border-radius: 14px; background: var(--white); box-shadow: 0 2px 14px rgba(15,31,61,0.07); aspect-ratio: 4/3; padding: 22px 22px 16px; display: flex; flex-direction: column; }
+.chart-card-title { font-size: 13.5px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+.chart-card-sub { font-size: 11px; color: var(--grey); margin-bottom: 10px; }
+.chart-svg-wrap { flex: 1; min-height: 0; }
+.chart-svg-wrap svg { width: 100%; height: 100%; display: block; }
+.chart-legend { display: flex; gap: 16px; margin-top: 8px; font-size: 11px; color: var(--text); }
+.chart-legend-item { display: flex; align-items: center; gap: 6px; }
+.chart-legend-dot { width: 9px; height: 9px; border-radius: 2px; display: inline-block; flex: none; }
+.chart-caption { font-size: 10.5px; color: var(--grey); font-style: italic; margin-top: 8px; }
 
 .hero-card { background: var(--white); border-radius: 14px; box-shadow: 0 8px 40px rgba(15,31,61,0.12); overflow: hidden; position: sticky; top: 72px; margin-top: -8px; margin-bottom: 40px; }
 .hero-card-top { background: var(--teal); padding: 16px 24px; }
@@ -359,10 +368,27 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
           </ul>
         </div>
         <div class="audit-row-visual">
-          <div class="visual-placeholder">
-            <div class="icon">📊</div>
-            <div class="label">Market Share / Competitor Benchmark Chart</div>
-            <div class="hint">e.g. your ranking vs. named competitors on a top search term, or category share by price bracket</div>
+          <div class="chart-card">
+            <div class="chart-card-title">Category Share by Brand</div>
+            <div class="chart-card-sub">Top search term &middot; share of results</div>
+            <div class="chart-svg-wrap">
+              <svg viewBox="0 0 360 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart comparing category share: Competitor A 31%, Competitor B 22%, Your Brand 18%, Competitor C 14%">
+                <line x1="110" y1="152" x2="110" y2="14" stroke="#E8EAED" stroke-width="1"/>
+                <rect x="111" y="16" width="195" height="18" rx="4" fill="#6B7280"/>
+                <text x="316" y="29" font-size="12" font-weight="700" fill="#0F1F3D">31%</text>
+                <text x="8" y="29" font-size="11.5" fill="#3D3D4E">Competitor A</text>
+                <rect x="111" y="50" width="138" height="18" rx="4" fill="#6B7280"/>
+                <text x="259" y="63" font-size="12" font-weight="700" fill="#0F1F3D">22%</text>
+                <text x="8" y="63" font-size="11.5" fill="#3D3D4E">Competitor B</text>
+                <rect x="111" y="84" width="113" height="18" rx="4" fill="#2B7A8B"/>
+                <text x="234" y="97" font-size="12" font-weight="700" fill="#2B7A8B">18%</text>
+                <text x="8" y="97" font-size="11.5" font-weight="700" fill="#0F1F3D">Your Brand</text>
+                <rect x="111" y="118" width="88" height="18" rx="4" fill="#6B7280"/>
+                <text x="209" y="131" font-size="12" font-weight="700" fill="#0F1F3D">14%</text>
+                <text x="8" y="131" font-size="11.5" fill="#3D3D4E">Competitor C</text>
+              </svg>
+            </div>
+            <div class="chart-caption">Illustrative sample data</div>
           </div>
         </div>
       </div>
@@ -381,10 +407,32 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
           </ul>
         </div>
         <div class="audit-row-visual">
-          <div class="visual-placeholder">
-            <div class="icon">📊</div>
-            <div class="label">Wasted Spend Breakdown Chart</div>
-            <div class="hint">e.g. dollars wasted by search term or placement, and ad-type spend-mix chart</div>
+          <div class="chart-card">
+            <div class="chart-card-title">Spend Mix by Ad Type</div>
+            <div class="chart-card-sub">Converting vs. wasted spend, by ad type</div>
+            <div class="chart-svg-wrap">
+              <svg viewBox="0 0 360 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stacked bar chart of converting vs wasted spend: Sponsored Products 18% wasted, Sponsored Brands 35% wasted, Display 46% wasted">
+                <text x="8" y="27" font-size="11.5" fill="#3D3D4E">Sponsored Products</text>
+                <rect x="150" y="16" width="178" height="18" rx="4" fill="#2B7A8B"/>
+                <rect x="330" y="16" width="38" height="18" rx="4" fill="#E35D34"/>
+                <text x="330" y="45" font-size="11" font-weight="700" fill="#C94D28" text-anchor="middle">18% wasted</text>
+
+                <text x="8" y="71" font-size="11.5" fill="#3D3D4E">Sponsored Brands</text>
+                <rect x="150" y="60" width="141" height="18" rx="4" fill="#2B7A8B"/>
+                <rect x="293" y="60" width="75" height="18" rx="4" fill="#E35D34"/>
+                <text x="330" y="89" font-size="11" font-weight="700" fill="#C94D28" text-anchor="middle">35% wasted</text>
+
+                <text x="8" y="115" font-size="11.5" fill="#3D3D4E">Display</text>
+                <rect x="150" y="104" width="117" height="18" rx="4" fill="#2B7A8B"/>
+                <rect x="269" y="104" width="99" height="18" rx="4" fill="#E35D34"/>
+                <text x="330" y="133" font-size="11" font-weight="700" fill="#C94D28" text-anchor="middle">46% wasted</text>
+              </svg>
+            </div>
+            <div class="chart-legend">
+              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:#2B7A8B;"></span>Converting</span>
+              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:#E35D34;"></span>Wasted</span>
+            </div>
+            <div class="chart-caption">Illustrative sample data</div>
           </div>
         </div>
       </div>
@@ -403,10 +451,29 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
           </ul>
         </div>
         <div class="audit-row-visual">
-          <div class="visual-placeholder">
-            <div class="icon">📊</div>
-            <div class="label">Underfunded Performers View</div>
-            <div class="hint">e.g. high-converting terms or products not yet scaled, ranked by upside</div>
+          <div class="chart-card">
+            <div class="chart-card-title">Underfunded Performers</div>
+            <div class="chart-card-sub">Ranked by estimated upside</div>
+            <div class="chart-svg-wrap">
+              <svg viewBox="0 0 360 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart ranking underfunded performers by upside index: Broad-Match Term A 92, Cross-Sell Product X 78, Organic Winner No Ads 61, High-Intent Term B 45">
+                <rect x="150" y="16" width="192" height="18" rx="4" fill="#2B7A8B"/>
+                <text x="8" y="29" font-size="11.5" fill="#3D3D4E">Broad-Match Term A</text>
+                <text x="346" y="29" font-size="12" font-weight="700" fill="#0F1F3D">92</text>
+
+                <rect x="150" y="50" width="164" height="18" rx="4" fill="#2B7A8B"/>
+                <text x="8" y="63" font-size="11.5" fill="#3D3D4E">Cross-Sell: Product X</text>
+                <text x="318" y="63" font-size="12" font-weight="700" fill="#0F1F3D">78</text>
+
+                <rect x="150" y="84" width="128" height="18" rx="4" fill="#2B7A8B"/>
+                <text x="8" y="97" font-size="11.5" fill="#3D3D4E">Organic Winner, No Ads</text>
+                <text x="282" y="97" font-size="12" font-weight="700" fill="#0F1F3D">61</text>
+
+                <rect x="150" y="118" width="94" height="18" rx="4" fill="#2B7A8B"/>
+                <text x="8" y="131" font-size="11.5" fill="#3D3D4E">High-Intent Term B</text>
+                <text x="248" y="131" font-size="12" font-weight="700" fill="#0F1F3D">45</text>
+              </svg>
+            </div>
+            <div class="chart-caption">Illustrative sample data &middot; upside index, not a dollar figure</div>
           </div>
         </div>
       </div>
@@ -426,10 +493,21 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
           </ul>
         </div>
         <div class="audit-row-visual">
-          <div class="visual-placeholder">
-            <div class="icon">📊</div>
-            <div class="label">Profitability Breakdown Chart</div>
-            <div class="hint">e.g. ROI by product, or ad cost/return by keyword type</div>
+          <div class="chart-card">
+            <div class="chart-card-title">Return per $1 Spent, by Keyword Type</div>
+            <div class="chart-card-sub">Brand vs. generic search terms</div>
+            <div class="chart-svg-wrap">
+              <svg viewBox="0 0 360 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart comparing return per dollar spent: Brand Terms $4.20, Generic Terms $1.85">
+                <rect x="150" y="40" width="160" height="20" rx="4" fill="#2B7A8B"/>
+                <text x="8" y="54" font-size="11.5" fill="#3D3D4E">Brand Terms</text>
+                <text x="318" y="54" font-size="12" font-weight="700" fill="#0F1F3D">$4.20</text>
+
+                <rect x="150" y="100" width="70" height="20" rx="4" fill="#2B7A8B"/>
+                <text x="8" y="114" font-size="11.5" fill="#3D3D4E">Generic Terms</text>
+                <text x="228" y="114" font-size="12" font-weight="700" fill="#0F1F3D">$1.85</text>
+              </svg>
+            </div>
+            <div class="chart-caption">Illustrative sample data</div>
           </div>
         </div>
       </div>
@@ -447,10 +525,33 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
           </ul>
         </div>
         <div class="audit-row-visual">
-          <div class="visual-placeholder">
-            <div class="icon">📊</div>
-            <div class="label">Growth Projection Chart</div>
-            <div class="hint">e.g. month-by-month plan, steady vs. aggressive scenarios</div>
+          <div class="chart-card">
+            <div class="chart-card-title">Projected Growth: Two Paths</div>
+            <div class="chart-card-sub">Revenue index, 6-month projection</div>
+            <div class="chart-svg-wrap">
+              <svg viewBox="0 0 360 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart of two growth paths over 6 months: steady plan reaching +42%, accelerated plan reaching +100%">
+                <line x1="30" y1="150" x2="340" y2="150" stroke="#E8EAED" stroke-width="1"/>
+                <text x="30" y="164" font-size="10" fill="#6B7280" text-anchor="middle">M1</text>
+                <text x="92" y="164" font-size="10" fill="#6B7280" text-anchor="middle">M2</text>
+                <text x="154" y="164" font-size="10" fill="#6B7280" text-anchor="middle">M3</text>
+                <text x="216" y="164" font-size="10" fill="#6B7280" text-anchor="middle">M4</text>
+                <text x="278" y="164" font-size="10" fill="#6B7280" text-anchor="middle">M5</text>
+                <text x="340" y="164" font-size="10" fill="#6B7280" text-anchor="middle">M6</text>
+
+                <polyline points="30,139 92,130 154,121 216,112 278,102 340,92" fill="none" stroke="#2B7A8B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="340" cy="92" r="4" fill="#2B7A8B" stroke="#FFFFFF" stroke-width="2"/>
+                <text x="298" y="83" font-size="11" font-weight="700" fill="#2B7A8B">+42%</text>
+
+                <polyline points="30,139 92,125 154,107 216,85 278,58 340,26" fill="none" stroke="#E35D34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="340" cy="26" r="4" fill="#E35D34" stroke="#FFFFFF" stroke-width="2"/>
+                <text x="292" y="20" font-size="11" font-weight="700" fill="#E35D34">+100%</text>
+              </svg>
+            </div>
+            <div class="chart-legend">
+              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:#2B7A8B;"></span>Steady plan</span>
+              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:#E35D34;"></span>Accelerated plan</span>
+            </div>
+            <div class="chart-caption">Illustrative sample data</div>
           </div>
         </div>
       </div>
