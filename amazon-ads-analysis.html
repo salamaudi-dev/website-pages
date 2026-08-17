@@ -128,6 +128,24 @@ h2.section-title { font-size: 32px; font-weight: 700; color: var(--navy); line-h
 .audit-row-how { font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: var(--grey); margin-top: 4px; }
 .reasons-close { font-size: 14px; color: var(--navy); font-weight: 600; text-align: center; margin: 8px 0 8px; }
 
+.audit-row.wide { grid-template-columns: 1fr; gap: 24px; }
+.audit-row.wide .audit-row-visual { order: 2; }
+.dashboard-card { border: 1px solid var(--navy); border-radius: 16px; background: var(--navy); color: #fff; padding: 26px 28px 22px; box-shadow: 0 6px 24px rgba(15,31,61,0.18); }
+.dashboard-card-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+.dashboard-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+.dashboard-stat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 14px 8px; text-align: center; }
+.dashboard-stat .val { font-size: 21px; font-weight: 800; color: var(--gold); line-height: 1.1; }
+.dashboard-stat .lbl { font-size: 10.5px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+.dashboard-tables { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.dashboard-table-title { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.75); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+table.dboard { width: 100%; border-collapse: collapse; font-size: 11px; }
+table.dboard th { text-align: left; color: rgba(255,255,255,0.55); font-weight: 600; padding: 5px 6px; border-bottom: 1px solid rgba(255,255,255,0.18); font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.3px; }
+table.dboard td { padding: 5px 6px; border-bottom: 1px solid rgba(255,255,255,0.08); color: #fff; }
+table.dboard tr.total td { font-weight: 700; border-top: 1px solid rgba(255,255,255,0.35); border-bottom: none; }
+table.dboard tr.highlight td { background: rgba(43,122,139,0.4); font-weight: 700; }
+.dashboard-observation { margin-top: 16px; font-size: 11.5px; color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.07); border-left: 3px solid var(--gold); padding: 9px 14px; border-radius: 6px; }
+.dashboard-source { margin-top: 10px; font-size: 10px; color: rgba(255,255,255,0.5); font-style: italic; }
+
 /* WHY CHOOSE GROWISTO COMPARISON */
 .comp-header-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px; }
 .comp-col-hdr { padding: 13px 20px; border-radius: 8px; font-size: 15px; font-weight: 700; color: var(--white); text-align: center; }
@@ -212,6 +230,9 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
   .award-badge { margin: 0 auto; }
   .audit-row { display: flex; flex-direction: column; gap: 20px; }
   .audit-row.reverse .audit-row-text, .audit-row.reverse .audit-row-visual { order: initial; }
+  .dashboard-stats { grid-template-columns: repeat(2, 1fr); }
+  .dashboard-tables { grid-template-columns: 1fr; }
+  .dashboard-card { padding: 20px 18px 18px; }
   .comp-header-row, .comp-row { grid-template-columns: 1fr; }
   .testi-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
@@ -354,7 +375,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
     <p class="section-sub">One audit, five outcomes. Together, they give you a full-funnel view: where customers enter, whether your channels are covered, and whether you're investing in the right places.</p>
     <div class="audit-rows">
 
-      <div class="audit-row">
+      <div class="audit-row wide">
         <div class="audit-row-text">
           <div class="audit-row-num">01</div>
           <h3>Market Share &amp; Competitor Analysis</h3>
@@ -368,27 +389,43 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
           </ul>
         </div>
         <div class="audit-row-visual">
-          <div class="chart-card">
-            <div class="chart-card-title">Category Share by Brand</div>
-            <div class="chart-card-sub">Top search term &middot; share of results</div>
-            <div class="chart-svg-wrap">
-              <svg viewBox="0 0 360 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart comparing category share: Competitor A 31%, Competitor B 22%, Your Brand 18%, Competitor C 14%">
-                <line x1="110" y1="152" x2="110" y2="14" stroke="#E8EAED" stroke-width="1"/>
-                <rect x="111" y="16" width="195" height="18" rx="4" fill="#6B7280"/>
-                <text x="316" y="29" font-size="12" font-weight="700" fill="#0F1F3D">31%</text>
-                <text x="8" y="29" font-size="11.5" fill="#3D3D4E">Competitor A</text>
-                <rect x="111" y="50" width="138" height="18" rx="4" fill="#6B7280"/>
-                <text x="259" y="63" font-size="12" font-weight="700" fill="#0F1F3D">22%</text>
-                <text x="8" y="63" font-size="11.5" fill="#3D3D4E">Competitor B</text>
-                <rect x="111" y="84" width="113" height="18" rx="4" fill="#2B7A8B"/>
-                <text x="234" y="97" font-size="12" font-weight="700" fill="#2B7A8B">18%</text>
-                <text x="8" y="97" font-size="11.5" font-weight="700" fill="#0F1F3D">Your Brand</text>
-                <rect x="111" y="118" width="88" height="18" rx="4" fill="#6B7280"/>
-                <text x="209" y="131" font-size="12" font-weight="700" fill="#0F1F3D">14%</text>
-                <text x="8" y="131" font-size="11.5" fill="#3D3D4E">Competitor C</text>
-              </svg>
+          <div class="dashboard-card">
+            <div class="dashboard-card-title">Your Brand Is Under-Penetrating the $75M Shampoo Category</div>
+            <div class="dashboard-stats">
+              <div class="dashboard-stat"><div class="val">$75.4M</div><div class="lbl">Monthly Revenue</div></div>
+              <div class="dashboard-stat"><div class="val">1,934</div><div class="lbl">Brands</div></div>
+              <div class="dashboard-stat"><div class="val">9,842</div><div class="lbl">ASINs</div></div>
+              <div class="dashboard-stat"><div class="val">$37</div><div class="lbl">Avg Price</div></div>
             </div>
-            <div class="chart-caption">Illustrative sample data</div>
+            <div class="dashboard-tables">
+              <div>
+                <div class="dashboard-table-title">Market Size by Price Bracket</div>
+                <table class="dboard">
+                  <tr><th>Price</th><th># Brands</th><th>Cat. Rev</th><th>% Mkt</th></tr>
+                  <tr><td>$0&ndash;$20</td><td>746</td><td>$14.3M</td><td>18.9%</td></tr>
+                  <tr><td>$20&ndash;$40</td><td>840</td><td>$26.5M</td><td>35.1%</td></tr>
+                  <tr><td>$40&ndash;$60</td><td>191</td><td>$27.7M</td><td>36.8%</td></tr>
+                  <tr><td>$60&ndash;$80</td><td>58</td><td>$5.2M</td><td>6.9%</td></tr>
+                  <tr><td>$80+</td><td>34</td><td>$1.7M</td><td>2.3%</td></tr>
+                  <tr class="total"><td>TOTAL</td><td>1,934</td><td>$75.4M</td><td>100%</td></tr>
+                </table>
+              </div>
+              <div>
+                <div class="dashboard-table-title">Top Competitors by Market Share</div>
+                <table class="dboard">
+                  <tr><th>Rank</th><th>Brand</th><th>Share</th><th>ASINs</th><th>Rating</th></tr>
+                  <tr><td>1</td><td>REDKEN</td><td>6.4%</td><td>46</td><td>4.54</td></tr>
+                  <tr><td>2</td><td>Nizoral</td><td>4.1%</td><td>15</td><td>4.69</td></tr>
+                  <tr><td>3</td><td>Olaplex</td><td>3.6%</td><td>13</td><td>4.53</td></tr>
+                  <tr><td>4</td><td>L'Oreal Paris</td><td>3.6%</td><td>103</td><td>4.55</td></tr>
+                  <tr><td>5</td><td>BIOLAGE</td><td>3.1%</td><td>37</td><td>4.62</td></tr>
+                  <tr class="highlight"><td>269</td><td>Your Brand</td><td>0.04%</td><td>12</td><td>4.51</td></tr>
+                  <tr><td>&ndash;</td><td>Others (1,934 brands)</td><td>79.3%</td><td>&ndash;</td><td>&ndash;</td></tr>
+                </table>
+              </div>
+            </div>
+            <div class="dashboard-observation">Observation: $20&ndash;$60 mid tier drives ~72% of revenue &mdash; salon brands lead.</div>
+            <div class="dashboard-source">SmartScout &middot; Amazon US Shampoo &middot; 1,934 brands &middot; 9,842 ASINs &middot; &asymp;$905M/yr</div>
           </div>
         </div>
       </div>
