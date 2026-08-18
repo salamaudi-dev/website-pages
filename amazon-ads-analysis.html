@@ -65,20 +65,8 @@ nav { background: var(--white); border-bottom: 1px solid var(--grey-lt); positio
 .award-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
 .award-card p { color: rgba(255,255,255,0.7); font-size: 13px; line-height: 1.65; }
 
-/* IMAGE PLACEHOLDERS — AUDIT VISUALS */
-.visual-placeholder { border: 2px dashed var(--grey-lt); border-radius: 14px; background: var(--white); aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; }
-.visual-placeholder .icon { font-size: 32px; margin-bottom: 10px; color: var(--grey); }
-.visual-placeholder .label { font-size: 13.5px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
-.visual-placeholder .hint { font-size: 11.5px; color: var(--grey); max-width: 280px; }
-.chart-card { border: 1px solid var(--grey-lt); border-radius: 14px; background: var(--white); box-shadow: 0 2px 14px rgba(15,31,61,0.07); aspect-ratio: 4/3; padding: 22px 22px 16px; display: flex; flex-direction: column; }
-.chart-card-title { font-size: 13.5px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
-.chart-card-sub { font-size: 11px; color: var(--grey); margin-bottom: 10px; }
-.chart-svg-wrap { flex: 1; min-height: 0; }
-.chart-svg-wrap svg { width: 100%; height: 100%; display: block; }
-.chart-legend { display: flex; gap: 16px; margin-top: 8px; font-size: 11px; color: var(--text); }
-.chart-legend-item { display: flex; align-items: center; gap: 6px; }
-.chart-legend-dot { width: 9px; height: 9px; border-radius: 2px; display: inline-block; flex: none; }
-.chart-caption { font-size: 10.5px; color: var(--grey); font-style: italic; margin-top: 8px; }
+/* AUDIT VISUALS */
+.audit-image { width: 100%; height: auto; max-height: 320px; object-fit: contain; display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 6px 20px rgba(15,31,61,0.14); }
 
 .hero-card { background: var(--white); border-radius: 14px; box-shadow: 0 8px 40px rgba(15,31,61,0.12); overflow: hidden; position: sticky; top: 72px; margin-top: -8px; margin-bottom: 40px; }
 .hero-card-top { background: var(--teal); padding: 16px 24px; }
@@ -127,10 +115,6 @@ h2.section-title { font-size: 32px; font-weight: 700; color: var(--navy); line-h
 .audit-row-list li::before { content: '•'; color: var(--teal); font-weight: 700; position: absolute; left: 0; }
 .audit-row-how { font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: var(--grey); margin-top: 4px; }
 .reasons-close { font-size: 14px; color: var(--navy); font-weight: 600; text-align: center; margin: 8px 0 8px; }
-
-.audit-row.wide { grid-template-columns: 1fr; gap: 24px; }
-.audit-row.wide .audit-row-visual { order: 2; }
-.dashboard-image { width: 100%; height: auto; display: block; border-radius: 14px; box-shadow: 0 6px 24px rgba(15,31,61,0.18); }
 
 /* WHY CHOOSE GROWISTO COMPARISON */
 .comp-header-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px; }
@@ -358,7 +342,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
     <p class="section-sub">One audit, five outcomes. Together, they give you a full-funnel view: where customers enter, whether your channels are covered, and whether you're investing in the right places.</p>
     <div class="audit-rows">
 
-      <div class="audit-row wide">
+      <div class="audit-row">
         <div class="audit-row-text">
           <div class="audit-row-num">01</div>
           <h3>Market Share &amp; Competitor Analysis</h3>
@@ -372,7 +356,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
           </ul>
         </div>
         <div class="audit-row-visual">
-          <img class="dashboard-image" src="images/market-share-audit-slide.png" alt="Market share audit slide: Brand X is under-penetrating the $75M shampoo category, with price-bracket breakdown and top-competitor market share table">
+          <img class="audit-image" src="images/market-share-organic-ranking.jpeg" alt="Organic ranking chart: your brand not ranking on high-volume search terms where category leaders all rank on page 1">
         </div>
       </div>
 
@@ -390,33 +374,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
           </ul>
         </div>
         <div class="audit-row-visual">
-          <div class="chart-card">
-            <div class="chart-card-title">Spend Mix by Ad Type</div>
-            <div class="chart-card-sub">Converting vs. wasted spend, by ad type</div>
-            <div class="chart-svg-wrap">
-              <svg viewBox="0 0 360 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stacked bar chart of converting vs wasted spend: Sponsored Products 18% wasted, Sponsored Brands 35% wasted, Display 46% wasted">
-                <text x="8" y="27" font-size="11.5" fill="#3D3D4E">Sponsored Products</text>
-                <rect x="150" y="16" width="178" height="18" rx="4" fill="#2B7A8B"/>
-                <rect x="330" y="16" width="38" height="18" rx="4" fill="#E35D34"/>
-                <text x="330" y="45" font-size="11" font-weight="700" fill="#C94D28" text-anchor="middle">18% wasted</text>
-
-                <text x="8" y="71" font-size="11.5" fill="#3D3D4E">Sponsored Brands</text>
-                <rect x="150" y="60" width="141" height="18" rx="4" fill="#2B7A8B"/>
-                <rect x="293" y="60" width="75" height="18" rx="4" fill="#E35D34"/>
-                <text x="330" y="89" font-size="11" font-weight="700" fill="#C94D28" text-anchor="middle">35% wasted</text>
-
-                <text x="8" y="115" font-size="11.5" fill="#3D3D4E">Display</text>
-                <rect x="150" y="104" width="117" height="18" rx="4" fill="#2B7A8B"/>
-                <rect x="269" y="104" width="99" height="18" rx="4" fill="#E35D34"/>
-                <text x="330" y="133" font-size="11" font-weight="700" fill="#C94D28" text-anchor="middle">46% wasted</text>
-              </svg>
-            </div>
-            <div class="chart-legend">
-              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:#2B7A8B;"></span>Converting</span>
-              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:#E35D34;"></span>Wasted</span>
-            </div>
-            <div class="chart-caption">Illustrative sample data</div>
-          </div>
+          <img class="audit-image" src="images/wasted-spend-leak.png" alt="43% of ad spend generates $0 in sales — working spend vs. wasted spend breakdown">
         </div>
       </div>
 
@@ -434,30 +392,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
           </ul>
         </div>
         <div class="audit-row-visual">
-          <div class="chart-card">
-            <div class="chart-card-title">Underfunded Performers</div>
-            <div class="chart-card-sub">Ranked by estimated upside</div>
-            <div class="chart-svg-wrap">
-              <svg viewBox="0 0 360 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart ranking underfunded performers by upside index: Broad-Match Term A 92, Cross-Sell Product X 78, Organic Winner No Ads 61, High-Intent Term B 45">
-                <rect x="150" y="16" width="192" height="18" rx="4" fill="#2B7A8B"/>
-                <text x="8" y="29" font-size="11.5" fill="#3D3D4E">Broad-Match Term A</text>
-                <text x="346" y="29" font-size="12" font-weight="700" fill="#0F1F3D">92</text>
-
-                <rect x="150" y="50" width="164" height="18" rx="4" fill="#2B7A8B"/>
-                <text x="8" y="63" font-size="11.5" fill="#3D3D4E">Cross-Sell: Product X</text>
-                <text x="318" y="63" font-size="12" font-weight="700" fill="#0F1F3D">78</text>
-
-                <rect x="150" y="84" width="128" height="18" rx="4" fill="#2B7A8B"/>
-                <text x="8" y="97" font-size="11.5" fill="#3D3D4E">Organic Winner, No Ads</text>
-                <text x="282" y="97" font-size="12" font-weight="700" fill="#0F1F3D">61</text>
-
-                <rect x="150" y="118" width="94" height="18" rx="4" fill="#2B7A8B"/>
-                <text x="8" y="131" font-size="11.5" fill="#3D3D4E">High-Intent Term B</text>
-                <text x="248" y="131" font-size="12" font-weight="700" fill="#0F1F3D">45</text>
-              </svg>
-            </div>
-            <div class="chart-caption">Illustrative sample data &middot; upside index, not a dollar figure</div>
-          </div>
+          <img class="audit-image" src="images/missed-opportunity-donut.jpeg" alt="Brand-ASIN cross-sell returns 8.4x ROAS at just 11.9% ACOS, yet makes up only 17.7% of total sales — 82.3% not yet captured">
         </div>
       </div>
 
@@ -476,22 +411,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
           </ul>
         </div>
         <div class="audit-row-visual">
-          <div class="chart-card">
-            <div class="chart-card-title">Return per $1 Spent, by Keyword Type</div>
-            <div class="chart-card-sub">Brand vs. generic search terms</div>
-            <div class="chart-svg-wrap">
-              <svg viewBox="0 0 360 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart comparing return per dollar spent: Brand Terms $4.20, Generic Terms $1.85">
-                <rect x="150" y="40" width="160" height="20" rx="4" fill="#2B7A8B"/>
-                <text x="8" y="54" font-size="11.5" fill="#3D3D4E">Brand Terms</text>
-                <text x="318" y="54" font-size="12" font-weight="700" fill="#0F1F3D">$4.20</text>
-
-                <rect x="150" y="100" width="70" height="20" rx="4" fill="#2B7A8B"/>
-                <text x="8" y="114" font-size="11.5" fill="#3D3D4E">Generic Terms</text>
-                <text x="228" y="114" font-size="12" font-weight="700" fill="#0F1F3D">$1.85</text>
-              </svg>
-            </div>
-            <div class="chart-caption">Illustrative sample data</div>
-          </div>
+          <img class="audit-image" src="images/profitability-products.png" alt="Top products to scale and divert ads budget: ROI by ASIN across Shampoos and Conditioners">
         </div>
       </div>
 
@@ -508,34 +428,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
           </ul>
         </div>
         <div class="audit-row-visual">
-          <div class="chart-card">
-            <div class="chart-card-title">Projected Growth: Two Paths</div>
-            <div class="chart-card-sub">Revenue index, 6-month projection</div>
-            <div class="chart-svg-wrap">
-              <svg viewBox="0 0 360 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart of two growth paths over 6 months: steady plan reaching +42%, accelerated plan reaching +100%">
-                <line x1="30" y1="150" x2="340" y2="150" stroke="#E8EAED" stroke-width="1"/>
-                <text x="30" y="164" font-size="10" fill="#6B7280" text-anchor="middle">M1</text>
-                <text x="92" y="164" font-size="10" fill="#6B7280" text-anchor="middle">M2</text>
-                <text x="154" y="164" font-size="10" fill="#6B7280" text-anchor="middle">M3</text>
-                <text x="216" y="164" font-size="10" fill="#6B7280" text-anchor="middle">M4</text>
-                <text x="278" y="164" font-size="10" fill="#6B7280" text-anchor="middle">M5</text>
-                <text x="340" y="164" font-size="10" fill="#6B7280" text-anchor="middle">M6</text>
-
-                <polyline points="30,139 92,130 154,121 216,112 278,102 340,92" fill="none" stroke="#2B7A8B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="340" cy="92" r="4" fill="#2B7A8B" stroke="#FFFFFF" stroke-width="2"/>
-                <text x="298" y="83" font-size="11" font-weight="700" fill="#2B7A8B">+42%</text>
-
-                <polyline points="30,139 92,125 154,107 216,85 278,58 340,26" fill="none" stroke="#E35D34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="340" cy="26" r="4" fill="#E35D34" stroke="#FFFFFF" stroke-width="2"/>
-                <text x="292" y="20" font-size="11" font-weight="700" fill="#E35D34">+100%</text>
-              </svg>
-            </div>
-            <div class="chart-legend">
-              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:#2B7A8B;"></span>Steady plan</span>
-              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:#E35D34;"></span>Accelerated plan</span>
-            </div>
-            <div class="chart-caption">Illustrative sample data</div>
-          </div>
+          <img class="audit-image" src="images/future-growth-projection.jpeg" alt="Two paths to growth over 6 months: sustainable plan reaching +22.6%, aggressive growth plan reaching +34.2%">
         </div>
       </div>
 
