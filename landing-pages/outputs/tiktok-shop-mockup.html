@@ -112,13 +112,35 @@ h2.section-title { font-size: 34px; font-weight: 700; color: var(--navy); line-h
 .service-list li { font-size: 13.5px; color: var(--text); display: flex; align-items: flex-start; gap: 10px; line-height: 1.55; }
 .service-list li::before { content:''; width:6px; height:6px; background:var(--teal); border-radius:50%; flex-shrink:0; margin-top:6px; }
 
-/* ── PLACEHOLDER CARD (case studies) ── */
+/* ── PLACEHOLDER CARD (unused fallback) ── */
 .placeholder-card { background: var(--white); border: 1.5px dashed #C5C8CE; border-radius: 14px; padding: 40px; text-align: center; }
 .placeholder-card h3 { font-size: 15px; font-weight: 600; color: var(--grey); margin-bottom: 10px; }
 .placeholder-card p { font-size: 13px; color: var(--grey); line-height: 1.7; max-width: 560px; margin: 0 auto; }
 .placeholder-list { list-style: none; display: inline-flex; flex-direction: column; gap: 6px; text-align: left; margin-top: 16px; }
 .placeholder-list li { font-size: 12.5px; color: var(--grey); }
 .placeholder-list li::before { content: '— '; }
+
+/* ── CASE STUDIES ── */
+.cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.case-card { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; }
+.case-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 600; padding: 5px 12px; border-radius: 20px; margin-bottom: 14px; align-self: flex-start; }
+.case-tag.teal   { background: var(--teal-lt); color: var(--teal); }
+.case-tag.orange { background: #FEF0EB; color: var(--orange); }
+.case-tag.purple { background: #F0EBF8; color: var(--purple); }
+.case-card h3 { font-size: 16.5px; font-weight: 700; color: var(--navy); line-height: 1.35; margin-bottom: 10px; }
+.case-desc { font-size: 12.5px; color: var(--grey); line-height: 1.6; margin-bottom: 18px; }
+.results-box { background: var(--card-bg); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; }
+.results-label { font-size: 10px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; color: var(--teal); display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+.results-label::before { content:''; width:7px; height:7px; background:var(--teal); border-radius:50%; }
+.results-row { display: flex; flex-direction: column; gap: 10px; }
+.result-item .val { font-size: 19px; font-weight: 700; color: var(--orange); line-height: 1.2; }
+.result-item .lbl { font-size: 11px; color: var(--grey); line-height: 1.4; margin-top: 2px; }
+.approach-box { background: var(--card-bg); border-radius: 10px; padding: 14px 16px; margin-top: auto; }
+.approach-label { font-size: 10px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; color: var(--grey); margin-bottom: 10px; }
+.approach-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.approach-list li { font-size: 11.5px; color: var(--text); display: flex; align-items: flex-start; gap: 6px; line-height: 1.5; }
+.approach-list li::before { content:'✓'; color: var(--teal); font-weight: 700; flex-shrink:0; }
+.case-note { font-size: 11.5px; color: var(--teal); font-style: italic; margin-top: 12px; }
 
 /* ── COMPARISON (reused) ── */
 .comp-header-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px; }
@@ -278,21 +300,87 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
   </div>
 </div>
 
-<!-- SECTION 3 — CASE STUDIES (placeholder) -->
+<!-- SECTION 3 — CASE STUDIES -->
 <section class="section section-alt">
   <div class="container">
     <div class="section-label">Case Studies</div>
     <h2 class="section-title">How We've Turned Marketplace Growth Discipline Into TikTok Shop Revenue</h2>
-    <div class="placeholder-card">
-      <h3>Case studies pending</h3>
-      <p>No confirmed TikTok Shop case studies yet. Once sales/ops supply real results, each card follows the standard format:</p>
-      <ul class="placeholder-list">
-        <li>Category tag</li>
-        <li>Headline (result-led, e.g. "X% GMV Growth in Y Months")</li>
-        <li>Challenge (2–3 sentences)</li>
-        <li>3 result stats with labels</li>
-        <li>4 "Strategic Approach" bullets</li>
-      </ul>
+    <p class="section-sub">Brand names anonymized pending client permission — categories and figures are real.</p>
+    <div class="cases-grid">
+
+      <!-- Case 1: Oral Care & Wellness (GuruNanda, anonymized) -->
+      <div class="case-card">
+        <span class="case-tag teal">Oral Care &amp; Wellness</span>
+        <h3>Creator Ecosystem Built From Scratch Drives 37.5x Peak Revenue Growth</h3>
+        <p class="case-desc">This oral care and wellness brand had grown Amazon sales to a plateau near $8K/day — more ad spend wasn't unlocking new demand. They needed a new growth engine, not just another traffic channel.</p>
+        <div class="results-box">
+          <div class="results-label">Results</div>
+          <div class="results-row">
+            <div class="result-item"><div class="val">37.5x</div><div class="lbl">Increase from starting to peak daily run-rate</div></div>
+            <div class="result-item"><div class="val">12.5x</div><div class="lbl">Increase to the new sustained daily run-rate</div></div>
+            <div class="result-item"><div class="val">2 Channels</div><div class="lbl">TikTok Shop revenue plus incremental Amazon sales</div></div>
+          </div>
+        </div>
+        <div class="approach-box">
+          <div class="approach-label">Strategic Approach</div>
+          <ul class="approach-list">
+            <li>Built a creator ecosystem from scratch and scaled it over two years</li>
+            <li>Combined barter seeding, paid influencer collaborations, and affiliate commissions</li>
+            <li>Incentivized creators on real TikTok Shop sales, with awareness compounding back into Amazon</li>
+            <li>Continuously tested creators, content formats, and incentive models</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Case 2: Pet Accessories (Voyager Harness, anonymized) -->
+      <div class="case-card">
+        <span class="case-tag orange">Pet Accessories</span>
+        <h3>Sequential Fixes Turn an Unprofitable TikTok Channel Profitable, Lifting ROAS 44%</h3>
+        <p class="case-desc">This pet accessories brand's TikTok channel was running at a loss — ads returned just 1.8 ROAS at an $11.60 cost per order, and listings weren't yet built to convert.</p>
+        <div class="results-box">
+          <div class="results-label">Results</div>
+          <div class="results-row">
+            <div class="result-item"><div class="val">+44%</div><div class="lbl">Improvement in ROAS (1.8 → 2.6)</div></div>
+            <div class="result-item"><div class="val">$11.60 → $6.80</div><div class="lbl">Reduction in cost per order</div></div>
+            <div class="result-item"><div class="val">-67%</div><div class="lbl">Reduction in monthly ad spend, with performance improving</div></div>
+          </div>
+        </div>
+        <div class="approach-box">
+          <div class="approach-label">Strategic Approach</div>
+          <ul class="approach-list">
+            <li>Fixed listings first to strengthen the conversion foundation before touching ad spend</li>
+            <li>Standardized the affiliate approach with shared scripts across creators</li>
+            <li>Filtered out underperforming affiliates and videos to cut inefficient spend</li>
+            <li>Reallocated — not increased — budget toward what was actually converting</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Case 3: Prestige Beauty & Fragrance (Octavia Morgan, anonymized) -->
+      <div class="case-card">
+        <span class="case-tag purple">Prestige Beauty &amp; Fragrance</span>
+        <h3>Compliance-First Launch Gets a Hazmat-Classified Fragrance Brand Live on TikTok Shop in Under a Month</h3>
+        <p class="case-desc">This prestige fragrance brand had strong retail credibility but zero TikTok presence — and as a trademarked, Hazmat-classified product, it had to clear compliance and category gates before any marketing could start.</p>
+        <div class="results-box">
+          <div class="results-label">Results</div>
+          <div class="results-row">
+            <div class="result-item"><div class="val">~1 Month</div><div class="lbl">To clear all compliance and Hazmat-related requirements</div></div>
+            <div class="result-item"><div class="val">10+</div><div class="lbl">SKUs live, including discovery sets</div></div>
+            <div class="result-item"><div class="val">$350</div><div class="lbl">Initial paid test spend, validated before scaling budget</div></div>
+          </div>
+        </div>
+        <div class="approach-box">
+          <div class="approach-label">Strategic Approach</div>
+          <ul class="approach-list">
+            <li>Cleared Hazmat, beauty, and seller verification gates before taking SKUs live</li>
+            <li>Built the organic engine first — regular posting and community management before paid</li>
+            <li>Sourced content through affiliates and PR kits rather than brand-produced ads</li>
+            <li>Tested small before committing to a full ad budget</li>
+          </ul>
+        </div>
+        <p class="case-note">Full GMV, ROAS, and follower metrics will be reported as the affiliate-fueled paid phase scales.</p>
+      </div>
+
     </div>
   </div>
 </section>
