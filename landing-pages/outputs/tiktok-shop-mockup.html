@@ -92,19 +92,11 @@ h2.section-title { font-size: 34px; font-weight: 700; color: var(--navy); line-h
 .centered { text-align: center; }
 .centered .section-sub { margin-left: auto; margin-right: auto; }
 
-/* ── WORKS GRID (How TikTok Shop Works) ── */
-.works-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-.works-card { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 12px; padding: 28px 24px; border-top: 3px solid var(--teal); }
-.works-num { width: 44px; height: 44px; background: var(--teal-lt); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: var(--teal); margin-bottom: 16px; }
-.works-card h3 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 10px; line-height: 1.4; }
-.works-card p { font-size: 13px; color: var(--text); line-height: 1.7; }
-
 /* ── AFFILIATE PROGRAM CARDS ── */
 .aff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 20px; }
 .aff-card { background: var(--white); border: 1px solid var(--grey-lt); border-radius: 12px; padding: 22px; }
 .aff-card h3 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
 .aff-card p { font-size: 13px; color: var(--text); line-height: 1.65; }
-.aff-note { display: flex; align-items: flex-start; gap: 8px; background: var(--teal-lt); border-left: 3px solid var(--teal); border-radius: 0 8px 8px 0; padding: 12px 16px; font-size: 13px; color: var(--teal); font-style: italic; line-height: 1.6; }
 
 /* ── SERVICES TAB (reused) ── */
 .svc-layout { display: grid; grid-template-columns: 240px 1fr; gap: 16px; margin-bottom: 40px; align-items: start; }
@@ -120,7 +112,7 @@ h2.section-title { font-size: 34px; font-weight: 700; color: var(--navy); line-h
 .service-list li { font-size: 13.5px; color: var(--text); display: flex; align-items: flex-start; gap: 10px; line-height: 1.55; }
 .service-list li::before { content:''; width:6px; height:6px; background:var(--teal); border-radius:50%; flex-shrink:0; margin-top:6px; }
 
-/* ── PLACEHOLDER CARD (case studies / testimonials) ── */
+/* ── PLACEHOLDER CARD (case studies) ── */
 .placeholder-card { background: var(--white); border: 1.5px dashed #C5C8CE; border-radius: 14px; padding: 40px; text-align: center; }
 .placeholder-card h3 { font-size: 15px; font-weight: 600; color: var(--grey); margin-bottom: 10px; }
 .placeholder-card p { font-size: 13px; color: var(--grey); line-height: 1.7; max-width: 560px; margin: 0 auto; }
@@ -239,8 +231,9 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
   <div class="hero-inner">
     <div class="hero-left">
       <h1><span style="color:var(--orange)">TikTok Shop Management Services</span> That Turn Your Reach Into Revenue</h1>
-      <p class="hero-tagline">You focus on content and growing your social reach. We make sure that reach converts into tangible TikTok Shop revenue.</p>
-      <p class="hero-sub">TikTok moves faster than any other commerce platform. That speed only pays off if the shop behind it can keep up. We own the TikTok Shop backend — listings, storefront, promotions, the affiliate program and ads — so every view, follow, and viral moment you generate actually converts into shop revenue.</p>
+      <p class="hero-tagline">You focus on virality, we focus on converting that virality into revenue.</p>
+      <p class="hero-sub">TikTok moves faster than any other commerce platform. That speed only pays off if the shop behind it can keep up.</p>
+      <p class="hero-sub">We own the TikTok Shop backend: listings, storefront, promotions, the affiliate program and ads. All to convert every view, follow, and viral moment you generate into revenue.</p>
       <ul class="hero-bullets">
         <li><span class="check">✓</span> Full TikTok Shop backend management</li>
         <li><span class="check">✓</span> Structured affiliate and creator program management</li>
@@ -285,70 +278,30 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
   </div>
 </div>
 
-<!-- SECTION 3 — HOW TIKTOK SHOP ACTUALLY WORKS -->
-<section class="section">
-  <div class="container">
-    <div class="section-label">How TikTok Shop Works</div>
-    <h2 class="section-title">Your TikTok Shop Built Around How Shoppers Actually Buy on TikTok</h2>
-    <p class="section-sub">TikTok isn't just a marketplace or a social platform — it's both, moving at once. Trends turn over by the week, a single video can spike overnight, and the same app driving that virality is also where the sale closes. TikTok Shop isn't one storefront — it's four separate surfaces where a sale can happen, and most brands only optimize one.</p>
-    <div class="works-grid">
-      <div class="works-card">
-        <div class="works-num">01</div>
-        <h3>The Shop Tab — Your Owned Storefront</h3>
-        <p>Your in-app storefront, product catalog, and collections. Category node selection (from 750+ categories), title and listing optimization, and storefront design all determine whether shoppers find you and buy once they land.</p>
-      </div>
-      <div class="works-card">
-        <div class="works-num">02</div>
-        <h3>Shoppable Video &amp; LIVE — Where Discovery Turns Into Checkout</h3>
-        <p>Products get tagged directly inside videos and LIVE sessions, keeping the entire purchase in-app. Conversion depends on product pinning, pricing, and backend readiness — not just the content itself.</p>
-      </div>
-      <div class="works-card">
-        <div class="works-num">03</div>
-        <h3>The Affiliate Marketplace — Your Highest-Leverage Channel</h3>
-        <p>TikTok's built-in affiliate marketplace lets creators sell your products for a commission. Most of TikTok Shop's sales come through creators, not paid ads — which is why a managed affiliate program matters more here than on any other channel.</p>
-      </div>
-      <div class="works-card">
-        <div class="works-num">04</div>
-        <h3>Search Ads — Capturing In-App Search Intent (New for 2025)</h3>
-        <p>TikTok Shop now supports Search Ads targeting shoppers actively searching inside the app — a newer, high-intent surface most brands haven't started using yet.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 4 — AFFILIATE & CREATOR PROGRAM MANAGEMENT -->
+<!-- SECTION 3 — CASE STUDIES (placeholder) -->
 <section class="section section-alt">
   <div class="container">
-    <div class="section-label">Affiliate &amp; Creator Program</div>
-    <h2 class="section-title">A Structured Affiliate Program, Not Ad Hoc Creator Outreach</h2>
-    <p class="section-sub">Most TikTok Shop sales come through creators, not ads. We manage the program mechanics — recruitment, commercials, and guidelines — so it scales without you reviewing every piece of content.</p>
-    <div class="aff-grid">
-      <div class="aff-card">
-        <h3>Affiliate Identification &amp; Recruitment</h3>
-        <p>Creators sourced via TikTok's native affiliate marketplace and third-party tools, filtered by niche relevance, engagement quality, audience fit, and historical shop performance — criteria-driven, not manual search.</p>
-      </div>
-      <div class="aff-card">
-        <h3>Outreach at Scale</h3>
-        <p>Templated, systematized outreach through TikTok's Affiliate Center, tracked centrally, at volume.</p>
-      </div>
-      <div class="aff-card">
-        <h3>Commission &amp; Pricing Strategy</h3>
-        <p>Commission structures, incentive tiers, and promotional pricing designed to attract quality affiliates while protecting margin.</p>
-      </div>
-      <div class="aff-card">
-        <h3>Brand-Safe Content Guidelines</h3>
-        <p>Standardized, version-controlled briefs covering messaging, mandatory and prohibited content, and format — brand safety without reviewing every individual piece.</p>
-      </div>
+    <div class="section-label">Case Studies</div>
+    <h2 class="section-title">How We've Turned Marketplace Growth Discipline Into TikTok Shop Revenue</h2>
+    <div class="placeholder-card">
+      <h3>Case studies pending</h3>
+      <p>No confirmed TikTok Shop case studies yet. Once sales/ops supply real results, each card follows the standard format:</p>
+      <ul class="placeholder-list">
+        <li>Category tag</li>
+        <li>Headline (result-led, e.g. "X% GMV Growth in Y Months")</li>
+        <li>Challenge (2–3 sentences)</li>
+        <li>3 result stats with labels</li>
+        <li>4 "Strategic Approach" bullets</li>
+      </ul>
     </div>
-    <div class="aff-note">This is program and commercial management — content creation itself remains with your team or your affiliates.</div>
   </div>
 </section>
 
-<!-- SECTION 5 — SERVICES -->
+<!-- SECTION 4 — SERVICES -->
 <section class="section">
   <div class="container">
     <div class="section-label">Our Services</div>
-    <h2 class="section-title">Comprehensive TikTok Shop Management for Every Stage of Growth</h2>
+    <h2 class="section-title">Our Services to Drive Your TikTok Growth</h2>
     <p class="section-sub">From shop backend to affiliate program to paid ads — we manage what turns your content and reach into TikTok Shop revenue.</p>
     <div class="svc-layout">
       <nav class="svc-nav" id="svcNav">
@@ -366,7 +319,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
   </div>
 </section>
 
-<!-- SECTION 6 — MID-PAGE CTA -->
+<!-- SECTION 5 — MID-PAGE CTA -->
 <section class="section section-alt" id="mid-cta">
   <div class="container">
     <div style="background:var(--teal);border-radius:20px;padding:14px;">
@@ -394,38 +347,34 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
   </div>
 </section>
 
-<!-- SECTION 7 — CASE STUDIES (placeholder) -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-label">Case Studies</div>
-    <h2 class="section-title">How We've Turned Marketplace Growth Discipline Into TikTok Shop Revenue</h2>
-    <div class="placeholder-card">
-      <h3>Case studies pending</h3>
-      <p>No confirmed TikTok Shop case studies yet. Once sales/ops supply real results, each card follows the standard format:</p>
-      <ul class="placeholder-list">
-        <li>Category tag</li>
-        <li>Headline (result-led, e.g. "X% GMV Growth in Y Months")</li>
-        <li>Challenge (2–3 sentences)</li>
-        <li>3 result stats with labels</li>
-        <li>4 "Strategic Approach" bullets</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 8 — TESTIMONIALS (placeholder) -->
+<!-- SECTION 6 — AFFILIATE & CREATOR PROGRAM MANAGEMENT -->
 <section class="section">
-  <div class="container centered">
-    <div class="section-label">Client Voices</div>
-    <h2 class="section-title">What Our Clients Say</h2>
-    <div class="placeholder-card">
-      <h3>Testimonials pending</h3>
-      <p>No confirmed TikTok Shop testimonials yet. Needs: name, title, company, and quote from sales/ops.</p>
+  <div class="container">
+    <div class="section-label">Affiliate &amp; Creator Program</div>
+    <h2 class="section-title">A Structured Affiliate Program, Not Ad Hoc Creator Outreach</h2>
+    <p class="section-sub">Most TikTok Shop sales come through creators, not ads. We manage the program mechanics — recruitment, commercials, and guidelines — so it scales without you reviewing every piece of content.</p>
+    <div class="aff-grid">
+      <div class="aff-card">
+        <h3>Affiliate Identification &amp; Recruitment</h3>
+        <p>Creators sourced via TikTok's native affiliate marketplace and third-party tools, filtered by niche relevance, engagement quality, audience fit, and historical shop performance — criteria-driven, not manual search.</p>
+      </div>
+      <div class="aff-card">
+        <h3>Outreach at Scale</h3>
+        <p>Templated, systematized outreach through TikTok's Affiliate Center, tracked centrally, at volume.</p>
+      </div>
+      <div class="aff-card">
+        <h3>Commission &amp; Pricing Strategy</h3>
+        <p>Commission structures, incentive tiers, and promotional pricing designed to attract quality affiliates while protecting margin.</p>
+      </div>
+      <div class="aff-card">
+        <h3>Brand-Safe Content Guidelines</h3>
+        <p>Standardized, version-controlled briefs covering messaging, mandatory and prohibited content, and format — brand safety without reviewing every individual piece.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 9 — WHY GROWISTO (COMPARISON TABLE) -->
+<!-- SECTION 7 — WHY GROWISTO (COMPARISON TABLE) -->
 <section class="section section-alt">
   <div class="container">
     <div class="section-label">Why Growisto</div>
@@ -461,7 +410,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
   </div>
 </section>
 
-<!-- SECTION 10 — OUR PROCESS -->
+<!-- SECTION 8 — OUR PROCESS -->
 <section class="section">
   <div class="container">
     <div class="section-label">Our Process</div>
@@ -502,7 +451,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
   </div>
 </section>
 
-<!-- SECTION 11 — PRICING -->
+<!-- SECTION 9 — PRICING -->
 <section class="section section-alt">
   <div class="container">
     <div class="section-label">Pricing</div>
@@ -527,7 +476,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
   </div>
 </section>
 
-<!-- SECTION 12 — FAQ -->
+<!-- SECTION 10 — FAQ -->
 <section class="section">
   <div class="container">
     <div class="section-label">FAQ</div>
@@ -573,7 +522,7 @@ footer { background: var(--navy); padding: 52px 0 24px; border-top: 3px solid va
   </div>
 </section>
 
-<!-- SECTION 13 — FINAL CTA -->
+<!-- SECTION 11 — FINAL CTA -->
 <section class="final-cta-section">
   <div class="container">
     <h2>Find Out What's Holding Your TikTok Shop Revenue Back</h2>
