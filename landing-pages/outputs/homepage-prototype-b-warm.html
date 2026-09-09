@@ -9,6 +9,7 @@
 <!-- TYPEFACE: change this URL and the --font-head/--font-body vars below together -->
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -23,6 +24,7 @@
   --font-head:'Newsreader',Georgia,'Times New Roman',serif;
   /* Figma: body Satoshi 400 -- exact, free via Fontshare */
   --font-body:'Satoshi','Inter',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--font-body);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
@@ -33,8 +35,8 @@ body{font-family:var(--font-body);background:var(--cream);color:var(--ink);-webk
 
 h1,h2,h3{font-family:var(--font-head);letter-spacing:-.025em;font-weight:500;line-height:1.12}
 h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-weight:420}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-.eyebrow::before{content:"";width:9px;height:9px;background:var(--rust);flex:none}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12px;line-height:15.6px;letter-spacing:1.68px;text-transform:uppercase;color:#1E1A16;margin-bottom:0}
+.eyebrow::before{content:"";width:8px;height:8px;background:var(--rust);flex:none}
 .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-family:var(--font-body);font-size:14px;line-height:18.9px;font-weight:500;text-decoration:none;border-radius:999px;padding:12px 22px;transition:.18s;white-space:nowrap}
 .btn-rust{background:var(--rust);color:#fff}
 .btn-rust:hover{background:var(--rust-h)}
@@ -100,25 +102,25 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 
 /* ---------- three questions ---------- */
 .questions{padding:80px 0}
-.q-grid{display:grid;grid-template-columns:.85fr repeat(3,1fr);gap:0;border-top:1px solid var(--line-2)}
-.q-intro{padding:30px 34px 30px 0}
-.q-intro h2{margin-bottom:6px}
-.q-intro h2 span{color:var(--muted);display:block}
-.q-intro .btn{margin-top:20px}
-.qcol{padding:30px 26px;border-left:1px solid var(--line)}
-.qcol .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
-.qico{height:74px;margin-bottom:22px;display:block}
-.qcol h3{font-size:17px;font-weight:500;line-height:1.35;margin-bottom:12px}
-.qcol p{font-size:13.5px;color:var(--muted);line-height:1.6}
+.q-grid{display:grid;grid-template-columns:342px repeat(3,1fr);gap:0}
+.q-intro{padding:0 48px 0 0}
+.q-intro h2{margin:24px 0 0}
+.q-intro h2 span{color:#1E1A16;display:block}
+.q-intro .btn{margin-top:36px}
+.qcol{padding:0 24px;border-left:1px solid #B8BCC4}
+.qcol .lbl{font-family:var(--font-mono);font-size:10px;line-height:13px;letter-spacing:1.68px;text-transform:uppercase;color:#1E1A16;margin:0}
+.qico{height:200px;width:100%;padding:20px 0;margin:0 0 12px;display:block}
+.qcol h3{font-family:var(--font-head);font-size:20px;font-weight:420;line-height:26px;letter-spacing:0;margin:0 0 12px}
+.qcol p{font-family:'Inter',system-ui,sans-serif;font-size:13.5px;line-height:22.4px;color:rgba(54,23,0,.7)}
 
 /* ---------- case studies ---------- */
 .cases{padding:0 0 80px}
-.cases-head{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end;margin-bottom:26px}
-.cases-head p{color:var(--muted);max-width:48ch;font-size:14.5px}
+.cases-head{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-bottom:34px}
+.cases-head p{color:rgba(54,23,0,.7);max-width:662px;font-size:18px;line-height:24px;padding-top:12px}
 .head-actions{display:flex;gap:10px;justify-content:flex-end;align-items:center}
-.rnd{width:36px;height:36px;border-radius:50%;border:1px solid var(--line-2);background:#fff;cursor:pointer;font-size:15px;color:var(--ink-2);display:grid;place-items:center}
+.rnd{width:44px;height:44px;border-radius:12px;border:1px solid #D6CCBC;background:#FFFDF9;cursor:pointer;font-size:16px;color:var(--ink);display:grid;place-items:center}
 .rnd:hover{border-color:var(--rust);color:var(--rust)}
-.cs{background:var(--teal);border-radius:18px;overflow:hidden;color:#EAF0EF}
+.cs{background:var(--teal);border-radius:20px;overflow:hidden;color:#EAF0EF}
 .cs-in{display:grid;grid-template-columns:1.05fr .95fr;min-height:330px}
 .cs-copy{padding:34px 36px;display:flex;flex-direction:column}
 .cs-brand{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);border-radius:8px;padding:6px 11px;font-size:12px;align-self:flex-start;margin-bottom:20px}
@@ -141,7 +143,7 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 .svc-head{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end;margin-bottom:28px}
 .svc-head h2{max-width:14ch}
 .svc-right{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
-.svc-right p{color:var(--muted);font-size:14.5px;max-width:46ch}
+.svc-right p{color:rgba(50,28,4,.7);font-size:18px;line-height:26px;max-width:46ch}
 .svc-panel{background:var(--cream-2);border-radius:18px;padding:26px;display:grid;grid-template-columns:.78fr 1.22fr;gap:26px}
 .svc-left h3{font-size:26px;font-weight:500;margin-bottom:12px}
 .svc-left>p{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:16px;max-width:38ch}

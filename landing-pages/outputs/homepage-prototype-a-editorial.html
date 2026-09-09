@@ -136,29 +136,33 @@ h2{font-size:clamp(30px,4.2vw,56px);font-weight:420;letter-spacing:0;line-height
 
 /* ---------- case study ---------- */
 .section{padding:0 0 60px}
-.sec-head{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:28px}
-.sec-head p{color:var(--ink);font-size:18px;line-height:26px;max-width:355px}
-.cs{background:var(--forest);border-radius:20px;padding:22px;color:#EFEFE6;position:relative;overflow:hidden}
-.cs-tabs{display:flex;gap:8px;justify-content:center;margin-bottom:20px}
-.cs-tab{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#EFEFE6;border-radius:999px;padding:7px 16px;font:inherit;font-size:13px;cursor:pointer;transition:.18s}
-.cs-tab[aria-selected="true"]{background:#EFEFE6;color:var(--forest);border-color:#EFEFE6}
-.cs-body{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
-.cs-left{display:flex;flex-direction:column}
-.cs-brand{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(239,239,230,.6);margin-bottom:18px}
-.cs-brand b{color:#fff;font-size:14px;letter-spacing:0;text-transform:none}
-.cs-quote{font-size:clamp(19px,2.3vw,27px);font-weight:400;letter-spacing:-.02em;line-height:1.25;margin-bottom:20px}
-.cs-person{display:flex;align-items:center;gap:10px;font-size:13px;margin-bottom:18px}
-.cs-person i{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#C4A47C,#8A6742);display:block}
-.cs-person span{color:rgba(239,239,230,.65);font-size:12px;display:block}
-.cs-media{border-radius:14px;background:linear-gradient(135deg,#C6D46A,#7E9C5A 60%,#4E6340);min-height:230px;position:relative}
-.play{position:absolute;inset:0;margin:auto;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center}
-.play::after{content:"";border-left:13px solid var(--forest);border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:auto}
-.stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px}
-.stat b{display:block;font-size:26px;font-weight:400;letter-spacing:-.02em}
-.stat span{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:rgba(239,239,230,.58);line-height:1.4;display:block;margin-top:5px}
-.cs-foot{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.13);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(239,239,230,.55)}
-.cs-foot a{color:#EFEFE6;text-decoration:none;border-bottom:1px solid rgba(239,239,230,.4);padding-bottom:2px}
+.sec-head{display:grid;grid-template-columns:579px 355px;justify-content:space-between;gap:48px;align-items:start;margin-bottom:52px}
+.sec-head p{color:var(--ink);font-size:18px;line-height:26px;max-width:355px;padding-top:10px}
+.cs{position:relative;border-radius:16px;padding:72px 44px 44px;overflow:hidden;background:linear-gradient(155deg,#A9BC86,#7E9C5A 45%,#586E45)}
+.cs::after{content:"IMAGE PLACEHOLDER";position:absolute;right:18px;bottom:12px;font-size:10px;letter-spacing:.16em;color:rgba(255,255,255,.35)}
+.cs-tabs{position:absolute;top:0;left:50%;transform:translateX(-50%);display:flex;gap:24px;padding:0 24px;z-index:2}
+.cs-tab{width:72px;height:72px;border:0;border-radius:0 0 16px 16px;background:#fff;padding:5px;cursor:pointer;display:grid;place-items:center;font-family:inherit;transition:.18s}
+.cs-tab i{width:62px;height:62px;border-radius:14px;display:grid;place-items:center;color:#fff;font-size:10px;font-weight:700;line-height:1.15;text-align:center;font-style:normal;padding:4px}
+.cs-tab[aria-selected="false"]{opacity:.5}
+.cs-tab:hover{opacity:1}
+.cs-card{background:#FBFBFB;border-radius:16px;padding:38px 38px 30px;position:relative;z-index:1}
+.cs-body{display:grid;grid-template-columns:427fr 565fr;gap:44px;align-items:start}
+.cs-brand{display:flex;align-items:center;gap:11px;margin-bottom:26px}
+.cs-brand i{width:34px;height:34px;flex:none;border-radius:2px;display:grid;place-items:center;color:#fff;font-size:8px;font-weight:700;font-style:normal;text-align:center;line-height:1.1;padding:2px}
+.cs-brand b{font-family:'Inter',system-ui,sans-serif;font-size:15.5px;line-height:18.6px;letter-spacing:-.16px;font-weight:600;color:#16171A}
+.cs-quote{font-size:30px;line-height:36px;letter-spacing:-.06px;font-weight:500;color:var(--ink);margin:0 0 24px}
+.cs-person{font-size:14px;line-height:20px;letter-spacing:1.47px;font-weight:500;color:#8B8F98;margin:0 0 30px;text-transform:uppercase}
+.cs-link{display:inline-flex;align-items:center;gap:9px;font-size:12px;line-height:16.2px;letter-spacing:1.5px;font-weight:700;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:7px}
+.cs-media-wrap{background:rgba(215,229,174,.16);border-radius:14px;padding:16px}
+.cs-media{border-radius:12px;height:320px;position:relative;background:linear-gradient(135deg,#D3B48C,#A8763F 55%,#6E4A24)}
+.play{position:absolute;inset:0;margin:auto;width:56px;height:56px;border-radius:50%;background:rgba(240,240,240,.3);border:1px solid rgba(255,255,255,.55);display:grid;place-items:center}
+.play::after{content:"";border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:12px}
+.stat{background:#fff;border:1px solid #ECEBE6;border-radius:12px;padding:18px 18px 20px}
+.stat span{display:block;font-size:10px;line-height:14.5px;letter-spacing:1.3px;font-weight:500;color:#8B8F98;text-transform:uppercase}
+.stat b{display:block;font-family:'Inter',system-ui,sans-serif;font-size:32px;line-height:32px;letter-spacing:-.96px;font-weight:700;color:#16171A;margin-top:12px}
+.cs-foot{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:34px;padding-top:20px;border-top:1px solid #E2E1DB}
+.cs-foot span{font-size:12px;line-height:16.2px;letter-spacing:1.47px;font-weight:500;color:#8B8F98;text-transform:uppercase}
 
 /* ---------- map ---------- */
 .map-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:10px}
@@ -361,57 +365,63 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
   </div>
   <div class="cs">
     <div class="cs-tabs" role="tablist">
-      <button class="cs-tab" role="tab" aria-selected="true" data-c="c-gn">GuruNanda</button>
-      <button class="cs-tab" role="tab" aria-selected="false" data-c="c-ka">Kama Ayurveda</button>
-      <button class="cs-tab" role="tab" aria-selected="false" data-c="c-pu">PUMA</button>
+      <button class="cs-tab" role="tab" aria-selected="true" data-c="c-gn" aria-label="GuruNanda"><i style="background:#512C1D">GURU NANDA</i></button>
+      <button class="cs-tab" role="tab" aria-selected="false" data-c="c-ka" aria-label="Kama Ayurveda"><i style="background:#BD4541">KAMA</i></button>
+      <button class="cs-tab" role="tab" aria-selected="false" data-c="c-pu" aria-label="PUMA"><i style="background:#000000">PUMA</i></button>
     </div>
-
-    <div class="cs-case" id="c-gn">
+    <div class="cs-card cs-case" id="c-gn">
       <div class="cs-body">
-        <div class="cs-left">
-          <div class="cs-brand"><b>GuruNanda</b> Oral care · US</div>
-          <blockquote class="cs-quote">"Consistent pro-activeness and constant innovation are two defining qualities the Growisto team has always exhibited."</blockquote>
-          <div class="cs-person"><i></i><div>Puneet Nanda<span>Founder &amp; CEO, GuruNanda</span></div></div>
+        <div>
+          <div class="cs-brand"><i style="background:#512C1D">GURU NANDA</i><b>GuruNanda Oral care · US</b></div>
+          <blockquote class="cs-quote">Consistent pro-activeness and constant innovation are two defining qualities the Growisto team has always exhibited.</blockquote>
+          <p class="cs-person">Puneet Nanda<br>CEO, GuruNanda</p>
+          <a class="cs-link" href="#">Read full story &nearr;</a>
+        </div>
+        <div class="cs-media-wrap">
+          <div class="cs-media" style="background:linear-gradient(135deg,#D3B48C,#A8763F 55%,#6E4A24)"><span class="play"></span></div>
           <div class="stats">
-            <div class="stat"><b>$1M &rarr; $5M</b><span>Revenue growth, first two years</span></div>
-            <div class="stat"><b>$50M+</b><span>Annual revenue today</span></div>
+          <div class="stat"><span>Revenue growth, first two years</span><b>$1M &rarr; $5M</b></div>
+          <div class="stat"><span>Annual revenue today</span><b>$50M+</b></div>
           </div>
         </div>
-        <div class="cs-media"><span class="play"></span></div>
       </div>
-      <div class="cs-foot"><span>Oral care · United States · 4+ international markets</span><a href="#">All case studies &rarr;</a></div>
+      <div class="cs-foot"><span>Oral care · United States · 6+ international markets</span><a class="cs-link" href="#">All casestudies &nearr;</a></div>
     </div>
-
-    <div class="cs-case" id="c-ka" hidden>
+    <div class="cs-card cs-case" id="c-ka" hidden>
       <div class="cs-body">
-        <div class="cs-left">
-          <div class="cs-brand"><b>Kama Ayurveda</b> Beauty · Multi-market</div>
-          <blockquote class="cs-quote">"One roadmap covering storefront, marketplace and search meant we stopped reconciling three different versions of the truth."</blockquote>
-          <div class="cs-person"><i></i><div>Brand leadership<span>Kama Ayurveda</span></div></div>
+        <div>
+          <div class="cs-brand"><i style="background:#BD4541">KAMA</i><b>Kama Ayurveda Beauty · Multi-market</b></div>
+          <blockquote class="cs-quote">One roadmap covering storefront, marketplace and search meant we stopped reconciling three different versions of the truth.</blockquote>
+          <p class="cs-person">Brand leadership<br>Kama Ayurveda</p>
+          <a class="cs-link" href="#">Read full story &nearr;</a>
+        </div>
+        <div class="cs-media-wrap">
+          <div class="cs-media" style="background:linear-gradient(135deg,#E0C6A8,#B07C55 55%,#6B4630)"><span class="play"></span></div>
           <div class="stats">
-            <div class="stat"><b>145%</b><span>Average organic traffic increase</span></div>
-            <div class="stat"><b>4.2x</b><span>Average increase in AI citations</span></div>
+          <div class="stat"><span>Average organic traffic increase</span><b>145%</b></div>
+          <div class="stat"><span>Average increase in AI citations</span><b>4.2x</b></div>
           </div>
         </div>
-        <div class="cs-media" style="background:linear-gradient(135deg,#E4D2B4,#B08E68 60%,#6E5A42)"><span class="play"></span></div>
       </div>
-      <div class="cs-foot"><span>Beauty &amp; personal care · India and Gulf</span><a href="#">All case studies &rarr;</a></div>
+      <div class="cs-foot"><span>Beauty &amp; personal care · India and the Gulf</span><a class="cs-link" href="#">All casestudies &nearr;</a></div>
     </div>
-
-    <div class="cs-case" id="c-pu" hidden>
+    <div class="cs-card cs-case" id="c-pu" hidden>
       <div class="cs-body">
-        <div class="cs-left">
-          <div class="cs-brand"><b>PUMA</b> Sportswear · Marketplaces</div>
-          <blockquote class="cs-quote">"They operate like an in-house team. The reporting is honest, including the weeks that did not go our way."</blockquote>
-          <div class="cs-person"><i></i><div>Ankit Madhogaria<span>Head, Online Demand, PUMA</span></div></div>
+        <div>
+          <div class="cs-brand"><i style="background:#000000">PUMA</i><b>PUMA Sportswear · Marketplaces</b></div>
+          <blockquote class="cs-quote">They operate like an in-house team. The reporting is honest, including the weeks that did not go our way.</blockquote>
+          <p class="cs-person">Ankit Madhogaria<br>Head, Online Demand, PUMA</p>
+          <a class="cs-link" href="#">Read full story &nearr;</a>
+        </div>
+        <div class="cs-media-wrap">
+          <div class="cs-media" style="background:linear-gradient(135deg,#CBD1D6,#7E878F 55%,#3B4248)"><span class="play"></span></div>
           <div class="stats">
-            <div class="stat"><b>56%</b><span>Average ACOS reduction, 18 months+</span></div>
-            <div class="stat"><b>$6Mn+</b><span>Ad spend managed per quarter</span></div>
+          <div class="stat"><span>Average ACOS reduction, 18 months+</span><b>56%</b></div>
+          <div class="stat"><span>Ad spend managed per quarter</span><b>$6Mn+</b></div>
           </div>
         </div>
-        <div class="cs-media" style="background:linear-gradient(135deg,#C9CFD6,#7C858F 60%,#3E454C)"><span class="play"></span></div>
       </div>
-      <div class="cs-foot"><span>Sportswear · Marketplaces across 3 regions</span><a href="#">All case studies &rarr;</a></div>
+      <div class="cs-foot"><span>Sportswear · Marketplaces across 3 regions</span><a class="cs-link" href="#">All casestudies &nearr;</a></div>
     </div>
   </div>
 </div></section>
