@@ -48,7 +48,7 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 .btn:hover .arw{transform:translateX(3px)}
 
 /* ---------- hero ---------- */
-.hero{position:relative;min-height:640px;padding:18px 0 0;
+.hero{position:relative;min-height:900px;padding:18px 0 0;
   background:
     radial-gradient(120% 90% at 78% 20%, rgba(214,166,116,.55), transparent 60%),
     linear-gradient(115deg,#2A2018 0%,#3E3226 38%,#6A553D 72%,#8C7150 100%);
@@ -87,7 +87,7 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 .stat-card a{display:inline-block;margin-top:9px;font-size:12.5px;color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(194,84,42,.4);padding-bottom:2px}
 
 /* ---------- logo band ---------- */
-.logoband{margin:-40px auto 0;position:relative;z-index:5;max-width:var(--maxw);padding:0 28px}
+.logoband{margin:0 auto;position:relative;z-index:5;width:min(var(--maxw),100% - 56px);padding:80px 0}
 .logoband-in{background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(25,23,19,.1);display:grid;grid-template-columns:250px 1fr;overflow:hidden}
 .lb-side{border-right:1px solid var(--line)}
 .lb-side div{padding:26px 24px;border-bottom:1px solid var(--line)}
@@ -114,7 +114,7 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 .qcol p{font-family:'Inter',system-ui,sans-serif;font-size:13.5px;line-height:22.4px;color:rgba(54,23,0,.7)}
 
 /* ---------- case studies ---------- */
-.cases{padding:0 0 80px}
+.cases{padding:80px 0}
 .cases-head{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-bottom:34px}
 .cases-head p{color:rgba(54,23,0,.7);max-width:662px;font-size:18px;line-height:24px;padding-top:12px}
 .head-actions{display:flex;gap:10px;justify-content:flex-end;align-items:center}
@@ -139,7 +139,7 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 .progress i.on{background:var(--rust)}
 
 /* ---------- services ---------- */
-.services{padding:0 0 80px}
+.services{padding:80px 0}
 .svc-head{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end;margin-bottom:28px}
 .svc-head h2{max-width:14ch}
 .svc-right{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
@@ -170,7 +170,7 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 .toolchip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--rust)}
 
 /* ---------- market ---------- */
-.market{padding:0 0 80px}
+.market{padding:80px 0}
 .market-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:20px}
 .market-head p{color:var(--muted);max-width:52ch;margin-top:12px;font-size:14.5px}
 .market-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;position:relative}
