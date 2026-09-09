@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growisto Homepage — Direction C (Bold Orange)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --orange:#F0592B; --orange-dk:#D4451B; --orange-lt:#FEEDE6; --orange-md:#FBCBB6;
+  --ink:#111111; --ink-2:#3A3A3A; --grey:#6E6E6E; --grey-2:#9A9A9A;
+  --line:#E6E4E0; --soft:#F5F4F1; --black:#0D0D0D; --white:#FFFFFF;
+  --maxw:1220px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.6}
+[hidden]{display:none!important}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+h1,h2,h3{font-weight:600;letter-spacing:-.028em;line-height:1.1}
+h2{font-size:clamp(27px,3.5vw,38px)}
+.muted{color:var(--grey-2)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin-bottom:12px}
+.eyebrow::before{content:"";width:8px;height:8px;background:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:9px;border:0;cursor:pointer;font-family:inherit;font-size:14px;font-weight:500;text-decoration:none;border-radius:8px;padding:11px 20px;transition:.18s;white-space:nowrap}
+.btn i{font-style:normal;width:17px;height:17px;border-radius:4px;background:rgba(255,255,255,.25);display:grid;place-items:center;font-size:10px}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-orange:hover{background:var(--orange-dk)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-white:hover{background:var(--soft)}
+.arw{transition:transform .18s}
+.btn:hover .arw{transform:translateX(3px)}
+
+/* announcement + nav */
+.proto-flag{background:#111;color:#fff;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:7px 16px}
+.proto-flag b{color:var(--orange);font-weight:600}
+.announce{background:var(--black);color:rgba(255,255,255,.82);font-size:12.5px;padding:9px 0}
+.announce-in{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:center;gap:10px;position:relative}
+.announce b{color:var(--orange);font-weight:600}
+.announce a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.announce button{position:absolute;right:28px;background:none;border:0;color:rgba(255,255,255,.55);font-size:15px;cursor:pointer;line-height:1}
+.nav{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:0 28px;height:62px;display:flex;align-items:center;gap:36px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:600;font-size:18px;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
+.logo em{font-style:normal;width:22px;height:22px;border-radius:6px;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700}
+.nav-links{display:flex;gap:26px;flex:1}
+.nav-links a{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:500;color:var(--ink-2);text-decoration:none}
+.nav-links a:hover{color:var(--orange)}
+
+/* hero */
+.hero{padding:26px 0 56px}
+.hero-tabs{display:flex;gap:10px;margin-bottom:34px;flex-wrap:wrap}
+.htab{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 15px;cursor:pointer;font-family:inherit;text-align:left;transition:.18s}
+.htab:hover{border-color:var(--grey-2)}
+.htab[aria-selected="true"]{border-color:var(--orange);background:var(--orange-lt)}
+.htab .ic{width:24px;height:24px;border-radius:6px;background:var(--soft);display:grid;place-items:center;font-size:12px;flex:none}
+.htab[aria-selected="true"] .ic{background:var(--orange);color:#fff}
+.htab b{display:block;font-size:13.5px;font-weight:600}
+.htab span{display:block;font-size:11px;color:var(--grey)}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:start}
+.hero h1{font-size:clamp(31px,4.4vw,50px);max-width:14ch;margin-bottom:18px}
+.hero-sub{font-size:16px;color:var(--grey);max-width:46ch;margin-bottom:26px}
+.urlbar{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px 6px 6px 16px;max-width:460px}
+.urlbar svg{opacity:.35;flex:none}
+.urlbar input{flex:1;border:0;outline:0;font:inherit;font-size:14px;background:transparent;min-width:0}
+.urlbar input::placeholder{color:var(--grey-2)}
+.hero-art{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.art{border-radius:12px;border:1px solid var(--line);overflow:hidden;background:#fff}
+.art-img{height:132px;background:linear-gradient(135deg,#EBE5DD,#CFC4B6);position:relative}
+.art-img span{position:absolute;left:10px;top:8px;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(0,0,0,.3)}
+.art-body{padding:12px}
+.art-body b{display:block;font-size:13px;font-weight:600}
+.art-body p{font-size:11.5px;color:var(--grey)}
+.art.hot{background:var(--orange);border-color:var(--orange);color:#fff}
+.art.hot .art-img{background:linear-gradient(135deg,#F7855F,#D9421A)}
+.art.hot .art-body p{color:rgba(255,255,255,.8)}
+.price{display:flex;justify-content:space-between;align-items:baseline;margin-top:6px;font-size:15px;font-weight:600}
+.price s{font-size:11px;font-weight:400;opacity:.6}
+.chartcard{grid-column:1 / -1;border:1px solid var(--line);border-radius:12px;padding:16px}
+.chartcard .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.chartcard b{font-size:13.5px;font-weight:600}
+.chartcard em{font-style:normal;font-size:11.5px;color:var(--orange);font-weight:600}
+.chartcard p{font-size:11.5px;color:var(--grey);margin-bottom:10px}
+.chartcard svg{width:100%;height:88px;display:block}
+.legend{display:flex;gap:14px;font-size:10.5px;color:var(--grey);margin-top:8px}
+.legend i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+.legend i::before{content:"";width:8px;height:2px;background:var(--orange)}
+.legend i:nth-child(2)::before{background:var(--grey-2)}
+.searchpill{margin:34px auto 0;max-width:430px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:11px 18px;font-size:13.5px;color:var(--grey);box-shadow:0 6px 22px rgba(17,17,17,.05)}
+.searchpill svg{opacity:.4;flex:none}
+
+/* logo band */
+.band{background:var(--black);padding:34px 0 40px;text-align:center}
+.band p{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:24px}
+.band-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:26px 10px}
+.band-grid span{color:rgba(255,255,255,.82);font-size:15px;font-weight:600;letter-spacing:.02em;transition:.2s}
+.band-grid span:hover{color:#fff}
+
+/* leak */
+.leak{padding:80px 0}
+.leak-head{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;margin-bottom:28px}
+.leak-head h2 span{display:block;color:var(--grey-2)}
+.leak-head p{color:var(--grey);font-size:14.5px;max-width:44ch}
+.leak-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.lcard{border:1px solid var(--line);border-radius:14px;padding:18px;cursor:pointer;transition:.18s;background:#fff}
+.lcard:hover{border-color:var(--grey-2)}
+.lcard[aria-selected="true"]{background:var(--orange);border-color:var(--orange);color:#fff}
+.lcard b{display:block;font-size:14.5px;font-weight:600;margin-bottom:14px}
+.lcard svg{width:100%;height:98px;display:block}
+.leak-detail{border:1px solid var(--line);border-top:0;border-radius:0 0 14px 14px;margin-top:-1px;padding:26px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;background:var(--soft)}
+.leak-detail h3{font-size:20px;font-weight:600;margin-bottom:10px;max-width:22ch}
+.leak-detail p{font-size:14px;color:var(--grey);max-width:46ch}
+.benefit{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.benefit:last-child{border-bottom:0}
+.benefit .bi{width:34px;height:34px;border-radius:9px;background:var(--orange-lt);display:grid;place-items:center;flex:none}
+.benefit b{display:block;font-size:14px;font-weight:600;margin-bottom:3px}
+.benefit p{font-size:12.5px;color:var(--grey)}
+
+/* case study */
+.cases{padding:0 0 84px}
+.cases-head{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end;margin-bottom:24px}
+.cases-head p{color:var(--grey);font-size:14.5px;max-width:46ch;margin-bottom:14px}
+.cs{background:var(--orange);border-radius:16px;padding:24px;color:#fff}
+.cs-tabs{display:flex;gap:26px;border-bottom:1px solid rgba(255,255,255,.28);margin-bottom:24px}
+.cs-tab{background:none;border:0;border-bottom:2px solid transparent;color:rgba(255,255,255,.7);font:inherit;font-size:14px;padding:0 0 12px;cursor:pointer;margin-bottom:-1px}
+.cs-tab[aria-selected="true"]{color:#fff;font-weight:600;border-bottom-color:#fff}
+.cs-in{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:start}
+.cs blockquote{font-size:clamp(19px,2.4vw,27px);font-weight:600;letter-spacing:-.022em;line-height:1.26;margin-bottom:22px}
+.cs-person{display:flex;align-items:center;gap:11px;margin-bottom:20px}
+.cs-person i{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.3);display:block}
+.cs-person b{display:block;font-size:14px;font-weight:600}
+.cs-person span{font-size:12px;color:rgba(255,255,255,.75)}
+.cs-media{border-radius:12px;min-height:210px;background:linear-gradient(135deg,#F79A78,#C9411A);position:relative;margin-bottom:14px}
+.cs-media span{position:absolute;left:12px;top:10px;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.cs-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cs-stat{background:rgba(255,255,255,.16);border-radius:10px;padding:13px}
+.cs-stat b{display:block;font-size:24px;font-weight:600;letter-spacing:-.03em}
+.cs-stat span{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-top:5px;line-height:1.4}
+.playbook{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--orange-lt);border:1px solid var(--orange-md);border-radius:12px;padding:16px 20px;margin-top:14px}
+.playbook b{display:block;font-size:14.5px;font-weight:600}
+.playbook p{font-size:12.5px;color:var(--grey)}
+
+/* services */
+.services{padding:0 0 84px}
+.svc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:26px}
+.svc-head h2{max-width:17ch}
+.svc-wrap{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:start}
+.svc-nav{display:flex;flex-direction:column;gap:2px;position:sticky;top:82px}
+.svc-nav a{font-size:14px;color:var(--grey);text-decoration:none;padding:10px 12px;border-left:2px solid var(--line);transition:.18s}
+.svc-nav a:hover{color:var(--ink);border-left-color:var(--grey-2)}
+.svc-nav a.on{color:var(--orange);font-weight:600;border-left-color:var(--orange);background:var(--orange-lt)}
+.svc-stack{display:grid;gap:14px}
+.svc-card{border:1px solid var(--line);border-radius:14px;padding:20px;background:#fff}
+.svc-card h3{font-size:18px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:9px}
+.svc-card h3 em{font-style:normal;width:26px;height:26px;border-radius:7px;background:var(--orange-lt);display:grid;place-items:center;font-size:13px}
+.svc-card>p{font-size:13.5px;color:var(--grey);margin-top:14px;line-height:1.6}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tbl{border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:12px}
+.tbl-row{display:grid;grid-template-columns:1.2fr 1fr .8fr .8fr;padding:8px 12px;border-bottom:1px solid var(--line);align-items:center}
+.tbl-row:last-child{border-bottom:0}
+.tbl-row.h{background:var(--soft);color:var(--grey);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.hpill{font-size:10px;border-radius:999px;padding:2px 9px;background:#E4F2E2;color:#2F6E37;justify-self:start}
+.hpill.w{background:var(--orange-lt);color:#B23F14}
+.bignum{font-size:38px;font-weight:600;letter-spacing:-.035em;line-height:1}
+.subnum{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-top:4px}
+.spark{width:100%;height:70px;display:block;margin:14px 0 4px}
+.checkrow{font-size:12.5px;color:var(--ink-2);display:flex;gap:9px;padding:7px 0;border-bottom:1px dashed var(--line)}
+.checkrow:last-child{border-bottom:0}
+.checkrow::before{content:"";width:14px;height:14px;border-radius:4px;background:var(--orange-lt);border:1px solid var(--orange-md);flex:none;margin-top:3px}
+
+/* market */
+.market{padding:0 0 84px}
+.market-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:18px}
+.market-head h2 span{display:block;color:var(--grey-2)}
+.market-head p{color:var(--grey);max-width:52ch;margin-top:12px;font-size:14.5px}
+.market-panel{border:1px solid var(--line);border-radius:16px;padding:24px;position:relative;background:#fff}
+#worldmap{width:100%;height:auto;display:block}
+.mq{position:absolute;right:24px;top:50%;transform:translateY(-50%);width:min(340px,46%);background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px;box-shadow:0 18px 46px rgba(17,17,17,.1);display:flex;gap:13px}
+.mq-photo{width:72px;flex:none;border-radius:9px;background:linear-gradient(135deg,#DCCDBB,#8A7862)}
+.mq h4{font-size:14.5px;font-weight:600;margin-bottom:6px}
+.mq p{font-size:12.5px;color:var(--grey);line-height:1.5}
+.mq .who{font-size:11px;color:var(--ink-2);margin-top:8px}
+
+/* cta */
+.cta{padding:70px 0;color:#fff;position:relative;overflow:hidden;
+  background:linear-gradient(105deg,#8A1E05 0%,#C33C11 40%,#F0592B 100%)}
+.cta-in{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center;position:relative;z-index:2}
+.cta h2{color:#fff;max-width:15ch;margin-bottom:14px}
+.cta>.wrap>div>p{color:rgba(255,255,255,.82);max-width:46ch}
+.cta .urlbar{margin:22px 0 12px;border-color:transparent}
+.trustline{font-size:12px;color:rgba(255,255,255,.72);max-width:none}
+.bars{display:flex;align-items:flex-end;gap:11px;height:190px;position:relative}
+.bars i{display:block;flex:1;background:rgba(255,255,255,.22);border-radius:6px 6px 0 0}
+.bars i:nth-child(1){height:28%}.bars i:nth-child(2){height:40%}.bars i:nth-child(3){height:36%}
+.bars i:nth-child(4){height:56%}.bars i:nth-child(5){height:68%}.bars i:nth-child(6){height:62%}
+.bars i:nth-child(7){height:84%}.bars i:nth-child(8){height:100%;background:#fff}
+.bars svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+
+/* footer */
+footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;font-size:13px}
+.f-top{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:30px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.1)}
+.f-top .logo{color:#fff;margin-bottom:12px}
+.f-col p{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:12px}
+.f-col a{display:block;color:rgba(255,255,255,.72);text-decoration:none;padding:5px 0}
+.f-col a:hover{color:#fff}
+.f-bot{padding-top:20px;display:flex;justify-content:space-between;gap:20px;font-size:12px;color:rgba(255,255,255,.4)}
+
+@media(max-width:1040px){
+  .hero-grid,.leak-head,.leak-detail,.cases-head,.cs-in,.cta-in,.pair{grid-template-columns:1fr}
+  .svc-wrap{grid-template-columns:1fr}
+  .svc-nav{flex-direction:row;flex-wrap:wrap;position:static}
+  .svc-nav a{border-left:0;border-bottom:2px solid var(--line)}
+  .svc-nav a.on{border-left:0;border-bottom-color:var(--orange)}
+  .band-grid{grid-template-columns:repeat(3,1fr)}
+  .mq{position:static;transform:none;width:auto;margin-top:18px}
+  .f-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .wrap{padding:0 18px}.nav-in{padding:0 18px}
+  .nav-links{display:none}
+  .leak-cards,.cs-stats,.hero-art{grid-template-columns:1fr}
+  .band-grid{grid-template-columns:repeat(2,1fr)}
+  .announce button{display:none}
+  .playbook{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<div class="proto-flag">Prototype <b>Direction C</b> &nbsp;·&nbsp; Bold orange &nbsp;·&nbsp; Growisto homepage &nbsp;·&nbsp; placeholder imagery, not for production</div>
+
+<div class="announce" id="announce"><div class="announce-in">
+  <b>&#9733; New.</b> Free 5-minute marketplace audit that reveals what your store is leaking. <a href="#cta">Learn more</a>
+  <button aria-label="Dismiss" onclick="document.getElementById('announce').hidden=true">&times;</button>
+</div></div>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="logo" href="#"><em>G</em> Growisto</a>
+    <nav class="nav-links"><a href="#services">Solutions</a><a href="#">Industries</a><a href="#cases">Case studies</a><a href="#">Resources</a><a href="#">About</a></nav>
+    <a class="btn btn-dark" href="#cta">Book a strategy call</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero"><div class="wrap">
+  <div class="hero-tabs" role="tablist">
+    <button class="htab" role="tab" aria-selected="true" data-h="h1"><span class="ic">&#9635;</span><span><b>Marketplaces</b><span>Amazon, Walmart, TikTok Shop +20</span></span></button>
+    <button class="htab" role="tab" aria-selected="false" data-h="h2"><span class="ic">&#9634;</span><span><b>Storefront &amp; CRO</b><span>Shopify, Magento, headless</span></span></button>
+    <button class="htab" role="tab" aria-selected="false" data-h="h3"><span class="ic">&#9737;</span><span><b>GEO, AEO &amp; SEO</b><span>Google, ChatGPT, AI Overviews</span></span></button>
+  </div>
+
+  <div class="hero-grid">
+    <div>
+      <h1 id="h-title">$200Mn+ a year already moves through storefronts we built.</h1>
+      <p class="hero-sub" id="h-sub">150+ Shopify and Magento builds and migrations, a 20% average conversion lift and 99.95% uptime.</p>
+      <form class="urlbar" onsubmit="return false">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20"/></svg>
+        <input type="text" placeholder="yourstore.com or Amazon storefront URL" aria-label="Your website or storefront URL">
+        <button class="btn btn-orange" type="submit">Get free audit</button>
+      </form>
+    </div>
+
+    <div class="hero-art">
+      <div class="art">
+        <div class="art-img"><span>Image placeholder</span></div>
+        <div class="art-body"><b>Sensitivity toothpaste</b><p>Oral care · 4.6 &#9733; · 2,481 reviews</p><div class="price">$8.99 <s>$12.99</s></div></div>
+      </div>
+      <div class="art hot">
+        <div class="art-img"><span>Image placeholder</span></div>
+        <div class="art-body"><b>SS-2 Rollerball</b><p>Best seller rank #3 in category</p><div class="price">$1.58 <s>2 units left</s></div></div>
+      </div>
+      <div class="chartcard">
+        <div class="top"><b>Revenue, trailing 6 months</b><em>+27.8%</em></div>
+        <p>Amazon US, Walmart and the Shopify storefront on one line.</p>
+        <svg viewBox="0 0 320 88" fill="none" preserveAspectRatio="none">
+          <path d="M0 74 L53 68 L106 70 L160 52 L213 38 L266 26 L320 12" stroke="#F0592B" stroke-width="2.2"/>
+          <path d="M0 74 L53 68 L106 70 L160 52 L213 38 L266 26 L320 12 L320 88 L0 88Z" fill="#F0592B" opacity=".08"/>
+          <path d="M0 80 L53 78 L106 77 L160 72 L213 70 L266 66 L320 62" stroke="#C9C7C2" stroke-width="2"/>
+        </svg>
+        <div class="legend"><i>Marketplaces</i><i>Storefront</i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="searchpill">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+    How can we help your business grow?
+  </div>
+</div></section>
+
+<!-- LOGO BAND -->
+<section class="band"><div class="wrap">
+  <p>Trusted by 300+ high growth companies in over 10 countries</p>
+  <div class="band-grid">
+    <span>PUMA</span><span>GuruNanda</span><span>Ultrahuman</span><span>JUSTRITE</span><span>Puriya</span><span>MSI</span>
+    <span>NYKAA</span><span>Atomberg</span><span>BOROSIL</span><span>KAMA</span><span>Kaya</span><span>TATA CLiQ</span>
+  </div>
+</div></section>
+
+<!-- LEAK -->
+<section class="leak"><div class="wrap">
+  <div class="leak-head">
+    <h2>Your growth isn't stuck.<span>It's leaking.</span></h2>
+    <p>Three questions we get asked on almost every first call, and the honest answer to each.</p>
+  </div>
+
+  <div class="leak-cards" role="tablist">
+    <button class="lcard" role="tab" aria-selected="true" data-l="l1">
+      <b>Marketplaces</b>
+      <svg viewBox="0 0 200 98" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M28 74h50l-6-28H22z"/><circle cx="36" cy="84" r="5"/><circle cx="68" cy="84" r="5"/>
+        <path d="M22 46l-6-12h-8"/><path d="M108 78c14-4 22-14 24-28 2-16 12-24 26-24"/><path d="M152 26l10 4-6 9"/>
+        <path d="M96 84c8 0 14-4 18-10"/>
+      </svg>
+    </button>
+    <button class="lcard" role="tab" aria-selected="false" data-l="l2">
+      <b>Website &amp; CRO</b>
+      <svg viewBox="0 0 200 98" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <rect x="24" y="20" width="90" height="60" rx="6"/><path d="M24 36h90"/><path d="M40 52h34M40 64h20"/>
+        <path d="M132 76l16-26 14 14 14-30"/><path d="M176 34h-12"/>
+      </svg>
+    </button>
+    <button class="lcard" role="tab" aria-selected="false" data-l="l3">
+      <b>Search &amp; AI visibility</b>
+      <svg viewBox="0 0 200 98" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M18 78l30-30 22 18 26-38 30 24 34-40"/><circle cx="48" cy="48" r="4"/><circle cx="96" cy="28" r="4"/>
+        <path d="M18 88h164"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="leak-detail" id="l1">
+    <div>
+      <h3>Why does ACoS keep improving while our rank goes nowhere?</h3>
+      <p>Cutting bids also cuts the sales velocity that builds organic position. We run ads and rank as one plan, measured on TACoS rather than on ad efficiency alone.</p>
+    </div>
+    <div>
+      <div class="benefit"><span class="bi">&#128176;</span><div><b>Cut wasted ad spend</b><p>Search-term harvesting and negative keyword hygiene run weekly, not quarterly.</p></div></div>
+      <div class="benefit"><span class="bi">&#128200;</span><div><b>Sustainable marketplace growth</b><p>Rank and ads planned together, so organic position holds when spend comes down.</p></div></div>
+    </div>
+  </div>
+
+  <div class="leak-detail" id="l2" hidden>
+    <div>
+      <h3>Traffic is fine. So why has conversion stopped moving?</h3>
+      <p>Shopify limits checkout tests and every change waits on a developer. We remove that limit, audit 9 levers and 600+ parameters, then test monthly.</p>
+    </div>
+    <div>
+      <div class="benefit"><span class="bi">&#128736;</span><div><b>Tests ship without a dev queue</b><p>Checkout and PDP experiments run on a fixed monthly cadence.</p></div></div>
+      <div class="benefit"><span class="bi">&#9889;</span><div><b>20% average conversion lift</b><p>Measured across 150+ Shopify and Magento builds and migrations.</p></div></div>
+    </div>
+  </div>
+
+  <div class="leak-detail" id="l3" hidden>
+    <div>
+      <h3>We still rank on Google. So why is nobody citing us?</h3>
+      <p>Keyword density does not equal citation. We structure content for answer extraction, generate entity schema across templates, and track mentions daily.</p>
+    </div>
+    <div>
+      <div class="benefit"><span class="bi">&#128172;</span><div><b>4.2x average increase in AI citations</b><p>Tracked daily across Google AI Overviews, ChatGPT, Perplexity and Gemini.</p></div></div>
+      <div class="benefit"><span class="bi">&#128269;</span><div><b>145% average traffic increase</b><p>From 500Mn+ organic sessions generated across client programs.</p></div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- CASE STUDIES -->
+<section class="cases" id="cases"><div class="wrap">
+  <div class="cases-head">
+    <div>
+      <span class="eyebrow">Case studies</span>
+      <h2>What changed because we were involved.</h2>
+    </div>
+    <div>
+      <p>No vanity charts. Pick a brand, read the numbers that moved, and see who put their name to them.</p>
+      <a class="btn btn-orange" href="#">View all case studies <i>&rarr;</i></a>
+    </div>
+  </div>
+
+  <div class="cs">
+    <div class="cs-tabs" role="tablist">
+      <button class="cs-tab" role="tab" aria-selected="true" data-c="k1">GuruNanda</button>
+      <button class="cs-tab" role="tab" aria-selected="false" data-c="k2">Kama Ayurveda</button>
+      <button class="cs-tab" role="tab" aria-selected="false" data-c="k3">PUMA</button>
+    </div>
+
+    <div class="cs-in" id="k1">
+      <div>
+        <blockquote>"Consistent pro-activeness and constant innovation are two defining qualities the Growisto team has always exhibited."</blockquote>
+        <div class="cs-person"><i></i><div><b>Puneet Nanda</b><span>Founder &amp; CEO, GuruNanda</span></div></div>
+        <a class="btn btn-white" href="#">Read the story <span class="arw">&rarr;</span></a>
+      </div>
+      <div>
+        <div class="cs-media"><span>Image placeholder</span></div>
+        <div class="cs-stats">
+          <div class="cs-stat"><b>312%</b><span>Increase in total revenue</span></div>
+          <div class="cs-stat"><b>321%</b><span>Growth in new-to-brand orders</span></div>
+          <div class="cs-stat"><b>#1</b><span>Position in US &amp; CA oral care</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-in" id="k2" hidden>
+      <div>
+        <blockquote>"One roadmap covering storefront, marketplace and search meant we stopped reconciling three versions of the truth."</blockquote>
+        <div class="cs-person"><i></i><div><b>Brand leadership</b><span>Kama Ayurveda</span></div></div>
+        <a class="btn btn-white" href="#">Read the story <span class="arw">&rarr;</span></a>
+      </div>
+      <div>
+        <div class="cs-media" style="background:linear-gradient(135deg,#F2A98C,#B8501F)"><span>Image placeholder</span></div>
+        <div class="cs-stats">
+          <div class="cs-stat"><b>4.2x</b><span>Increase in AI citations</span></div>
+          <div class="cs-stat"><b>145%</b><span>Organic traffic increase</span></div>
+          <div class="cs-stat"><b>37</b><span>Pages cited in AI answers</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-in" id="k3" hidden>
+      <div>
+        <blockquote>"They operate like an in-house team. The reporting is honest, including the weeks that did not go our way."</blockquote>
+        <div class="cs-person"><i></i><div><b>Ankit Madhogaria</b><span>Head, Online Demand, PUMA</span></div></div>
+        <a class="btn btn-white" href="#">Read the story <span class="arw">&rarr;</span></a>
+      </div>
+      <div>
+        <div class="cs-media" style="background:linear-gradient(135deg,#EE9070,#A93A15)"><span>Image placeholder</span></div>
+        <div class="cs-stats">
+          <div class="cs-stat"><b>56%</b><span>Average ACOS reduction</span></div>
+          <div class="cs-stat"><b>$6Mn+</b><span>Ad spend managed per quarter</span></div>
+          <div class="cs-stat"><b>3</b><span>Regions on one plan</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="playbook">
+    <div><b>See the playbook behind results like these</b><p>The full breakdown of how we run ads and rank as one plan. No form, no call required.</p></div>
+    <a class="btn btn-dark" href="#">Get the playbook <i>&rarr;</i></a>
+  </div>
+</div></section>
+
+<!-- SERVICES -->
+<section class="services" id="services"><div class="wrap">
+  <div class="svc-head">
+    <h2>One team for every channel that carries your revenue. Not six vendors.</h2>
+    <a class="btn btn-orange" href="#">View all services <i>&rarr;</i></a>
+  </div>
+
+  <div class="svc-wrap">
+    <nav class="svc-nav">
+      <a class="on" href="#sv1">Marketplace Consulting</a>
+      <a href="#sv2">GEO, AIO &amp; SEO</a>
+      <a href="#sv3">Website Development</a>
+      <a href="#sv4">B2B &amp; SaaS Search</a>
+    </nav>
+
+    <div class="svc-stack">
+      <article class="svc-card" id="sv1">
+        <h3><em>&#9635;</em> Marketplace Consulting</h3>
+        <div class="tbl">
+          <div class="tbl-row h"><span>Channel</span><span>Revenue</span><span>ACOS</span><span>Status</span></div>
+          <div class="tbl-row"><span>Amazon US</span><span>$1,340,000</span><span>14.2%</span><span class="hpill">Healthy</span></div>
+          <div class="tbl-row"><span>Walmart</span><span>$386,200</span><span>18.1%</span><span class="hpill">Healthy</span></div>
+          <div class="tbl-row"><span>Amazon UK</span><span>$210,400</span><span>31.3%</span><span class="hpill w">Review</span></div>
+          <div class="tbl-row"><span>TikTok Shop</span><span>$94,555</span><span>22.7%</span><span class="hpill w">Review</span></div>
+        </div>
+        <p>Run every marketplace as one P&amp;L. Amazon, Walmart, TikTok Shop and quick commerce on one team, with $2Bn+ in revenue managed across 20+ marketplaces.</p>
+      </article>
+
+      <div class="pair">
+        <article class="svc-card" id="sv2">
+          <h3><em>&#9737;</em> GEO, AIO &amp; SEO</h3>
+          <div class="bignum">4.2x</div><div class="subnum">Average increase in AI citations</div>
+          <svg class="spark" viewBox="0 0 200 70" fill="none" preserveAspectRatio="none">
+            <path d="M0 60 L33 55 L66 57 L100 40 L133 28 L166 18 L200 8" stroke="#F0592B" stroke-width="2.2"/>
+            <path d="M0 64 L33 63 L66 62 L100 58 L133 57 L166 54 L200 52" stroke="#C9C7C2" stroke-width="2"/>
+          </svg>
+          <p>Get cited where buyers ask. Google, ChatGPT, Perplexity and AI Overviews, with a 145% average traffic increase.</p>
+        </article>
+
+        <article class="svc-card" id="sv3">
+          <h3><em>&#9634;</em> Website Development</h3>
+          <div class="checkrow">150+ Shopify and Magento stores shipped</div>
+          <div class="checkrow">20% average conversion lift</div>
+          <div class="checkrow">99.95% uptime across managed builds</div>
+          <div class="checkrow">9 levers and 600+ parameters audited</div>
+          <p>Fix the funnel, not the theme. We audit the live site first, then build only what the numbers justify.</p>
+        </article>
+      </div>
+
+      <article class="svc-card" id="sv4">
+        <h3><em>&#9679;</em> B2B &amp; SaaS Search</h3>
+        <div class="checkrow">Buying-committee keyword mapping</div>
+        <div class="checkrow">Answer-first content built for extraction</div>
+        <div class="checkrow">Citation tracking across four AI engines</div>
+        <p>B2B and enterprise buyers increasingly research through AI tools and AI Overviews before they ever fill a form. We tailor strategy to longer sales cycles and multiple decision-makers.</p>
+      </article>
+    </div>
+  </div>
+</div></section>
+
+<!-- MARKET -->
+<section class="market"><div class="wrap">
+  <div class="market-head">
+    <div>
+      <h2>Entering a new market shouldn't<span>mean starting from zero.</span></h2>
+      <p>We grew GuruNanda to #1 in US and Canada oral care, and Ultrahuman's Amazon UK revenue roughly 6x in two months.</p>
+    </div>
+    <a class="btn btn-orange" href="#cta">Book a strategy call</a>
+  </div>
+  <div class="market-panel">
+    <svg id="worldmap" viewBox="0 0 640 230" aria-label="Markets we operate in"></svg>
+    <div class="mq">
+      <div class="mq-photo"></div>
+      <div>
+        <h4>Zero cut-over downtime</h4>
+        <p>"Growisto's highly experienced technical team managed our website for three years. They helped us successfully re-platform our online store."</p>
+        <p class="who">Head of Digital · Home &amp; living brand</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- CTA -->
+<section class="cta" id="cta"><div class="wrap cta-in">
+  <div>
+    <h2>See what your account is losing before you decide anything.</h2>
+    <p>Free, no call required, and you keep the audit whether or not we end up working together.</p>
+    <form class="urlbar" onsubmit="return false">
+      <input type="text" placeholder="yourstore.com or Amazon storefront URL" aria-label="Your website or storefront URL">
+      <button class="btn btn-dark" type="submit">Get free audit</button>
+    </form>
+    <p class="trustline">7 days delivery · Zero cost or commitment · 100% confidential</p>
+  </div>
+  <div class="bars">
+    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    <svg viewBox="0 0 300 190" fill="none" preserveAspectRatio="none">
+      <path d="M12 150 L52 128 L92 134 L132 96 L172 72 L212 82 L252 36 L288 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M276 4 h14 v14" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="f-top">
+    <div>
+      <a class="logo" href="#"><em>G</em> Growisto</a>
+      <p style="max-width:34ch">A certified e-commerce growth partner running marketplaces, storefront tech and search for 300+ brands.</p>
+    </div>
+    <div class="f-col"><p>Services</p><a href="#">Marketplace Consulting</a><a href="#">Website Development</a><a href="#">GEO, AIO &amp; SEO</a><a href="#">Data &amp; BI</a></div>
+    <div class="f-col"><p>Marketplaces</p><a href="#">Amazon</a><a href="#">Walmart</a><a href="#">TikTok Shop</a><a href="#">Quick commerce</a></div>
+    <div class="f-col"><p>Company</p><a href="#">About</a><a href="#">Careers</a><a href="#">Case studies</a><a href="#">Contact</a></div>
+    <div class="f-col"><p>Resources</p><a href="#">Blog</a><a href="#">Playbooks</a><a href="#">Free audit</a><a href="#">Newsletter</a></div>
+  </div>
+  <div class="f-bot"><span>© 2026 Growisto. All rights reserved.</span><span>Privacy · Terms</span></div>
+</div></footer>
+
+<script>
+// hero tabs swap headline + subhead
+(function(){
+  var copy={
+    h1:['$200Mn+ a year already moves through storefronts we built.','150+ Shopify and Magento builds and migrations, a 20% average conversion lift and 99.95% uptime.'],
+    h2:['$2Bn+ in marketplace revenue, run as one P&L.','Amazon, Walmart, TikTok Shop and quick commerce on one team, with a 56% average ACOS reduction over 18 months.'],
+    h3:['Get cited where your buyers actually ask.','500Mn+ organic sessions generated, a 145% average traffic increase and 4.2x more AI citations.']
+  };
+  document.querySelectorAll('.htab').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('.htab').forEach(function(x){x.setAttribute('aria-selected','false')});
+      t.setAttribute('aria-selected','true');
+      var c=copy[t.dataset.h];
+      document.getElementById('h-title').textContent=c[0];
+      document.getElementById('h-sub').textContent=c[1];
+    });
+  });
+})();
+
+// leak cards
+document.querySelectorAll('.lcard').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.lcard').forEach(function(x){x.setAttribute('aria-selected','false')});
+    document.querySelectorAll('.leak-detail').forEach(function(d){d.hidden=true});
+    t.setAttribute('aria-selected','true');
+    document.getElementById(t.dataset.l).hidden=false;
+  });
+});
+
+// case study tabs
+document.querySelectorAll('.cs-tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.cs-tab').forEach(function(x){x.setAttribute('aria-selected','false')});
+    document.querySelectorAll('.cs-in').forEach(function(c){c.hidden=true});
+    t.setAttribute('aria-selected','true');
+    document.getElementById(t.dataset.c).hidden=false;
+  });
+});
+
+// services left-nav scroll spy
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.svc-nav a'));
+  var targets=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function spy(){
+    var best=0;
+    targets.forEach(function(t,i){ if(t && t.getBoundingClientRect().top<260) best=i; });
+    links.forEach(function(a,i){a.classList.toggle('on',i===best)});
+  }
+  addEventListener('scroll',spy,true);
+  addEventListener('resize',spy);
+  spy();
+})();
+
+// dotted world map
+(function(){
+  var svg=document.getElementById('worldmap'); if(!svg) return;
+  var blobs=[[11,5.5,7,3.5],[13.5,8.8,3,2],[19,1.6,2.6,1.2],[17,13.5,3,3],[18.4,17,1.9,2.3],
+             [31,4.4,3.6,2],[28,3,1.1,1],[32,10,4,3],[33.5,14,2.6,2.2],[36.4,8,2.6,1.6],
+             [44,4,9,3],[42,9,2.6,2],[48,7.4,4,2.5],[50.4,12,3,1],[53,15,3.6,2],[54.4,5.6,1,1.6]];
+  var pins=[[11,6,'United States'],[28,3,'United Kingdom'],[37,8,'UAE'],[42,9,'India'],[53,15,'Australia'],[50,11,'Singapore']];
+  var COLS=64,ROWS=22,sx=640/COLS,sy=230/ROWS,out='';
+  function inside(x,y){return blobs.some(function(b){var dx=(x-b[0])/b[2],dy=(y-b[1])/b[3];return dx*dx+dy*dy<=1})}
+  for(var r=0;r<ROWS;r++)for(var c=0;c<COLS;c++){
+    if(!inside(c,r))continue;
+    out+='<circle cx="'+((c+.5)*sx).toFixed(1)+'" cy="'+((r+.5)*sy).toFixed(1)+'" r="2.1" fill="#F7A98B"/>';
+  }
+  pins.forEach(function(p){
+    var x=((p[0]+.5)*sx).toFixed(1),y=((p[1]+.5)*sy).toFixed(1);
+    out+='<circle cx="'+x+'" cy="'+y+'" r="8" fill="#F0592B" opacity=".18"/>';
+    out+='<circle cx="'+x+'" cy="'+y+'" r="3.6" fill="#F0592B"><title>'+p[2]+'</title></circle>';
+  });
+  svg.innerHTML=out;
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growisto Homepage — Direction A (Editorial)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F6F5F1; --paper-2:#FFFFFF; --ink:#14140F; --ink-2:#3A3A31;
+  --muted:#77776B; --line:#E3E1D8; --line-2:#D6D4C8;
+  --olive:#D9E29C; --olive-dk:#BCC97A; --forest:#2B3026;
+  --tint-blue:#D9E8FA; --tint-orange:#FBE0CB; --tint-green:#DCEDD3;
+  --edge-blue:#7FB0E0; --edge-orange:#E89055; --edge-green:#8FBE7C;
+  --maxw:1200px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.6}
+img{max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.proto-flag{background:#14140F;color:#F6F5F1;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:7px 16px}
+.proto-flag b{color:var(--olive);font-weight:600}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:60;background:rgba(246,245,241,.88);backdrop-filter:blur(10px);border-bottom:1px solid transparent}
+.nav.stuck{border-bottom-color:var(--line)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:center;gap:40px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:600;font-size:19px;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
+.logo i{font-style:normal;font-size:19px;line-height:1}
+.nav-links{display:flex;gap:26px;flex:1}
+.nav-links a{font-size:14px;color:var(--ink-2);text-decoration:none;display:flex;align-items:center;gap:5px}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a::after{content:"";width:5px;height:5px;border-right:1.4px solid currentColor;border-bottom:1.4px solid currentColor;transform:rotate(45deg) translateY(-1px);opacity:.5}
+.nav-links a.plain::after{display:none}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-family:inherit;font-size:14px;font-weight:500;text-decoration:none;border-radius:999px;padding:11px 20px;transition:.18s}
+.btn-dark{background:var(--ink);color:#F6F5F1}
+.btn-dark:hover{background:#000}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
+.btn-ghost:hover{background:#fff}
+.btn-olive{background:var(--olive);color:var(--ink)}
+.btn-olive:hover{background:var(--olive-dk)}
+.arw{transition:transform .18s}
+.btn:hover .arw{transform:translateX(3px)}
+
+/* ---------- hero ---------- */
+.hero{padding:56px 0 0;text-align:center}
+.pill-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 14px;margin-bottom:26px}
+.pill-badge b{color:var(--ink);font-weight:500}
+h1{font-size:clamp(34px,5.2vw,60px);font-weight:400;line-height:1.06;letter-spacing:-.032em;max-width:19ch;margin:0 auto 20px}
+.hero-sub{font-size:16px;color:var(--muted);max-width:60ch;margin:0 auto 28px;line-height:1.65}
+.urlbar{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line-2);border-radius:999px;padding:6px 6px 6px 18px;max-width:520px;margin:0 auto 44px}
+.urlbar svg{flex:none;opacity:.4}
+.urlbar input{flex:1;border:0;outline:0;font:inherit;font-size:14px;background:transparent;color:var(--ink);min-width:0}
+.urlbar input::placeholder{color:#A3A398}
+
+/* tabs + stage */
+.stage{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;text-align:left}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr)}
+.tab{background:#FBFAF7;border:0;border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:18px 22px;text-align:left;cursor:pointer;font-family:inherit;transition:.18s}
+.tab:last-child{border-right:0}
+.tab strong{display:block;font-size:15px;font-weight:500;color:var(--ink-2)}
+.tab span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.tab[aria-selected="true"]{background:#fff;border-bottom-color:#fff}
+.tab[aria-selected="true"] strong{color:var(--ink)}
+.tab:hover{background:#fff}
+.panel{display:none;padding:14px}
+.panel.on{display:block}
+.canvas{position:relative;border-radius:14px;min-height:420px;padding:22px;overflow:hidden}
+.canvas.c1{background:linear-gradient(120deg,#B9D98F 0%,#8FC3A6 45%,#D6E2A0 100%)}
+.canvas.c2{background:linear-gradient(120deg,#CBD9EC 0%,#EDE7DD 60%,#F4CDA9 100%)}
+.canvas.c3{background:linear-gradient(120deg,#DCE3B0 0%,#E9E4D6 55%,#B9CBD9 100%)}
+.canvas-note{position:absolute;right:20px;bottom:18px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(20,20,15,.42)}
+.float-card{position:absolute;top:22px;left:22px;background:#fff;border-radius:12px;padding:14px 16px;box-shadow:0 14px 40px rgba(20,20,15,.16);max-width:250px}
+.fc-brand{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.fc-brand b{color:var(--ink);font-weight:600;letter-spacing:0;text-transform:none;font-size:13px}
+.float-card p{font-size:13px;line-height:1.45;color:var(--ink-2);margin-bottom:12px}
+.fc-link{font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px}
+.ask{position:absolute;left:50%;transform:translateX(-50%);bottom:20px;background:rgba(255,255,255,.94);border-radius:999px;padding:9px 16px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);box-shadow:0 8px 24px rgba(20,20,15,.12);width:min(340px,80%)}
+.ask .dot{width:22px;height:22px;border-radius:50%;background:var(--olive);flex:none}
+
+/* ---------- trust ---------- */
+.trust{padding:66px 0 10px;text-align:center}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.logo-grid{display:grid;grid-template-columns:repeat(6,1fr);margin-top:28px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.logo-cell{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 10px;font-size:15px;font-weight:600;letter-spacing:.01em;color:#6E6E62;display:flex;align-items:center;justify-content:center;transition:.2s}
+.logo-cell:hover{color:var(--ink);background:#fff}
+
+/* ---------- leak ---------- */
+.leak{padding:96px 0 0;text-align:center}
+h2{font-size:clamp(28px,3.8vw,42px);font-weight:400;letter-spacing:-.028em;line-height:1.1}
+.leak h2 span{color:var(--muted)}
+.leak-lede{max-width:46ch;margin:16px auto 0;color:var(--muted);font-size:15px}
+.qcards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px;text-align:left}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column}
+.qhead{display:flex;align-items:center;justify-content:space-between;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.qhead .ic{width:22px;height:22px;border:1px solid var(--line-2);border-radius:6px;display:grid;place-items:center;font-size:11px;color:var(--ink)}
+.qcard h3{font-size:18px;font-weight:400;letter-spacing:-.02em;line-height:1.3;margin-bottom:16px}
+.answer{border-radius:12px;padding:14px;font-size:13.5px;line-height:1.55;color:var(--ink-2);margin-top:auto}
+.a1{background:var(--tint-blue);border-left:3px solid var(--edge-blue)}
+.a2{background:var(--tint-orange);border-left:3px solid var(--edge-orange)}
+.a3{background:var(--tint-green);border-left:3px solid var(--edge-green)}
+.converge{display:block;width:100%;height:120px;margin-top:-6px}
+
+/* ---------- meet ---------- */
+.meet{text-align:center;padding:8px 0 96px}
+.meet p{font-size:clamp(22px,3vw,34px);font-weight:400;letter-spacing:-.025em;line-height:1.28;max-width:22ch;margin:0 auto 26px}
+.faces{display:inline-flex;vertical-align:middle;margin:0 8px}
+.faces i{display:block;width:34px;height:34px;border-radius:50%;border:2px solid var(--paper);margin-left:-11px}
+.faces i:first-child{margin-left:0}
+.f1{background:linear-gradient(135deg,#A8C68F,#6E9B78)}
+.f2{background:linear-gradient(135deg,#E3B48C,#C2795A)}
+.f3{background:linear-gradient(135deg,#9FB6D4,#5E7EA6)}
+.hl{background:linear-gradient(transparent 58%,var(--olive) 58%);font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:1.04em;padding:0 2px}
+
+/* ---------- case study ---------- */
+.section{padding:0 0 96px}
+.sec-head{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:28px}
+.sec-head p{color:var(--muted);font-size:15px;max-width:44ch}
+.cs{background:var(--forest);border-radius:20px;padding:22px;color:#EFEFE6;position:relative;overflow:hidden}
+.cs-tabs{display:flex;gap:8px;justify-content:center;margin-bottom:20px}
+.cs-tab{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#EFEFE6;border-radius:999px;padding:7px 16px;font:inherit;font-size:13px;cursor:pointer;transition:.18s}
+.cs-tab[aria-selected="true"]{background:#EFEFE6;color:var(--forest);border-color:#EFEFE6}
+.cs-body{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.cs-left{display:flex;flex-direction:column}
+.cs-brand{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(239,239,230,.6);margin-bottom:18px}
+.cs-brand b{color:#fff;font-size:14px;letter-spacing:0;text-transform:none}
+.cs-quote{font-size:clamp(19px,2.3vw,27px);font-weight:400;letter-spacing:-.02em;line-height:1.25;margin-bottom:20px}
+.cs-person{display:flex;align-items:center;gap:10px;font-size:13px;margin-bottom:18px}
+.cs-person i{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#C4A47C,#8A6742);display:block}
+.cs-person span{color:rgba(239,239,230,.65);font-size:12px;display:block}
+.cs-media{border-radius:14px;background:linear-gradient(135deg,#C6D46A,#7E9C5A 60%,#4E6340);min-height:230px;position:relative}
+.play{position:absolute;inset:0;margin:auto;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center}
+.play::after{content:"";border-left:13px solid var(--forest);border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:auto}
+.stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px}
+.stat b{display:block;font-size:26px;font-weight:400;letter-spacing:-.02em}
+.stat span{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:rgba(239,239,230,.58);line-height:1.4;display:block;margin-top:5px}
+.cs-foot{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.13);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(239,239,230,.55)}
+.cs-foot a{color:#EFEFE6;text-decoration:none;border-bottom:1px solid rgba(239,239,230,.4);padding-bottom:2px}
+
+/* ---------- map ---------- */
+.map-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:10px}
+.map-head p{color:var(--muted);max-width:54ch;margin-top:12px;font-size:15px}
+.map-panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;position:relative;overflow:hidden}
+#worldmap{width:100%;height:auto;display:block}
+.map-quote{position:absolute;right:26px;top:50%;transform:translateY(-50%);width:min(360px,46%);background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 18px 50px rgba(20,20,15,.1);display:flex;gap:14px}
+.map-quote h4{font-size:15px;font-weight:500;margin-bottom:6px}
+.map-quote p{font-size:12.5px;color:var(--muted);line-height:1.5}
+.map-quote .who{font-size:11px;color:var(--ink-2);margin-top:8px}
+.mq-photo{width:78px;flex:none;border-radius:10px}
+.mq-photo{background:linear-gradient(135deg,#D5C3A8,#8E7A5E)}
+
+/* ---------- services ---------- */
+.services{background:var(--olive);padding:88px 0 96px;margin-top:96px}
+.svc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:36px}
+.svc-head h2{max-width:18ch}
+.svc-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:14px;align-items:start}
+.svc{background:#fff;border-radius:16px;padding:20px;min-height:330px;display:flex;flex-direction:column}
+.svc h3{font-size:18px;font-weight:500;letter-spacing:-.015em;margin-bottom:10px}
+.svc p{font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:16px}
+.svc-link{margin-top:auto;font-size:13px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line-2);align-self:flex-start;padding-bottom:2px}
+.svc-link:hover{border-color:var(--ink)}
+.mini{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:16px;font-size:11px}
+.mini-row{display:flex;justify-content:space-between;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--ink-2)}
+.mini-row:last-child{border-bottom:0}
+.mini-row.h{background:#FAFAF6;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-size:10px}
+.mini-row.t{font-weight:600;background:#FAFAF6}
+.tagpill{font-size:10px;border-radius:999px;padding:2px 8px;background:var(--tint-green);color:#39603B}
+.tagpill.w{background:var(--tint-orange);color:#8A4A1E}
+.chk{font-size:12.5px;color:var(--ink-2);display:flex;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.chk::before{content:"";width:14px;height:14px;border-radius:4px;background:var(--tint-green);flex:none;margin-top:3px}
+.bigstat{font-size:34px;font-weight:400;letter-spacing:-.03em;line-height:1;margin-bottom:4px}
+.bigstat + em{font-style:normal;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.spark{height:56px;margin:16px 0;display:block;width:100%}
+
+/* ---------- final cta ---------- */
+.cta{background:var(--forest);color:#EFEFE6;padding:80px 0}
+.cta-in{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.cta h2{color:#fff;max-width:16ch}
+.cta p{color:rgba(239,239,230,.68);margin-top:14px;font-size:15px;max-width:46ch}
+.cta .urlbar{margin:24px 0 12px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)}
+.cta .urlbar input{color:#fff}
+.cta .urlbar input::placeholder{color:rgba(239,239,230,.5)}
+.trustline{font-size:12px;color:rgba(239,239,230,.55);max-width:none}
+.cta-panel{border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:22px;background:rgba(255,255,255,.05)}
+.cta-panel h4{font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(239,239,230,.6);margin-bottom:14px}
+.cta-panel li{list-style:none;font-size:14px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.1);display:flex;gap:10px}
+.cta-panel li:last-child{border-bottom:0}
+.cta-panel li::before{content:"";width:16px;height:16px;border-radius:5px;background:var(--olive);flex:none;margin-top:3px}
+
+/* ---------- footer ---------- */
+footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-size:13px}
+.f-top{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
+.f-top .logo{color:#F6F5F1;margin-bottom:12px}
+.f-col p{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(246,245,241,.42);margin-bottom:12px}
+.f-col a{display:block;color:rgba(246,245,241,.72);text-decoration:none;padding:5px 0}
+.f-col a:hover{color:#fff}
+.f-bot{padding-top:22px;display:flex;justify-content:space-between;gap:20px;font-size:12px;color:rgba(246,245,241,.4)}
+
+@media(max-width:1000px){
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .cs-body,.cta-in,.sec-head{grid-template-columns:1fr}
+  .map-quote{position:static;transform:none;width:auto;margin-top:20px}
+  .f-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .wrap{padding:0 20px}.nav-in{padding:14px 20px}
+  .nav-links{display:none}
+  .tabs,.qcards,.logo-grid,.svc-grid,.stats{grid-template-columns:1fr 1fr}
+  .qcards{grid-template-columns:1fr}
+  .converge{display:none}
+  .services{padding:56px 0 64px;margin-top:64px}
+}
+</style>
+</head>
+<body>
+<div class="proto-flag">Prototype <b>Direction A</b> &nbsp;·&nbsp; Editorial / olive &nbsp;·&nbsp; Growisto homepage &nbsp;·&nbsp; placeholder imagery, not for production</div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="#"><i>&#10037;</i> Growisto</a>
+    <nav class="nav-links">
+      <a href="#services">Services</a><a href="#">Industries</a><a href="#cases">Clients</a><a href="#">Resources</a><a href="#">Company</a>
+    </nav>
+    <a class="btn btn-dark" href="#cta">Book a strategy call <span class="arw">&rarr;</span></a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="pill-badge"><b>a</b> 2024 Amazon Ads Partner Awards Finalist</span>
+    <h1>Marketplace growth that shows up in the P&amp;L.</h1>
+    <p class="hero-sub">$2Bn+ in marketplace revenue managed across Amazon and 20+ marketplaces, with a 56% average ACOS reduction for clients engaged 18 months or longer.</p>
+    <form class="urlbar" onsubmit="return false">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20"/></svg>
+      <input type="text" placeholder="Your website or storefront URL" aria-label="Your website or storefront URL">
+      <button class="btn btn-dark" type="submit">Get a free audit <span class="arw">&rarr;</span></button>
+    </form>
+
+    <div class="stage">
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" data-p="p1"><strong>Marketplaces</strong><span>Amazon, Walmart, TikTok Shop +20</span></button>
+        <button class="tab" role="tab" aria-selected="false" data-p="p2"><strong>Storefront &amp; CRO</strong><span>Shopify, Magento, headless</span></button>
+        <button class="tab" role="tab" aria-selected="false" data-p="p3"><strong>GEO, AEO &amp; SEO</strong><span>Google, ChatGPT, AI Overviews</span></button>
+      </div>
+      <div class="panel on" id="p1"><div class="canvas c1">
+        <div class="float-card">
+          <div class="fc-brand"><b>GuruNanda</b> Oral care · US</div>
+          <p>ACOS reduced over 18 months while new-to-brand orders grew 321%.</p>
+          <a class="fc-link" href="#cases">Explore the strategy &rarr;</a>
+        </div>
+        <div class="ask"><span class="dot"></span> Ask anything about your account</div>
+        <span class="canvas-note">Image placeholder</span>
+      </div></div>
+      <div class="panel" id="p2"><div class="canvas c2">
+        <div class="float-card">
+          <div class="fc-brand"><b>150+ stores</b> Shopify &amp; Magento</div>
+          <p>20% average conversion lift and 99.95% uptime across builds and migrations.</p>
+          <a class="fc-link" href="#services">See the build process &rarr;</a>
+        </div>
+        <div class="ask"><span class="dot"></span> Where is my checkout leaking?</div>
+        <span class="canvas-note">Image placeholder</span>
+      </div></div>
+      <div class="panel" id="p3"><div class="canvas c3">
+        <div class="float-card">
+          <div class="fc-brand"><b>4.2x</b> AI citations</div>
+          <p>145% average traffic increase and 500Mn+ organic sessions generated.</p>
+          <a class="fc-link" href="#services">See how we get cited &rarr;</a>
+        </div>
+        <div class="ask"><span class="dot"></span> Who does ChatGPT recommend in my category?</div>
+        <span class="canvas-note">Image placeholder</span>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust"><div class="wrap">
+  <p class="eyebrow">Trusted by 300+ high growth companies in over 10 countries</p>
+  <div class="logo-grid">
+    <div class="logo-cell">GuruNanda</div><div class="logo-cell">PUMA</div><div class="logo-cell">Ultrahuman</div>
+    <div class="logo-cell">Puriya</div><div class="logo-cell">MSI</div><div class="logo-cell">MasterMedi</div>
+    <div class="logo-cell">NYKAA</div><div class="logo-cell">BOROSIL</div><div class="logo-cell">Kama Ayurveda</div>
+    <div class="logo-cell">TATA CLiQ</div><div class="logo-cell">Kaya Clinic</div><div class="logo-cell">Atomberg</div>
+  </div>
+</div></section>
+
+<!-- LEAK -->
+<section class="leak"><div class="wrap">
+  <h2>Your growth isn't stuck.<br><span>It's leaking.</span></h2>
+  <p class="leak-lede">Three questions we get asked on almost every first call, and the honest answer to each.</p>
+  <div class="qcards">
+    <article class="qcard">
+      <div class="qhead">Marketplaces <span class="ic">&#8599;</span></div>
+      <h3>Why does ACoS keep improving while our rank goes nowhere?</h3>
+      <div class="answer a1">Cutting bids also cuts the sales velocity that builds organic position. We run ads and rank as one plan, measured on TACoS.</div>
+    </article>
+    <article class="qcard">
+      <div class="qhead">Website &amp; CRO <span class="ic">&#8599;</span></div>
+      <h3>Traffic is fine. So why has conversion stopped moving?</h3>
+      <div class="answer a2">Shopify limits checkout tests and every change waits on a developer. We remove that limit, then test monthly.</div>
+    </article>
+    <article class="qcard">
+      <div class="qhead">Search &amp; AI visibility <span class="ic">&#8599;</span></div>
+      <h3>We still rank on Google. So why is nobody citing us?</h3>
+      <div class="answer a3">Keyword density does not equal citation. We structure content for answer extraction and track mentions daily.</div>
+    </article>
+  </div>
+  <svg class="converge" viewBox="0 0 1200 120" fill="none" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M200 0 C200 60 600 50 600 118" stroke="#B9C7DE" stroke-width="1.5"/>
+    <path d="M600 0 L600 118" stroke="#E0B58F" stroke-width="1.5"/>
+    <path d="M1000 0 C1000 60 600 50 600 118" stroke="#A9C79A" stroke-width="1.5"/>
+    <circle cx="600" cy="118" r="4" fill="#14140F"/>
+  </svg>
+</div></section>
+
+<!-- MEET -->
+<section class="meet"><div class="wrap">
+  <p>Meet Growisto <span class="faces"><i class="f1"></i><i class="f2"></i><i class="f3"></i></span> One team for every channel that drives revenue: <span class="hl">marketplaces, storefront and search</span> in one plan.</p>
+  <a class="btn btn-dark" href="#cta">Book a strategy call <span class="arw">&rarr;</span></a>
+</div></section>
+
+<!-- CASE STUDIES -->
+<section class="section" id="cases"><div class="wrap">
+  <div class="sec-head">
+    <h2>What changed because we were involved.</h2>
+    <p>No vanity charts. Pick a brand, read the numbers that moved, and see who put their name to them.</p>
+  </div>
+  <div class="cs">
+    <div class="cs-tabs" role="tablist">
+      <button class="cs-tab" role="tab" aria-selected="true" data-c="c-gn">GuruNanda</button>
+      <button class="cs-tab" role="tab" aria-selected="false" data-c="c-ka">Kama Ayurveda</button>
+      <button class="cs-tab" role="tab" aria-selected="false" data-c="c-pu">PUMA</button>
+    </div>
+
+    <div class="cs-case" id="c-gn">
+      <div class="cs-body">
+        <div class="cs-left">
+          <div class="cs-brand"><b>GuruNanda</b> Oral care · US</div>
+          <blockquote class="cs-quote">"Consistent pro-activeness and constant innovation are two defining qualities the Growisto team has always exhibited."</blockquote>
+          <div class="cs-person"><i></i><div>Puneet Nanda<span>Founder &amp; CEO, GuruNanda</span></div></div>
+          <div class="stats">
+            <div class="stat"><b>$1M &rarr; $5M</b><span>Revenue growth, first two years</span></div>
+            <div class="stat"><b>$50M+</b><span>Annual revenue today</span></div>
+          </div>
+        </div>
+        <div class="cs-media"><span class="play"></span></div>
+      </div>
+      <div class="cs-foot"><span>Oral care · United States · 4+ international markets</span><a href="#">All case studies &rarr;</a></div>
+    </div>
+
+    <div class="cs-case" id="c-ka" hidden>
+      <div class="cs-body">
+        <div class="cs-left">
+          <div class="cs-brand"><b>Kama Ayurveda</b> Beauty · Multi-market</div>
+          <blockquote class="cs-quote">"One roadmap covering storefront, marketplace and search meant we stopped reconciling three different versions of the truth."</blockquote>
+          <div class="cs-person"><i></i><div>Brand leadership<span>Kama Ayurveda</span></div></div>
+          <div class="stats">
+            <div class="stat"><b>145%</b><span>Average organic traffic increase</span></div>
+            <div class="stat"><b>4.2x</b><span>Average increase in AI citations</span></div>
+          </div>
+        </div>
+        <div class="cs-media" style="background:linear-gradient(135deg,#E4D2B4,#B08E68 60%,#6E5A42)"><span class="play"></span></div>
+      </div>
+      <div class="cs-foot"><span>Beauty &amp; personal care · India and Gulf</span><a href="#">All case studies &rarr;</a></div>
+    </div>
+
+    <div class="cs-case" id="c-pu" hidden>
+      <div class="cs-body">
+        <div class="cs-left">
+          <div class="cs-brand"><b>PUMA</b> Sportswear · Marketplaces</div>
+          <blockquote class="cs-quote">"They operate like an in-house team. The reporting is honest, including the weeks that did not go our way."</blockquote>
+          <div class="cs-person"><i></i><div>Ankit Madhogaria<span>Head, Online Demand, PUMA</span></div></div>
+          <div class="stats">
+            <div class="stat"><b>56%</b><span>Average ACOS reduction, 18 months+</span></div>
+            <div class="stat"><b>$6Mn+</b><span>Ad spend managed per quarter</span></div>
+          </div>
+        </div>
+        <div class="cs-media" style="background:linear-gradient(135deg,#C9CFD6,#7C858F 60%,#3E454C)"><span class="play"></span></div>
+      </div>
+      <div class="cs-foot"><span>Sportswear · Marketplaces across 3 regions</span><a href="#">All case studies &rarr;</a></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- MAP -->
+<section class="section"><div class="wrap">
+  <div class="map-head">
+    <div>
+      <h2>Entering a new market shouldn't<br>mean starting from zero.</h2>
+      <p>We grew GuruNanda to #1 in US and Canada oral care, and Ultrahuman's Amazon UK revenue roughly 6x in two months. The playbook adapts to local market behavior.</p>
+    </div>
+    <a class="btn btn-dark" href="#cta">Book a strategy call <span class="arw">&rarr;</span></a>
+  </div>
+  <div class="map-panel">
+    <svg id="worldmap" viewBox="0 0 640 230" aria-label="Markets we operate in"></svg>
+    <div class="map-quote">
+      <div class="mq-photo"></div>
+      <div>
+        <h4>Zero cut-over downtime</h4>
+        <p>"Growisto's highly experienced technical team managed our website for three years. They helped us successfully re-platform our online store."</p>
+        <p class="who">Head of Digital · Home &amp; living brand</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- SERVICES -->
+<section class="services" id="services"><div class="wrap">
+  <div class="svc-head">
+    <h2>One team for every channel that carries your revenue. Not six vendors.</h2>
+    <a class="btn btn-ghost" href="#">View all services <span class="arw">&rarr;</span></a>
+  </div>
+  <div class="svc-grid">
+    <article class="svc">
+      <h3>Marketplace Consulting</h3>
+      <p>Run every marketplace as one P&amp;L. Amazon, Walmart, TikTok Shop and quick commerce on one team.</p>
+      <div class="mini">
+        <div class="mini-row h"><span>Channel</span><span>Revenue</span><span>ACOS</span></div>
+        <div class="mini-row"><span>Amazon US</span><span>$1,340,000</span><span class="tagpill">14.2%</span></div>
+        <div class="mini-row"><span>Walmart</span><span>$386,200</span><span class="tagpill">18.1%</span></div>
+        <div class="mini-row"><span>Amazon UK</span><span>$210,400</span><span class="tagpill w">31.3%</span></div>
+        <div class="mini-row"><span>TikTok Shop</span><span>$94,555</span><span class="tagpill w">22.7%</span></div>
+        <div class="mini-row t"><span>Total</span><span>$2,031,155</span><span>16.4%</span></div>
+      </div>
+      <a class="svc-link" href="#">Explore marketplaces &rarr;</a>
+    </article>
+
+    <article class="svc">
+      <h3>Website Development</h3>
+      <p>Fix the funnel, not the theme. We audit 9 levers and 600+ parameters, then build.</p>
+      <div>
+        <div class="chk">150+ Shopify and Magento stores shipped</div>
+        <div class="chk">20% average conversion lift</div>
+        <div class="chk">99.95% uptime across managed builds</div>
+        <div class="chk">Checkout and PDP tests shipped monthly</div>
+      </div>
+      <a class="svc-link" href="#">Explore development &rarr;</a>
+    </article>
+
+    <article class="svc">
+      <h3>GEO, AIO &amp; SEO</h3>
+      <p>Get cited where buyers ask. Google, ChatGPT, Perplexity and AI Overviews.</p>
+      <div class="bigstat">4.2x</div><em>Average increase in AI citations</em>
+      <svg class="spark" viewBox="0 0 200 56" fill="none" preserveAspectRatio="none">
+        <path d="M0 48 L34 42 L68 44 L102 30 L136 22 L170 14 L200 6" stroke="#8FBE7C" stroke-width="2"/>
+        <path d="M0 52 L34 50 L68 49 L102 46 L136 45 L170 43 L200 41" stroke="#D6D4C8" stroke-width="2"/>
+      </svg>
+      <div class="chk">145% average organic traffic increase</div>
+      <a class="svc-link" href="#">Explore search &rarr;</a>
+    </article>
+
+    <article class="svc">
+      <h3>B2B &amp; SaaS Search</h3>
+      <p>B2B buyers research through AI tools before they ever fill a form. We tailor strategy to longer cycles and multiple decision-makers.</p>
+      <div class="chk">Buying-committee keyword mapping</div>
+      <div class="chk">Answer-first content built for extraction</div>
+      <div class="chk">Citation tracking across four AI engines</div>
+      <a class="svc-link" href="#">Explore B2B search &rarr;</a>
+    </article>
+  </div>
+</div></section>
+
+<!-- CTA -->
+<section class="cta" id="cta"><div class="wrap cta-in">
+  <div>
+    <h2>See what your account is losing before you decide anything.</h2>
+    <p>Free, no call required, and you keep the audit whether or not we end up working together.</p>
+    <form class="urlbar" onsubmit="return false">
+      <input type="text" placeholder="Your website or storefront URL" aria-label="Your website or storefront URL">
+      <button class="btn btn-olive" type="submit">Get a free audit <span class="arw">&rarr;</span></button>
+    </form>
+    <p class="trustline">7 days delivery · Zero cost or commitment · 100% confidential</p>
+  </div>
+  <div class="cta-panel">
+    <h4>What you get back</h4>
+    <ul>
+      <li>Full audit of ad performance, TACoS trends and listing gaps</li>
+      <li>SKU-level profitability analysis using Brand Analytics data</li>
+      <li>Category-specific growth roadmap for your portfolio</li>
+      <li>30-minute call with a senior consultant</li>
+    </ul>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="f-top">
+    <div>
+      <a class="logo" href="#"><i>&#10037;</i> Growisto</a>
+      <p style="max-width:34ch">A certified e-commerce growth partner running marketplaces, storefront tech and search for 300+ brands.</p>
+    </div>
+    <div class="f-col"><p>Services</p><a href="#">Marketplace Consulting</a><a href="#">Website Development</a><a href="#">GEO, AIO &amp; SEO</a><a href="#">Data &amp; BI</a></div>
+    <div class="f-col"><p>Marketplaces</p><a href="#">Amazon</a><a href="#">Walmart</a><a href="#">TikTok Shop</a><a href="#">Quick commerce</a></div>
+    <div class="f-col"><p>Company</p><a href="#">About</a><a href="#">Careers</a><a href="#">Case studies</a><a href="#">Contact</a></div>
+    <div class="f-col"><p>Resources</p><a href="#">Blog</a><a href="#">Playbooks</a><a href="#">Free audit</a><a href="#">Newsletter</a></div>
+  </div>
+  <div class="f-bot"><span>© 2026 Growisto. All rights reserved.</span><span>Privacy · Terms</span></div>
+</div></footer>
+
+<script>
+// sticky nav border
+var nav=document.getElementById('nav');
+addEventListener('scroll',function(){nav.classList.toggle('stuck',scrollY>8)});
+
+// hero tabs
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected','false')});
+    document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on')});
+    t.setAttribute('aria-selected','true');
+    document.getElementById(t.dataset.p).classList.add('on');
+  });
+});
+
+// case study tabs
+document.querySelectorAll('.cs-tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.cs-tab').forEach(function(x){x.setAttribute('aria-selected','false')});
+    document.querySelectorAll('.cs-case').forEach(function(c){c.hidden=true});
+    t.setAttribute('aria-selected','true');
+    document.getElementById(t.dataset.c).hidden=false;
+  });
+});
+
+// dotted world map
+(function(){
+  var svg=document.getElementById('worldmap');
+  if(!svg) return;
+  var blobs=[[11,5.5,7,3.5],[13.5,8.8,3,2],[19,1.6,2.6,1.2],[17,13.5,3,3],[18.4,17,1.9,2.3],
+             [31,4.4,3.6,2],[28,3,1.1,1],[32,10,4,3],[33.5,14,2.6,2.2],[36.4,8,2.6,1.6],
+             [44,4,9,3],[42,9,2.6,2],[48,7.4,4,2.5],[50.4,12,3,1],[53,15,3.6,2],[54.4,5.6,1,1.6]];
+  var pins=[[11,6,'United States'],[28,3,'United Kingdom'],[37,8,'UAE'],[42,9,'India'],[53,15,'Australia'],[50,11,'Singapore']];
+  var COLS=64, ROWS=22, sx=640/COLS, sy=230/ROWS, out='';
+  function inside(x,y){return blobs.some(function(b){var dx=(x-b[0])/b[2],dy=(y-b[1])/b[3];return dx*dx+dy*dy<=1})}
+  for(var r=0;r<ROWS;r++)for(var c=0;c<COLS;c++){
+    if(!inside(c,r)) continue;
+    out+='<circle cx="'+((c+.5)*sx).toFixed(1)+'" cy="'+((r+.5)*sy).toFixed(1)+'" r="2.1" fill="#B7C86F"/>';
+  }
+  pins.forEach(function(p){
+    var x=((p[0]+.5)*sx).toFixed(1), y=((p[1]+.5)*sy).toFixed(1);
+    out+='<circle cx="'+x+'" cy="'+y+'" r="8" fill="#14140F" opacity=".08"/>';
+    out+='<circle cx="'+x+'" cy="'+y+'" r="3.6" fill="#14140F"><title>'+p[2]+'</title></circle>';
+  });
+  svg.innerHTML=out;
+})();
+</script>
+</body>
+</html>

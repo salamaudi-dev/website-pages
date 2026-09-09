@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growisto Homepage — Three Prototypes</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:#F5F4F1;color:#141414;padding:56px 24px;line-height:1.6}
+.wrap{max-width:1020px;margin:0 auto}
+h1{font-size:32px;font-weight:600;letter-spacing:-.03em;margin-bottom:8px}
+.lede{color:#6E6E6E;margin-bottom:8px;max-width:66ch}
+.note{color:#8A8A8A;font-size:13px;margin-bottom:36px;max-width:70ch}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border:1px solid #E5E3DE;border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:.18s}
+.card:hover{border-color:#B9B6AE;transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.07)}
+.swatch{height:110px;display:flex}
+.swatch i{flex:1;display:block}
+.body{padding:18px}
+.tag{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A8A8A}
+.body h2{font-size:18px;font-weight:600;letter-spacing:-.02em;margin:6px 0 8px}
+.body p{font-size:13.5px;color:#6E6E6E}
+.body ul{margin:12px 0 0 16px;font-size:12.5px;color:#6E6E6E}
+.open{margin-top:14px;font-size:13px;font-weight:500;color:#141414}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body><div class="wrap">
+  <h1>Growisto homepage: three prototype directions</h1>
+  <p class="lede">Same content spine in all three, so the comparison is about visual direction rather than copy. Every section is responsive and the tabs, accordions and carousels are live.</p>
+  <p class="note">Built from the three design screenshots. Imagery is placeholder (the Figma file is not shared for MCP access), and client logos are set as text wordmarks drawn only from the permission-cleared lists in landing-pages/CLAUDE.md.</p>
+
+  <div class="grid">
+    <a class="card" href="homepage-prototype-a-editorial.html">
+      <div class="swatch"><i style="background:#F6F5F1"></i><i style="background:#D9E29C"></i><i style="background:#2B3026"></i><i style="background:#14140F"></i></div>
+      <div class="body">
+        <span class="tag">Direction A</span>
+        <h2>Editorial / olive</h2>
+        <p>Centered hero, light paper ground, one olive accent doing all the work.</p>
+        <ul><li>Centered H1 with tabbed hero stage</li><li>Converging-line diagram into the "Meet Growisto" line</li><li>Olive services band, dark case-study card</li></ul>
+        <div class="open">Open prototype &rarr;</div>
+      </div>
+    </a>
+
+    <a class="card" href="homepage-prototype-b-warm.html">
+      <div class="swatch"><i style="background:#FBF8F3"></i><i style="background:#C2542A"></i><i style="background:#0F3A3E"></i><i style="background:#3E3226"></i></div>
+      <div class="body">
+        <span class="tag">Direction B</span>
+        <h2>Warm / photographic</h2>
+        <p>Full-bleed photo hero, floating pill nav, rust accent on a cream ground.</p>
+        <ul><li>Left-aligned hero over a photograph, vertical channel rail</li><li>Split logo band: US &amp; global vs India</li><li>Case-study carousel and a services accordion</li></ul>
+        <div class="open">Open prototype &rarr;</div>
+      </div>
+    </a>
+
+    <a class="card" href="homepage-prototype-c-bold-orange.html">
+      <div class="swatch"><i style="background:#FFFFFF"></i><i style="background:#F0592B"></i><i style="background:#0D0D0D"></i><i style="background:#FEEDE6"></i></div>
+      <div class="body">
+        <span class="tag">Direction C</span>
+        <h2>Bold orange</h2>
+        <p>High-contrast product-marketing look, announcement bar, orange as the loudest element.</p>
+        <ul><li>Hero tabs rewrite the H1 and stat line</li><li>Black logo band, orange case-study card</li><li>Sticky services nav with scroll spy</li></ul>
+        <div class="open">Open prototype &rarr;</div>
+      </div>
+    </a>
+  </div>
+</div></body>
+</html>
