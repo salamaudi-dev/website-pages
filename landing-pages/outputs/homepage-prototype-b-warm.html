@@ -6,7 +6,9 @@
 <title>Growisto Homepage — Direction B (Warm / Photographic)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- TYPEFACE: change this URL and the --font-head/--font-body vars below together -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -15,16 +17,21 @@
   --line:#E6E0D4; --line-2:#D5CDBD;
   --rust:#C2542A; --rust-h:#A6431F; --rust-lt:#F6E3D7;
   --teal:#0F3A3E; --teal-2:#14494E;
-  --maxw:1240px;
+  --maxw:1328px;
+  /* TYPEFACE — swap here, and keep the Google Fonts <link> above in sync */
+  /* Figma: headline Season Mix-TRIAL 420 -- Newsreader substituted (trial font, not licensed) */
+  --font-head:'Newsreader',Georgia,'Times New Roman',serif;
+  /* Figma: body Satoshi 400 -- exact, free via Fontshare */
+  --font-body:'Satoshi','Inter',system-ui,sans-serif;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.6}
+body{font-family:var(--font-body);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.6}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
 [hidden]{display:none!important}
 .proto-flag{background:#191713;color:#FBF8F3;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:7px 16px}
 .proto-flag b{color:#E8996B;font-weight:600}
 
-h1,h2,h3{letter-spacing:-.025em;font-weight:500;line-height:1.12}
+h1,h2,h3{font-family:var(--font-head);letter-spacing:-.025em;font-weight:500;line-height:1.12}
 h2{font-size:clamp(27px,3.6vw,40px)}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
 .eyebrow::before{content:"";width:9px;height:9px;background:var(--rust);flex:none}
@@ -51,11 +58,11 @@ h2{font-size:clamp(27px,3.6vw,40px)}
 .nav-links{display:flex;gap:26px;flex:1;justify-content:center}
 .nav-links a{font-size:14px;color:var(--ink-2);text-decoration:none}
 .nav-links a:hover{color:var(--rust)}
-.hero-in{max-width:var(--maxw);margin:0 auto;padding:64px 28px 72px;display:grid;grid-template-columns:1.08fr .92fr;gap:40px;align-items:start;position:relative;z-index:2}
+.hero-in{max-width:var(--maxw);margin:0 auto;padding:64px 28px 72px;display:grid;grid-template-columns:minmax(0,730px) 1fr;gap:48px;align-items:start;position:relative;z-index:2}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);color:#fff;font-size:12px;border-radius:999px;padding:6px 14px;margin-bottom:26px;backdrop-filter:blur(4px)}
-.hero h1{color:#fff;font-size:clamp(30px,4.1vw,47px);font-weight:500;line-height:1.14;margin-bottom:18px}
+.hero h1{color:#fff;font-size:clamp(30px,4.4vw,54px);font-weight:420;line-height:1.19;letter-spacing:0;margin-bottom:18px}
 .hero h1 em{font-style:normal;color:rgba(255,255,255,.72)}
-.hero-sub{color:rgba(255,255,255,.78);font-size:16px;max-width:48ch;margin-bottom:28px}
+.hero-sub{color:rgba(255,255,255,.78);font-size:18px;line-height:1.53;max-width:48ch;margin-bottom:28px}
 .urlbar{display:flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:6px 6px 6px 20px;max-width:470px}
 .urlbar svg{opacity:.4;flex:none}
 .urlbar input{flex:1;border:0;outline:0;font:inherit;font-size:14px;background:transparent;min-width:0}

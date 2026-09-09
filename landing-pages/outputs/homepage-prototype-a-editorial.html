@@ -6,19 +6,27 @@
 <title>Growisto Homepage — Direction A (Editorial)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<!-- TYPEFACE: change this URL and the --font-head/--font-body vars below together -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --paper:#F6F5F1; --paper-2:#FFFFFF; --ink:#14140F; --ink-2:#3A3A31;
+  --paper:#F6F5F1; --paper-2:#FFFFFF; --ink:#29251E; --ink-2:#3A3A31;
   --muted:#77776B; --line:#E3E1D8; --line-2:#D6D4C8;
   --olive:#D9E29C; --olive-dk:#BCC97A; --forest:#2B3026;
   --tint-blue:#D9E8FA; --tint-orange:#FBE0CB; --tint-green:#DCEDD3;
   --edge-blue:#7FB0E0; --edge-orange:#E89055; --edge-green:#8FBE7C;
   --maxw:1200px;
+  /* TYPEFACE — swap here, and keep the Google Fonts <link> above in sync */
+  /* Figma: headline Season Mix-TRIAL 420 -- Newsreader substituted (trial font, not licensed) */
+  --font-head:'Newsreader',Georgia,'Times New Roman',serif;
+  /* Figma: body Satoshi 400 -- exact, free via Fontshare */
+  --font-body:'Satoshi','Inter',system-ui,sans-serif;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.6}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.6}
+h1,h2,h3{font-family:var(--font-head)}
 img{max-width:100%}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
 .proto-flag{background:#14140F;color:#F6F5F1;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:7px 16px}
@@ -49,8 +57,8 @@ img{max-width:100%}
 .hero{padding:56px 0 0;text-align:center}
 .pill-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 14px;margin-bottom:26px}
 .pill-badge b{color:var(--ink);font-weight:500}
-h1{font-size:clamp(34px,5.2vw,60px);font-weight:400;line-height:1.06;letter-spacing:-.032em;max-width:19ch;margin:0 auto 20px}
-.hero-sub{font-size:16px;color:var(--muted);max-width:60ch;margin:0 auto 28px;line-height:1.65}
+h1{font-size:clamp(34px,5.4vw,72px);font-weight:420;line-height:1.1;letter-spacing:0;max-width:19ch;margin:0 auto 20px}
+.hero-sub{font-size:18px;color:var(--muted);max-width:60ch;margin:0 auto 28px;line-height:1.4}
 .urlbar{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line-2);border-radius:999px;padding:6px 6px 6px 18px;max-width:520px;margin:0 auto 44px}
 .urlbar svg{flex:none;opacity:.4}
 .urlbar input{flex:1;border:0;outline:0;font:inherit;font-size:14px;background:transparent;color:var(--ink);min-width:0}
@@ -113,7 +121,7 @@ h2{font-size:clamp(28px,3.8vw,42px);font-weight:400;letter-spacing:-.028em;line-
 .f1{background:linear-gradient(135deg,#A8C68F,#6E9B78)}
 .f2{background:linear-gradient(135deg,#E3B48C,#C2795A)}
 .f3{background:linear-gradient(135deg,#9FB6D4,#5E7EA6)}
-.hl{background:linear-gradient(transparent 58%,var(--olive) 58%);font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:1.04em;padding:0 2px}
+.hl{background:linear-gradient(transparent 58%,var(--olive) 58%);font-family:var(--font-head);font-style:italic;padding:0 2px}
 
 /* ---------- case study ---------- */
 .section{padding:0 0 96px}
