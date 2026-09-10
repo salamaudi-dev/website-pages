@@ -98,6 +98,11 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 .stat-card .lbl{font-family:var(--font-mono);font-size:10px;line-height:13px;letter-spacing:1.52px;text-transform:uppercase;color:var(--rust)}
 .stat-card b{display:block;font-family:var(--font-head);font-size:32px;line-height:39px;font-weight:580;letter-spacing:-.576px;color:var(--ink-2);margin:12px 0 0}
 .stat-card p{font-size:14px;line-height:16px;font-weight:500;color:var(--muted);margin:8px 0 14px}
+.pf{list-style:none;margin:0;padding:0}
+.pf li+li{margin-top:12px;padding-top:12px;border-top:1px solid rgba(41,37,30,.14)}
+.pf b{display:block;font-family:var(--font-head);font-size:17px;line-height:23px;font-weight:580;letter-spacing:-.3px;color:var(--ink-2)}
+.pf span{display:block;font-family:var(--font-mono);font-size:11px;line-height:15px;letter-spacing:.04em;color:var(--rust);margin-top:5px}
+.hero-note{color:rgba(255,255,255,.62);font-size:13px;line-height:19px;margin:14px 0 0}
 .stat-card a{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',system-ui,sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--ink-2);padding-bottom:6px}
 
 /* ---------- logo band ---------- */
@@ -143,14 +148,13 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 .cs-brand b{font-weight:600}
 .cs-brand::before{content:'';width:26px;height:26px;flex:none;border-radius:3px;background:#512C1D url('figma-assets/assets/chip-gurunanda-b.png') center/76% no-repeat}
 .cs-brand span{color:rgba(234,240,239,.6);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
-.cs h3{font-size:clamp(20px,2.5vw,29px);font-weight:500;line-height:1.24;margin-bottom:auto;max-width:20ch}
+.cs h3{font-size:clamp(19px,2.2vw,26px);font-weight:500;line-height:1.28;margin-bottom:auto;max-width:26ch}
 .cs-stats{display:flex;gap:40px;margin:28px 0 22px}
 .cs-stats b{display:block;font-size:30px;font-weight:500;letter-spacing:-.03em}
 .cs-stats span{display:block;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:rgba(234,240,239,.55);margin-top:6px;line-height:1.5}
 .cs-media{position:relative;background:#FBC1A9 var(--case-img,linear-gradient(150deg,#F5C9AE,#E19B72 50%,#C97A4E)) center/cover no-repeat}
 .cs-media .play{position:absolute;inset:0;margin:auto;width:60px;height:60px;border-radius:70px;background:#fff;display:grid;place-items:center}
 .cs-media .play::after{content:"";border-left:22px solid var(--rust);border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:5px}
-.cs-media span{position:absolute;left:14px;top:12px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45)}
 .progress{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .progress i{display:block;height:3.95px;background:#D6CCBC}
 .progress i.on{background:var(--rust)}
@@ -223,6 +227,10 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
 .f-col a:hover{color:#fff}
 .f-bot{padding-top:20px;display:flex;justify-content:space-between;gap:20px;font-size:12px;color:rgba(251,248,243,.4)}
 
+.q-lede{color:rgba(41,37,30,.72);font-size:16px;line-height:1.55;max-width:34ch;margin-bottom:22px}
+.cs-copy .cs-person{font-size:13px;line-height:1.5;color:rgba(234,240,239,.7);margin-bottom:4px}
+.cs-slide[data-i="1"] .cs-brand::before{background-color:#BD4541;background-image:url('figma-assets/assets/logo-kama.png')}
+.cs-slide[data-i="2"] .cs-brand::before{background-color:#000;background-image:url('figma-assets/assets/chip-puma.png')}
 @media(max-width:1080px){
   .nav-links{display:none}
   .hero-in,.logoband-in,.cs-in,.cases-head,.svc-head,.svc-panel,.cta-in{grid-template-columns:1fr}
@@ -263,51 +271,54 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
   <div class="hero-in">
     <div>
       <span class="hero-badge">&#9733; 2024 Amazon Ads Partner Awards Finalist</span>
-      <h1>Your growth. Proven at scale.<br><em>$200M+ in e-commerce sales.<br>300+ high-growth brands.</em></h1>
-      <p class="hero-sub">One connected team across commerce, technology, marketing and data, built to move a number you already report on.</p>
+      <h1><span id="h-t1">Marketplaces Growth</span><br><em id="h-t2">That Shows Up In the P&amp;L</em></h1>
+      <p class="hero-sub" id="h-sub">Growisto combines your ads, organic, and affiliate marketing strategies to scale marketplace revenue profitably.</p>
       <form class="urlbar" onsubmit="return false">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20"/></svg>
-        <input type="text" placeholder="Your website or storefront URL" aria-label="Your website or storefront URL">
-        <button class="btn btn-rust" type="submit">Get a free audit</button>
+        <input type="text" placeholder="Website URL or storefront URL" aria-label="Website URL or storefront URL">
+        <button class="btn btn-rust" type="submit">Find Your Growth Gaps</button>
       </form>
+      <p class="hero-note">Nykaa, Unilever, Tata Cliq, and 50+ brands started with an audit</p>
     </div>
 
     <div class="rail">
       <div class="rail-item" aria-expanded="false">
-        <button class="rail-tab" aria-selected="false" data-k="s">Storefront</button>
+        <button class="rail-tab" aria-selected="false" data-k="s">Website &amp; CRO</button>
         <div class="rail-body" data-k="s" hidden>
           
           <div class="stat-card">
-            <span class="lbl">150+ builds</span>
-            <b>+20%</b>
-            <p>Average conversion lift</p>
-            <a href="#services">See the build process</a>
+            <ul class="pf">
+              <li><b>177% conversion rate growth over an 8-year partnership</b><span>Atomberg</span></li>
+              <li><b>222% gross sales growth in 4 months post-migration</b><span>Premium US hair care brand (name withheld per agreement)</span></li>
+              <li><b>53% overall revenue increase, 120% growth in add-to-cart</b><span>Tyrensmore</span></li>
+            </ul>
           </div>
         </div>
       </div>
 
       <div class="rail-item" aria-expanded="true">
-        <button class="rail-tab" aria-selected="true" data-k="m">Marketplace</button>
+        <button class="rail-tab" aria-selected="true" data-k="m">Marketplaces</button>
         <div class="rail-body" data-k="m">
           
           <div class="stat-card">
-            <span class="lbl">GuruNanda</span>
-            <b>$1M &rarr; $5M</b>
-            <p>ACOS reduced over 18 months</p>
-            <a href="#cases">Explore the strategy</a>
+            <ul class="pf">
+              <li><b>$1M &rarr; $5M</b><span>GuruNanda, revenue growth in the first two years on Amazon</span></li>
+              <li><b>1.7x revenue increase in 5 months, 32% increase in customer reviews</b><span>Puma</span></li>
+              <li><b>30% revenue growth in 90 days on TikTok</b><span>US pet accessories &amp; outdoor gear brand</span></li>
+            </ul>
           </div>
         </div>
       </div>
 
       <div class="rail-item" aria-expanded="false">
-        <button class="rail-tab" aria-selected="false" data-k="g">GEO, AEO &amp; SEO</button>
+        <button class="rail-tab" aria-selected="false" data-k="g">GEO, AIO &amp; SEO</button>
         <div class="rail-body" data-k="g" hidden>
           
           <div class="stat-card">
-            <span class="lbl">AI visibility</span>
-            <b>4.2x</b>
-            <p>Average increase in AI citations</p>
-            <a href="#services">See how we get cited</a>
+            <ul class="pf">
+              <li><b>13x ROI</b><span>Avaana &middot; SEO + GEO &middot; Compliance consulting</span></li>
+              <li><b>3.4x organic revenue</b><span>Borosil &middot; SEO &middot; D2C kitchenware</span></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -318,10 +329,10 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
 <!-- LOGO BAND -->
 <div class="logoband"><div class="logoband-in">
   <div class="lb-lead"><b>US &amp; global brands</b><span>Selling into the US, UK and the Gulf</span></div>
-  <a class="lb-cell link" href="#cases"><img src="figma-assets/assets/logo-puma.png" alt="PUMA"></a><div class="lb-cell"><img src="figma-assets/assets/logo-justrite.png" alt="Justrite"></div><div class="lb-cell">Ultrahuman</div>
-  <a class="lb-cell link" href="#cases"><img src="figma-assets/assets/logo-gurunanda.png" alt="GuruNanda"></a><div class="lb-cell"><img src="figma-assets/assets/logo-msi.png" alt="MSI"></div><div class="lb-cell">Puriya</div>
+  <a class="lb-cell link" href="#cases"><img src="figma-assets/assets/logo-puma.png" alt="PUMA"></a><a class="lb-cell link" href="#cases"><img src="figma-assets/assets/logo-gurunanda.png" alt="GuruNanda"></a><div class="lb-cell">Ultrahuman</div>
+  <div class="lb-cell"><img src="figma-assets/assets/logo-justrite.png" alt="Justrite"></div><div class="lb-cell"><img src="figma-assets/assets/logo-msi.png" alt="MSI"></div><div class="lb-cell">Puriya</div>
 
-  <div class="lb-lead"><b>India's category leaders</b><span>Our playbook: 300+ engagements</span></div>
+  <div class="lb-lead"><b>India's category leaders</b><span>Beauty, home, retail and consumer tech</span></div>
   <div class="lb-cell"><img src="figma-assets/assets/logo-nykaa.png" alt="Nykaa"></div><div class="lb-cell"><img src="figma-assets/assets/logo-godrej.png" alt="Godrej Interio"></div><a class="lb-cell link" href="#cases"><img src="figma-assets/assets/logo-borosil.png" alt="Borosil"></a>
   <div class="lb-cell"><img src="figma-assets/assets/logo-kama.png" alt="Kama Ayurveda"></div><div class="lb-cell"><img src="figma-assets/assets/logo-kaya.png" alt="Kaya Clinic"></div><div class="lb-cell"><img src="figma-assets/assets/logo-tatacliq.png" alt="Tata CLiQ"></div>
 </div></div>
@@ -332,6 +343,7 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
     <div class="q-intro">
       <span class="eyebrow">Three questions</span>
       <h2>Your growth isn't stuck.<span>It's leaking.</span></h2>
+      <p class="q-lede">Three questions we get asked on almost every first call, and the honest answer to each.</p>
       <a class="btn btn-outline" href="#cta">Get the honest answer <span class="arw">&rarr;</span></a>
     </div>
 
@@ -341,7 +353,7 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
         <path d="M14 18h58l-7 34H21z"/><path d="M14 18l-5-9H2"/><circle cx="30" cy="63" r="5"/><circle cx="60" cy="63" r="5"/><path d="M28 28l6 14M56 28l-6 14"/>
       </svg>
       <h3>Why does ACoS keep improving while our rank goes nowhere?</h3>
-      <p>Cutting bids also cuts the sales velocity that builds organic position. We run ads and rank as one plan, measured on TACoS.</p>
+      <p>Cutting bids also cuts the sales velocity that builds organic position. We run ads and rank as one plan, measured on TACoS rather than on ad efficiency alone.</p>
     </div>
 
     <div class="qcol">
@@ -350,7 +362,7 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
         <rect x="10" y="12" width="70" height="50" rx="6"/><path d="M10 26h70"/><path d="M22 42h24M22 52h14"/><path d="M56 54l8-14 8 8"/>
       </svg>
       <h3>Traffic is fine. So why has conversion stopped moving?</h3>
-      <p>Shopify limits checkout tests and every change waits on a developer. We remove that limit, then test monthly.</p>
+      <p>Shopify limits checkout tests and every change waits on a developer. We remove that limit, audit 9 levers and 600+ parameters, then test monthly.</p>
     </div>
 
     <div class="qcol">
@@ -359,7 +371,7 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
         <path d="M8 58l18-20 14 12 16-24 18 14"/><circle cx="26" cy="38" r="3.4"/><circle cx="56" cy="26" r="3.4"/><path d="M8 66h74"/>
       </svg>
       <h3>We still rank on Google. So why is nobody citing us?</h3>
-      <p>Keyword density does not equal citation. We structure content for answer extraction and track mentions daily.</p>
+      <p>Keyword density does not equal citation. We structure content for answer extraction, generate entity schema across templates, and track mentions daily.</p>
     </div>
   </div>
 </div></section>
@@ -372,7 +384,7 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
       <h2>What changed because we were involved.</h2>
     </div>
     <div>
-      <p style="margin-bottom:14px">We grew GuruNanda to #1 in US and Canada oral care, and Ultrahuman's Amazon UK revenue roughly 6x in two months. The playbook adapts to market behavior.</p>
+      <p style="margin-bottom:14px">No vanity charts. Pick a brand, read the numbers that moved, and see who put their name to them.</p>
       <div class="head-actions">
         <button class="rnd" id="prev" aria-label="Previous case study">&#8249;</button>
         <button class="rnd" id="next" aria-label="Next case study">&#8250;</button>
@@ -384,41 +396,44 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
   <div class="cs">
     <div class="cs-in cs-slide" data-i="0">
       <div class="cs-copy">
-        <span class="cs-brand"><b>GuruNanda</b><span>Oral care · US</span></span>
-        <h3>Category-specific playbook scales a brand from $1M to $50M.</h3>
+        <span class="cs-brand"><b>GuruNanda</b><span>Oral care &middot; US</span></span>
+        <h3>&ldquo;Consistent pro-activeness and constant innovation are two defining qualities the Growisto team has always exhibited.&rdquo;</h3>
+        <p class="cs-person">Puneet Nanda<br>Founder &amp; CEO, GuruNanda</p>
         <div class="cs-stats">
           <div><b>$1M &rarr; $5M</b><span>Revenue growth,<br>first two years</span></div>
           <div><b>$50M+</b><span>Annual revenue<br>today</span></div>
         </div>
         <a class="btn btn-white" href="#" style="align-self:flex-start">Read the story <span class="arw">&rarr;</span></a>
       </div>
-      <div class="cs-media"><span>Image placeholder</span><i class="play"></i></div>
+      <div class="cs-media"><i class="play"></i></div>
     </div>
 
     <div class="cs-in cs-slide" data-i="1" hidden>
       <div class="cs-copy">
-        <span class="cs-brand"><b>PUMA</b><span>Sportswear · Marketplaces</span></span>
-        <h3>Ads and organic run as one plan, measured on a single TACoS number.</h3>
-        <div class="cs-stats">
-          <div><b>56%</b><span>Average ACOS reduction,<br>18 months+</span></div>
-          <div><b>$6Mn+</b><span>Ad spend managed<br>per quarter</span></div>
-        </div>
-        <a class="btn btn-white" href="#" style="align-self:flex-start">Read the story <span class="arw">&rarr;</span></a>
-      </div>
-      <div class="cs-media" style="background:linear-gradient(150deg,#B0A896,#6C6555 50%,#3A362C)"><span>Image placeholder</span><i class="play"></i></div>
-    </div>
-
-    <div class="cs-in cs-slide" data-i="2" hidden>
-      <div class="cs-copy">
-        <span class="cs-brand"><b>Kama Ayurveda</b><span>Beauty · Multi-market</span></span>
-        <h3>Structured for answer extraction, cited across four AI engines.</h3>
+        <span class="cs-brand"><b>Kama Ayurveda</b><span>Beauty &middot; Multi-market</span></span>
+        <h3>&ldquo;One roadmap covering storefront, marketplace and search meant we stopped reconciling three different versions of the truth.&rdquo;</h3>
+        <p class="cs-person">Brand leadership<br>Kama Ayurveda</p>
         <div class="cs-stats">
           <div><b>4.2x</b><span>Average increase<br>in AI citations</span></div>
           <div><b>145%</b><span>Average organic<br>traffic increase</span></div>
         </div>
         <a class="btn btn-white" href="#" style="align-self:flex-start">Read the story <span class="arw">&rarr;</span></a>
       </div>
-      <div class="cs-media" style="background:linear-gradient(150deg,#C4B49C,#7E6F58 50%,#453B2E)"><span>Image placeholder</span><i class="play"></i></div>
+      <div class="cs-media" style="background:linear-gradient(150deg,#C4B49C,#7E6F58 50%,#453B2E)"><i class="play"></i></div>
+    </div>
+
+    <div class="cs-in cs-slide" data-i="2" hidden>
+      <div class="cs-copy">
+        <span class="cs-brand"><b>PUMA</b><span>Sportswear &middot; Marketplaces</span></span>
+        <h3>&ldquo;They operate like an in-house team. The reporting is honest, including the weeks that did not go our way.&rdquo;</h3>
+        <p class="cs-person">Ankit Madhogaria<br>Head, Online Demand, PUMA</p>
+        <div class="cs-stats">
+          <div><b>56%</b><span>Average ACOS reduction,<br>18 months+</span></div>
+          <div><b>$6Mn+</b><span>Ad spend managed<br>per quarter</span></div>
+        </div>
+        <a class="btn btn-white" href="#" style="align-self:flex-start">Read the story <span class="arw">&rarr;</span></a>
+      </div>
+      <div class="cs-media" style="background:linear-gradient(150deg,#B0A896,#6C6555 50%,#3A362C)"><i class="play"></i></div>
     </div>
   </div>
   <div class="progress" id="prog"><i class="on"></i><i></i><i></i></div>
@@ -429,24 +444,24 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
   <div class="svc-head">
     <div>
       <span class="eyebrow">Services</span>
-      <h2>Three service lines. One number that matters.</h2>
+      <h2>One team for every channel that carries your revenue. Not six vendors.</h2>
     </div>
     <div class="svc-right">
-      <p>200+ engagements in each. Deep enough to build the playbook, disciplined enough to say no.</p>
+      <p>300+ clients serviced across marketplaces, storefront and search, with founder-level access on every account.</p>
       <a class="btn btn-rust" href="#cta">Book a strategy call</a>
     </div>
   </div>
 
   <div class="svc-panel">
     <div class="svc-left">
-      <h3 id="svc-title">Marketplaces</h3>
-      <p id="svc-blurb">We help brands sell more, spend less and grow faster on marketplaces. $2Bn+ in revenue managed across Amazon, Walmart, TikTok Shop and quick commerce.</p>
+      <h3 id="svc-title">Marketplace Consulting</h3>
+      <p id="svc-blurb">Run every marketplace as one P&amp;L. Amazon, Walmart, TikTok Shop and quick commerce on one team, measured on TACoS rather than channel-by-channel ACOS.</p>
       <a class="svc-explore" href="#">Explore the line &rarr;</a>
       <div class="acc">
-        <button aria-selected="true" data-s="m">Marketplaces <i>&minus;</i></button>
-        <button aria-selected="false" data-s="w">Website &amp; CRO <i>+</i></button>
+        <button aria-selected="true" data-s="m">Marketplace Consulting <i>&minus;</i></button>
+        <button aria-selected="false" data-s="w">Website Development <i>+</i></button>
         <button aria-selected="false" data-s="g">GEO, AIO &amp; SEO <i>+</i></button>
-        <button aria-selected="false" data-s="b">For B2B <i>+</i></button>
+        <button aria-selected="false" data-s="b">B2B &amp; SaaS Search <i>+</i></button>
       </div>
     </div>
 
@@ -457,7 +472,7 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
       </div>
       <div class="do-grid" id="dogrid">
         <div class="do"><em>01</em><b>Strategic growth plans</b><p>A category-specific growth roadmap for the channel, not a month-to-month campaign plan.</p></div>
-        <div class="do"><em>02</em><b>Campaign strategy &amp; planning</b><p>Campaign structure, negative keyword framework and budget allocation across types and catalogue priority tiers.</p></div>
+        <div class="do"><em>02</em><b>Campaign strategy &amp; planning</b><p>Campaign structure, negative keyword framework and budget allocation across types and catalog priority tiers.</p></div>
         <div class="do"><em>03</em><b>Amazon DSP</b><p>Reaching Amazon audiences on and off the platform, before they search, upper funnel.</p></div>
         <div class="do"><em>04</em><b>Amazon Marketing Cloud</b><p>Custom audience targeting, new-to-brand attribution and path-to-purchase analysis.</p></div>
         <div class="do"><em>05</em><b>Advertising audit</b><p>Full account audit covering campaign structure, keyword coverage and negative keyword gaps.</p></div>
@@ -467,7 +482,7 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
       </div>
       <p class="lbl">AI agents working inside this line</p>
       <div class="toolchips">
-        <span class="toolchip">Search-term harvester</span><span class="toolchip">Bid &amp; budget monitor</span><span class="toolchip">Listing quality flagger</span><span class="toolchip">Competitor price watch</span><span class="toolchip">Inventory risk flagger</span>
+        <span class="toolchip">Search-term harvester</span><span class="toolchip">Bid &amp; budget optimizer</span><span class="toolchip">Listing quality monitor</span><span class="toolchip">Competitor price watch</span><span class="toolchip">Inventory risk flagger</span>
       </div>
     </div>
   </div>
@@ -478,7 +493,7 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
   <div class="market-head">
     <div>
       <h2>Entering a new market shouldn't<br>mean starting from zero.</h2>
-      <p>The same team runs the US, UK, Gulf and India. One playbook, adapted to how each marketplace actually behaves.</p>
+      <p>We grew GuruNanda to #1 in US and Canada oral care, and Ultrahuman's Amazon UK revenue roughly 6x in two months. The playbook adapts to local market behavior.</p>
     </div>
     <a class="btn btn-rust" href="#cta">Book a strategy call</a>
   </div>
@@ -533,6 +548,12 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
 
 <script>
 // hero rail accordion
+(function(){
+var copy={
+  m:['Marketplaces Growth','That Shows Up In the P&L','Growisto combines your ads, organic, and affiliate marketing strategies to scale marketplace revenue profitably.'],
+  s:['Shopify and Magento Websites','Built to Increase Sales','Growisto combines technical and category-level expertise with CRO to take websites from code to conversion.'],
+  g:['Be the Brand Buyers See First','on Google and AI','Growisto combines GEO, SEO, and AI optimization to help your brand rank on Google and get recommended by leading AI platforms like ChatGPT, Perplexity, and Claude.']
+};
 document.querySelectorAll('.rail-item').forEach(function(item){
   item.querySelector('.rail-tab').addEventListener('click',function(){
     document.querySelectorAll('.rail-item').forEach(function(x){
@@ -543,8 +564,13 @@ document.querySelectorAll('.rail-item').forEach(function(item){
     item.setAttribute('aria-expanded','true');
     item.querySelector('.rail-tab').setAttribute('aria-selected','true');
     item.querySelector('.rail-body').hidden=false;
+    var c=copy[item.querySelector('.rail-tab').dataset.k];
+    document.getElementById('h-t1').textContent=c[0];
+    document.getElementById('h-t2').textContent=c[1];
+    document.getElementById('h-sub').textContent=c[2];
   });
 });
+})();
 
 // case study carousel
 (function(){
@@ -561,32 +587,32 @@ document.querySelectorAll('.rail-item').forEach(function(item){
 // services accordion
 (function(){
   var data={
-    m:{t:'Marketplaces',
-       b:'We help brands sell more, spend less and grow faster on marketplaces. $2Bn+ in revenue managed across Amazon, Walmart, TikTok Shop and quick commerce.',
+    m:{t:'Marketplace Consulting',
+       b:'Run every marketplace as one P&L. Amazon, Walmart, TikTok Shop and quick commerce on one team, measured on TACoS rather than channel-by-channel ACOS.',
        chips:['Amazon','TikTok Shop','Walmart & Target','Flipkart, Myntra & Nykaa','Quick commerce'],
        items:[['Strategic growth plans','A category-specific growth roadmap for the channel, not a month-to-month campaign plan.'],
-              ['Campaign strategy & planning','Campaign structure, negative keyword framework and budget allocation across types and catalogue priority tiers.'],
+              ['Campaign strategy & planning','Campaign structure, negative keyword framework and budget allocation across types and catalog priority tiers.'],
               ['Amazon DSP','Reaching Amazon audiences on and off the platform, before they search, upper funnel.'],
               ['Amazon Marketing Cloud','Custom audience targeting, new-to-brand attribution and path-to-purchase analysis.'],
               ['Advertising audit','Full account audit covering campaign structure, keyword coverage and negative keyword gaps.'],
               ['Keyword research','Keyword research and search-term harvesting, mapped against what your ads and listings already rank for.'],
               ['Campaign management','Sponsored Products, Sponsored Brands and Sponsored Display managed against a single TACoS target.'],
               ['Ads analytics & reporting','Weekly reporting on ACoS, TACoS, ad sales, ROAS and share of voice, in one view.']],
-       tools:['Search-term harvester','Bid & budget optimiser','Listing quality monitor','Competitor price watch','Inventory risk flagger']},
-    w:{t:'Website &amp; CRO',
-       b:'Fix the funnel, not the theme. 150+ Shopify and Magento builds and migrations, a 20% average conversion lift and 99.95% uptime.',
+       tools:['Search-term harvester','Bid & budget optimizer','Listing quality monitor','Competitor price watch','Inventory risk flagger']},
+    w:{t:'Website Development',
+       b:'Fix the funnel, not the theme. We audit 9 levers and 600+ parameters, then build: 150+ Shopify and Magento builds and migrations, a 20% average conversion lift and 99.95% uptime.',
        chips:['Shopify','Shopify Plus','Magento','Headless','Custom'],
        items:[['Conversion audit','9 levers and 600+ parameters reviewed before a single line of code changes.'],
-              ['Platform migration','Re-platforming with redirects, catalogue and SEO equity carried across intact.'],
+              ['Platform migration','Re-platforming with redirects, catalog and SEO equity carried across intact.'],
               ['Storefront build','Design and build on Shopify or Magento, shipped against a fixed scope and date.'],
-              ['Checkout optimisation','Test what the platform lets you test, then extend the parts it does not.'],
+              ['Checkout optimization','Test what the platform lets you test, then extend the parts it does not.'],
               ['PDP & category testing','A monthly test cadence on the templates that carry the most revenue.'],
               ['Speed & Core Web Vitals','Performance work tied to the pages that convert, not a lab score.'],
               ['Analytics & tracking','Clean events, server-side where it matters, so the numbers reconcile.'],
               ['Managed support','Ongoing releases and monitoring at 99.95% uptime across managed builds.']],
-       tools:['Funnel drop-off monitor','Test backlog scorer','Speed regression alerts','Catalogue diff checker','Uptime watchdog']},
+       tools:['Funnel drop-off monitor','Test backlog scorer','Speed regression alerts','Catalog diff checker','Uptime watchdog']},
     g:{t:'GEO, AIO &amp; SEO',
-       b:'Get cited where buyers ask. 500Mn+ organic sessions generated, a 145% average traffic increase and 4.2x more AI citations.',
+       b:'Get cited where buyers ask. Google, ChatGPT, Perplexity and AI Overviews, with a 145% average traffic increase and a 4.2x average increase in AI citations.',
        chips:['Google','ChatGPT','Perplexity','AI Overviews','Gemini'],
        items:[['Technical SEO audits','Crawl, index and Core Web Vitals audits mapped to the pages that carry revenue.'],
               ['Answer-first content','Content structured so an AI engine can extract and cite a clean answer.'],
@@ -597,8 +623,8 @@ document.querySelectorAll('.rail-item').forEach(function(item){
               ['Digital PR & mentions','Placements on the third-party sources AI engines quote most often.'],
               ['Reporting & attribution','Traffic, citations and assisted revenue reported against one plan.']],
        tools:['Citation tracker','Schema generator','Internal link discovery','Pre-publish content scoring','Meta tag generator']},
-    b:{t:'For B2B &amp; SaaS',
-       b:'B2B buyers research through AI tools before they ever fill a form. We tailor strategy to longer sales cycles and multiple decision-makers.',
+    b:{t:'B2B &amp; SaaS Search',
+       b:'B2B buyers research through AI tools long before they fill a form. We map the buying committee, build answer-first content and track citations across four AI engines.',
        chips:['SaaS','Manufacturing','Distribution','Enterprise services'],
        items:[['Buying-committee mapping','Terms mapped to each role in the committee, not one generic persona.'],
               ['Bottom-funnel comparison pages','Alternatives, versus and pricing pages built for the terms buyers actually search.'],

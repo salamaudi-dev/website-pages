@@ -89,10 +89,11 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 .price s{font-size:11px;font-weight:400;opacity:.6}
 .chartcard{grid-column:1 / -1;border:1px solid var(--line);border-radius:12px;padding:16px}
 .chartcard .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
-.chartcard b{font-size:13.5px;font-weight:600}
-.chartcard em{font-style:normal;font-size:11.5px;color:var(--orange);font-weight:600}
-.chartcard p{font-size:11.5px;color:var(--grey);margin-bottom:10px}
-.chartcard svg{width:100%;height:88px;display:block}
+.pf{list-style:none;margin:0;padding:0}
+.pf li+li{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.pf b{display:block;font-size:14.5px;line-height:19px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.pf span{display:block;font-size:11.5px;line-height:16px;color:var(--grey);margin-top:4px}
+.hero-note{font-size:12.5px;line-height:18px;color:var(--grey);margin:12px 0 0}
 .legend{display:flex;gap:14px;font-size:10.5px;color:var(--grey);margin-top:8px}
 .legend i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
 .legend i::before{content:"";width:8px;height:2px;background:var(--orange)}
@@ -157,7 +158,7 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 .cs-media span{display:none}
 .cs-media span{position:absolute;left:12px;top:10px;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5)}
 /* Figma: 196.67x159 #F9F9F4 cards under the image */
-.cs-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cs-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .cs-stat{background:#F9F9F4;border-radius:12px;padding:20px;min-height:159px;display:flex;flex-direction:column;gap:20px}
 .cs-stat b{display:block;font-size:42px;line-height:51px;font-weight:700;letter-spacing:0;color:var(--ink)}
 .cs-stat span{display:block;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0;text-transform:none;color:#707070}
@@ -184,8 +185,8 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 .svc-card h3 em{font-style:normal;width:42px;height:42px;flex:none;border-radius:11px;background:linear-gradient(135deg,#F6A171,#E8622C);display:grid;place-items:center;font-size:17px;color:#fff}
 .svc-shot{position:relative;height:217px;border-radius:8px;overflow:hidden;background:#EDEAE3 center top/100% auto no-repeat}
 #sv1 .svc-shot{background-image:url('figma-assets/assets/ui-channels.png')}
-#sv2 .svc-shot{background-image:url('figma-assets/assets/ui-citations.png')}
-#sv3 .svc-shot{background-image:url('figma-assets/assets/ui-deploy.png')}
+#sv2 .svc-shot{background-image:url('figma-assets/assets/ui-deploy.png')}
+#sv3 .svc-shot{background-image:url('figma-assets/assets/ui-citations.png')}
 #sv4 .svc-shot{background-image:url('figma-assets/assets/ui-timeline.png')}
 .svc-shot::after{content:"";position:absolute;left:0;right:0;bottom:0;height:144px;background:linear-gradient(0deg,#F2F2F0 0%,rgba(242,242,240,0) 100%)}
 .svc-foot{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:32px;border-top:1px solid rgba(217,224,236,.6)}
@@ -284,7 +285,7 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
 <header class="nav">
   <div class="nav-in">
     <a class="logo" href="#"><img src="figma-assets/assets/mark-g.png" alt="" width="24" height="23" style="vertical-align:-4px;margin-right:7px">Growisto</a>
-    <nav class="nav-links"><a href="#services">Solutions</a><a href="#">Industries</a><a href="#cases">Case studies</a><a href="#">Resources</a><a href="#">About</a></nav>
+    <nav class="nav-links"><a href="#services">Services</a><a href="#">Industries</a><a href="#cases">Clients</a><a href="#">Resources</a><a href="#">Company</a></nav>
     <a class="btn btn-dark" href="#cta">Book a strategy call</a>
   </div>
 </header>
@@ -293,19 +294,20 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
 <section class="hero"><div class="wrap">
   <div class="hero-tabs" role="tablist">
     <button class="htab" role="tab" aria-selected="true" data-h="h1"><span class="ic">&#9635;</span><span><b>Marketplaces</b><span>Amazon, Walmart, TikTok Shop +20</span></span></button>
-    <button class="htab" role="tab" aria-selected="false" data-h="h2"><span class="ic">&#9634;</span><span><b>Storefront &amp; CRO</b><span>Shopify, Magento, headless</span></span></button>
-    <button class="htab" role="tab" aria-selected="false" data-h="h3"><span class="ic">&#9737;</span><span><b>GEO, AEO &amp; SEO</b><span>Google, ChatGPT, AI Overviews</span></span></button>
+    <button class="htab" role="tab" aria-selected="false" data-h="h2"><span class="ic">&#9634;</span><span><b>Website &amp; CRO</b><span>Shopify, Magento, headless</span></span></button>
+    <button class="htab" role="tab" aria-selected="false" data-h="h3"><span class="ic">&#9737;</span><span><b>GEO, AIO &amp; SEO</b><span>Google, ChatGPT, AI Overviews</span></span></button>
   </div>
 
   <div class="hero-grid">
     <div>
-      <h1 id="h-title">$200Mn+ a year already moves through storefronts we built.</h1>
-      <p class="hero-sub" id="h-sub">150+ Shopify and Magento builds and migrations, a 20% average conversion lift and 99.95% uptime.</p>
+      <h1 id="h-title">Marketplaces Growth That Shows Up In the P&amp;L</h1>
+      <p class="hero-sub" id="h-sub">Growisto combines your ads, organic, and affiliate marketing strategies to scale marketplace revenue profitably.</p>
       <form class="urlbar" onsubmit="return false">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20"/></svg>
-        <input type="text" placeholder="yourstore.com or Amazon storefront URL" aria-label="Your website or storefront URL">
-        <button class="btn btn-orange" type="submit">Get free audit</button>
+        <input type="text" placeholder="Website URL or storefront URL" aria-label="Website URL or storefront URL">
+        <button class="btn btn-orange" type="submit">Find Your Growth Gaps</button>
       </form>
+      <p class="hero-note">Nykaa, Unilever, Tata Cliq, and 50+ brands started with an audit</p>
     </div>
 
     <div class="hero-art">
@@ -318,14 +320,11 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
         <div class="art-body"><b>SS-2 Rollerball</b><p>Best seller rank #3 in category</p><div class="price">$1.58 <s>2 units left</s></div></div>
       </div>
       <div class="chartcard">
-        <div class="top"><b>Revenue, trailing 6 months</b><em>+27.8%</em></div>
-        <p>Amazon US, Walmart and the Shopify storefront on one line.</p>
-        <svg viewBox="0 0 320 88" fill="none" preserveAspectRatio="none">
-          <path d="M0 74 L53 68 L106 70 L160 52 L213 38 L266 26 L320 12" stroke="#F0592B" stroke-width="2.2"/>
-          <path d="M0 74 L53 68 L106 70 L160 52 L213 38 L266 26 L320 12 L320 88 L0 88Z" fill="#F0592B" opacity=".08"/>
-          <path d="M0 80 L53 78 L106 77 L160 72 L213 70 L266 66 L320 62" stroke="#C9C7C2" stroke-width="2"/>
-        </svg>
-        <div class="legend"><i>Marketplaces</i><i>Storefront</i></div>
+        <ul class="pf">
+          <li><b>$1M &rarr; $5M</b><span>GuruNanda, revenue growth in the first two years on Amazon</span></li>
+          <li><b>1.7x revenue increase in 5 months, 32% increase in customer reviews</b><span>Puma</span></li>
+          <li><b>30% revenue growth in 90 days on TikTok</b><span>US pet accessories &amp; outdoor gear brand</span></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -340,15 +339,15 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
 <section class="band"><div class="wrap">
   <p>Trusted by 300+ high growth companies in over 10 countries</p>
   <div class="band-grid">
-    <span><img src="figma-assets/assets/logo-puma.png" alt="PUMA"></span><span><img src="figma-assets/assets/logo-gurunanda.png" alt="GuruNanda"></span><span>Ultrahuman</span><span><img src="figma-assets/assets/logo-justrite.png" alt="JUSTRITE"></span><span>Puriya</span><span><img src="figma-assets/assets/logo-msi.png" alt="MSI"></span>
-    <span><img src="figma-assets/assets/logo-nykaa.png" alt="NYKAA"></span><span>Atomberg</span><span><img src="figma-assets/assets/logo-borosil.png" alt="BOROSIL"></span><span><img src="figma-assets/assets/logo-kama.png" alt="KAMA"></span><span><img src="figma-assets/assets/logo-kaya.png" alt="Kaya"></span><span><img src="figma-assets/assets/logo-tatacliq.png" alt="TATA CLiQ"></span>
+    <span><img src="figma-assets/assets/logo-puma.png" alt="PUMA"></span><span><img src="figma-assets/assets/logo-gurunanda.png" alt="GuruNanda"></span><span>Ultrahuman</span><span><img src="figma-assets/assets/logo-justrite.png" alt="Justrite"></span><span><img src="figma-assets/assets/logo-msi.png" alt="MSI"></span><span>Puriya</span>
+    <span><img src="figma-assets/assets/logo-nykaa.png" alt="Nykaa"></span><span><img src="figma-assets/assets/logo-godrej.png" alt="Godrej Interio"></span><span><img src="figma-assets/assets/logo-borosil.png" alt="Borosil"></span><span><img src="figma-assets/assets/logo-kama.png" alt="Kama Ayurveda"></span><span><img src="figma-assets/assets/logo-kaya.png" alt="Kaya Clinic"></span><span><img src="figma-assets/assets/logo-tatacliq.png" alt="Tata CLiQ"></span>
   </div>
 </div></section>
 
 <!-- LEAK -->
 <section class="leak"><div class="wrap">
   <div class="leak-head">
-    <p class="leak-eyebrow">Where growth usually stalls</p>
+    <p class="leak-eyebrow">Three questions</p>
     <h2>Your growth isn't stuck.<span>It's leaking.</span></h2>
     <p>Three questions we get asked on almost every first call, and the honest answer to each.</p>
   </div>
@@ -441,25 +440,23 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
       <div>
         <div class="cs-media"><span>Image placeholder</span></div>
         <div class="cs-stats">
-          <div class="cs-stat"><b>312%</b><span>Increase in total revenue</span></div>
-          <div class="cs-stat"><b>321%</b><span>Growth in new-to-brand orders</span></div>
-          <div class="cs-stat"><b>#1</b><span>Position in US &amp; CA oral care</span></div>
+          <div class="cs-stat"><b>$1M &rarr; $5M</b><span>Revenue growth, first two years</span></div>
+          <div class="cs-stat"><b>$50M+</b><span>Annual revenue today</span></div>
         </div>
       </div>
     </div>
 
     <div class="cs-in" id="k2" hidden>
       <div>
-        <blockquote>"One roadmap covering storefront, marketplace and search meant we stopped reconciling three versions of the truth."</blockquote>
+        <blockquote>"One roadmap covering storefront, marketplace and search meant we stopped reconciling three different versions of the truth."</blockquote>
         <div class="cs-person"><i></i><div><b>Brand leadership</b><span>Kama Ayurveda</span></div></div>
         <a class="btn btn-white" href="#">Read the story <span class="arw">&rarr;</span></a>
       </div>
       <div>
         <div class="cs-media" style="background:linear-gradient(135deg,#F2A98C,#B8501F)"><span>Image placeholder</span></div>
         <div class="cs-stats">
-          <div class="cs-stat"><b>4.2x</b><span>Increase in AI citations</span></div>
-          <div class="cs-stat"><b>145%</b><span>Organic traffic increase</span></div>
-          <div class="cs-stat"><b>37</b><span>Pages cited in AI answers</span></div>
+          <div class="cs-stat"><b>4.2x</b><span>Average increase in AI citations</span></div>
+          <div class="cs-stat"><b>145%</b><span>Average organic traffic increase</span></div>
         </div>
       </div>
     </div>
@@ -473,9 +470,8 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
       <div>
         <div class="cs-media" style="background:linear-gradient(135deg,#EE9070,#A93A15)"><span>Image placeholder</span></div>
         <div class="cs-stats">
-          <div class="cs-stat"><b>56%</b><span>Average ACOS reduction</span></div>
+          <div class="cs-stat"><b>56%</b><span>Average ACOS reduction, 18 months+</span></div>
           <div class="cs-stat"><b>$6Mn+</b><span>Ad spend managed per quarter</span></div>
-          <div class="cs-stat"><b>3</b><span>Regions on one plan</span></div>
         </div>
       </div>
     </div>
@@ -497,8 +493,8 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
   <div class="svc-wrap">
     <nav class="svc-nav">
       <a class="on" href="#sv1">Marketplace Consulting</a>
-      <a href="#sv2">GEO, AIO &amp; SEO</a>
-      <a href="#sv3">Website Development</a>
+      <a href="#sv2">Website Development</a>
+      <a href="#sv3">GEO, AIO &amp; SEO</a>
       <a href="#sv4">B2B &amp; SaaS Search</a>
     </nav>
 
@@ -506,25 +502,25 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
       <article class="svc-card" id="sv1">
         <h3><em>&#9635;</em> Marketplace Consulting</h3>
         <div class="svc-shot"></div>
-        <div class="svc-foot"><p>Run every marketplace as one P&amp;L. Amazon, Walmart, TikTok Shop and quick commerce on one team, with $2Bn+ in revenue managed across 20+ marketplaces.</p><i>&rarr;</i></div>
+        <div class="svc-foot"><p>Run every marketplace as one P&amp;L. Amazon, Walmart, TikTok Shop and quick commerce on one team, measured on TACoS rather than channel-by-channel ACOS.</p><i>&rarr;</i></div>
       </article>
 
       <article class="svc-card half" id="sv2">
-          <h3><em>&#9737;</em> GEO, AIO &amp; SEO</h3>
+          <h3><em>&#9634;</em> Website Development</h3>
         <div class="svc-shot"></div>
-        <div class="svc-foot"><p>Get cited where buyers ask. Google, ChatGPT, Perplexity and AI Overviews, with a 145% average traffic increase.</p><i>&rarr;</i></div>
+        <div class="svc-foot"><p>Fix the funnel, not the theme. We audit 9 levers and 600+ parameters, then build: 150+ Shopify and Magento builds and migrations, a 20% average conversion lift and 99.95% uptime.</p><i>&rarr;</i></div>
       </article>
 
       <article class="svc-card half" id="sv3">
-          <h3><em>&#9634;</em> Website Development</h3>
+          <h3><em>&#9737;</em> GEO, AIO &amp; SEO</h3>
         <div class="svc-shot"></div>
-        <div class="svc-foot"><p>Fix the funnel, not the theme. We audit the live site first, then build only what the numbers justify.</p><i>&rarr;</i></div>
+        <div class="svc-foot"><p>Get cited where buyers ask. Google, ChatGPT, Perplexity and AI Overviews, with a 145% average traffic increase and a 4.2x average increase in AI citations.</p><i>&rarr;</i></div>
       </article>
 
       <article class="svc-card" id="sv4">
         <h3><em>&#9679;</em> B2B &amp; SaaS Search</h3>
         <div class="svc-shot"></div>
-        <div class="svc-foot"><p>B2B and enterprise buyers increasingly research through AI tools and AI Overviews before they ever fill a form. We tailor strategy to longer sales cycles and multiple decision-makers.</p><i>&rarr;</i></div>
+        <div class="svc-foot"><p>B2B buyers research through AI tools long before they fill a form. We map the buying committee, build answer-first content and track citations across four AI engines.</p><i>&rarr;</i></div>
       </article>
     </div>
   </div>
@@ -535,7 +531,7 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
   <div class="market-head">
     <div>
       <h2>Entering a new market shouldn't<span>mean starting from zero.</span></h2>
-      <p>We grew GuruNanda to #1 in US and Canada oral care, and Ultrahuman's Amazon UK revenue roughly 6x in two months.</p>
+      <p>We grew GuruNanda to #1 in US and Canada oral care, and Ultrahuman's Amazon UK revenue roughly 6x in two months. The playbook adapts to local market behavior.</p>
     </div>
     <a class="btn btn-orange" href="#cta">Book a strategy call</a>
   </div>
@@ -555,8 +551,8 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
     <h2>See what your account is losing before you decide anything.</h2>
     <p>Free, no call required, and you keep the audit whether or not we end up working together.</p>
     <form class="urlbar" onsubmit="return false">
-      <input type="text" placeholder="yourstore.com or Amazon storefront URL" aria-label="Your website or storefront URL">
-      <button class="btn btn-dark" type="submit">Get free audit</button>
+      <input type="text" placeholder="Your website or storefront URL" aria-label="Your website or storefront URL">
+      <button class="btn btn-dark" type="submit">Get a free audit</button>
     </form>
     <p class="trustline">7 days delivery · Zero cost or commitment · 100% confidential</p>
   </div>
@@ -587,9 +583,9 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
 // hero tabs swap headline + subhead
 (function(){
   var copy={
-    h1:['$200Mn+ a year already moves through storefronts we built.','150+ Shopify and Magento builds and migrations, a 20% average conversion lift and 99.95% uptime.'],
-    h2:['$2Bn+ in marketplace revenue, run as one P&L.','Amazon, Walmart, TikTok Shop and quick commerce on one team, with a 56% average ACOS reduction over 18 months.'],
-    h3:['Get cited where your buyers actually ask.','500Mn+ organic sessions generated, a 145% average traffic increase and 4.2x more AI citations.']
+    h1:['Marketplaces Growth That Shows Up In the P&L','Growisto combines your ads, organic, and affiliate marketing strategies to scale marketplace revenue profitably.',[['$1M → $5M','GuruNanda, revenue growth in the first two years on Amazon'],['1.7x revenue increase in 5 months, 32% increase in customer reviews','Puma'],['30% revenue growth in 90 days on TikTok','US pet accessories & outdoor gear brand']]],
+    h2:['Shopify and Magento Websites Built to Increase Sales','Growisto combines technical and category-level expertise with CRO to take websites from code to conversion.',[['177% conversion rate growth over an 8-year partnership','Atomberg'],['222% gross sales growth in 4 months post-migration','Premium US hair care brand (name withheld per agreement)'],['53% overall revenue increase, 120% growth in add-to-cart','Tyrensmore']]],
+    h3:['Be the Brand Buyers See First on Google and AI','Growisto combines GEO, SEO, and AI optimization to help your brand rank on Google and get recommended by leading AI platforms like ChatGPT, Perplexity, and Claude.',[['13x ROI','Avaana · SEO + GEO · Compliance consulting'],['3.4x organic revenue','Borosil · SEO · D2C kitchenware']]]
   };
   document.querySelectorAll('.htab').forEach(function(t){
     t.addEventListener('click',function(){
@@ -598,6 +594,10 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
       var c=copy[t.dataset.h];
       document.getElementById('h-title').textContent=c[0];
       document.getElementById('h-sub').textContent=c[1];
+      document.querySelector('.chartcard .pf').innerHTML=c[2].map(function(r){
+        var li=document.createElement('li'), b=document.createElement('b'), sp=document.createElement('span');
+        b.textContent=r[0]; sp.textContent=r[1]; li.appendChild(b); li.appendChild(sp); return li.outerHTML;
+      }).join('');
     });
   });
 })();

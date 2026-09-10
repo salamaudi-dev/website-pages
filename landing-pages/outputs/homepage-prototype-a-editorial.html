@@ -90,12 +90,17 @@ h1{font-size:clamp(34px,5.4vw,72px);font-weight:420;line-height:1.1;letter-spaci
 /* Figma: Sidebar 300x225.74 @ x32 y143, r13.74, blur 6.87 */
 .float-card{position:absolute;top:121px;left:10px;width:300px;max-width:calc(100% - 20px);background:#fff;border:1.145px solid #F0F0F0;border-radius:13.74px;padding:27.43px;box-shadow:0 11.45px 36.64px rgba(41,37,30,.15);backdrop-filter:blur(6.87px)}
 .fc-brand{display:flex;align-items:center;gap:9.43px;font-size:13.71px;line-height:16px;letter-spacing:-.133px;font-weight:500;color:var(--ink);text-transform:none}
-.fc-brand i{width:29.14px;height:29.14px;flex:none;border-radius:1.71px;background:#512C1D url('figma-assets/assets/chip-gurunanda.png') center/76% no-repeat;display:block;font-size:0}
+.fc-brand i{width:29.14px;height:29.14px;flex:none;border-radius:1.71px;background:#ECE5D9 url('figma-assets/assets/mark-g.png') center/58% no-repeat;display:block;font-size:0}
 .fc-brand b{font-weight:500}
 .fc-brand em{font-style:normal;color:var(--muted)}
 .fc-stat{font-family:var(--font-body);font-size:52.67px;line-height:1;font-weight:700;letter-spacing:-2.107px;color:#28241E;margin:12px 0 0}
 .fc-stat em{font-style:normal;font-size:32px;letter-spacing:-1.2px}
 .float-card p{font-size:15.46px;line-height:22px;color:#444;margin:13.71px 0 20.57px}
+.pf{list-style:none;margin:0;padding:0}
+.pf li+li{margin-top:13px;padding-top:13px;border-top:1px solid #F0EEE8}
+.pf b{display:block;font-family:var(--font-body);font-size:15px;line-height:20px;font-weight:700;letter-spacing:-.2px;color:#28241E}
+.pf span{display:block;font-size:12.5px;line-height:17px;color:#6B675F;margin-top:4px}
+.hero-note{font-size:13px;line-height:19px;color:var(--muted);margin:14px 0 0}
 .fc-link{display:flex;align-items:center;gap:10.31px;font-size:13.74px;line-height:19px;letter-spacing:1.712px;text-transform:uppercase;font-weight:700;color:var(--ink);text-decoration:none;border-bottom:1.718px solid #29251E;padding-bottom:8.02px}
 /* Figma: Container 276x40 @ y1152, r20, backdrop blur 28 */
 .ask{position:absolute;left:50%;transform:translateX(-50%);bottom:40px;width:min(276px,84%);background:rgba(246,248,250,.52);backdrop-filter:blur(28px);border-radius:20px;padding:6px 6px 6px 13px;display:flex;align-items:center;gap:9px;font-family:'Inter',system-ui,sans-serif;font-size:13px;line-height:20px;color:rgba(20,33,43,.58);box-shadow:0 0 1px rgba(20,33,43,.2),0 0 32px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.6)}
@@ -306,46 +311,49 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
 <section class="hero">
   <div class="wrap">
     <span class="pill-badge"><b>a</b> 2024 Amazon Ads Partner Awards Finalist</span>
-    <h1>Marketplace growth that shows up in the P&amp;L.</h1>
-    <p class="hero-sub">$2Bn+ in marketplace revenue managed across Amazon and 20+ marketplaces, with a 56% average ACOS reduction for clients engaged 18 months or longer.</p>
+    <h1 id="h-title">Marketplaces Growth That Shows Up In the P&amp;L</h1>
+    <p class="hero-sub" id="h-sub">Growisto combines your ads, organic, and affiliate marketing strategies to scale marketplace revenue profitably.</p>
     <form class="urlbar" onsubmit="return false">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20"/></svg>
-      <input type="text" placeholder="Your website or storefront URL" aria-label="Your website or storefront URL">
-      <button class="btn btn-dark" type="submit">Get a free audit <span class="arw">&rarr;</span></button>
+      <input type="text" placeholder="Website URL or storefront URL" aria-label="Website URL or storefront URL">
+      <button class="btn btn-dark" type="submit">Find Your Growth Gaps <span class="arw">&rarr;</span></button>
     </form>
+    <p class="hero-note">Nykaa, Unilever, Tata Cliq, and 50+ brands started with an audit</p>
 
     <div class="stage">
       <div class="tabs" role="tablist">
         <button class="tab" role="tab" aria-selected="true" data-p="p1"><strong>Marketplaces</strong><span>Amazon, Walmart, TikTok Shop +20</span></button>
-        <button class="tab" role="tab" aria-selected="false" data-p="p2"><strong>Storefront &amp; CRO</strong><span>Shopify, Magento, headless</span></button>
-        <button class="tab" role="tab" aria-selected="false" data-p="p3"><strong>GEO, AEO &amp; SEO</strong><span>Google, ChatGPT, AI Overviews</span></button>
+        <button class="tab" role="tab" aria-selected="false" data-p="p2"><strong>Website &amp; CRO</strong><span>Shopify, Magento, headless</span></button>
+        <button class="tab" role="tab" aria-selected="false" data-p="p3"><strong>GEO, AIO &amp; SEO</strong><span>Google, ChatGPT, AI Overviews</span></button>
       </div>
       <div class="panel on" id="p1"><div class="canvas c1"><span class="cutout"></span>
         <div class="float-card">
-          <div class="fc-brand"><i>GN</i><div><b>GuruNanda</b> <em>Oral care · US</em></div></div>
-          <div class="fc-stat">56<em>%</em></div>
-          <p>ACOS reduced over 18 months</p>
-          <a class="fc-link" href="#cases">Explore the strategy <span class="arw">&nearr;</span></a>
+          <ul class="pf">
+            <li><b>$1M &rarr; $5M</b><span>GuruNanda, revenue growth in the first two years on Amazon</span></li>
+            <li><b>1.7x revenue increase in 5 months, 32% increase in customer reviews</b><span>Puma</span></li>
+            <li><b>30% revenue growth in 90 days on TikTok</b><span>US pet accessories &amp; outdoor gear brand</span></li>
+          </ul>
         </div>
         <div class="ask"><span>Ask anything about your account</span><b class="send">&uarr;</b></div>
         <span class="canvas-note">Image placeholder</span>
       </div></div>
       <div class="panel" id="p2"><div class="canvas c2"><span class="cutout"></span>
         <div class="float-card">
-          <div class="fc-brand"><i>SF</i><div><b>150+ stores</b> <em>Shopify &amp; Magento</em></div></div>
-          <div class="fc-stat">20<em>%</em></div>
-          <p>Average conversion lift across builds</p>
-          <a class="fc-link" href="#services">See the build process <span class="arw">&nearr;</span></a>
+          <ul class="pf">
+            <li><b>177% conversion rate growth over an 8-year partnership</b><span>Atomberg</span></li>
+            <li><b>222% gross sales growth in 4 months post-migration</b><span>Premium US hair care brand (name withheld per agreement)</span></li>
+            <li><b>53% overall revenue increase, 120% growth in add-to-cart</b><span>Tyrensmore</span></li>
+          </ul>
         </div>
         <div class="ask"><span>Where is my checkout leaking?</span><b class="send">&uarr;</b></div>
         <span class="canvas-note">Image placeholder</span>
       </div></div>
       <div class="panel" id="p3"><div class="canvas c3"><span class="cutout"></span>
         <div class="float-card">
-          <div class="fc-brand"><i>AI</i><div><b>AI visibility</b> <em>Search &amp; answers</em></div></div>
-          <div class="fc-stat">4.2<em>x</em></div>
-          <p>Average increase in AI citations</p>
-          <a class="fc-link" href="#services">See how we get cited <span class="arw">&nearr;</span></a>
+          <ul class="pf">
+            <li><b>13x ROI</b><span>Avaana &middot; SEO + GEO &middot; Compliance consulting</span></li>
+            <li><b>3.4x organic revenue</b><span>Borosil &middot; SEO &middot; D2C kitchenware</span></li>
+          </ul>
         </div>
         <div class="ask"><span>Who does ChatGPT recommend?</span><b class="send">&uarr;</b></div>
         <span class="canvas-note">Image placeholder</span>
@@ -358,17 +366,18 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
 <section class="trust"><div class="wrap">
   <p class="eyebrow">Trusted by 300+ high growth companies in over 10 countries</p>
   <div class="logo-grid">
-    <div class="logo-cell"><img src="figma-assets/assets/logo-gurunanda.png" alt="GuruNanda"></div>
     <div class="logo-cell"><img src="figma-assets/assets/logo-puma.png" alt="PUMA"></div>
+    <div class="logo-cell"><img src="figma-assets/assets/logo-gurunanda.png" alt="GuruNanda"></div>
+    <div class="logo-cell">Ultrahuman</div>
+    <div class="logo-cell"><img src="figma-assets/assets/logo-justrite.png" alt="Justrite"></div>
     <div class="logo-cell"><img src="figma-assets/assets/logo-msi.png" alt="MSI"></div>
+    <div class="logo-cell">Puriya</div>
     <div class="logo-cell"><img src="figma-assets/assets/logo-nykaa.png" alt="Nykaa"></div>
+    <div class="logo-cell"><img src="figma-assets/assets/logo-godrej.png" alt="Godrej Interio"></div>
     <div class="logo-cell"><img src="figma-assets/assets/logo-borosil.png" alt="Borosil"></div>
     <div class="logo-cell"><img src="figma-assets/assets/logo-kama.png" alt="Kama Ayurveda"></div>
-    <div class="logo-cell"><img src="figma-assets/assets/logo-tatacliq.png" alt="Tata CLiQ"></div>
     <div class="logo-cell"><img src="figma-assets/assets/logo-kaya.png" alt="Kaya Clinic"></div>
-    <div class="logo-cell"><img src="figma-assets/assets/logo-justrite.png" alt="Justrite"></div>
-    <div class="logo-cell"><img src="figma-assets/assets/logo-godrej.png" alt="Godrej Interio"></div>
-    <div class="logo-cell">Ultrahuman</div><div class="logo-cell">Puriya</div>
+    <div class="logo-cell"><img src="figma-assets/assets/logo-tatacliq.png" alt="Tata CLiQ"></div>
   </div>
 </div></section>
 
@@ -389,17 +398,17 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
     <article class="qcard">
       <div class="qhead">Marketplaces <span class="ic">&#8599;</span></div>
       <h3>Why does ACoS keep improving while our rank goes nowhere?</h3>
-      <div class="answer a1"><span>Cutting bids also cuts the sales velocity that builds organic position. We run ads and rank as one plan, measured on TACoS.</span></div>
+      <div class="answer a1"><span>Cutting bids also cuts the sales velocity that builds organic position. We run ads and rank as one plan, measured on TACoS rather than on ad efficiency alone.</span></div>
     </article>
     <article class="qcard">
       <div class="qhead">Website &amp; CRO <span class="ic">&#8599;</span></div>
       <h3>Traffic is fine. So why has conversion stopped moving?</h3>
-      <div class="answer a2"><span>Shopify limits checkout tests and every change waits on a developer. We remove that limit, then test monthly.</span></div>
+      <div class="answer a2"><span>Shopify limits checkout tests and every change waits on a developer. We remove that limit, audit 9 levers and 600+ parameters, then test monthly.</span></div>
     </article>
     <article class="qcard">
       <div class="qhead">Search &amp; AI visibility <span class="ic">&#8599;</span></div>
       <h3>We still rank on Google. So why is nobody citing us?</h3>
-      <div class="answer a3"><span>Keyword density does not equal citation. We structure content for answer extraction and track mentions daily.</span></div>
+      <div class="answer a3"><span>Keyword density does not equal citation. We structure content for answer extraction, generate entity schema across templates, and track mentions daily.</span></div>
     </article>
   </div>
   <svg class="converge" viewBox="0 0 1200 120" fill="none" preserveAspectRatio="none" aria-hidden="true">
@@ -433,7 +442,7 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
         <div>
           <div class="cs-brand"><i style="background-color:#512C1D;background-image:url('figma-assets/assets/chip-gurunanda.png')">GURU NANDA</i><b>GuruNanda Oral care · US</b></div>
           <blockquote class="cs-quote">Consistent pro-activeness and constant innovation are two defining qualities the Growisto team has always exhibited.</blockquote>
-          <p class="cs-person">Puneet Nanda<br>CEO, GuruNanda</p>
+          <p class="cs-person">Puneet Nanda<br>Founder &amp; CEO, GuruNanda</p>
           <a class="cs-link" href="#">Read full story &nearr;</a>
         </div>
         <div class="cs-media-wrap">
@@ -520,7 +529,7 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
       <span class="svc-art" aria-hidden="true"></span>
       <span class="svc-num">01</span>
       <h3>Marketplace Consulting</h3>
-      <p>Run every marketplace as one P&amp;L. Amazon, Walmart, TikTok Shop and quick commerce managed by one team, measured on TACoS rather than channel-by-channel ACOS.</p>
+      <p>Run every marketplace as one P&amp;L. Amazon, Walmart, TikTok Shop and quick commerce on one team, measured on TACoS rather than channel-by-channel ACOS.</p>
       <span class="svc-link">Explore marketplaces &rarr;</span>
     </button>
 
@@ -528,7 +537,7 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
       <span class="svc-art" aria-hidden="true"></span>
       <span class="svc-num">02</span>
       <h3>Website Development</h3>
-      <p>Fix the funnel, not the theme. We audit 9 levers and 600+ parameters, then build: 150+ Shopify and Magento stores shipped, 20% average conversion lift, 99.95% uptime.</p>
+      <p>Fix the funnel, not the theme. We audit 9 levers and 600+ parameters, then build: 150+ Shopify and Magento builds and migrations, a 20% average conversion lift and 99.95% uptime.</p>
       <span class="svc-link">Explore development &rarr;</span>
     </button>
 
@@ -536,7 +545,7 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
       <span class="svc-art" aria-hidden="true"></span>
       <span class="svc-num">03</span>
       <h3>GEO, AIO &amp; SEO</h3>
-      <p>Get cited where buyers ask. Google, ChatGPT, Perplexity and AI Overviews, with a 4.2x average increase in AI citations and 145% average organic traffic growth.</p>
+      <p>Get cited where buyers ask. Google, ChatGPT, Perplexity and AI Overviews, with a 145% average traffic increase and a 4.2x average increase in AI citations.</p>
       <span class="svc-link">Explore search &rarr;</span>
     </button>
 
@@ -593,14 +602,24 @@ var nav=document.getElementById('nav');
 addEventListener('scroll',function(){nav.classList.toggle('stuck',scrollY>8)});
 
 // hero tabs
-document.querySelectorAll('.tab').forEach(function(t){
-  t.addEventListener('click',function(){
-    document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected','false')});
-    document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on')});
-    t.setAttribute('aria-selected','true');
-    document.getElementById(t.dataset.p).classList.add('on');
+(function(){
+  var copy={
+    p1:['Marketplaces Growth That Shows Up In the P&L','Growisto combines your ads, organic, and affiliate marketing strategies to scale marketplace revenue profitably.'],
+    p2:['Shopify and Magento Websites Built to Increase Sales','Growisto combines technical and category-level expertise with CRO to take websites from code to conversion.'],
+    p3:['Be the Brand Buyers See First on Google and AI','Growisto combines GEO, SEO, and AI optimization to help your brand rank on Google and get recommended by leading AI platforms like ChatGPT, Perplexity, and Claude.']
+  };
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected','false')});
+      document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on')});
+      t.setAttribute('aria-selected','true');
+      document.getElementById(t.dataset.p).classList.add('on');
+      var c=copy[t.dataset.p];
+      document.getElementById('h-title').textContent=c[0];
+      document.getElementById('h-sub').textContent=c[1];
+    });
   });
-});
+})();
 
 // case study tabs
 document.querySelectorAll('.cs-tab').forEach(function(t){
