@@ -75,13 +75,15 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 .urlbar input::placeholder{color:var(--grey-2)}
 .hero-art{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .art{border-radius:12px;border:1px solid var(--line);overflow:hidden;background:#fff}
-.art-img{height:132px;background:linear-gradient(135deg,#EBE5DD,#CFC4B6);position:relative}
+.art-img{height:132px;background:#EBE5DD center/cover no-repeat;position:relative}
+.art-img span{display:none}
+.art:nth-of-type(1) .art-img{background-image:url('figma-assets/assets/hero-team-c.jpg')}
 .art-img span{position:absolute;left:10px;top:8px;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(0,0,0,.3)}
 .art-body{padding:12px}
 .art-body b{display:block;font-size:13px;font-weight:600}
 .art-body p{font-size:11.5px;color:var(--grey)}
 .art.hot{background:var(--orange);border-color:var(--orange);color:#fff}
-.art.hot .art-img{background:linear-gradient(135deg,#F7855F,#D9421A)}
+.art.hot .art-img{background:#F7855F url('figma-assets/assets/product-sneaker.jpg') center/cover no-repeat}
 .art.hot .art-body p{color:rgba(255,255,255,.8)}
 .price{display:flex;justify-content:space-between;align-items:baseline;margin-top:6px;font-size:15px;font-weight:600}
 .price s{font-size:11px;font-weight:400;opacity:.6}
@@ -104,6 +106,8 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 .band p{font-size:14px;line-height:16.7px;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-bottom:36px}
 .band-grid{display:grid;grid-template-columns:repeat(6,1fr);row-gap:40px;width:min(1160px,100%);margin:0 auto}
 .band-grid span{color:rgba(255,255,255,.82);font-size:15px;font-weight:600;letter-spacing:.02em;transition:.2s;position:relative;display:grid;place-items:center;min-height:64px}
+.band-grid img{width:110px;height:42px;object-fit:contain;opacity:.82;transition:.2s}
+.band-grid span:hover img{opacity:1}
 .band-grid span+span::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:32px;background:#D9D7D1;opacity:.35}
 .band-grid span:nth-child(7)::before{display:none}
 .band-grid span:hover{color:#fff}
@@ -146,10 +150,11 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 .cs-in{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
 .cs blockquote{font-size:clamp(22px,2.6vw,36px);font-weight:400;letter-spacing:0;line-height:1.17;margin-bottom:62px}
 .cs-person{display:flex;align-items:center;gap:16px;margin-bottom:24px}
-.cs-person i{width:62px;height:62px;flex:none;border-radius:16px;background:#E6CD94;display:block}
+.cs-person i{width:62px;height:62px;flex:none;border-radius:16px;background:#E6CD94 url('figma-assets/assets/case-avatar-c.png') center bottom/cover no-repeat;display:block}
 .cs-person b{display:block;font-size:24px;line-height:32px;font-weight:500}
 .cs-person span{font-size:24px;line-height:32px;color:rgba(255,255,255,.8);font-weight:500}
-.cs-media{border-radius:8px;min-height:472px;background:#FBC1A9 var(--case-img,linear-gradient(135deg,#FBC1A9,#F79A78 50%,#E07A4E)) center/cover no-repeat;position:relative;margin-bottom:24px}
+.cs-media{border-radius:8px;min-height:472px;background:#FBC1A9 var(--case-img,url('figma-assets/assets/case-photo-c.jpg')) center/cover no-repeat;position:relative;margin-bottom:24px}
+.cs-media span{display:none}
 .cs-media span{position:absolute;left:12px;top:10px;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5)}
 /* Figma: 196.67x159 #F9F9F4 cards under the image */
 .cs-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -177,7 +182,11 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 .svc-card.half{grid-column:auto;padding:32px;min-height:512px}
 .svc-card h3{font-size:30px;line-height:36px;font-weight:400;margin-bottom:24px;display:flex;align-items:center;gap:16px}
 .svc-card h3 em{font-style:normal;width:42px;height:42px;flex:none;border-radius:11px;background:linear-gradient(135deg,#F6A171,#E8622C);display:grid;place-items:center;font-size:17px;color:#fff}
-.svc-shot{position:relative;height:217px;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#EDEAE3,#D8D2C6)}
+.svc-shot{position:relative;height:217px;border-radius:8px;overflow:hidden;background:#EDEAE3 center top/100% auto no-repeat}
+#sv1 .svc-shot{background-image:url('figma-assets/assets/ui-channels.png')}
+#sv2 .svc-shot{background-image:url('figma-assets/assets/ui-citations.png')}
+#sv3 .svc-shot{background-image:url('figma-assets/assets/ui-deploy.png')}
+#sv4 .svc-shot{background-image:url('figma-assets/assets/ui-timeline.png')}
 .svc-shot::after{content:"";position:absolute;left:0;right:0;bottom:0;height:144px;background:linear-gradient(0deg,#F2F2F0 0%,rgba(242,242,240,0) 100%)}
 .svc-foot{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:32px;border-top:1px solid rgba(217,224,236,.6)}
 .svc-foot p{flex:1;font-size:18px;line-height:26px;font-weight:500;color:#0D0E14;margin:0}
@@ -206,7 +215,7 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 #worldmap{width:100%;height:auto;display:block}
 .mq{position:absolute;right:24px;top:50%;transform:translateY(-50%);width:min(530px,58%);background:#fff;border:2px solid var(--orange);border-radius:12px;padding:20px;box-shadow:0 4px 24px rgba(41,37,30,.15);display:flex;gap:22px;align-items:stretch}
 .mq-text{flex:1;min-width:0}
-.mq-photo{width:234px;flex:none;min-height:235px;border-radius:14px;background:linear-gradient(135deg,#DCCDBB,#8A7862)}
+.mq-photo{width:234px;flex:none;min-height:235px;border-radius:14px;background:#DCCDBB url('figma-assets/assets/testimonial-portrait.jpg') center/cover no-repeat}
 .mq h4{font-size:18px;line-height:22px;font-weight:500;margin-bottom:6px}
 .mq p{font-size:16px;line-height:24px;color:rgba(28,28,28,.7);padding-bottom:12px}
 .mq-tags{display:flex;flex-wrap:wrap;gap:4px}
@@ -265,7 +274,7 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
 </style>
 </head>
 <body>
-<div class="proto-flag">Prototype <b>Direction C</b> &nbsp;·&nbsp; Bold orange &nbsp;·&nbsp; Growisto homepage &nbsp;·&nbsp; placeholder imagery, not for production</div>
+<div class="proto-flag">Prototype <b>Direction C</b> &nbsp;·&nbsp; Bold orange &nbsp;·&nbsp; Growisto homepage &nbsp;·&nbsp; portraits are stock placeholders, not the named people</div>
 
 <div class="announce" id="announce"><div class="announce-in">
   <b>&#9733; New.</b> Free 5-minute marketplace audit that reveals what your store is leaking. <a href="#cta">Learn more</a>
@@ -274,7 +283,7 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
 
 <header class="nav">
   <div class="nav-in">
-    <a class="logo" href="#"><em>G</em> Growisto</a>
+    <a class="logo" href="#"><img src="figma-assets/assets/mark-g.png" alt="" width="24" height="23" style="vertical-align:-4px;margin-right:7px">Growisto</a>
     <nav class="nav-links"><a href="#services">Solutions</a><a href="#">Industries</a><a href="#cases">Case studies</a><a href="#">Resources</a><a href="#">About</a></nav>
     <a class="btn btn-dark" href="#cta">Book a strategy call</a>
   </div>
@@ -331,8 +340,8 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
 <section class="band"><div class="wrap">
   <p>Trusted by 300+ high growth companies in over 10 countries</p>
   <div class="band-grid">
-    <span>PUMA</span><span>GuruNanda</span><span>Ultrahuman</span><span>JUSTRITE</span><span>Puriya</span><span>MSI</span>
-    <span>NYKAA</span><span>Atomberg</span><span>BOROSIL</span><span>KAMA</span><span>Kaya</span><span>TATA CLiQ</span>
+    <span><img src="figma-assets/assets/logo-puma.png" alt="PUMA"></span><span><img src="figma-assets/assets/logo-gurunanda.png" alt="GuruNanda"></span><span>Ultrahuman</span><span><img src="figma-assets/assets/logo-justrite.png" alt="JUSTRITE"></span><span>Puriya</span><span><img src="figma-assets/assets/logo-msi.png" alt="MSI"></span>
+    <span><img src="figma-assets/assets/logo-nykaa.png" alt="NYKAA"></span><span>Atomberg</span><span><img src="figma-assets/assets/logo-borosil.png" alt="BOROSIL"></span><span><img src="figma-assets/assets/logo-kama.png" alt="KAMA"></span><span><img src="figma-assets/assets/logo-kaya.png" alt="Kaya"></span><span><img src="figma-assets/assets/logo-tatacliq.png" alt="TATA CLiQ"></span>
   </div>
 </div></section>
 
@@ -496,41 +505,26 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
     <div class="svc-stack">
       <article class="svc-card" id="sv1">
         <h3><em>&#9635;</em> Marketplace Consulting</h3>
-        <div class="tbl">
-          <div class="tbl-row h"><span>Channel</span><span>Revenue</span><span>ACOS</span><span>Status</span></div>
-          <div class="tbl-row"><span>Amazon US</span><span>$1,340,000</span><span>14.2%</span><span class="hpill">Healthy</span></div>
-          <div class="tbl-row"><span>Walmart</span><span>$386,200</span><span>18.1%</span><span class="hpill">Healthy</span></div>
-          <div class="tbl-row"><span>Amazon UK</span><span>$210,400</span><span>31.3%</span><span class="hpill w">Review</span></div>
-          <div class="tbl-row"><span>TikTok Shop</span><span>$94,555</span><span>22.7%</span><span class="hpill w">Review</span></div>
-        </div>
-        <p>Run every marketplace as one P&amp;L. Amazon, Walmart, TikTok Shop and quick commerce on one team, with $2Bn+ in revenue managed across 20+ marketplaces.</p>
+        <div class="svc-shot"></div>
+        <div class="svc-foot"><p>Run every marketplace as one P&amp;L. Amazon, Walmart, TikTok Shop and quick commerce on one team, with $2Bn+ in revenue managed across 20+ marketplaces.</p><i>&rarr;</i></div>
       </article>
 
       <article class="svc-card half" id="sv2">
           <h3><em>&#9737;</em> GEO, AIO &amp; SEO</h3>
-          <div class="bignum">4.2x</div><div class="subnum">Average increase in AI citations</div>
-          <svg class="spark" viewBox="0 0 200 70" fill="none" preserveAspectRatio="none">
-            <path d="M0 60 L33 55 L66 57 L100 40 L133 28 L166 18 L200 8" stroke="#F0592B" stroke-width="2.2"/>
-            <path d="M0 64 L33 63 L66 62 L100 58 L133 57 L166 54 L200 52" stroke="#C9C7C2" stroke-width="2"/>
-          </svg>
-          <p>Get cited where buyers ask. Google, ChatGPT, Perplexity and AI Overviews, with a 145% average traffic increase.</p>
+        <div class="svc-shot"></div>
+        <div class="svc-foot"><p>Get cited where buyers ask. Google, ChatGPT, Perplexity and AI Overviews, with a 145% average traffic increase.</p><i>&rarr;</i></div>
       </article>
 
       <article class="svc-card half" id="sv3">
           <h3><em>&#9634;</em> Website Development</h3>
-          <div class="checkrow">150+ Shopify and Magento stores shipped</div>
-          <div class="checkrow">20% average conversion lift</div>
-          <div class="checkrow">99.95% uptime across managed builds</div>
-          <div class="checkrow">9 levers and 600+ parameters audited</div>
-          <p>Fix the funnel, not the theme. We audit the live site first, then build only what the numbers justify.</p>
+        <div class="svc-shot"></div>
+        <div class="svc-foot"><p>Fix the funnel, not the theme. We audit the live site first, then build only what the numbers justify.</p><i>&rarr;</i></div>
       </article>
 
       <article class="svc-card" id="sv4">
         <h3><em>&#9679;</em> B2B &amp; SaaS Search</h3>
-        <div class="checkrow">Buying-committee keyword mapping</div>
-        <div class="checkrow">Answer-first content built for extraction</div>
-        <div class="checkrow">Citation tracking across four AI engines</div>
-        <p>B2B and enterprise buyers increasingly research through AI tools and AI Overviews before they ever fill a form. We tailor strategy to longer sales cycles and multiple decision-makers.</p>
+        <div class="svc-shot"></div>
+        <div class="svc-foot"><p>B2B and enterprise buyers increasingly research through AI tools and AI Overviews before they ever fill a form. We tailor strategy to longer sales cycles and multiple decision-makers.</p><i>&rarr;</i></div>
       </article>
     </div>
   </div>

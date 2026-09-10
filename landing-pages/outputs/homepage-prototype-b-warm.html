@@ -20,6 +20,8 @@
   --rust:#AA502A; --rust-h:#8E4222; --rust-lt:#F7F4EE;
   --teal:#083241; --teal-2:#0C4655;
   --sand:#F6F5EC; --cell:#E7E7E3; --hair:#E4DCD0;
+  --hero-img:url('figma-assets/assets/hero-photo-b.jpg');
+  --case-img:url('figma-assets/assets/case-photo-b.jpg');
   --maxw:1320px;
   /* TYPEFACE — swap here, and keep the Google Fonts <link> above in sync */
   /* Figma: headline Season Mix-TRIAL 420 -- Newsreader substituted (trial font, not licensed) */
@@ -60,7 +62,7 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
   background:linear-gradient(270.69deg, rgba(8,50,65,0) 38.97%, rgba(8,50,65,.5) 68.75%, #083241 98.53%)}
 .hero-scrim::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg, rgba(8,50,65,0) 0%, rgba(8,50,65,.3) 62%, rgba(8,50,65,.6) 100%)}
-.hero::after{content:"IMAGE PLACEHOLDER";position:absolute;right:24px;bottom:14px;font-size:10px;letter-spacing:.16em;color:rgba(255,255,255,.28);z-index:3}
+
 .navbar{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:4}
 .nav-in{background:#fff;border-radius:999px;padding:11px 12px 11px 26px;display:flex;align-items:center;gap:36px;box-shadow:0 10px 34px rgba(25,23,19,.18)}
 .logo{font-weight:600;font-size:19px;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
@@ -107,6 +109,8 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 .lb-lead b{display:block;font-family:'Playfair Display',Georgia,serif;font-size:20px;line-height:25px;font-weight:500;letter-spacing:-.2px;color:var(--ink)}
 .lb-lead span{display:block;font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:19px;letter-spacing:.0675px;color:var(--muted);margin-top:6px}
 .lb-cell{position:relative;justify-content:center;padding:24px 8px;font-size:14px;font-weight:600;color:#6E6759;text-align:center}
+.lb-cell img{width:110px;height:42px;object-fit:contain;filter:invert(1) opacity(.66);transition:.2s}
+.lb-cell:hover img{filter:invert(1) opacity(1)}
 .lb-cell:hover{color:var(--ink);background:var(--cream)}
 /* Figma: 32px #F1F1ED badge on cells that link to a case study */
 .lb-cell.link::after{content:"\2197";position:absolute;right:12px;top:12px;width:32px;height:32px;border-radius:16px;background:#F1F1ED;display:grid;place-items:center;font-size:13px;color:#55554F}
@@ -137,6 +141,7 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 .cs-copy{padding:46px;display:flex;flex-direction:column}
 .cs-brand{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);border-radius:8px;padding:6px 11px;font-size:12px;align-self:flex-start;margin-bottom:20px}
 .cs-brand b{font-weight:600}
+.cs-brand::before{content:'';width:26px;height:26px;flex:none;border-radius:3px;background:#512C1D url('figma-assets/assets/chip-gurunanda-b.png') center/76% no-repeat}
 .cs-brand span{color:rgba(234,240,239,.6);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
 .cs h3{font-size:clamp(20px,2.5vw,29px);font-weight:500;line-height:1.24;margin-bottom:auto;max-width:20ch}
 .cs-stats{display:flex;gap:40px;margin:28px 0 22px}
@@ -242,7 +247,7 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
 </style>
 </head>
 <body>
-<div class="proto-flag">Prototype <b>Direction B</b> &nbsp;·&nbsp; Warm / photographic &nbsp;·&nbsp; Growisto homepage &nbsp;·&nbsp; placeholder imagery, not for production</div>
+<div class="proto-flag">Prototype <b>Direction B</b> &nbsp;·&nbsp; Warm / photographic &nbsp;·&nbsp; Growisto homepage &nbsp;·&nbsp; portraits are stock placeholders, not the named people</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -250,7 +255,7 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
   <div class="hero-scrim"></div>
   <div class="navbar">
     <div class="nav-in">
-      <a class="logo" href="#">Growisto</a>
+      <a class="logo" href="#"><img src="figma-assets/assets/mark-g.png" alt="" width="22" height="21" style="vertical-align:-3px;margin-right:7px">Growisto</a>
       <nav class="nav-links"><a href="#services">Services</a><a href="#">Industries</a><a href="#cases">Clients</a><a href="#">Resources</a><a href="#">Company</a></nav>
       <a class="btn btn-rust" href="#cta">Book a strategy call</a>
     </div>
@@ -271,6 +276,7 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
       <div class="rail-item" aria-expanded="false">
         <button class="rail-tab" aria-selected="false" data-k="s">Storefront</button>
         <div class="rail-body" data-k="s" hidden>
+          
           <div class="stat-card">
             <span class="lbl">150+ builds</span>
             <b>+20%</b>
@@ -283,6 +289,7 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
       <div class="rail-item" aria-expanded="true">
         <button class="rail-tab" aria-selected="true" data-k="m">Marketplace</button>
         <div class="rail-body" data-k="m">
+          
           <div class="stat-card">
             <span class="lbl">GuruNanda</span>
             <b>$1M &rarr; $5M</b>
@@ -295,6 +302,7 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
       <div class="rail-item" aria-expanded="false">
         <button class="rail-tab" aria-selected="false" data-k="g">GEO, AEO &amp; SEO</button>
         <div class="rail-body" data-k="g" hidden>
+          
           <div class="stat-card">
             <span class="lbl">AI visibility</span>
             <b>4.2x</b>
@@ -310,12 +318,12 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
 <!-- LOGO BAND -->
 <div class="logoband"><div class="logoband-in">
   <div class="lb-lead"><b>US &amp; global brands</b><span>Selling into the US, UK and the Gulf</span></div>
-  <a class="lb-cell link" href="#cases">PUMA</a><div class="lb-cell">Ultrahuman</div><div class="lb-cell">JUSTRITE</div>
-  <a class="lb-cell link" href="#cases">GuruNanda</a><div class="lb-cell">Puriya</div><div class="lb-cell">MSI</div>
+  <a class="lb-cell link" href="#cases"><img src="figma-assets/assets/logo-puma.png" alt="PUMA"></a><div class="lb-cell"><img src="figma-assets/assets/logo-justrite.png" alt="Justrite"></div><div class="lb-cell">Ultrahuman</div>
+  <a class="lb-cell link" href="#cases"><img src="figma-assets/assets/logo-gurunanda.png" alt="GuruNanda"></a><div class="lb-cell"><img src="figma-assets/assets/logo-msi.png" alt="MSI"></div><div class="lb-cell">Puriya</div>
 
   <div class="lb-lead"><b>India's category leaders</b><span>Our playbook: 300+ engagements</span></div>
-  <div class="lb-cell">NYKAA</div><div class="lb-cell">Atomberg</div><a class="lb-cell link" href="#cases">BOROSIL</a>
-  <div class="lb-cell">KAMA</div><div class="lb-cell">Kaya</div><div class="lb-cell">TATA CLiQ</div>
+  <div class="lb-cell"><img src="figma-assets/assets/logo-nykaa.png" alt="Nykaa"></div><div class="lb-cell"><img src="figma-assets/assets/logo-godrej.png" alt="Godrej Interio"></div><a class="lb-cell link" href="#cases"><img src="figma-assets/assets/logo-borosil.png" alt="Borosil"></a>
+  <div class="lb-cell"><img src="figma-assets/assets/logo-kama.png" alt="Kama Ayurveda"></div><div class="lb-cell"><img src="figma-assets/assets/logo-kaya.png" alt="Kaya Clinic"></div><div class="lb-cell"><img src="figma-assets/assets/logo-tatacliq.png" alt="Tata CLiQ"></div>
 </div></div>
 
 <!-- THREE QUESTIONS -->
