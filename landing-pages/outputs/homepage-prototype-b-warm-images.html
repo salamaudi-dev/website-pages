@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growisto Homepage — Direction B (Warm / Photographic, with Figma imagery)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- TYPEFACE: change this URL and the --font-head/--font-body vars below together -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FBFAF8; --cream-2:#F7F4EE; --paper:#FFFFFF;
+  --ink:#1E1A16; --ink-2:#321C04; --muted:rgba(54,23,0,.70);
+  --line:#E6E0D4; --line-2:#D5CDBD;
+  --rust:#AA502A; --rust-h:#8E4222; --rust-lt:#F7F4EE;
+  --teal:#083241; --teal-2:#0C4655;
+  --sand:#F6F5EC; --cell:#E7E7E3; --hair:#E4DCD0;
+  --hero-img:url('figma-assets/assets/hero-photo-b.jpg');
+  --case-img:url('figma-assets/assets/case-photo-b.jpg');
+  --maxw:1320px;
+  /* TYPEFACE — swap here, and keep the Google Fonts <link> above in sync */
+  /* Figma: headline Season Mix-TRIAL 420 -- Newsreader substituted (trial font, not licensed) */
+  --font-head:'Newsreader',Georgia,'Times New Roman',serif;
+  /* Figma: body Satoshi 400 -- exact, free via Fontshare */
+  --font-body:'Satoshi','Inter',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
+.wrap{width:min(var(--maxw),100% - 56px);margin:0 auto;padding:0}
+[hidden]{display:none!important}
+.proto-flag{background:#191713;color:#FBF8F3;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:7px 16px}
+.proto-flag b{color:#E8996B;font-weight:600}
+
+h1,h2,h3{font-family:var(--font-head);letter-spacing:-.025em;font-weight:500;line-height:1.12}
+h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-weight:420}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12px;line-height:15.6px;letter-spacing:1.68px;text-transform:uppercase;color:#1E1A16;margin-bottom:0}
+.eyebrow::before{content:"";width:8px;height:8px;background:var(--rust);flex:none}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-family:var(--font-body);font-size:14px;line-height:18.9px;font-weight:500;text-decoration:none;border-radius:999px;padding:12px 22px;transition:.18s;white-space:nowrap}
+.btn-rust{background:var(--rust);color:#fff}
+.btn-rust:hover{background:var(--rust-h)}
+.btn-outline{background:transparent;color:var(--rust);border:1px solid var(--rust)}
+.btn-outline:hover{background:var(--rust);color:#fff}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-white:hover{background:var(--cream-2)}
+.arw{transition:transform .18s}
+.btn:hover .arw{transform:translateX(3px)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:900px;padding:18px 0 0;overflow:hidden;isolation:isolate}
+/* Figma: Generated Image ... 1520x914 @ -26,-6 — full-bleed photo slot */
+.hero-photo{position:absolute;inset:-6px -26px auto -26px;height:914px;z-index:0;
+  background:var(--hero-img,linear-gradient(115deg,#20323A 0%,#3A5560 38%,#6E8A85 72%,#A8B79E 100%)) center/cover no-repeat}
+/* Figma: four #083241 scrims — left-to-right, top, and bottom */
+.hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hero-scrim::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(270.69deg, rgba(8,50,65,0) 38.97%, rgba(8,50,65,.5) 68.75%, #083241 98.53%)}
+.hero-scrim::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(8,50,65,0) 0%, rgba(8,50,65,.3) 62%, rgba(8,50,65,.6) 100%)}
+
+.navbar{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:4}
+.nav-in{background:#fff;border-radius:999px;padding:11px 12px 11px 26px;display:flex;align-items:center;gap:36px;box-shadow:0 10px 34px rgba(25,23,19,.18)}
+.logo{font-weight:600;font-size:19px;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
+.nav-links{display:flex;gap:26px;flex:1;justify-content:center}
+.nav-links a{font-size:14px;color:var(--ink-2);text-decoration:none}
+.nav-links a:hover{color:var(--rust)}
+.hero-in{width:min(var(--maxw),100% - 56px);margin:0 auto;padding:64px 0 72px;display:grid;grid-template-columns:minmax(0,730px) 374px;gap:48px;align-items:start;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);color:#fff;font-size:12px;border-radius:999px;padding:6px 14px;margin-bottom:26px;backdrop-filter:blur(4px)}
+.hero h1{color:#fff;font-size:clamp(30px,4.4vw,54px);font-weight:420;line-height:1.19;letter-spacing:0;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:rgba(255,255,255,.72)}
+.hero-sub{color:rgba(255,255,255,.78);font-size:18px;line-height:1.53;max-width:48ch;margin-bottom:28px}
+.urlbar{display:flex;align-items:center;gap:6px;background:#fff;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:6px 6px 6px 8px;max-width:520px}
+.urlbar>svg{margin-left:12px}
+.urlbar .btn{padding:12px 24px;min-width:160px;justify-content:center}
+.urlbar svg{opacity:.4;flex:none}
+.urlbar input{flex:1;border:0;outline:0;font:inherit;font-size:14px;background:transparent;min-width:0}
+.urlbar input::placeholder{color:#A5A093}
+
+/* hero right rail */
+.rail{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+/* Figma: Sidebar tabs 374x57 r20, white, 1px rgba(255,255,255,.7) */
+.rail{gap:12px}
+.rail-tab{background:#fff;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:11px 21px;min-height:57px;font-family:var(--font-head);font-size:24px;line-height:1.1;font-weight:580;text-align:center;cursor:pointer;color:var(--rust);box-shadow:inset 0 0 3.3px rgba(255,255,255,.5);transition:.18s}
+.rail-tab:hover{background:var(--cream-2)}
+/* Figma: the selected tab becomes the head of a bordered group holding its card */
+.rail-item{display:flex;flex-direction:column;align-items:center;border:1px solid transparent;border-radius:20px;transition:.18s}
+.rail-item[aria-expanded="true"]{border-color:rgba(255,255,255,.7);box-shadow:inset 0 0 3.3px rgba(255,255,255,.5);padding-bottom:12px;gap:12px}
+.rail-item .rail-tab{width:100%}
+.rail-item[aria-expanded="true"] .rail-tab{background:var(--rust);color:#fff;border:0;border-radius:20px 20px 0 0;min-height:48px;padding:11px 20px;backdrop-filter:blur(7.5px)}
+.rail-body{position:relative;width:calc(100% - 22px);border-radius:16px;min-height:265px;overflow:hidden;
+  background:#C7A98A url('figma-assets/assets/hero-cutout.png') center bottom/contain no-repeat}
+.rail-body[data-k="s"]{background:#E8EDEF url('figma-assets/assets/ui-deploy.png') center top/108% auto no-repeat}
+.rail-body[data-k="g"]{background:#EFEDE2 url('figma-assets/assets/ui-citations.png') center top/108% auto no-repeat}
+.rail-note{position:absolute;left:16px;top:14px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+/* Figma: Sidebar 353x150 rgba(255,255,255,.3) blur 18 r16 */
+.stat-card{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(18px);border-radius:16px;padding:18px 20px 16px}
+.stat-card .lbl{font-family:var(--font-mono);font-size:10px;line-height:13px;letter-spacing:1.52px;text-transform:uppercase;color:var(--rust)}
+.stat-card b{display:block;font-family:var(--font-head);font-size:32px;line-height:39px;font-weight:580;letter-spacing:-.576px;color:var(--ink-2);margin:12px 0 0}
+.stat-card p{font-size:14px;line-height:16px;font-weight:500;color:var(--muted);margin:8px 0 14px}
+.stat-card a{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',system-ui,sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--ink-2);padding-bottom:6px}
+
+/* ---------- logo band ---------- */
+.logoband{margin:0 auto;position:relative;z-index:5;width:min(var(--maxw),100% - 56px);padding:80px 0}
+/* Figma: 1320x312 #E7E7E3 panel behind two rows of bordered white cells */
+.logoband-in{position:relative;background:var(--cell);border-radius:6px;display:grid;grid-template-columns:260px repeat(6,1fr);grid-auto-rows:156px}
+.lb-lead,.lb-cell{background:#fff;border:1px solid var(--cell);border-radius:6px;display:flex;align-items:center;transition:.2s}
+.lb-lead{padding:24px;flex-direction:column;align-items:flex-start;justify-content:center}
+.lb-lead b{display:block;font-family:'Playfair Display',Georgia,serif;font-size:20px;line-height:25px;font-weight:500;letter-spacing:-.2px;color:var(--ink)}
+.lb-lead span{display:block;font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:19px;letter-spacing:.0675px;color:var(--muted);margin-top:6px}
+.lb-cell{position:relative;justify-content:center;padding:24px 8px;font-size:14px;font-weight:600;color:#6E6759;text-align:center}
+.lb-cell img{width:110px;height:42px;object-fit:contain;filter:invert(1) opacity(.66);transition:.2s}
+.lb-cell:hover img{filter:invert(1) opacity(1)}
+.lb-cell:hover{color:var(--ink);background:var(--cream)}
+/* Figma: 32px #F1F1ED badge on cells that link to a case study */
+.lb-cell.link::after{content:"\2197";position:absolute;right:12px;top:12px;width:32px;height:32px;border-radius:16px;background:#F1F1ED;display:grid;place-items:center;font-size:13px;color:#55554F}
+
+/* ---------- three questions ---------- */
+.questions{padding:80px 0}
+.q-grid{display:grid;grid-template-columns:342px repeat(3,1fr);gap:0}
+.q-intro{padding:0 48px 0 0}
+.q-intro h2{margin:24px 0 0}
+.q-intro h2 span{color:#1E1A16;display:block}
+.q-intro .btn{margin-top:36px}
+.qcol{padding:0 24px;border-left:1.5px dashed #B8BCC4}
+.qcol:last-child{border-left-color:rgba(50,28,4,.5)}
+.qcol .lbl{font-family:var(--font-mono);font-size:10px;line-height:13px;letter-spacing:1.68px;text-transform:uppercase;color:#1E1A16;margin:0}
+.qico{height:200px;width:100%;padding:20px 0;margin:0 0 12px;display:block}
+.qcol h3{font-family:var(--font-head);font-size:20px;font-weight:420;line-height:26px;letter-spacing:0;margin:0 0 12px}
+.qcol p{font-family:'Inter',system-ui,sans-serif;font-size:13.5px;line-height:22.4px;color:rgba(54,23,0,.7)}
+
+/* ---------- case studies ---------- */
+.cases{padding:80px 0}
+.cases-head{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-bottom:34px}
+.cases-head p{color:rgba(54,23,0,.7);max-width:662px;font-size:18px;line-height:24px;padding-top:12px}
+.head-actions{display:flex;gap:10px;justify-content:flex-end;align-items:center}
+.rnd{width:44px;height:44px;border-radius:12px;border:1px solid #D6CCBC;background:#FFFDF9;cursor:pointer;font-size:16px;color:var(--ink);display:grid;place-items:center}
+.rnd:hover{border-color:var(--rust);color:var(--rust)}
+.cs{background:var(--teal);border-radius:20px;overflow:hidden;color:#EAF0EF}
+.cs-in{display:grid;grid-template-columns:1fr 1fr;min-height:520px}
+.cs-copy{padding:46px;display:flex;flex-direction:column}
+.cs-brand{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);border-radius:8px;padding:6px 11px;font-size:12px;align-self:flex-start;margin-bottom:20px}
+.cs-brand b{font-weight:600}
+.cs-brand::before{content:'';width:26px;height:26px;flex:none;border-radius:3px;background:#512C1D url('figma-assets/assets/chip-gurunanda-b.png') center/76% no-repeat}
+.cs-brand span{color:rgba(234,240,239,.6);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
+.cs h3{font-size:clamp(20px,2.5vw,29px);font-weight:500;line-height:1.24;margin-bottom:auto;max-width:20ch}
+.cs-stats{display:flex;gap:40px;margin:28px 0 22px}
+.cs-stats b{display:block;font-size:30px;font-weight:500;letter-spacing:-.03em}
+.cs-stats span{display:block;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:rgba(234,240,239,.55);margin-top:6px;line-height:1.5}
+.cs-media{position:relative;background:#FBC1A9 var(--case-img,linear-gradient(150deg,#F5C9AE,#E19B72 50%,#C97A4E)) center/cover no-repeat}
+.cs-media .play{position:absolute;inset:0;margin:auto;width:60px;height:60px;border-radius:70px;background:#fff;display:grid;place-items:center}
+.cs-media .play::after{content:"";border-left:22px solid var(--rust);border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:5px}
+.cs-media span{position:absolute;left:14px;top:12px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.progress{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.progress i{display:block;height:3.95px;background:#D6CCBC}
+.progress i.on{background:var(--rust)}
+
+/* ---------- services ---------- */
+.services{padding:80px 0}
+.svc-head{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end;margin-bottom:28px}
+.svc-head h2{max-width:14ch}
+.svc-right{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.svc-right p{color:rgba(50,28,4,.7);font-size:18px;line-height:26px;max-width:46ch}
+.svc-panel{background:var(--sand);border-radius:20px;padding:44px;display:grid;grid-template-columns:534.59fr 653.41fr;gap:44px;align-items:start}
+.svc-left h3{font-size:36px;line-height:44px;font-weight:420;letter-spacing:-.54px;margin-bottom:12px}
+.svc-left>p{font-size:16px;color:var(--ink-2);line-height:24px;margin-bottom:20px;max-width:421px}
+.svc-explore{font-size:13.5px;color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(194,84,42,.4);padding-bottom:2px}
+/* Figma: 510.59 card, 67px rows, Newsreader 20px */
+.acc{margin-top:34px;background:#FFFDF9;border-radius:12px;overflow:hidden}
+.acc button{width:100%;background:transparent;border:0;border-bottom:1px solid var(--hair);padding:20px 22px;min-height:67px;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-head);font-size:20px;line-height:20px;color:#8E8579;cursor:pointer;transition:.18s}
+.acc button:last-child{border-bottom:0}
+.acc button:hover{color:var(--ink-2)}
+.acc button[aria-selected="true"]{color:var(--rust)}
+.acc button i{font-style:normal;width:26px;height:26px;flex:none;border:1px solid #D6CCBC;border-radius:7px;display:grid;place-items:center;font-size:12px;color:#8E8579;font-family:var(--font-body)}
+.acc button[aria-selected="true"] i{background:var(--rust);border-color:var(--rust);color:#F7F4EE}
+/* Figma: 653.41x884.88 #FFFDF9, 1px #E4DCD0, r14 */
+.svc-card{background:#FFFDF9;border:1px solid var(--hair);border-radius:14px;padding:22px 24px 24px;box-shadow:0 20px 44px rgba(33,28,23,.09)}
+.svc-card .lbl{font-family:var(--font-mono);font-size:10px;line-height:13px;font-weight:500;letter-spacing:1.6px;text-transform:uppercase;color:#8E8579;margin-bottom:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chip{font-size:12px;line-height:16px;font-weight:500;border:1px solid #D6CCBC;border-radius:999px;padding:7px 13px;color:#5C534A;background:transparent;cursor:default}
+.chip.on{background:#211C17;color:#F7F4EE;border-color:#211C17}
+.do-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--hair)}
+.do{padding:18px 0;border-bottom:1px solid var(--hair)}
+.do:nth-child(even){padding-left:24px;border-left:1px solid var(--hair)}
+.do em{font-style:normal;font-family:var(--font-mono);font-size:10px;line-height:13px;letter-spacing:1.33px;color:#BDB4A6;display:block}
+.do b{display:block;font-size:16px;line-height:22px;font-weight:500;letter-spacing:-.203px;color:var(--ink);margin-top:14px}
+.do p{font-size:14px;line-height:20px;color:#5C534A;margin-top:8px}
+.toolchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.toolchip{font-size:12px;line-height:16px;font-weight:500;background:#FFFDF9;border:1px solid #D6CCBC;border-radius:999px;padding:7px 13px;color:#5C534A;display:flex;gap:7px;align-items:center}
+.toolchip::before{content:"";width:6px;height:6px;border-radius:50%;background:#5C534A;flex:none}
+
+/* ---------- market ---------- */
+.market{padding:80px 0}
+.market-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:20px}
+.market-head p{color:var(--muted);max-width:52ch;margin-top:12px;font-size:14.5px}
+.market-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;position:relative}
+#worldmap{width:100%;height:auto;display:block}
+.mq{position:absolute;right:26px;top:50%;transform:translateY(-50%);width:min(350px,46%);background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 18px 50px rgba(25,23,19,.12);display:flex;gap:14px}
+.mq-photo{width:74px;flex:none;border-radius:10px;background:linear-gradient(150deg,#C9B49A,#7E6A52)}
+.mq h4{font-size:15px;font-weight:500;margin-bottom:6px}
+.mq p{font-size:12.5px;color:var(--muted);line-height:1.5}
+.mq .who{font-size:11px;color:var(--ink-2);margin-top:8px}
+
+/* ---------- cta ---------- */
+.cta{background:var(--teal);color:#EAF0EF;padding:74px 0}
+.cta-in{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
+.cta h2{color:#fff;max-width:15ch}
+.cta>.wrap>div>p{color:rgba(234,240,239,.7);margin-top:14px;max-width:44ch}
+.cta .urlbar{margin:24px 0 12px}
+.trustline{font-size:12px;color:rgba(234,240,239,.55);max-width:none}
+.cta-list{border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:22px;background:rgba(255,255,255,.05)}
+.cta-list h4{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(234,240,239,.6);margin-bottom:12px}
+.cta-list li{list-style:none;font-size:14px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.1);display:flex;gap:10px}
+.cta-list li:last-child{border-bottom:0}
+.cta-list li::before{content:"";width:15px;height:15px;border-radius:4px;background:var(--rust);flex:none;margin-top:3px}
+
+/* ---------- footer ---------- */
+footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-size:13px}
+.f-top{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:30px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.1)}
+.f-top .logo{color:#FBF8F3;display:block;margin-bottom:12px}
+.f-col p{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,248,243,.42);margin-bottom:12px}
+.f-col a{display:block;color:rgba(251,248,243,.72);text-decoration:none;padding:5px 0}
+.f-col a:hover{color:#fff}
+.f-bot{padding-top:20px;display:flex;justify-content:space-between;gap:20px;font-size:12px;color:rgba(251,248,243,.4)}
+
+@media(max-width:1080px){
+  .nav-links{display:none}
+  .hero-in,.logoband-in,.cs-in,.cases-head,.svc-head,.svc-panel,.cta-in{grid-template-columns:1fr}
+  .q-grid{grid-template-columns:1fr 1fr}
+  .q-intro{grid-column:1 / -1;padding-right:0}
+  .logoband-in{grid-template-columns:repeat(3,1fr);grid-auto-rows:minmax(120px,auto)}
+  .lb-lead{grid-column:1 / -1}
+  .hero-in{grid-template-columns:1fr}
+  .mq{position:static;transform:none;width:auto;margin-top:18px}
+  .f-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .wrap,.navbar,.logoband{padding-left:18px;padding-right:18px}
+  .nav-links{display:none}
+  .q-grid,.do-grid{grid-template-columns:1fr}
+  .logoband-in{grid-template-columns:1fr 1fr}
+  .qcol{border-left:0;border-top:1.5px dashed #B8BCC4;padding:24px 0 0}
+  .svc-panel{padding:24px}
+  .do:nth-child(even){padding-left:0;border-left:0}
+  .cs-stats{gap:24px}
+}
+</style>
+</head>
+<body>
+<div class="proto-flag">Prototype <b>Direction B</b> &nbsp;·&nbsp; Warm / photographic &nbsp;·&nbsp; Growisto homepage &nbsp;·&nbsp; Figma imagery wired in &nbsp;·&nbsp; portraits are stock placeholders, not the named people</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-photo" role="img" aria-label="Growisto team"></div>
+  <div class="hero-scrim"></div>
+  <div class="navbar">
+    <div class="nav-in">
+      <a class="logo" href="#"><img src="figma-assets/assets/mark-g.png" alt="" width="22" height="21" style="vertical-align:-3px;margin-right:7px">Growisto</a>
+      <nav class="nav-links"><a href="#services">Services</a><a href="#">Industries</a><a href="#cases">Clients</a><a href="#">Resources</a><a href="#">Company</a></nav>
+      <a class="btn btn-rust" href="#cta">Book a strategy call</a>
+    </div>
+  </div>
+  <div class="hero-in">
+    <div>
+      <span class="hero-badge">&#9733; 2024 Amazon Ads Partner Awards Finalist</span>
+      <h1>Your growth. Proven at scale.<br><em>$200M+ in e-commerce sales.<br>300+ high-growth brands.</em></h1>
+      <p class="hero-sub">One connected team across commerce, technology, marketing and data, built to move a number you already report on.</p>
+      <form class="urlbar" onsubmit="return false">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20"/></svg>
+        <input type="text" placeholder="Your website or storefront URL" aria-label="Your website or storefront URL">
+        <button class="btn btn-rust" type="submit">Get a free audit</button>
+      </form>
+    </div>
+
+    <div class="rail">
+      <div class="rail-item" aria-expanded="false">
+        <button class="rail-tab" aria-selected="false" data-k="s">Storefront</button>
+        <div class="rail-body" data-k="s" hidden>
+          
+          <div class="stat-card">
+            <span class="lbl">150+ builds</span>
+            <b>+20%</b>
+            <p>Average conversion lift</p>
+            <a href="#services">See the build process</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rail-item" aria-expanded="true">
+        <button class="rail-tab" aria-selected="true" data-k="m">Marketplace</button>
+        <div class="rail-body" data-k="m">
+          
+          <div class="stat-card">
+            <span class="lbl">GuruNanda</span>
+            <b>$1M &rarr; $5M</b>
+            <p>ACOS reduced over 18 months</p>
+            <a href="#cases">Explore the strategy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rail-item" aria-expanded="false">
+        <button class="rail-tab" aria-selected="false" data-k="g">GEO, AEO &amp; SEO</button>
+        <div class="rail-body" data-k="g" hidden>
+          
+          <div class="stat-card">
+            <span class="lbl">AI visibility</span>
+            <b>4.2x</b>
+            <p>Average increase in AI citations</p>
+            <a href="#services">See how we get cited</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO BAND -->
+<div class="logoband"><div class="logoband-in">
+  <div class="lb-lead"><b>US &amp; global brands</b><span>Selling into the US, UK and the Gulf</span></div>
+  <a class="lb-cell link" href="#cases"><img src="figma-assets/assets/logo-puma.png" alt="PUMA"></a><div class="lb-cell"><img src="figma-assets/assets/logo-justrite.png" alt="Justrite"></div><div class="lb-cell">Ultrahuman</div>
+  <a class="lb-cell link" href="#cases"><img src="figma-assets/assets/logo-gurunanda.png" alt="GuruNanda"></a><div class="lb-cell"><img src="figma-assets/assets/logo-msi.png" alt="MSI"></div><div class="lb-cell">Puriya</div>
+
+  <div class="lb-lead"><b>India's category leaders</b><span>Our playbook: 300+ engagements</span></div>
+  <div class="lb-cell"><img src="figma-assets/assets/logo-nykaa.png" alt="Nykaa"></div><div class="lb-cell"><img src="figma-assets/assets/logo-godrej.png" alt="Godrej Interio"></div><a class="lb-cell link" href="#cases"><img src="figma-assets/assets/logo-borosil.png" alt="Borosil"></a>
+  <div class="lb-cell"><img src="figma-assets/assets/logo-kama.png" alt="Kama Ayurveda"></div><div class="lb-cell"><img src="figma-assets/assets/logo-kaya.png" alt="Kaya Clinic"></div><div class="lb-cell"><img src="figma-assets/assets/logo-tatacliq.png" alt="Tata CLiQ"></div>
+</div></div>
+
+<!-- THREE QUESTIONS -->
+<section class="questions"><div class="wrap">
+  <div class="q-grid">
+    <div class="q-intro">
+      <span class="eyebrow">Three questions</span>
+      <h2>Your growth isn't stuck.<span>It's leaking.</span></h2>
+      <a class="btn btn-outline" href="#cta">Get the honest answer <span class="arw">&rarr;</span></a>
+    </div>
+
+    <div class="qcol">
+      <p class="lbl">Marketplaces</p>
+      <svg class="qico" viewBox="0 0 90 74" fill="none" stroke="#C2542A" stroke-width="1.6" stroke-linecap="round">
+        <path d="M14 18h58l-7 34H21z"/><path d="M14 18l-5-9H2"/><circle cx="30" cy="63" r="5"/><circle cx="60" cy="63" r="5"/><path d="M28 28l6 14M56 28l-6 14"/>
+      </svg>
+      <h3>Why does ACoS keep improving while our rank goes nowhere?</h3>
+      <p>Cutting bids also cuts the sales velocity that builds organic position. We run ads and rank as one plan, measured on TACoS.</p>
+    </div>
+
+    <div class="qcol">
+      <p class="lbl">Website &amp; CRO</p>
+      <svg class="qico" viewBox="0 0 90 74" fill="none" stroke="#C2542A" stroke-width="1.6" stroke-linecap="round">
+        <rect x="10" y="12" width="70" height="50" rx="6"/><path d="M10 26h70"/><path d="M22 42h24M22 52h14"/><path d="M56 54l8-14 8 8"/>
+      </svg>
+      <h3>Traffic is fine. So why has conversion stopped moving?</h3>
+      <p>Shopify limits checkout tests and every change waits on a developer. We remove that limit, then test monthly.</p>
+    </div>
+
+    <div class="qcol">
+      <p class="lbl">Search &amp; AI visibility</p>
+      <svg class="qico" viewBox="0 0 90 74" fill="none" stroke="#C2542A" stroke-width="1.6" stroke-linecap="round">
+        <path d="M8 58l18-20 14 12 16-24 18 14"/><circle cx="26" cy="38" r="3.4"/><circle cx="56" cy="26" r="3.4"/><path d="M8 66h74"/>
+      </svg>
+      <h3>We still rank on Google. So why is nobody citing us?</h3>
+      <p>Keyword density does not equal citation. We structure content for answer extraction and track mentions daily.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- CASE STUDIES -->
+<section class="cases" id="cases"><div class="wrap">
+  <div class="cases-head">
+    <div>
+      <span class="eyebrow">Case studies</span>
+      <h2>What changed because we were involved.</h2>
+    </div>
+    <div>
+      <p style="margin-bottom:14px">We grew GuruNanda to #1 in US and Canada oral care, and Ultrahuman's Amazon UK revenue roughly 6x in two months. The playbook adapts to market behavior.</p>
+      <div class="head-actions">
+        <button class="rnd" id="prev" aria-label="Previous case study">&#8249;</button>
+        <button class="rnd" id="next" aria-label="Next case study">&#8250;</button>
+        <a class="btn btn-rust" href="#">All case studies <span class="arw">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs">
+    <div class="cs-in cs-slide" data-i="0">
+      <div class="cs-copy">
+        <span class="cs-brand"><b>GuruNanda</b><span>Oral care · US</span></span>
+        <h3>Category-specific playbook scales a brand from $1M to $50M.</h3>
+        <div class="cs-stats">
+          <div><b>$1M &rarr; $5M</b><span>Revenue growth,<br>first two years</span></div>
+          <div><b>$50M+</b><span>Annual revenue<br>today</span></div>
+        </div>
+        <a class="btn btn-white" href="#" style="align-self:flex-start">Read the story <span class="arw">&rarr;</span></a>
+      </div>
+      <div class="cs-media"><span>Image placeholder</span><i class="play"></i></div>
+    </div>
+
+    <div class="cs-in cs-slide" data-i="1" hidden>
+      <div class="cs-copy">
+        <span class="cs-brand"><b>PUMA</b><span>Sportswear · Marketplaces</span></span>
+        <h3>Ads and organic run as one plan, measured on a single TACoS number.</h3>
+        <div class="cs-stats">
+          <div><b>56%</b><span>Average ACOS reduction,<br>18 months+</span></div>
+          <div><b>$6Mn+</b><span>Ad spend managed<br>per quarter</span></div>
+        </div>
+        <a class="btn btn-white" href="#" style="align-self:flex-start">Read the story <span class="arw">&rarr;</span></a>
+      </div>
+      <div class="cs-media" style="background:linear-gradient(150deg,#B0A896,#6C6555 50%,#3A362C)"><span>Image placeholder</span><i class="play"></i></div>
+    </div>
+
+    <div class="cs-in cs-slide" data-i="2" hidden>
+      <div class="cs-copy">
+        <span class="cs-brand"><b>Kama Ayurveda</b><span>Beauty · Multi-market</span></span>
+        <h3>Structured for answer extraction, cited across four AI engines.</h3>
+        <div class="cs-stats">
+          <div><b>4.2x</b><span>Average increase<br>in AI citations</span></div>
+          <div><b>145%</b><span>Average organic<br>traffic increase</span></div>
+        </div>
+        <a class="btn btn-white" href="#" style="align-self:flex-start">Read the story <span class="arw">&rarr;</span></a>
+      </div>
+      <div class="cs-media" style="background:linear-gradient(150deg,#C4B49C,#7E6F58 50%,#453B2E)"><span>Image placeholder</span><i class="play"></i></div>
+    </div>
+  </div>
+  <div class="progress" id="prog"><i class="on"></i><i></i><i></i></div>
+</div></section>
+
+<!-- SERVICES -->
+<section class="services" id="services"><div class="wrap">
+  <div class="svc-head">
+    <div>
+      <span class="eyebrow">Services</span>
+      <h2>Three service lines. One number that matters.</h2>
+    </div>
+    <div class="svc-right">
+      <p>200+ engagements in each. Deep enough to build the playbook, disciplined enough to say no.</p>
+      <a class="btn btn-rust" href="#cta">Book a strategy call</a>
+    </div>
+  </div>
+
+  <div class="svc-panel">
+    <div class="svc-left">
+      <h3 id="svc-title">Marketplaces</h3>
+      <p id="svc-blurb">We help brands sell more, spend less and grow faster on marketplaces. $2Bn+ in revenue managed across Amazon, Walmart, TikTok Shop and quick commerce.</p>
+      <a class="svc-explore" href="#">Explore the line &rarr;</a>
+      <div class="acc">
+        <button aria-selected="true" data-s="m">Marketplaces <i>&minus;</i></button>
+        <button aria-selected="false" data-s="w">Website &amp; CRO <i>+</i></button>
+        <button aria-selected="false" data-s="g">GEO, AIO &amp; SEO <i>+</i></button>
+        <button aria-selected="false" data-s="b">For B2B <i>+</i></button>
+      </div>
+    </div>
+
+    <div class="svc-card">
+      <p class="lbl">What we actually do</p>
+      <div class="chips" id="chips">
+        <span class="chip on">Amazon</span><span class="chip">TikTok Shop</span><span class="chip">Walmart &amp; Target</span><span class="chip">Flipkart, Myntra &amp; Nykaa</span><span class="chip">Quick commerce</span>
+      </div>
+      <div class="do-grid" id="dogrid">
+        <div class="do"><em>01</em><b>Strategic growth plans</b><p>A category-specific growth roadmap for the channel, not a month-to-month campaign plan.</p></div>
+        <div class="do"><em>02</em><b>Campaign strategy &amp; planning</b><p>Campaign structure, negative keyword framework and budget allocation across types and catalogue priority tiers.</p></div>
+        <div class="do"><em>03</em><b>Amazon DSP</b><p>Reaching Amazon audiences on and off the platform, before they search, upper funnel.</p></div>
+        <div class="do"><em>04</em><b>Amazon Marketing Cloud</b><p>Custom audience targeting, new-to-brand attribution and path-to-purchase analysis.</p></div>
+        <div class="do"><em>05</em><b>Advertising audit</b><p>Full account audit covering campaign structure, keyword coverage and negative keyword gaps.</p></div>
+        <div class="do"><em>06</em><b>Keyword research</b><p>Keyword research and search-term harvesting, mapped against what your ads and listings already rank for.</p></div>
+        <div class="do"><em>07</em><b>Campaign management</b><p>Sponsored Products, Sponsored Brands and Sponsored Display managed against a single TACoS target.</p></div>
+        <div class="do"><em>08</em><b>Ads analytics &amp; reporting</b><p>Weekly reporting on ACoS, TACoS, ad sales, ROAS and share of voice, in one view.</p></div>
+      </div>
+      <p class="lbl">AI agents working inside this line</p>
+      <div class="toolchips">
+        <span class="toolchip">Search-term harvester</span><span class="toolchip">Bid &amp; budget monitor</span><span class="toolchip">Listing quality flagger</span><span class="toolchip">Competitor price watch</span><span class="toolchip">Inventory risk flagger</span>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- MARKET -->
+<section class="market"><div class="wrap">
+  <div class="market-head">
+    <div>
+      <h2>Entering a new market shouldn't<br>mean starting from zero.</h2>
+      <p>The same team runs the US, UK, Gulf and India. One playbook, adapted to how each marketplace actually behaves.</p>
+    </div>
+    <a class="btn btn-rust" href="#cta">Book a strategy call</a>
+  </div>
+  <div class="market-panel">
+    <svg id="worldmap" viewBox="0 0 640 230" aria-label="Markets we operate in"></svg>
+    <div class="mq">
+      <div class="mq-photo"></div>
+      <div>
+        <h4>Zero cut-over downtime</h4>
+        <p>"Growisto's highly experienced technical team managed our website for three years. They helped us successfully re-platform our online store."</p>
+        <p class="who">Head of Digital · Home &amp; living brand</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- CTA -->
+<section class="cta" id="cta"><div class="wrap cta-in">
+  <div>
+    <h2>See what your account is losing before you decide anything.</h2>
+    <p>Free, no call required, and you keep the audit whether or not we end up working together.</p>
+    <form class="urlbar" onsubmit="return false">
+      <input type="text" placeholder="Your website or storefront URL" aria-label="Your website or storefront URL">
+      <button class="btn btn-rust" type="submit">Get a free audit</button>
+    </form>
+    <p class="trustline">7 days delivery · Zero cost or commitment · 100% confidential</p>
+  </div>
+  <div class="cta-list">
+    <h4>What you get back</h4>
+    <ul>
+      <li>Full audit of ad performance, TACoS trends and listing gaps</li>
+      <li>SKU-level profitability analysis using Brand Analytics data</li>
+      <li>Category-specific growth roadmap for your portfolio</li>
+      <li>30-minute call with a senior consultant</li>
+    </ul>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="f-top">
+    <div>
+      <a class="logo" href="#">Growisto</a>
+      <p style="max-width:34ch">A certified e-commerce growth partner running marketplaces, storefront tech and search for 300+ brands.</p>
+    </div>
+    <div class="f-col"><p>Services</p><a href="#">Marketplace Consulting</a><a href="#">Website Development</a><a href="#">GEO, AIO &amp; SEO</a><a href="#">Data &amp; BI</a></div>
+    <div class="f-col"><p>Marketplaces</p><a href="#">Amazon</a><a href="#">Walmart</a><a href="#">TikTok Shop</a><a href="#">Quick commerce</a></div>
+    <div class="f-col"><p>Company</p><a href="#">About</a><a href="#">Careers</a><a href="#">Case studies</a><a href="#">Contact</a></div>
+    <div class="f-col"><p>Resources</p><a href="#">Blog</a><a href="#">Playbooks</a><a href="#">Free audit</a><a href="#">Newsletter</a></div>
+  </div>
+  <div class="f-bot"><span>© 2026 Growisto. All rights reserved.</span><span>Privacy · Terms</span></div>
+</div></footer>
+
+<script>
+// hero rail accordion
+document.querySelectorAll('.rail-item').forEach(function(item){
+  item.querySelector('.rail-tab').addEventListener('click',function(){
+    document.querySelectorAll('.rail-item').forEach(function(x){
+      x.setAttribute('aria-expanded','false');
+      x.querySelector('.rail-tab').setAttribute('aria-selected','false');
+      x.querySelector('.rail-body').hidden=true;
+    });
+    item.setAttribute('aria-expanded','true');
+    item.querySelector('.rail-tab').setAttribute('aria-selected','true');
+    item.querySelector('.rail-body').hidden=false;
+  });
+});
+
+// case study carousel
+(function(){
+  var i=0, slides=document.querySelectorAll('.cs-slide'), bars=document.querySelectorAll('#prog i');
+  function go(n){
+    i=(n+slides.length)%slides.length;
+    slides.forEach(function(s,k){s.hidden=(k!==i)});
+    bars.forEach(function(b,k){b.classList.toggle('on',k===i)});
+  }
+  document.getElementById('next').addEventListener('click',function(){go(i+1)});
+  document.getElementById('prev').addEventListener('click',function(){go(i-1)});
+})();
+
+// services accordion
+(function(){
+  var data={
+    m:{t:'Marketplaces',
+       b:'We help brands sell more, spend less and grow faster on marketplaces. $2Bn+ in revenue managed across Amazon, Walmart, TikTok Shop and quick commerce.',
+       chips:['Amazon','TikTok Shop','Walmart & Target','Flipkart, Myntra & Nykaa','Quick commerce'],
+       items:[['Strategic growth plans','A category-specific growth roadmap for the channel, not a month-to-month campaign plan.'],
+              ['Campaign strategy & planning','Campaign structure, negative keyword framework and budget allocation across types and catalogue priority tiers.'],
+              ['Amazon DSP','Reaching Amazon audiences on and off the platform, before they search, upper funnel.'],
+              ['Amazon Marketing Cloud','Custom audience targeting, new-to-brand attribution and path-to-purchase analysis.'],
+              ['Advertising audit','Full account audit covering campaign structure, keyword coverage and negative keyword gaps.'],
+              ['Keyword research','Keyword research and search-term harvesting, mapped against what your ads and listings already rank for.'],
+              ['Campaign management','Sponsored Products, Sponsored Brands and Sponsored Display managed against a single TACoS target.'],
+              ['Ads analytics & reporting','Weekly reporting on ACoS, TACoS, ad sales, ROAS and share of voice, in one view.']],
+       tools:['Search-term harvester','Bid & budget optimiser','Listing quality monitor','Competitor price watch','Inventory risk flagger']},
+    w:{t:'Website &amp; CRO',
+       b:'Fix the funnel, not the theme. 150+ Shopify and Magento builds and migrations, a 20% average conversion lift and 99.95% uptime.',
+       chips:['Shopify','Shopify Plus','Magento','Headless','Custom'],
+       items:[['Conversion audit','9 levers and 600+ parameters reviewed before a single line of code changes.'],
+              ['Platform migration','Re-platforming with redirects, catalogue and SEO equity carried across intact.'],
+              ['Storefront build','Design and build on Shopify or Magento, shipped against a fixed scope and date.'],
+              ['Checkout optimisation','Test what the platform lets you test, then extend the parts it does not.'],
+              ['PDP & category testing','A monthly test cadence on the templates that carry the most revenue.'],
+              ['Speed & Core Web Vitals','Performance work tied to the pages that convert, not a lab score.'],
+              ['Analytics & tracking','Clean events, server-side where it matters, so the numbers reconcile.'],
+              ['Managed support','Ongoing releases and monitoring at 99.95% uptime across managed builds.']],
+       tools:['Funnel drop-off monitor','Test backlog scorer','Speed regression alerts','Catalogue diff checker','Uptime watchdog']},
+    g:{t:'GEO, AIO &amp; SEO',
+       b:'Get cited where buyers ask. 500Mn+ organic sessions generated, a 145% average traffic increase and 4.2x more AI citations.',
+       chips:['Google','ChatGPT','Perplexity','AI Overviews','Gemini'],
+       items:[['Technical SEO audits','Crawl, index and Core Web Vitals audits mapped to the pages that carry revenue.'],
+              ['Answer-first content','Content structured so an AI engine can extract and cite a clean answer.'],
+              ['Schema & structured data','Entity and product schema generated across templates, not page by page.'],
+              ['Keyword-to-page mapping','Every priority term assigned one owning page, with internal links to match.'],
+              ['Citation tracking','Daily tracking of brand mentions and citations across four AI engines.'],
+              ['Competitive benchmarking','Share-of-voice benchmarking against the domains currently being cited.'],
+              ['Digital PR & mentions','Placements on the third-party sources AI engines quote most often.'],
+              ['Reporting & attribution','Traffic, citations and assisted revenue reported against one plan.']],
+       tools:['Citation tracker','Schema generator','Internal link discovery','Pre-publish content scoring','Meta tag generator']},
+    b:{t:'For B2B &amp; SaaS',
+       b:'B2B buyers research through AI tools before they ever fill a form. We tailor strategy to longer sales cycles and multiple decision-makers.',
+       chips:['SaaS','Manufacturing','Distribution','Enterprise services'],
+       items:[['Buying-committee mapping','Terms mapped to each role in the committee, not one generic persona.'],
+              ['Bottom-funnel comparison pages','Alternatives, versus and pricing pages built for the terms buyers actually search.'],
+              ['Demand capture vs creation','Separate plans and separate measurement for each, so neither hides the other.'],
+              ['Sales-cycle attribution','Reporting tied to pipeline stages rather than last-click sessions.'],
+              ['Analyst & review-site presence','Coverage on the third-party sources AI engines quote most often.'],
+              ['Content refresh cadence','A fixed schedule for refreshing the pages that decay fastest.'],
+              ['Intent-tiered keyword sets','Terms split by buying stage so spend follows pipeline, not volume.'],
+              ['ABM landing pages','Account-specific pages built from one template, shipped in days.']],
+       tools:['Pipeline attribution model','Comparison page builder','Review-site monitor','Committee keyword map','AI answer tracker']}
+  };
+  document.querySelectorAll('.acc button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.acc button').forEach(function(x){x.setAttribute('aria-selected','false');x.querySelector('i').textContent='+'});
+      b.setAttribute('aria-selected','true'); b.querySelector('i').textContent='−';
+      var d=data[b.dataset.s];
+      document.getElementById('svc-title').innerHTML=d.t;
+      document.getElementById('svc-blurb').textContent=d.b;
+      document.getElementById('chips').innerHTML=d.chips.map(function(c,i){return '<span class="chip'+(i===0?' on':'')+'">'+c+'</span>'}).join('');
+      document.getElementById('dogrid').innerHTML=d.items.map(function(it,i){
+        return '<div class="do"><em>'+String(i+1).padStart(2,'0')+'</em><b>'+it[0]+'</b><p>'+it[1]+'</p></div>';
+      }).join('');
+      document.querySelector('.toolchips').innerHTML=d.tools.map(function(t){return '<span class="toolchip">'+t+'</span>'}).join('');
+    });
+  });
+})();
+
+// dotted world map
+(function(){
+  var svg=document.getElementById('worldmap'); if(!svg) return;
+  var blobs=[[11,5.5,7,3.5],[13.5,8.8,3,2],[19,1.6,2.6,1.2],[17,13.5,3,3],[18.4,17,1.9,2.3],
+             [31,4.4,3.6,2],[28,3,1.1,1],[32,10,4,3],[33.5,14,2.6,2.2],[36.4,8,2.6,1.6],
+             [44,4,9,3],[42,9,2.6,2],[48,7.4,4,2.5],[50.4,12,3,1],[53,15,3.6,2],[54.4,5.6,1,1.6]];
+  var pins=[[11,6,'United States'],[28,3,'United Kingdom'],[37,8,'UAE'],[42,9,'India'],[53,15,'Australia'],[50,11,'Singapore']];
+  var COLS=64,ROWS=22,sx=640/COLS,sy=230/ROWS,out='';
+  function inside(x,y){return blobs.some(function(b){var dx=(x-b[0])/b[2],dy=(y-b[1])/b[3];return dx*dx+dy*dy<=1})}
+  for(var r=0;r<ROWS;r++)for(var c=0;c<COLS;c++){
+    if(!inside(c,r))continue;
+    out+='<circle cx="'+((c+.5)*sx).toFixed(1)+'" cy="'+((r+.5)*sy).toFixed(1)+'" r="2.1" fill="#D8C2A8"/>';
+  }
+  pins.forEach(function(p){
+    var x=((p[0]+.5)*sx).toFixed(1),y=((p[1]+.5)*sy).toFixed(1);
+    out+='<circle cx="'+x+'" cy="'+y+'" r="8" fill="#C2542A" opacity=".14"/>';
+    out+='<circle cx="'+x+'" cy="'+y+'" r="3.6" fill="#C2542A"><title>'+p[2]+'</title></circle>';
+  });
+  svg.innerHTML=out;
+})();
+</script>
+</body>
+</html>

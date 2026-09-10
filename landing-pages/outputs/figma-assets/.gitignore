@@ -1,0 +1,5 @@
+# Raw Figma image-fill dumps kept locally only.
+# img/     = the 50 fills used by these prototypes, named by imageRef (assets/ holds the named copies)
+# unused/  = the other 121 fills in the Figma file, belonging to other artboards
+img/
+unused/
