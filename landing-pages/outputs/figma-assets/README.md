@@ -2,7 +2,7 @@
 
 Pulled from the Growisto Review File via the Figma REST API.
 
-- `assets/` — the 46 named images wired into the `*-images.html` prototypes (4.3 MB)
+- `assets/` — the 46 named images wired into the three homepage prototypes (4.3 MB)
 - `world-map.svg` — both map variants in one file. Every dot was rewritten from a
   4-arc bezier path to a `<circle>` and the fill set to `currentColor`, taking it
   from 728 KB to 128 KB (15 KB gzipped). Colour it from CSS.
