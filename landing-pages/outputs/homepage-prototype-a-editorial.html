@@ -102,6 +102,10 @@ h1{font-size:clamp(34px,5.4vw,72px);font-weight:420;line-height:1.1;letter-spaci
 .pf li{animation:pfin .5s ease both}
 @keyframes pfin{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.pf li{animation:none}}
+.pf-dots{display:flex;gap:6px;margin-top:15px}
+.pf-dot{width:6px;height:6px;padding:0;border:0;border-radius:99px;background:rgba(41,37,30,.18);cursor:pointer;transition:width .3s cubic-bezier(.4,0,.2,1),background .3s}
+.pf-dot.on{width:18px;background:#71AD00}
+@media(prefers-reduced-motion:reduce){.pf-dot{transition:none}}
 .hero-note{font-size:13px;line-height:19px;color:var(--muted);margin:14px 0 0}
 .fc-link{display:flex;align-items:center;gap:10.31px;font-size:13.74px;line-height:19px;letter-spacing:1.712px;text-transform:uppercase;font-weight:700;color:var(--ink);text-decoration:none;border-bottom:1.718px solid #29251E;padding-bottom:8.02px}
 /* Figma: Container 276x40 @ y1152, r20, backdrop blur 28 */
@@ -608,10 +612,39 @@ addEventListener('scroll',function(){nav.classList.toggle('stuck',scrollY>8)});
 var pfRotate=(function(){
   var t=null,i=0;
   function list(){return document.querySelector('.panel.on .pf')}
+  function dots(){
+    var ul=list(); if(!ul) return null;
+    var d=ul.nextElementSibling;
+    if(!d||d.className!=='pf-dots'){
+      d=document.createElement('div'); d.className='pf-dots';
+      ul.parentNode.insertBefore(d,ul.nextSibling);
+    }
+    return d;
+  }
+  function build(){
+    var ul=list(), d=dots(); if(!ul||!d) return;
+    var n=ul.children.length;
+    if(n<2){ d.innerHTML=''; d.hidden=true; return; }
+    d.hidden=false;
+    if(d.children.length===n) return;
+    d.innerHTML='';
+    for(var x=0;x<n;x++){
+      var b=document.createElement('button');
+      b.type='button'; b.className='pf-dot';
+      b.setAttribute('aria-label','Show proof point '+(x+1)+' of '+n);
+      b.addEventListener('click',(function(k){return function(){i=k;paint();arm()}})(x));
+      d.appendChild(b);
+    }
+  }
   function paint(){
     var ul=list(); if(!ul||!ul.children.length) return;
     if(i>=ul.children.length) i=0;
     for(var x=0;x<ul.children.length;x++) ul.children[x].hidden=(x!==i);
+    var d=dots();
+    if(d) for(var y=0;y<d.children.length;y++){
+      d.children[y].className='pf-dot'+(y===i?' on':'');
+      d.children[y].setAttribute('aria-current',y===i?'true':'false');
+    }
   }
   function size(){
     var ul=list(); if(!ul) return;
@@ -623,11 +656,12 @@ var pfRotate=(function(){
     });
     ul.style.minHeight=max?max+'px':'';
   }
-  return function(){
-    clearInterval(t); i=0; size(); paint();
+  function arm(){
+    clearInterval(t);
     var ul=list();
     if(ul&&ul.children.length>1) t=setInterval(function(){i++;paint()},7000);
-  };
+  }
+  return function(){ i=0; build(); size(); paint(); arm(); };
 })();
 
 (function(){
