@@ -90,9 +90,11 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 .chartcard{grid-column:1 / -1;border:1px solid var(--line);border-radius:12px;padding:16px}
 .chartcard .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
 .pf{list-style:none;margin:0;padding:0}
-.pf li+li{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
 .pf b{display:block;font-size:14.5px;line-height:19px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
 .pf span{display:block;font-size:11.5px;line-height:16px;color:var(--grey);margin-top:4px}
+.pf li{animation:pfin .5s ease both}
+@keyframes pfin{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.pf li{animation:none}}
 .hero-note{font-size:12.5px;line-height:18px;color:var(--grey);margin:12px 0 0}
 .legend{display:flex;gap:14px;font-size:10.5px;color:var(--grey);margin-top:8px}
 .legend i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
@@ -581,6 +583,32 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
 
 <script>
 // hero tabs swap headline + subhead
+// hero proof points: one at a time, next one after 7 seconds
+var pfRotate=(function(){
+  var t=null,i=0;
+  function list(){return document.querySelector('.chartcard .pf')}
+  function paint(){
+    var ul=list(); if(!ul||!ul.children.length) return;
+    if(i>=ul.children.length) i=0;
+    for(var x=0;x<ul.children.length;x++) ul.children[x].hidden=(x!==i);
+  }
+  function size(){
+    var ul=list(); if(!ul) return;
+    var max=0;
+    [].forEach.call(ul.children,function(li){
+      var was=li.hidden; li.hidden=false;
+      if(li.offsetHeight>max) max=li.offsetHeight;
+      li.hidden=was;
+    });
+    ul.style.minHeight=max?max+'px':'';
+  }
+  return function(){
+    clearInterval(t); i=0; size(); paint();
+    var ul=list();
+    if(ul&&ul.children.length>1) t=setInterval(function(){i++;paint()},7000);
+  };
+})();
+
 (function(){
   var copy={
     h1:['Marketplaces Growth That Shows Up In the P&L','Growisto combines your ads, organic, and affiliate marketing strategies to scale marketplace revenue profitably.',[['$1M → $5M','GuruNanda, revenue growth in the first two years on Amazon'],['1.7x revenue increase in 5 months, 32% increase in customer reviews','Puma'],['30% revenue growth in 90 days on TikTok','US pet accessories & outdoor gear brand']]],
@@ -598,9 +626,11 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
         var li=document.createElement('li'), b=document.createElement('b'), sp=document.createElement('span');
         b.textContent=r[0]; sp.textContent=r[1]; li.appendChild(b); li.appendChild(sp); return li.outerHTML;
       }).join('');
+      pfRotate();
     });
   });
 })();
+pfRotate();
 
 // leak cards
 document.querySelectorAll('.lcard').forEach(function(t){

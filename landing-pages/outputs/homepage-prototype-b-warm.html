@@ -99,9 +99,11 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 .stat-card b{display:block;font-family:var(--font-head);font-size:32px;line-height:39px;font-weight:580;letter-spacing:-.576px;color:var(--ink-2);margin:12px 0 0}
 .stat-card p{font-size:14px;line-height:16px;font-weight:500;color:var(--muted);margin:8px 0 14px}
 .pf{list-style:none;margin:0;padding:0}
-.pf li+li{margin-top:12px;padding-top:12px;border-top:1px solid rgba(41,37,30,.14)}
 .pf b{display:block;font-family:var(--font-head);font-size:17px;line-height:23px;font-weight:580;letter-spacing:-.3px;color:var(--ink-2)}
 .pf span{display:block;font-family:var(--font-mono);font-size:11px;line-height:15px;letter-spacing:.04em;color:var(--rust);margin-top:5px}
+.pf li{animation:pfin .5s ease both}
+@keyframes pfin{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.pf li{animation:none}}
 .hero-note{color:rgba(255,255,255,.62);font-size:13px;line-height:19px;margin:14px 0 0}
 .stat-card a{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',system-ui,sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--ink-2);padding-bottom:6px}
 
@@ -548,6 +550,32 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
 
 <script>
 // hero rail accordion
+// hero proof points: one at a time, next one after 7 seconds
+var pfRotate=(function(){
+  var t=null,i=0;
+  function list(){return document.querySelector('.rail-item[aria-expanded="true"] .pf')}
+  function paint(){
+    var ul=list(); if(!ul||!ul.children.length) return;
+    if(i>=ul.children.length) i=0;
+    for(var x=0;x<ul.children.length;x++) ul.children[x].hidden=(x!==i);
+  }
+  function size(){
+    var ul=list(); if(!ul) return;
+    var max=0;
+    [].forEach.call(ul.children,function(li){
+      var was=li.hidden; li.hidden=false;
+      if(li.offsetHeight>max) max=li.offsetHeight;
+      li.hidden=was;
+    });
+    ul.style.minHeight=max?max+'px':'';
+  }
+  return function(){
+    clearInterval(t); i=0; size(); paint();
+    var ul=list();
+    if(ul&&ul.children.length>1) t=setInterval(function(){i++;paint()},7000);
+  };
+})();
+
 (function(){
 var copy={
   m:['Marketplaces Growth','That Shows Up In the P&L','Growisto combines your ads, organic, and affiliate marketing strategies to scale marketplace revenue profitably.'],
@@ -568,9 +596,11 @@ document.querySelectorAll('.rail-item').forEach(function(item){
     document.getElementById('h-t1').textContent=c[0];
     document.getElementById('h-t2').textContent=c[1];
     document.getElementById('h-sub').textContent=c[2];
+    pfRotate();
   });
 });
 })();
+pfRotate();
 
 // case study carousel
 (function(){
