@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Growisto Homepage — Direction C (Bold Orange)</title>
 <!-- TYPEFACE: Figma uses Helvetica Neue (system on Apple) plus Inter / Inter Tight for labels -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600&family=Plus+Jakarta+Sans:wght@500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -95,8 +95,9 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 .legend i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
 .legend i::before{content:"";width:8px;height:2px;background:var(--orange)}
 .legend i:nth-child(2)::before{background:var(--grey-2)}
-.searchpill{margin:34px auto 0;max-width:430px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:11px 18px;font-size:13.5px;color:var(--grey);box-shadow:0 6px 22px rgba(17,17,17,.05)}
-.searchpill svg{opacity:.4;flex:none}
+/* Figma: Search Bar 400x56 r12, rgba(255,255,255,.5), blur 5, orange glow */
+.searchpill{margin:44px auto -28px;width:min(400px,100% - 40px);max-width:500px;position:relative;z-index:5;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.5);border:1px solid #E8E8E8;border-radius:12px;padding:8px 16px;min-height:56px;font-family:'Plus Jakarta Sans','Inter',system-ui,sans-serif;font-size:14px;line-height:18px;font-weight:500;color:var(--ink);backdrop-filter:blur(5px);box-shadow:0 4px 32px rgba(209,111,19,.4),inset 0 0 4px rgba(255,255,255,.15)}
+.searchpill svg{opacity:.75;flex:none}
 
 /* logo band */
 .band{background:#1C1C1C;padding:40px 0;text-align:center}
@@ -134,22 +135,27 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 .cases{padding:0 0 32px}
 .cases-head{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end;margin-bottom:24px}
 .cases-head p{color:var(--grey);font-size:14.5px;max-width:46ch;margin-bottom:14px}
-.cs{background:var(--orange);border-radius:16px;padding:24px;color:#fff}
-.cs-tabs{display:flex;gap:26px;border-bottom:1px solid rgba(255,255,255,.28);margin-bottom:24px}
-.cs-tab{background:none;border:0;border-bottom:2px solid transparent;color:rgba(255,255,255,.7);font:inherit;font-size:14px;padding:0 0 12px;cursor:pointer;margin-bottom:-1px}
-.cs-tab[aria-selected="true"]{color:#fff;font-weight:600;border-bottom-color:#fff}
-.cs-in{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:start}
-.cs blockquote{font-size:clamp(19px,2.4vw,27px);font-weight:600;letter-spacing:-.022em;line-height:1.26;margin-bottom:22px}
-.cs-person{display:flex;align-items:center;gap:11px;margin-bottom:20px}
-.cs-person i{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.3);display:block}
-.cs-person b{display:block;font-size:14px;font-weight:600}
-.cs-person span{font-size:12px;color:rgba(255,255,255,.75)}
-.cs-media{border-radius:12px;min-height:210px;background:linear-gradient(135deg,#F79A78,#C9411A);position:relative;margin-bottom:14px}
+.cs{background:var(--orange);border-radius:12px;padding:24px;color:#fff}
+/* Figma: three progress tabs, 3.95px bar, active fill #F9F9F4 */
+.cs-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:62px}
+.cs-tab{background:none;border:0;padding:0;cursor:pointer;font:inherit;text-align:left;color:#F9F9F4;opacity:.5;transition:.2s}
+.cs-tab[aria-selected="true"]{opacity:1}
+.cs-tab::before{content:"";display:block;height:3.95px;background:rgba(249,249,244,.6);margin-bottom:12px}
+.cs-tab[aria-selected="true"]::before{background:linear-gradient(to right,#F9F9F4 0 54%,rgba(249,249,244,.6) 54% 100%)}
+.cs-tab span{font-size:20px;line-height:24px;font-weight:500}
+.cs-in{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cs blockquote{font-size:clamp(22px,2.6vw,36px);font-weight:400;letter-spacing:0;line-height:1.17;margin-bottom:62px}
+.cs-person{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.cs-person i{width:62px;height:62px;flex:none;border-radius:16px;background:#E6CD94;display:block}
+.cs-person b{display:block;font-size:24px;line-height:32px;font-weight:500}
+.cs-person span{font-size:24px;line-height:32px;color:rgba(255,255,255,.8);font-weight:500}
+.cs-media{border-radius:8px;min-height:472px;background:#FBC1A9 var(--case-img,linear-gradient(135deg,#FBC1A9,#F79A78 50%,#E07A4E)) center/cover no-repeat;position:relative;margin-bottom:24px}
 .cs-media span{position:absolute;left:12px;top:10px;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5)}
-.cs-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.cs-stat{background:rgba(255,255,255,.16);border-radius:10px;padding:13px}
-.cs-stat b{display:block;font-size:24px;font-weight:600;letter-spacing:-.03em}
-.cs-stat span{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-top:5px;line-height:1.4}
+/* Figma: 196.67x159 #F9F9F4 cards under the image */
+.cs-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cs-stat{background:#F9F9F4;border-radius:12px;padding:20px;min-height:159px;display:flex;flex-direction:column;gap:20px}
+.cs-stat b{display:block;font-size:42px;line-height:51px;font-weight:700;letter-spacing:0;color:var(--ink)}
+.cs-stat span{display:block;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0;text-transform:none;color:#707070}
 .playbook{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--orange-lt);border:1px solid var(--orange-md);border-radius:12px;padding:16px 20px;margin-top:14px}
 .playbook b{display:block;font-size:14.5px;font-weight:600}
 .playbook p{font-size:12.5px;color:var(--grey)}
@@ -158,15 +164,24 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 .services{padding:80px 0}
 .svc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:26px}
 .svc-head h2{max-width:17ch}
-.svc-wrap{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:start}
-.svc-nav{display:flex;flex-direction:column;gap:2px;position:sticky;top:82px}
-.svc-nav a{font-size:14px;color:var(--grey);text-decoration:none;padding:10px 12px;border-left:2px solid var(--line);transition:.18s}
-.svc-nav a:hover{color:var(--ink);border-left-color:var(--grey-2)}
-.svc-nav a.on{color:var(--orange);font-weight:600;border-left-color:var(--orange);background:var(--orange-lt)}
-.svc-stack{display:grid;gap:14px}
-.svc-card{border:1px solid var(--line);border-radius:14px;padding:20px;background:#fff}
-.svc-card h3{font-size:18px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:9px}
-.svc-card h3 em{font-style:normal;width:26px;height:26px;border-radius:7px;background:var(--orange-lt);display:grid;place-items:center;font-size:13px}
+/* Figma: sidebar 302 + stack 930, gap 24 */
+.svc-wrap{display:grid;grid-template-columns:302px minmax(0,930px);gap:24px;align-items:start;justify-content:space-between}
+.svc-nav{display:flex;flex-direction:column;gap:12px;position:sticky;top:96px;padding-left:24px;border-left:1px solid rgba(13,14,20,.12)}
+.svc-nav a{position:relative;font-size:16px;line-height:24px;letter-spacing:-.3125px;color:rgba(13,14,20,.4);text-decoration:none;transition:.18s}
+.svc-nav a:hover{color:rgba(13,14,20,.7)}
+.svc-nav a.on{color:#0D0E14}
+.svc-nav a.on::before{content:"";position:absolute;left:-28.5px;top:9px;width:6px;height:6px;border-radius:9999px;background:#EC6D2B}
+/* Figma: rows of 1 / 2 / 1 cards, #F2F2F0 with #ECE5D9 hairline */
+.svc-stack{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.svc-card{grid-column:1 / -1;border:1px solid #ECE5D9;border-radius:12px;padding:48px;background:#F2F2F0;min-height:492px;display:flex;flex-direction:column}
+.svc-card.half{grid-column:auto;padding:32px;min-height:512px}
+.svc-card h3{font-size:30px;line-height:36px;font-weight:400;margin-bottom:24px;display:flex;align-items:center;gap:16px}
+.svc-card h3 em{font-style:normal;width:42px;height:42px;flex:none;border-radius:11px;background:linear-gradient(135deg,#F6A171,#E8622C);display:grid;place-items:center;font-size:17px;color:#fff}
+.svc-shot{position:relative;height:217px;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#EDEAE3,#D8D2C6)}
+.svc-shot::after{content:"";position:absolute;left:0;right:0;bottom:0;height:144px;background:linear-gradient(0deg,#F2F2F0 0%,rgba(242,242,240,0) 100%)}
+.svc-foot{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:32px;border-top:1px solid rgba(217,224,236,.6)}
+.svc-foot p{flex:1;font-size:18px;line-height:26px;font-weight:500;color:#0D0E14;margin:0}
+.svc-foot i{font-style:normal;width:40px;height:40px;flex:none;border:1px solid rgba(13,14,20,.1);background:rgba(13,14,20,.05);border-radius:9999px;display:grid;place-items:center;font-size:15px;color:#0D0E14}
 .svc-card>p{font-size:13.5px;color:var(--grey);margin-top:14px;line-height:1.6}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .tbl{border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:12px}
@@ -189,26 +204,35 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 .market-head p{color:var(--grey);max-width:52ch;margin-top:12px;font-size:14.5px}
 .market-panel{border:1px solid var(--line);border-radius:16px;padding:24px;position:relative;background:#fff}
 #worldmap{width:100%;height:auto;display:block}
-.mq{position:absolute;right:24px;top:50%;transform:translateY(-50%);width:min(340px,46%);background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px;box-shadow:0 18px 46px rgba(17,17,17,.1);display:flex;gap:13px}
-.mq-photo{width:72px;flex:none;border-radius:9px;background:linear-gradient(135deg,#DCCDBB,#8A7862)}
-.mq h4{font-size:14.5px;font-weight:600;margin-bottom:6px}
-.mq p{font-size:12.5px;color:var(--grey);line-height:1.5}
-.mq .who{font-size:11px;color:var(--ink-2);margin-top:8px}
+.mq{position:absolute;right:24px;top:50%;transform:translateY(-50%);width:min(530px,58%);background:#fff;border:2px solid var(--orange);border-radius:12px;padding:20px;box-shadow:0 4px 24px rgba(41,37,30,.15);display:flex;gap:22px;align-items:stretch}
+.mq-text{flex:1;min-width:0}
+.mq-photo{width:234px;flex:none;min-height:235px;border-radius:14px;background:linear-gradient(135deg,#DCCDBB,#8A7862)}
+.mq h4{font-size:18px;line-height:22px;font-weight:500;margin-bottom:6px}
+.mq p{font-size:16px;line-height:24px;color:rgba(28,28,28,.7);padding-bottom:12px}
+.mq-tags{display:flex;flex-wrap:wrap;gap:4px}
+.mq-tags span{background:#F1F2F5;border-radius:4.125px;padding:4.125px 6.875px;font-size:8px;line-height:11px;font-weight:500;color:#0F1B2E}
+.mq-tags span+span{color:#4B5566}
 
 /* cta */
-.cta{padding:70px 0;color:#fff;position:relative;overflow:hidden;
-  background:linear-gradient(105deg,#8A1E05 0%,#C33C11 40%,#F0592B 100%)}
+.cta{padding:70px 0;color:#fff;position:relative;overflow:hidden;background:#180F0B;
+  box-shadow:inset 0 -18.07px 32.53px -16.27px #FF6A36}
+.cta::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(80% 120% at 85% 50%, #E83C00 0%, rgba(232,60,0,.6) 30%, rgba(232,60,0,.15) 60%, rgba(0,0,0,0) 80%)}
 .cta-in{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center;position:relative;z-index:2}
-.cta h2{color:#fff;max-width:15ch;margin-bottom:14px}
+.cta h2{color:#FAFAFA;max-width:16ch;margin-bottom:14px;font-size:clamp(28px,3vw,42px);line-height:1.19;font-weight:400}
 .cta>.wrap>div>p{color:rgba(255,255,255,.82);max-width:46ch}
 .cta .urlbar{margin:22px 0 12px;border-color:transparent}
 .trustline{font-size:12px;color:rgba(255,255,255,.72);max-width:none}
-.bars{display:flex;align-items:flex-end;gap:11px;height:190px;position:relative}
-.bars i{display:block;flex:1;background:rgba(255,255,255,.22);border-radius:6px 6px 0 0}
-.bars i:nth-child(1){height:28%}.bars i:nth-child(2){height:40%}.bars i:nth-child(3){height:36%}
-.bars i:nth-child(4){height:56%}.bars i:nth-child(5){height:68%}.bars i:nth-child(6){height:62%}
-.bars i:nth-child(7){height:84%}.bars i:nth-child(8){height:100%;background:#fff}
-.bars svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+/* Figma: three frosted columns 95.24 wide, r26.79 on top only */
+.bars{display:flex;align-items:flex-end;justify-content:flex-end;gap:32.74px;height:357px;position:relative}
+.bars i{display:block;width:95.24px;flex:none;border-radius:26.79px 26.79px 0 0;
+  background:linear-gradient(180deg, rgba(255,255,255,.14) 0%, rgba(255,255,255,.05) 40%, rgba(122,35,6,.25) 100%);
+  border:1.49px solid rgba(255,255,255,.2);border-bottom:0;
+  box-shadow:inset 0 1.49px 0 rgba(255,255,255,.28)}
+.bars i:nth-child(1){height:163.7px}
+.bars i:nth-child(2){height:252.99px}
+.bars i:nth-child(3){height:357.17px}
+.bars svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;opacity:.55}
 
 /* footer */
 footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;font-size:13px}
@@ -220,6 +244,7 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
 .f-bot{padding-top:20px;display:flex;justify-content:space-between;gap:20px;font-size:12px;color:rgba(255,255,255,.4)}
 
 @media(max-width:1040px){
+  .nav-links{display:none}
   .hero-grid,.leak-head,.leak-detail,.cases-head,.cs-in,.cta-in,.pair{grid-template-columns:1fr}
   .svc-wrap{grid-template-columns:1fr}
   .svc-nav{flex-direction:row;flex-wrap:wrap;position:static}
@@ -393,9 +418,9 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
 
   <div class="cs">
     <div class="cs-tabs" role="tablist">
-      <button class="cs-tab" role="tab" aria-selected="true" data-c="k1">GuruNanda</button>
-      <button class="cs-tab" role="tab" aria-selected="false" data-c="k2">Kama Ayurveda</button>
-      <button class="cs-tab" role="tab" aria-selected="false" data-c="k3">PUMA</button>
+      <button class="cs-tab" role="tab" aria-selected="true" data-c="k1"><span>GuruNanda</span></button>
+      <button class="cs-tab" role="tab" aria-selected="false" data-c="k2"><span>Kama Ayurveda</span></button>
+      <button class="cs-tab" role="tab" aria-selected="false" data-c="k3"><span>PUMA</span></button>
     </div>
 
     <div class="cs-in" id="k1">
@@ -481,8 +506,7 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
         <p>Run every marketplace as one P&amp;L. Amazon, Walmart, TikTok Shop and quick commerce on one team, with $2Bn+ in revenue managed across 20+ marketplaces.</p>
       </article>
 
-      <div class="pair">
-        <article class="svc-card" id="sv2">
+      <article class="svc-card half" id="sv2">
           <h3><em>&#9737;</em> GEO, AIO &amp; SEO</h3>
           <div class="bignum">4.2x</div><div class="subnum">Average increase in AI citations</div>
           <svg class="spark" viewBox="0 0 200 70" fill="none" preserveAspectRatio="none">
@@ -490,17 +514,16 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
             <path d="M0 64 L33 63 L66 62 L100 58 L133 57 L166 54 L200 52" stroke="#C9C7C2" stroke-width="2"/>
           </svg>
           <p>Get cited where buyers ask. Google, ChatGPT, Perplexity and AI Overviews, with a 145% average traffic increase.</p>
-        </article>
+      </article>
 
-        <article class="svc-card" id="sv3">
+      <article class="svc-card half" id="sv3">
           <h3><em>&#9634;</em> Website Development</h3>
           <div class="checkrow">150+ Shopify and Magento stores shipped</div>
           <div class="checkrow">20% average conversion lift</div>
           <div class="checkrow">99.95% uptime across managed builds</div>
           <div class="checkrow">9 levers and 600+ parameters audited</div>
           <p>Fix the funnel, not the theme. We audit the live site first, then build only what the numbers justify.</p>
-        </article>
-      </div>
+      </article>
 
       <article class="svc-card" id="sv4">
         <h3><em>&#9679;</em> B2B &amp; SaaS Search</h3>
@@ -525,13 +548,10 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
   <div class="market-panel">
     <svg id="worldmap" viewBox="0 0 640 230" aria-label="Markets we operate in"></svg>
     <div class="mq">
-      <div class="mq-photo"></div>
-      <div>
+      <div class="mq-text">
         <h4>Zero cut-over downtime</h4>
         <p>"Growisto's highly experienced technical team managed our website for three years. They helped us successfully re-platform our online store."</p>
-        <p class="who">Head of Digital · Home &amp; living brand</p>
-      </div>
-    </div>
+        <div class="mq-tags"><span>Head of Digital</span><span>Home &amp; living brand</span></div></div><div class="mq-photo"></div></div>
   </div>
 </div></section>
 
@@ -547,10 +567,10 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
     <p class="trustline">7 days delivery · Zero cost or commitment · 100% confidential</p>
   </div>
   <div class="bars">
-    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-    <svg viewBox="0 0 300 190" fill="none" preserveAspectRatio="none">
-      <path d="M12 150 L52 128 L92 134 L132 96 L172 72 L212 82 L252 36 L288 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
-      <path d="M276 4 h14 v14" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+    <i></i><i></i><i></i>
+    <svg viewBox="0 0 340 357" fill="none" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M18 300 L82 250 L146 262 L210 150 L274 74 L330 20" stroke="rgba(255,255,255,.55)" stroke-width="4.4" stroke-linecap="round"/>
+      <path d="M312 16 h20 v20" stroke="rgba(255,255,255,.55)" stroke-width="4.4" stroke-linecap="round"/>
     </svg>
   </div>
 </div></section>
