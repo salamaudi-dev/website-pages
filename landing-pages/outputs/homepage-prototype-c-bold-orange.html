@@ -88,14 +88,15 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 .price{display:flex;justify-content:space-between;align-items:baseline;margin-top:6px;font-size:15px;font-weight:600}
 .price s{font-size:11px;font-weight:400;opacity:.6}
 .chartcard{grid-column:1 / -1;border:1px solid var(--line);border-radius:12px;padding:16px}
-.chartcard .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
-.pf{list-style:none;margin:0;padding:0}
-.pf b{display:block;font-size:14.5px;line-height:19px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
-.pf span{display:block;font-size:11.5px;line-height:16px;color:var(--grey);margin-top:4px}
-.pf li{animation:pfin .5s ease both}
+.chartcard .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:4px}
+.chartcard b{font-size:13.5px;font-weight:600}
+.chartcard em{font-style:normal;font-size:11.5px;color:var(--orange);font-weight:600;flex:none}
+.chartcard p{font-size:11.5px;color:var(--grey);margin-bottom:10px}
+.chartcard svg{width:100%;height:88px;display:block}
+.chartcard.pf-swap .top,.chartcard.pf-swap .cc-cap{animation:pfin .45s ease both}
 @keyframes pfin{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.pf li{animation:none}}
-.pf-dots{display:flex;gap:6px;margin-top:15px}
+.pf-dots{display:flex;gap:6px;margin-top:12px}
 .pf-dot{width:6px;height:6px;padding:0;border:0;border-radius:99px;background:var(--grey-2);cursor:pointer;transition:width .3s cubic-bezier(.4,0,.2,1),background .3s}
 .pf-dot.on{width:18px;background:var(--orange)}
 @media(prefers-reduced-motion:reduce){.pf-dot{transition:none}}
@@ -326,11 +327,15 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
         <div class="art-body"><b>SS-2 Rollerball</b><p>Best seller rank #3 in category</p><div class="price">$1.58 <s>2 units left</s></div></div>
       </div>
       <div class="chartcard">
-        <ul class="pf">
-          <li><b>$1M &rarr; $5M</b><span>GuruNanda, revenue growth in the first two years on Amazon</span></li>
-          <li><b>1.7x revenue increase in 5 months, 32% increase in customer reviews</b><span>Puma</span></li>
-          <li><b>30% revenue growth in 90 days on TikTok</b><span>US pet accessories &amp; outdoor gear brand</span></li>
-        </ul>
+        <div class="top"><b></b><em></em></div>
+        <p class="cc-cap"></p>
+        <svg viewBox="0 0 320 88" fill="none" preserveAspectRatio="none">
+          <path d="M0 74 L53 68 L106 70 L160 52 L213 38 L266 26 L320 12" stroke="#F0592B" stroke-width="2.2"/>
+          <path d="M0 74 L53 68 L106 70 L160 52 L213 38 L266 26 L320 12 L320 88 L0 88Z" fill="#F0592B" opacity=".08"/>
+          <path d="M0 80 L53 78 L106 77 L160 72 L213 70 L266 66 L320 62" stroke="#C9C7C2" stroke-width="2"/>
+        </svg>
+      <div class="legend"><i>Marketplaces</i><i>Storefront</i></div>
+      </div>
       </div>
     </div>
   </div>
@@ -587,23 +592,36 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
 
 <script>
 // hero tabs swap headline + subhead
-// hero proof points: one at a time, next one after 7 seconds
+// hero proof points: the Figma card, one point at a time, 7s apart
+var PROOF={
+  m:[{n:'GuruNanda',c:'',s:'$1M \u2192 $5M',p:'Revenue growth in the first two years on Amazon',k:'gurunanda'},
+     {n:'Puma',c:'',s:'1.7x',p:'Revenue increase in 5 months, 32% increase in customer reviews',k:'puma'},
+     {n:'US pet accessories & outdoor gear brand',c:'',s:'30%',p:'Revenue growth in 90 days on TikTok',k:''}],
+  w:[{n:'Atomberg',c:'',s:'177%',p:'Conversion rate growth over an 8-year partnership',k:''},
+     {n:'Premium US hair care brand',c:'name withheld per agreement',s:'222%',p:'Gross sales growth in 4 months post-migration',k:''},
+     {n:'Tyrensmore',c:'',s:'53%',p:'Overall revenue increase, 120% growth in add-to-cart',k:''}],
+  g:[{n:'Avaana',c:'SEO + GEO',s:'13x',p:'ROI, compliance consulting',k:''},
+     {n:'Borosil',c:'SEO',s:'3.4x',p:'Organic revenue, D2C kitchenware',k:''}]
+};
+var PLINK={m:'Explore marketplaces',w:'See the build process',g:'See how we get cited'};
+
 var pfRotate=(function(){
-  var t=null,i=0;
-  function list(){return document.querySelector('.chartcard .pf')}
-  function dots(){
-    var ul=list(); if(!ul) return null;
-    var d=ul.nextElementSibling;
-    if(!d||d.className!=='pf-dots'){
-      d=document.createElement('div'); d.className='pf-dots';
-      ul.parentNode.insertBefore(d,ul.nextSibling);
-    }
+  var t=null,i=0,cur='m';
+  function card(){return document.querySelector('.chartcard')}
+  function dotsEl(c){
+    var d=c.querySelector('.pf-dots');
+    if(!d){d=document.createElement('div');d.className='pf-dots';c.appendChild(d)}
     return d;
   }
+  function render(c,d){
+    c.querySelector('.top b').textContent=d.p;
+    c.querySelector('.top em').textContent=d.s;
+    c.querySelector('.cc-cap').textContent=d.n+(d.c?' \u00b7 '+d.c:'');
+  }
   function build(){
-    var ul=list(), d=dots(); if(!ul||!d) return;
-    var n=ul.children.length;
-    if(n<2){ d.innerHTML=''; d.hidden=true; return; }
+    var c=card(); if(!c) return;
+    var d=dotsEl(c), n=PROOF[cur].length;
+    if(n<2){d.innerHTML='';d.hidden=true;return}
     d.hidden=false;
     if(d.children.length===n) return;
     d.innerHTML='';
@@ -611,43 +629,39 @@ var pfRotate=(function(){
       var b=document.createElement('button');
       b.type='button'; b.className='pf-dot';
       b.setAttribute('aria-label','Show proof point '+(x+1)+' of '+n);
-      b.addEventListener('click',(function(k){return function(){i=k;paint();arm()}})(x));
+      b.addEventListener('click',(function(k){return function(e){e.preventDefault();i=k;paint();arm()}})(x));
       d.appendChild(b);
     }
   }
   function paint(){
-    var ul=list(); if(!ul||!ul.children.length) return;
-    if(i>=ul.children.length) i=0;
-    for(var x=0;x<ul.children.length;x++) ul.children[x].hidden=(x!==i);
-    var d=dots();
-    if(d) for(var y=0;y<d.children.length;y++){
+    var c=card(), set=PROOF[cur]; if(!c||!set) return;
+    if(i>=set.length) i=0;
+    render(c,set[i]);
+    c.classList.remove('pf-swap'); void c.offsetWidth; c.classList.add('pf-swap');
+    var d=dotsEl(c);
+    for(var y=0;y<d.children.length;y++){
       d.children[y].className='pf-dot'+(y===i?' on':'');
       d.children[y].setAttribute('aria-current',y===i?'true':'false');
     }
   }
   function size(){
-    var ul=list(); if(!ul) return;
-    var max=0;
-    [].forEach.call(ul.children,function(li){
-      var was=li.hidden; li.hidden=false;
-      if(li.offsetHeight>max) max=li.offsetHeight;
-      li.hidden=was;
-    });
-    ul.style.minHeight=max?max+'px':'';
+    var c=card(), set=PROOF[cur]; if(!c) return;
+    c.style.minHeight=''; var max=0;
+    for(var x=0;x<set.length;x++){render(c,set[x]); if(c.offsetHeight>max) max=c.offsetHeight}
+    c.style.minHeight=max+'px';
   }
   function arm(){
     clearInterval(t);
-    var ul=list();
-    if(ul&&ul.children.length>1) t=setInterval(function(){i++;paint()},7000);
+    if(PROOF[cur].length>1) t=setInterval(function(){i++;paint()},7000);
   }
-  return function(){ i=0; build(); size(); paint(); arm(); };
+  return function(k){ if(k) cur=k; i=0; build(); size(); paint(); arm(); };
 })();
 
 (function(){
   var copy={
-    h1:['Marketplaces Growth That Shows Up In the P&L','Growisto combines your ads, organic, and affiliate marketing strategies to scale marketplace revenue profitably.',[['$1M → $5M','GuruNanda, revenue growth in the first two years on Amazon'],['1.7x revenue increase in 5 months, 32% increase in customer reviews','Puma'],['30% revenue growth in 90 days on TikTok','US pet accessories & outdoor gear brand']]],
-    h2:['Shopify and Magento Websites Built to Increase Sales','Growisto combines technical and category-level expertise with CRO to take websites from code to conversion.',[['177% conversion rate growth over an 8-year partnership','Atomberg'],['222% gross sales growth in 4 months post-migration','Premium US hair care brand (name withheld per agreement)'],['53% overall revenue increase, 120% growth in add-to-cart','Tyrensmore']]],
-    h3:['Be the Brand Buyers See First on Google and AI','Growisto combines GEO, SEO, and AI optimization to help your brand rank on Google and get recommended by leading AI platforms like ChatGPT, Perplexity, and Claude.',[['13x ROI','Avaana · SEO + GEO · Compliance consulting'],['3.4x organic revenue','Borosil · SEO · D2C kitchenware']]]
+    h1:['Marketplaces Growth That Shows Up In the P&L','Growisto combines your ads, organic, and affiliate marketing strategies to scale marketplace revenue profitably.'],
+    h2:['Shopify and Magento Websites Built to Increase Sales','Growisto combines technical and category-level expertise with CRO to take websites from code to conversion.'],
+    h3:['Be the Brand Buyers See First on Google and AI','Growisto combines GEO, SEO, and AI optimization to help your brand rank on Google and get recommended by leading AI platforms like ChatGPT, Perplexity, and Claude.']
   };
   document.querySelectorAll('.htab').forEach(function(t){
     t.addEventListener('click',function(){
@@ -656,11 +670,7 @@ var pfRotate=(function(){
       var c=copy[t.dataset.h];
       document.getElementById('h-title').textContent=c[0];
       document.getElementById('h-sub').textContent=c[1];
-      document.querySelector('.chartcard .pf').innerHTML=c[2].map(function(r){
-        var li=document.createElement('li'), b=document.createElement('b'), sp=document.createElement('span');
-        b.textContent=r[0]; sp.textContent=r[1]; li.appendChild(b); li.appendChild(sp); return li.outerHTML;
-      }).join('');
-      pfRotate();
+      pfRotate({h1:'m',h2:'w',h3:'g'}[t.dataset.h]);
     });
   });
 })();

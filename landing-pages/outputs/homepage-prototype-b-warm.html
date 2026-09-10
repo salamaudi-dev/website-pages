@@ -98,13 +98,11 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 .stat-card .lbl{font-family:var(--font-mono);font-size:10px;line-height:13px;letter-spacing:1.52px;text-transform:uppercase;color:var(--rust)}
 .stat-card b{display:block;font-family:var(--font-head);font-size:32px;line-height:39px;font-weight:580;letter-spacing:-.576px;color:var(--ink-2);margin:12px 0 0}
 .stat-card p{font-size:14px;line-height:16px;font-weight:500;color:var(--muted);margin:8px 0 14px}
-.pf{list-style:none;margin:0;padding:0}
-.pf b{display:block;font-family:var(--font-head);font-size:17px;line-height:23px;font-weight:580;letter-spacing:-.3px;color:var(--ink-2)}
-.pf span{display:block;font-family:var(--font-mono);font-size:11px;line-height:15px;letter-spacing:.04em;color:var(--rust);margin-top:5px}
-.pf li{animation:pfin .5s ease both}
 @keyframes pfin{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.pf li{animation:none}}
-.pf-dots{display:flex;gap:6px;margin-top:15px}
+.stat-card.pf-swap .lbl,.stat-card.pf-swap b,.stat-card.pf-swap p{animation:pfin .45s ease both}
+.stat-card b.sm{font-size:24px;line-height:31px;letter-spacing:-.4px}
+.pf-dots{display:flex;gap:6px;margin-top:14px}
 .pf-dot{width:6px;height:6px;padding:0;border:0;border-radius:99px;background:rgba(41,37,30,.24);cursor:pointer;transition:width .3s cubic-bezier(.4,0,.2,1),background .3s}
 .pf-dot.on{width:18px;background:var(--rust)}
 @media(prefers-reduced-motion:reduce){.pf-dot{transition:none}}
@@ -293,11 +291,10 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
         <div class="rail-body" data-k="s" hidden>
           
           <div class="stat-card">
-            <ul class="pf">
-              <li><b>177% conversion rate growth over an 8-year partnership</b><span>Atomberg</span></li>
-              <li><b>222% gross sales growth in 4 months post-migration</b><span>Premium US hair care brand (name withheld per agreement)</span></li>
-              <li><b>53% overall revenue increase, 120% growth in add-to-cart</b><span>Tyrensmore</span></li>
-            </ul>
+            <span class="lbl"></span>
+            <b></b>
+            <p></p>
+            <a href="#services"></a>
           </div>
         </div>
       </div>
@@ -307,11 +304,10 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
         <div class="rail-body" data-k="m">
           
           <div class="stat-card">
-            <ul class="pf">
-              <li><b>$1M &rarr; $5M</b><span>GuruNanda, revenue growth in the first two years on Amazon</span></li>
-              <li><b>1.7x revenue increase in 5 months, 32% increase in customer reviews</b><span>Puma</span></li>
-              <li><b>30% revenue growth in 90 days on TikTok</b><span>US pet accessories &amp; outdoor gear brand</span></li>
-            </ul>
+            <span class="lbl"></span>
+            <b></b>
+            <p></p>
+            <a href="#services"></a>
           </div>
         </div>
       </div>
@@ -321,10 +317,10 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
         <div class="rail-body" data-k="g" hidden>
           
           <div class="stat-card">
-            <ul class="pf">
-              <li><b>13x ROI</b><span>Avaana &middot; SEO + GEO &middot; Compliance consulting</span></li>
-              <li><b>3.4x organic revenue</b><span>Borosil &middot; SEO &middot; D2C kitchenware</span></li>
-            </ul>
+            <span class="lbl"></span>
+            <b></b>
+            <p></p>
+            <a href="#services"></a>
           </div>
         </div>
       </div>
@@ -554,23 +550,38 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
 
 <script>
 // hero rail accordion
-// hero proof points: one at a time, next one after 7 seconds
+// hero proof points: the Figma card, one point at a time, 7s apart
+var PROOF={
+  m:[{n:'GuruNanda',c:'',s:'$1M \u2192 $5M',p:'Revenue growth in the first two years on Amazon',k:'gurunanda'},
+     {n:'Puma',c:'',s:'1.7x',p:'Revenue increase in 5 months, 32% increase in customer reviews',k:'puma'},
+     {n:'US pet accessories & outdoor gear brand',c:'',s:'30%',p:'Revenue growth in 90 days on TikTok',k:''}],
+  w:[{n:'Atomberg',c:'',s:'177%',p:'Conversion rate growth over an 8-year partnership',k:''},
+     {n:'Premium US hair care brand',c:'name withheld per agreement',s:'222%',p:'Gross sales growth in 4 months post-migration',k:''},
+     {n:'Tyrensmore',c:'',s:'53%',p:'Overall revenue increase, 120% growth in add-to-cart',k:''}],
+  g:[{n:'Avaana',c:'SEO + GEO',s:'13x',p:'ROI, compliance consulting',k:''},
+     {n:'Borosil',c:'SEO',s:'3.4x',p:'Organic revenue, D2C kitchenware',k:''}]
+};
+var PLINK={m:'Explore marketplaces',w:'See the build process',g:'See how we get cited'};
+
 var pfRotate=(function(){
-  var t=null,i=0;
-  function list(){return document.querySelector('.rail-item[aria-expanded="true"] .pf')}
-  function dots(){
-    var ul=list(); if(!ul) return null;
-    var d=ul.nextElementSibling;
-    if(!d||d.className!=='pf-dots'){
-      d=document.createElement('div'); d.className='pf-dots';
-      ul.parentNode.insertBefore(d,ul.nextSibling);
-    }
+  var t=null,i=0,cur='m';
+  function card(){return document.querySelector('.rail-item[aria-expanded="true"] .stat-card')}
+  function dotsEl(c){
+    var d=c.querySelector('.pf-dots');
+    if(!d){d=document.createElement('div');d.className='pf-dots';c.appendChild(d)}
     return d;
   }
+  function render(c,d){
+    c.querySelector('.lbl').textContent=d.n+(d.c?' \u00b7 '+d.c:'');
+    var st=c.querySelector('b');
+    st.textContent=d.s; st.className=(d.s.length>5?'sm':'');
+    c.querySelector('p').textContent=d.p;
+    c.querySelector('a').textContent=PLINK[cur];
+  }
   function build(){
-    var ul=list(), d=dots(); if(!ul||!d) return;
-    var n=ul.children.length;
-    if(n<2){ d.innerHTML=''; d.hidden=true; return; }
+    var c=card(); if(!c) return;
+    var d=dotsEl(c), n=PROOF[cur].length;
+    if(n<2){d.innerHTML='';d.hidden=true;return}
     d.hidden=false;
     if(d.children.length===n) return;
     d.innerHTML='';
@@ -578,36 +589,32 @@ var pfRotate=(function(){
       var b=document.createElement('button');
       b.type='button'; b.className='pf-dot';
       b.setAttribute('aria-label','Show proof point '+(x+1)+' of '+n);
-      b.addEventListener('click',(function(k){return function(){i=k;paint();arm()}})(x));
+      b.addEventListener('click',(function(k){return function(e){e.preventDefault();i=k;paint();arm()}})(x));
       d.appendChild(b);
     }
   }
   function paint(){
-    var ul=list(); if(!ul||!ul.children.length) return;
-    if(i>=ul.children.length) i=0;
-    for(var x=0;x<ul.children.length;x++) ul.children[x].hidden=(x!==i);
-    var d=dots();
-    if(d) for(var y=0;y<d.children.length;y++){
+    var c=card(), set=PROOF[cur]; if(!c||!set) return;
+    if(i>=set.length) i=0;
+    render(c,set[i]);
+    c.classList.remove('pf-swap'); void c.offsetWidth; c.classList.add('pf-swap');
+    var d=dotsEl(c);
+    for(var y=0;y<d.children.length;y++){
       d.children[y].className='pf-dot'+(y===i?' on':'');
       d.children[y].setAttribute('aria-current',y===i?'true':'false');
     }
   }
   function size(){
-    var ul=list(); if(!ul) return;
-    var max=0;
-    [].forEach.call(ul.children,function(li){
-      var was=li.hidden; li.hidden=false;
-      if(li.offsetHeight>max) max=li.offsetHeight;
-      li.hidden=was;
-    });
-    ul.style.minHeight=max?max+'px':'';
+    var c=card(), set=PROOF[cur]; if(!c) return;
+    c.style.minHeight=''; var max=0;
+    for(var x=0;x<set.length;x++){render(c,set[x]); if(c.offsetHeight>max) max=c.offsetHeight}
+    c.style.minHeight=max+'px';
   }
   function arm(){
     clearInterval(t);
-    var ul=list();
-    if(ul&&ul.children.length>1) t=setInterval(function(){i++;paint()},7000);
+    if(PROOF[cur].length>1) t=setInterval(function(){i++;paint()},7000);
   }
-  return function(){ i=0; build(); size(); paint(); arm(); };
+  return function(k){ if(k) cur=k; i=0; build(); size(); paint(); arm(); };
 })();
 
 (function(){
@@ -630,7 +637,7 @@ document.querySelectorAll('.rail-item').forEach(function(item){
     document.getElementById('h-t1').textContent=c[0];
     document.getElementById('h-t2').textContent=c[1];
     document.getElementById('h-sub').textContent=c[2];
-    pfRotate();
+    pfRotate(item.querySelector('.rail-tab').dataset.k==='s'?'w':item.querySelector('.rail-tab').dataset.k);
   });
 });
 })();

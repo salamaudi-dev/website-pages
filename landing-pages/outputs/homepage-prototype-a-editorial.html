@@ -96,13 +96,11 @@ h1{font-size:clamp(34px,5.4vw,72px);font-weight:420;line-height:1.1;letter-spaci
 .fc-stat{font-family:var(--font-body);font-size:52.67px;line-height:1;font-weight:700;letter-spacing:-2.107px;color:#28241E;margin:12px 0 0}
 .fc-stat em{font-style:normal;font-size:32px;letter-spacing:-1.2px}
 .float-card p{font-size:15.46px;line-height:22px;color:#444;margin:13.71px 0 20.57px}
-.pf{list-style:none;margin:0;padding:0}
-.pf b{display:block;font-family:var(--font-body);font-size:15px;line-height:20px;font-weight:700;letter-spacing:-.2px;color:#28241E}
-.pf span{display:block;font-size:12.5px;line-height:17px;color:#6B675F;margin-top:4px}
-.pf li{animation:pfin .5s ease both}
 @keyframes pfin{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.pf li{animation:none}}
-.pf-dots{display:flex;gap:6px;margin-top:15px}
+.float-card.pf-swap .fc-brand,.float-card.pf-swap .fc-stat,.float-card.pf-swap .fc-cap{animation:pfin .45s ease both}
+.fc-stat.sm{font-size:30px;letter-spacing:-1.1px}
+.pf-dots{display:flex;gap:6px;margin-top:18px}
 .pf-dot{width:6px;height:6px;padding:0;border:0;border-radius:99px;background:rgba(41,37,30,.18);cursor:pointer;transition:width .3s cubic-bezier(.4,0,.2,1),background .3s}
 .pf-dot.on{width:18px;background:#71AD00}
 @media(prefers-reduced-motion:reduce){.pf-dot{transition:none}}
@@ -334,32 +332,30 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
       </div>
       <div class="panel on" id="p1"><div class="canvas c1"><span class="cutout"></span>
         <div class="float-card">
-          <ul class="pf">
-            <li><b>$1M &rarr; $5M</b><span>GuruNanda, revenue growth in the first two years on Amazon</span></li>
-            <li><b>1.7x revenue increase in 5 months, 32% increase in customer reviews</b><span>Puma</span></li>
-            <li><b>30% revenue growth in 90 days on TikTok</b><span>US pet accessories &amp; outdoor gear brand</span></li>
-          </ul>
+          <div class="fc-brand"><i></i><div><b></b> <em></em></div></div>
+          <div class="fc-stat"></div>
+          <p class="fc-cap"></p>
+          <a class="fc-link" href="#services"><span class="fc-linktext"></span> <span class="arw">&nearr;</span></a>
         </div>
         <div class="ask"><span>Ask anything about your account</span><b class="send">&uarr;</b></div>
         <span class="canvas-note">Image placeholder</span>
       </div></div>
       <div class="panel" id="p2"><div class="canvas c2"><span class="cutout"></span>
         <div class="float-card">
-          <ul class="pf">
-            <li><b>177% conversion rate growth over an 8-year partnership</b><span>Atomberg</span></li>
-            <li><b>222% gross sales growth in 4 months post-migration</b><span>Premium US hair care brand (name withheld per agreement)</span></li>
-            <li><b>53% overall revenue increase, 120% growth in add-to-cart</b><span>Tyrensmore</span></li>
-          </ul>
+          <div class="fc-brand"><i></i><div><b></b> <em></em></div></div>
+          <div class="fc-stat"></div>
+          <p class="fc-cap"></p>
+          <a class="fc-link" href="#services"><span class="fc-linktext"></span> <span class="arw">&nearr;</span></a>
         </div>
         <div class="ask"><span>Where is my checkout leaking?</span><b class="send">&uarr;</b></div>
         <span class="canvas-note">Image placeholder</span>
       </div></div>
       <div class="panel" id="p3"><div class="canvas c3"><span class="cutout"></span>
         <div class="float-card">
-          <ul class="pf">
-            <li><b>13x ROI</b><span>Avaana &middot; SEO + GEO &middot; Compliance consulting</span></li>
-            <li><b>3.4x organic revenue</b><span>Borosil &middot; SEO &middot; D2C kitchenware</span></li>
-          </ul>
+          <div class="fc-brand"><i></i><div><b></b> <em></em></div></div>
+          <div class="fc-stat"></div>
+          <p class="fc-cap"></p>
+          <a class="fc-link" href="#services"><span class="fc-linktext"></span> <span class="arw">&nearr;</span></a>
         </div>
         <div class="ask"><span>Who does ChatGPT recommend?</span><b class="send">&uarr;</b></div>
         <span class="canvas-note">Image placeholder</span>
@@ -608,23 +604,44 @@ var nav=document.getElementById('nav');
 addEventListener('scroll',function(){nav.classList.toggle('stuck',scrollY>8)});
 
 // hero tabs
-// hero proof points: one at a time, next one after 7 seconds
+// hero proof points: the Figma card, one point at a time, 7s apart
+var PROOF={
+  m:[{n:'GuruNanda',c:'',s:'$1M \u2192 $5M',p:'Revenue growth in the first two years on Amazon',k:'gurunanda'},
+     {n:'Puma',c:'',s:'1.7x',p:'Revenue increase in 5 months, 32% increase in customer reviews',k:'puma'},
+     {n:'US pet accessories & outdoor gear brand',c:'',s:'30%',p:'Revenue growth in 90 days on TikTok',k:''}],
+  w:[{n:'Atomberg',c:'',s:'177%',p:'Conversion rate growth over an 8-year partnership',k:''},
+     {n:'Premium US hair care brand',c:'name withheld per agreement',s:'222%',p:'Gross sales growth in 4 months post-migration',k:''},
+     {n:'Tyrensmore',c:'',s:'53%',p:'Overall revenue increase, 120% growth in add-to-cart',k:''}],
+  g:[{n:'Avaana',c:'SEO + GEO',s:'13x',p:'ROI, compliance consulting',k:''},
+     {n:'Borosil',c:'SEO',s:'3.4x',p:'Organic revenue, D2C kitchenware',k:''}]
+};
+var PLINK={m:'Explore marketplaces',w:'See the build process',g:'See how we get cited'};
+
 var pfRotate=(function(){
-  var t=null,i=0;
-  function list(){return document.querySelector('.panel.on .pf')}
-  function dots(){
-    var ul=list(); if(!ul) return null;
-    var d=ul.nextElementSibling;
-    if(!d||d.className!=='pf-dots'){
-      d=document.createElement('div'); d.className='pf-dots';
-      ul.parentNode.insertBefore(d,ul.nextSibling);
-    }
+  var t=null,i=0,cur='m';
+  function card(){return document.querySelector('.panel.on .float-card')}
+  function dotsEl(c){
+    var d=c.querySelector('.pf-dots');
+    if(!d){d=document.createElement('div');d.className='pf-dots';c.appendChild(d)}
     return d;
   }
+  var CHIP={
+    gurunanda:"#512C1D url('figma-assets/assets/chip-gurunanda.png') center/76% no-repeat",
+    puma:"#000000 url('figma-assets/assets/chip-puma.png') center/76% no-repeat",
+    '':"#ECE5D9 url('figma-assets/assets/mark-g.png') center/58% no-repeat"};
+  function render(c,d){
+    c.querySelector('.fc-brand i').style.background=CHIP[d.k]||CHIP[''];
+    c.querySelector('.fc-brand b').textContent=d.n;
+    c.querySelector('.fc-brand em').textContent=d.c;
+    var st=c.querySelector('.fc-stat');
+    st.textContent=d.s; st.className='fc-stat'+(d.s.length>5?' sm':'');
+    c.querySelector('.fc-cap').textContent=d.p;
+    c.querySelector('.fc-linktext').textContent=PLINK[cur];
+  }
   function build(){
-    var ul=list(), d=dots(); if(!ul||!d) return;
-    var n=ul.children.length;
-    if(n<2){ d.innerHTML=''; d.hidden=true; return; }
+    var c=card(); if(!c) return;
+    var d=dotsEl(c), n=PROOF[cur].length;
+    if(n<2){d.innerHTML='';d.hidden=true;return}
     d.hidden=false;
     if(d.children.length===n) return;
     d.innerHTML='';
@@ -632,36 +649,32 @@ var pfRotate=(function(){
       var b=document.createElement('button');
       b.type='button'; b.className='pf-dot';
       b.setAttribute('aria-label','Show proof point '+(x+1)+' of '+n);
-      b.addEventListener('click',(function(k){return function(){i=k;paint();arm()}})(x));
+      b.addEventListener('click',(function(k){return function(e){e.preventDefault();i=k;paint();arm()}})(x));
       d.appendChild(b);
     }
   }
   function paint(){
-    var ul=list(); if(!ul||!ul.children.length) return;
-    if(i>=ul.children.length) i=0;
-    for(var x=0;x<ul.children.length;x++) ul.children[x].hidden=(x!==i);
-    var d=dots();
-    if(d) for(var y=0;y<d.children.length;y++){
+    var c=card(), set=PROOF[cur]; if(!c||!set) return;
+    if(i>=set.length) i=0;
+    render(c,set[i]);
+    c.classList.remove('pf-swap'); void c.offsetWidth; c.classList.add('pf-swap');
+    var d=dotsEl(c);
+    for(var y=0;y<d.children.length;y++){
       d.children[y].className='pf-dot'+(y===i?' on':'');
       d.children[y].setAttribute('aria-current',y===i?'true':'false');
     }
   }
   function size(){
-    var ul=list(); if(!ul) return;
-    var max=0;
-    [].forEach.call(ul.children,function(li){
-      var was=li.hidden; li.hidden=false;
-      if(li.offsetHeight>max) max=li.offsetHeight;
-      li.hidden=was;
-    });
-    ul.style.minHeight=max?max+'px':'';
+    var c=card(), set=PROOF[cur]; if(!c) return;
+    c.style.minHeight=''; var max=0;
+    for(var x=0;x<set.length;x++){render(c,set[x]); if(c.offsetHeight>max) max=c.offsetHeight}
+    c.style.minHeight=max+'px';
   }
   function arm(){
     clearInterval(t);
-    var ul=list();
-    if(ul&&ul.children.length>1) t=setInterval(function(){i++;paint()},7000);
+    if(PROOF[cur].length>1) t=setInterval(function(){i++;paint()},7000);
   }
-  return function(){ i=0; build(); size(); paint(); arm(); };
+  return function(k){ if(k) cur=k; i=0; build(); size(); paint(); arm(); };
 })();
 
 (function(){
@@ -679,7 +692,7 @@ var pfRotate=(function(){
       var c=copy[t.dataset.p];
       document.getElementById('h-title').textContent=c[0];
       document.getElementById('h-sub').textContent=c[1];
-      pfRotate();
+      pfRotate({p1:'m',p2:'w',p3:'g'}[t.dataset.p]);
     });
   });
 })();
