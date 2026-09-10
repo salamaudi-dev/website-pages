@@ -87,14 +87,10 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 .rail-tab:hover{background:var(--cream-2)}
 /* Figma: the selected tab becomes the head of a bordered group holding its card */
 .rail-item{display:flex;flex-direction:column;align-items:center;border:1px solid transparent;border-radius:20px;transition:.18s}
-.rail-item[aria-expanded="true"]{border-color:rgba(255,255,255,.7);box-shadow:inset 0 0 3.3px rgba(255,255,255,.5);padding-bottom:12px;gap:12px}
+.rail-item[aria-expanded="true"]{border-color:rgba(255,255,255,.7);box-shadow:inset 0 0 3.3px rgba(255,255,255,.5);padding-bottom:12px;gap:0}
 .rail-item .rail-tab{width:100%}
 .rail-item[aria-expanded="true"] .rail-tab{background:var(--rust);color:#fff;border:0;border-radius:20px 20px 0 0;min-height:48px;padding:11px 20px;backdrop-filter:blur(7.5px)}
-.rail-body{position:relative;width:calc(100% - 22px);border-radius:16px;min-height:265px;overflow:hidden;
-  background:linear-gradient(150deg,#C7A98A,#8E7050 55%,#5A4632)}
-.rail-body[data-k="s"]{background:linear-gradient(150deg,#AFC0C7,#6F8894 55%,#3F5058)}
-.rail-body[data-k="g"]{background:linear-gradient(150deg,#C9C3A6,#8E8A6B 55%,#55523E)}
-.rail-note{position:absolute;left:16px;top:14px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.rail-body{position:relative;width:calc(100% - 22px);min-height:415px}
 /* Figma: Sidebar 353x150 rgba(255,255,255,.3) blur 18 r16 */
 .stat-card{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(18px);border-radius:16px;padding:18px 20px 16px}
 .stat-card .lbl{font-family:var(--font-mono);font-size:10px;line-height:13px;letter-spacing:1.52px;text-transform:uppercase;color:var(--rust)}
@@ -275,7 +271,6 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
       <div class="rail-item" aria-expanded="false">
         <button class="rail-tab" aria-selected="false" data-k="s">Storefront</button>
         <div class="rail-body" data-k="s" hidden>
-          <span class="rail-note">Image placeholder</span>
           <div class="stat-card">
             <span class="lbl">150+ builds</span>
             <b>+20%</b>
@@ -288,7 +283,6 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
       <div class="rail-item" aria-expanded="true">
         <button class="rail-tab" aria-selected="true" data-k="m">Marketplace</button>
         <div class="rail-body" data-k="m">
-          <span class="rail-note">Image placeholder</span>
           <div class="stat-card">
             <span class="lbl">GuruNanda</span>
             <b>$1M &rarr; $5M</b>
@@ -301,7 +295,6 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
       <div class="rail-item" aria-expanded="false">
         <button class="rail-tab" aria-selected="false" data-k="g">GEO, AEO &amp; SEO</button>
         <div class="rail-body" data-k="g" hidden>
-          <span class="rail-note">Image placeholder</span>
           <div class="stat-card">
             <span class="lbl">AI visibility</span>
             <b>4.2x</b>
