@@ -133,7 +133,8 @@ h2{font-size:clamp(30px,4.2vw,56px);font-weight:420;letter-spacing:0;line-height
 .leak h2 span{color:var(--ink)}
 .leak-lede{max-width:520px;margin:16px auto 0;color:var(--ink);font-size:18px;line-height:26px}
 .qcards{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:0;text-align:left}
-.qcard{background:var(--card);border:0;border-radius:10px;padding:18px 21px 15px;display:flex;flex-direction:column;min-height:371px}
+.qcard{background:var(--card);border:0;border-radius:10px;padding:18px 21px 22px;display:flex;flex-direction:column;min-height:371px}
+.qcard .ocl{margin-top:20px}
 .qhead{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:16px;line-height:19.2px;font-weight:500;letter-spacing:-.31px;text-transform:uppercase;color:var(--ink);margin-bottom:0}
 .qhead .ic{width:32px;height:32px;flex:none;border:1px solid #0D0E14;background:rgba(13,14,20,.05);border-radius:50%;display:grid;place-items:center;font-size:13px;color:var(--ink)}
 .qcard h3{font-family:var(--font-head);font-size:20px;font-weight:550;letter-spacing:0;line-height:26px;margin:32px 0 22px}
@@ -379,6 +380,12 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
 .ns-q .ns-q-who b{display:block;font-size:14px;font-weight:650;color:var(--ink)}
 .ns-q .ns-q-who span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
 @media(max-width:900px){.ns-geo-panel{grid-template-columns:1fr}}
+
+.ocl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.ocl li{padding:14px 0;border-top:1px solid var(--line)}
+.ocl li:first-child{border-top:0;padding-top:4px}
+.ocl b{display:block;font-family:var(--font-body);font-size:14.5px;font-weight:650;line-height:1.35;color:var(--ink);margin-bottom:4px;letter-spacing:0;text-transform:none}
+.ocl span{display:block;font-family:var(--font-body);font-size:13.5px;line-height:1.5;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -489,23 +496,35 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
     <span class="mp"><i style="background:#E0B84B"></i>Rank</span>
     <span class="mp"><i style="background:#5FAFA0"></i>Citations</span>
   </div>
-  <h2>Your growth isn't stuck.<br><span>It's leaking.</span></h2>
-  <p class="leak-lede">Three questions we get asked on almost every first call, and the honest answer to each.</p>
+  <h2>The Outcomes We Deliver</h2>
+  <p class="leak-lede">The specific capabilities that drive profitable growth for your business</p>
   <div class="qcards">
     <article class="qcard">
       <div class="qhead">Marketplaces <span class="ic">&#8599;</span></div>
-      <h3>Why does ACoS keep improving while our rank goes nowhere?</h3>
-      <div class="answer a1"><span>Cutting bids also cuts the sales velocity that builds organic position. We run ads and rank as one plan, measured on TACoS rather than on ad efficiency alone.</span></div>
+      <ul class="ocl">
+        <li><b>Full-funnel management for profitable growth</b><span>We run your ads, AMC+DSP, organic, affiliate, and operations together.</span></li>
+        <li><b>Growth across every marketplace</b><span>We expand you from Amazon into TikTok, Walmart, and more.</span></li>
+        <li><b>Profit-focused strategy</b><span>We track TACOS, not just ACOS.</span></li>
+        <li><b>Expand market share</b><span>We map your next geography or product launch, and plan through sale seasons.</span></li>
+      </ul>
     </article>
     <article class="qcard">
       <div class="qhead">Website &amp; CRO <span class="ic">&#8599;</span></div>
-      <h3>Traffic is fine. So why has conversion stopped moving?</h3>
-      <div class="answer a2"><span>Shopify limits checkout tests and every change waits on a developer. We remove that limit, audit 9 levers and 600+ parameters, then test monthly.</span></div>
+      <ul class="ocl">
+        <li><b>Conversion-first builds</b><span>Every choice on platform, theme, feature, and test is suggested to convert more.</span></li>
+        <li><b>A 600+ parameter CRO audit</b><span>We find every conversion gap and turn it into a clear growth roadmap.</span></li>
+        <li><b>CTO/CPO-level tech planning</b><span>We plan your stack two years ahead, with senior tech expertise.</span></li>
+        <li><b>Zero-loss migrations</b><span>We migrate or rebuild your platform with zero data loss and zero downtime, with SEO preserved.</span></li>
+      </ul>
     </article>
     <article class="qcard">
-      <div class="qhead">Search &amp; AI visibility <span class="ic">&#8599;</span></div>
-      <h3>We still rank on Google. So why is nobody citing us?</h3>
-      <div class="answer a3"><span>Keyword density does not equal citation. We structure content for answer extraction, generate entity schema across templates, and track mentions daily.</span></div>
+      <div class="qhead">GEO, AIO &amp; SEO <span class="ic">&#8599;</span></div>
+      <ul class="ocl">
+        <li><b>Organic revenue</b><span>We connect SEO and GEO with tech.</span></li>
+        <li><b>B2B lead gen</b><span>We optimize your strategy to deliver lead generation through organic channels.</span></li>
+        <li><b>AI visibility</b><span>Our 7-pillar framework spans SEO, GEO, AIO, and RAG to get you seen on ChatGPT, Claude, Perplexity, and other AI.</span></li>
+        <li><b>AI citations</b><span>We measure your LLM citations and AI share of voice, and build to improve citations.</span></li>
+      </ul>
     </article>
   </div>
   <svg class="converge" viewBox="0 0 1200 120" fill="none" preserveAspectRatio="none" aria-hidden="true">
@@ -588,40 +607,6 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
       </div>
       <div class="cs-foot"><span>Sportswear · Marketplaces across 3 regions</span><a class="cs-link" href="#">All casestudies &nearr;</a></div>
     </div>
-  </div>
-</div></section>
-
-<!-- WHY BRANDS CHOOSE -->
-<section class="ns ns-why"><div class="wrap">
-  <div class="ns-head"><h2>Why Brands Choose Growisto</h2><p>The specific capabilities that drive profitable growth for your business</p></div>
-  <div class="ns-why-grid">
-    <article class="ns-col">
-      <h3>Marketplaces</h3>
-      <ul>
-        <li><b>Full-funnel management for profitable growth</b><span>We run your ads, AMC+DSP, organic, affiliate, and operations together.</span></li>
-        <li><b>Growth across every marketplace</b><span>We expand you from Amazon into TikTok, Walmart, and more.</span></li>
-        <li><b>Profit-focused strategy</b><span>We track TACOS, not just ACOS.</span></li>
-        <li><b>Expand market share</b><span>We map your next geography or product launch, and plan through sale seasons.</span></li>
-      </ul>
-    </article>
-    <article class="ns-col">
-      <h3>GEO + SEO</h3>
-      <ul>
-        <li><b>Organic revenue</b><span>We connect SEO and GEO with tech.</span></li>
-        <li><b>B2B lead gen</b><span>We optimize your strategy to deliver lead generation through organic channels.</span></li>
-        <li><b>AI visibility</b><span>Our 7-pillar framework spans SEO, GEO, AIO, and RAG to get you seen on ChatGPT, Claude, Perplexity, and other AI.</span></li>
-        <li><b>AI citations</b><span>We measure your LLM citations and AI share of voice, and build to improve citations.</span></li>
-      </ul>
-    </article>
-    <article class="ns-col">
-      <h3>Tech + CRO</h3>
-      <ul>
-        <li><b>Conversion-first builds</b><span>Every choice on platform, theme, feature, and test is suggested to convert more.</span></li>
-        <li><b>A 600+ parameter CRO audit</b><span>We find every conversion gap and turn it into a clear growth roadmap.</span></li>
-        <li><b>CTO/CPO-level tech planning</b><span>We plan your stack two years ahead, with senior tech expertise.</span></li>
-        <li><b>Zero-loss migrations</b><span>We migrate or rebuild your platform with zero data loss and zero downtime, with SEO preserved.</span></li>
-      </ul>
-    </article>
   </div>
 </div></section>
 

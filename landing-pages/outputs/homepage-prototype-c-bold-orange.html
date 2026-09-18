@@ -134,11 +134,11 @@ h2{font-size:clamp(28px,3.9vw,56px);line-height:1.107;font-weight:400}
 .lcard[aria-selected="true"]{background:#E8622C;color:#fff}
 .lcard b{display:block;order:2;font-family:var(--font-ui);font-size:20px;line-height:24.2px;font-weight:600;margin:0}
 .lcard svg{width:100%;height:160px;display:block;order:1;margin:auto}
-.leak-detail{border:0;border-radius:12px;margin-top:24px;padding:32px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;background:#F9F9F4}
+.leak-detail{border:0;border-radius:12px;margin-top:24px;padding:20px 32px;display:grid;grid-template-columns:1fr 1fr;gap:0 48px;background:#F9F9F4}
 .leak-detail h3{font-size:20px;font-weight:600;margin-bottom:10px;max-width:22ch}
 .leak-detail p{font-size:14px;color:var(--grey);max-width:46ch}
 .benefit{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
-.benefit:last-child{border-bottom:0}
+.benefit:nth-last-child(-n+2){border-bottom:0}
 .benefit .bi{width:34px;height:34px;border-radius:9px;background:var(--orange-lt);display:grid;place-items:center;flex:none}
 .benefit b{display:block;font-size:14px;font-weight:600;margin-bottom:3px}
 .benefit p{font-size:12.5px;color:var(--grey)}
@@ -463,9 +463,9 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
 <!-- LEAK -->
 <section class="leak"><div class="wrap">
   <div class="leak-head">
-    <p class="leak-eyebrow">Three questions</p>
-    <h2>Your growth isn't stuck.<span>It's leaking.</span></h2>
-    <p>Three questions we get asked on almost every first call, and the honest answer to each.</p>
+    <p class="leak-eyebrow">What you get</p>
+    <h2>The Outcomes We Deliver</h2>
+    <p>The specific capabilities that drive profitable growth for your business</p>
   </div>
 
   <div class="leak-cards" role="tablist">
@@ -485,7 +485,7 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
       </svg>
     </button>
     <button class="lcard" role="tab" aria-selected="false" data-l="l3">
-      <b>Search &amp; AI visibility</b>
+      <b>GEO, AIO &amp; SEO</b>
       <svg viewBox="0 0 200 98" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <path d="M18 78l30-30 22 18 26-38 30 24 34-40"/><circle cx="48" cy="48" r="4"/><circle cx="96" cy="28" r="4"/>
         <path d="M18 88h164"/>
@@ -494,37 +494,25 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
   </div>
 
   <div class="leak-detail" id="l1">
-    <div>
-      <h3>Why does ACoS keep improving while our rank goes nowhere?</h3>
-      <p>Cutting bids also cuts the sales velocity that builds organic position. We run ads and rank as one plan, measured on TACoS rather than on ad efficiency alone.</p>
-    </div>
-    <div>
-      <div class="benefit"><span class="bi">&#128176;</span><div><b>Cut wasted ad spend</b><p>Search-term harvesting and negative keyword hygiene run weekly, not quarterly.</p></div></div>
-      <div class="benefit"><span class="bi">&#128200;</span><div><b>Sustainable marketplace growth</b><p>Rank and ads planned together, so organic position holds when spend comes down.</p></div></div>
-    </div>
+    <div class="benefit"><span class="bi">&#128176;</span><div><b>Full-funnel management for profitable growth</b><p>We run your ads, AMC+DSP, organic, affiliate, and operations together.</p></div></div>
+    <div class="benefit"><span class="bi">&#128722;</span><div><b>Growth across every marketplace</b><p>We expand you from Amazon into TikTok, Walmart, and more.</p></div></div>
+    <div class="benefit"><span class="bi">&#128200;</span><div><b>Profit-focused strategy</b><p>We track TACOS, not just ACOS.</p></div></div>
+    <div class="benefit"><span class="bi">&#127758;</span><div><b>Expand market share</b><p>We map your next geography or product launch, and plan through sale seasons.</p></div></div>
   </div>
 
   <div class="leak-detail" id="l2" hidden>
-    <div>
-      <h3>Traffic is fine. So why has conversion stopped moving?</h3>
-      <p>Shopify limits checkout tests and every change waits on a developer. We remove that limit, audit 9 levers and 600+ parameters, then test monthly.</p>
-    </div>
-    <div>
-      <div class="benefit"><span class="bi">&#128736;</span><div><b>Tests ship without a dev queue</b><p>Checkout and PDP experiments run on a fixed monthly cadence.</p></div></div>
-      <div class="benefit"><span class="bi">&#9889;</span><div><b>20% average conversion lift</b><p>Measured across 150+ Shopify and Magento builds and migrations.</p></div></div>
-    </div>
+    <div class="benefit"><span class="bi">&#9889;</span><div><b>Conversion-first builds</b><p>Every choice on platform, theme, feature, and test is suggested to convert more.</p></div></div>
+    <div class="benefit"><span class="bi">&#128269;</span><div><b>A 600+ parameter CRO audit</b><p>We find every conversion gap and turn it into a clear growth roadmap.</p></div></div>
+    <div class="benefit"><span class="bi">&#128736;</span><div><b>CTO/CPO-level tech planning</b><p>We plan your stack two years ahead, with senior tech expertise.</p></div></div>
+    <div class="benefit"><span class="bi">&#128260;</span><div><b>Zero-loss migrations</b><p>We migrate or rebuild your platform with zero data loss and zero downtime, with SEO preserved.</p></div></div>
   </div>
 
   <div class="leak-detail" id="l3" hidden>
-    <div>
-      <h3>We still rank on Google. So why is nobody citing us?</h3>
-      <p>Keyword density does not equal citation. We structure content for answer extraction, generate entity schema across templates, and track mentions daily.</p>
-    </div>
-    <div>
-      <div class="benefit"><span class="bi">&#128172;</span><div><b>4.2x average increase in AI citations</b><p>Tracked daily across Google AI Overviews, ChatGPT, Perplexity and Gemini.</p></div></div>
-      <div class="benefit"><span class="bi">&#128269;</span><div><b>145% average traffic increase</b><p>From 500Mn+ organic sessions generated across client programs.</p></div></div>
-    </div>
-  </div>
+    <div class="benefit"><span class="bi">&#128201;</span><div><b>Organic revenue</b><p>We connect SEO and GEO with tech.</p></div></div>
+    <div class="benefit"><span class="bi">&#127919;</span><div><b>B2B lead gen</b><p>We optimize your strategy to deliver lead generation through organic channels.</p></div></div>
+    <div class="benefit"><span class="bi">&#128172;</span><div><b>AI visibility</b><p>Our 7-pillar framework spans SEO, GEO, AIO, and RAG to get you seen on ChatGPT, Claude, Perplexity, and other AI.</p></div></div>
+    <div class="benefit"><span class="bi">&#128270;</span><div><b>AI citations</b><p>We measure your LLM citations and AI share of voice, and build to improve citations.</p></div></div>
+  </div></div>
 </div></section>
 
 <!-- CASE STUDIES -->
@@ -596,40 +584,6 @@ footer{background:var(--black);color:rgba(255,255,255,.6);padding:54px 0 30px;fo
   <div class="playbook">
     <div><b>See the playbook behind results like these</b><p>The full breakdown of how we run ads and rank as one plan. No form, no call required.</p></div>
     <a class="btn btn-dark" href="#">Get the playbook <i>&rarr;</i></a>
-  </div>
-</div></section>
-
-<!-- WHY BRANDS CHOOSE -->
-<section class="ns ns-why"><div class="wrap">
-  <div class="ns-head"><h2>Why Brands Choose Growisto</h2><p>The specific capabilities that drive profitable growth for your business</p></div>
-  <div class="ns-why-grid">
-    <article class="ns-col">
-      <h3>Marketplaces</h3>
-      <ul>
-        <li><b>Full-funnel management for profitable growth</b><span>We run your ads, AMC+DSP, organic, affiliate, and operations together.</span></li>
-        <li><b>Growth across every marketplace</b><span>We expand you from Amazon into TikTok, Walmart, and more.</span></li>
-        <li><b>Profit-focused strategy</b><span>We track TACOS, not just ACOS.</span></li>
-        <li><b>Expand market share</b><span>We map your next geography or product launch, and plan through sale seasons.</span></li>
-      </ul>
-    </article>
-    <article class="ns-col">
-      <h3>GEO + SEO</h3>
-      <ul>
-        <li><b>Organic revenue</b><span>We connect SEO and GEO with tech.</span></li>
-        <li><b>B2B lead gen</b><span>We optimize your strategy to deliver lead generation through organic channels.</span></li>
-        <li><b>AI visibility</b><span>Our 7-pillar framework spans SEO, GEO, AIO, and RAG to get you seen on ChatGPT, Claude, Perplexity, and other AI.</span></li>
-        <li><b>AI citations</b><span>We measure your LLM citations and AI share of voice, and build to improve citations.</span></li>
-      </ul>
-    </article>
-    <article class="ns-col">
-      <h3>Tech + CRO</h3>
-      <ul>
-        <li><b>Conversion-first builds</b><span>Every choice on platform, theme, feature, and test is suggested to convert more.</span></li>
-        <li><b>A 600+ parameter CRO audit</b><span>We find every conversion gap and turn it into a clear growth roadmap.</span></li>
-        <li><b>CTO/CPO-level tech planning</b><span>We plan your stack two years ahead, with senior tech expertise.</span></li>
-        <li><b>Zero-loss migrations</b><span>We migrate or rebuild your platform with zero data loss and zero downtime, with SEO preserved.</span></li>
-      </ul>
-    </article>
   </div>
 </div></section>
 
