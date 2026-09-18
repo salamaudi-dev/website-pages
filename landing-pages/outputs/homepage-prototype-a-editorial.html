@@ -365,6 +365,20 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
   .ns-why-grid,.ns-news-grid,.ns-cmp-table,.ns-eco-in{grid-template-columns:1fr}
   .ns-ev-strip{grid-template-columns:1fr 1fr}
 }
+
+/* geo testimonials */
+.ns-geo{margin-top:34px}
+.ns-geo-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.ns-geo-tabs button{border:1px solid var(--line);background:var(--paper-2);border-radius:99px;padding:9px 18px;font-family:inherit;font-size:14px;font-weight:550;color:var(--muted);cursor:pointer;transition:.18s}
+.ns-geo-tabs button:hover{color:var(--ink)}
+.ns-geo-tabs button[aria-selected="true"]{background:#507A00;border-color:#507A00;color:#fff}
+.ns-geo-panel{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.ns-q{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column}
+.ns-q blockquote{font-family:var(--font-head);font-size:17px;line-height:1.45;font-weight:550;color:var(--ink);margin:0 0 auto}
+.ns-q .ns-q-who{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.ns-q .ns-q-who b{display:block;font-size:14px;font-weight:650;color:var(--ink)}
+.ns-q .ns-q-who span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+@media(max-width:900px){.ns-geo-panel{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -645,10 +659,15 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
       <div class="mq-text">
         <h4>Zero cut-over downtime</h4>
         <p>"Growisto's highly experienced technical team managed our website for three years. They helped us successfully re-platform our online store."</p>
-        <div class="mq-tags"><span>Head of Digital</span><span>Home &amp; living brand</span></div>
+        <div class="mq-tags"><span>Douglas J. Stang</span><span>Ex-Vice President, Ecommerce</span></div>
       </div>
       <div class="mq-photo"></div>
     </div>
+  </div>
+  <div class="ns-geo">
+    <p class="ns-lbl">Trusted by brands scaling across markets</p>
+    <div class="ns-geo-tabs" id="ns-geo-tabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-g="us">United States</button><button type="button" role="tab" aria-selected="false" data-g="uk">United Kingdom</button><button type="button" role="tab" aria-selected="false" data-g="au">Australia</button><button type="button" role="tab" aria-selected="false" data-g="sg">Singapore</button><button type="button" role="tab" aria-selected="false" data-g="in">India</button></div>
+    <div class="ns-geo-panel" id="ns-geo-panel"></div>
   </div>
 </div></section>
 
@@ -757,13 +776,14 @@ footer{background:#14140F;color:rgba(246,245,241,.6);padding:56px 0 32px;font-si
 <!-- CTA -->
 <section class="cta" id="cta"><div class="wrap cta-in">
   <div>
-    <h2>See what your account is losing before you decide anything.</h2>
-    <p>Free, no call required, and you keep the audit whether or not we end up working together.</p>
+    <h2>See What Your Account Is Losing Before You Decide Anything</h2>
+    <p>Free, no call required. You keep it whether or not we end up working together.</p>
     <form class="urlbar" onsubmit="return false">
       <input type="text" placeholder="Your website or storefront URL" aria-label="Your website or storefront URL">
-      <button class="btn btn-olive" type="submit">Get a free audit <span class="arw">&rarr;</span></button>
+      <button class="btn btn-olive" type="submit">Get Your Free Retrospective Audit <span class="arw">&rarr;</span></button>
     </form>
     <p class="trustline">7 days delivery · Zero cost or commitment · 100% confidential</p>
+    <p class="trustline"><a href="#" style="color:inherit">Prefer to talk it through? Book a 30-minute call</a></p>
   </div>
   <div class="cta-panel">
     <h4>What you get back</h4>
@@ -934,6 +954,33 @@ document.querySelectorAll('.svc-p').forEach(function(b){
     out+='<circle cx="'+x+'" cy="'+y+'" r="3.6" fill="#14140F"><title>'+p[2]+'</title></circle>';
   });
   svg.innerHTML=out;
+})();
+
+// geo testimonials
+(function(){
+  var GEO=[["us", "United States", [["Consistent pro-activeness and constant innovation are two defining qualities that the Growisto team has always exhibited. Our partnership is based on taking challenges head-on and exploring uncharted territory on Amazon!", "Puneet Nanda", "CEO, GuruNanda"], ["We have been most pleased with Growisto's handling of our brand on Amazon. Most notably, Growisto has met or exceeded every expectation they set with us for how our expansion on Amazon would unroll.", "Maria Uspenski", "CEO, The Tea Spot"], ["Working with Growisto over the past two years has been a game-changer for us.", "Matthew Henley", "Chief Operating Officer, Centerline Communications"]]], ["uk", "United Kingdom", [["I had the pleasure of working with Growisto for my business, and I can confidently say that their SEO services have gone above and beyond and are truly exceptional.", "Connie Wright", "Senior Digital Marketing Manager, Dext"]]], ["au", "Australia", [["In just six months, we saw a 3.2x lift in non-branded organic traffic and over half our core keywords rank in the top 10. Importantly, we now have a meaningful share of revenue coming from organic search, beyond just paid channels.", "Rohan Pardasani", "Chief Executive Officer, Avaana"]]], ["sg", "Singapore", [["We have worked with Growisto for overall SEO marketing for our counselling platform in Singapore. The local SEO efforts helped us to scale our business by helping us to generate leads from local listings and Google My Business.", "Fiona Maher O'Sullivan", "Director, Incontact"]]], ["in", "India", [["Their SEO and marketplaces team played a crucial role in our growth journey, boosting online visibility and driving increased conversions. They've been invaluable partners in elevating our digital presence.", "Arindam Paul", "Founding Member & Chief Business Officer, Atomberg"], ["Their extensive e-commerce expertise, coupled with an 'always on their toes' approach is why they're a class apart.", "Ankit Madhogaria", "Head of Online Demand, PUMA India"], ["The last two years journey with Growisto on Amazon has been a remarkable story. The right strategy at the right time and precise execution with a data-driven approach helped us in the growth story.", "Bala Krishna", "Founder, Nobero"], ["After a protracted search process involving several organizations, we ultimately opted to collaborate with Growisto. The continuous maintenance assistance has been excellent, with prompt reaction times and proactive problem-solving.", "Yash Jaiswal", "AGM Ecommerce, Kama Ayurveda"], ["What I appreciate most about working with Growisto is the depth and rigour they bring to every audit, be it CRO, technical infra/performance, GA4 tracking, or UI/UX.", "Manoj Reddy", "Chief Growth Officer, Tyresnmore"], ["Growisto has been instrumental in increasing the organic visibility on our website. The inherent obsession with customer success is what makes Growisto a highly valued partner for us.", "Shaan Shah", "COO, Freakins"], ["The in-depth knowledge that the Growisto team has on ecommerce marketing is a distinguishing factor which none of the digital marketing agencies provided us in the past.", "Prabhkiran Singh", "Founder, Bewakoof.com"], ["We worked with Growisto on SEO strategy and optimisation for Oren's website. Their structured approach across technical SEO, on-page optimisation, content recommendations, and keyword strategy helped us strengthen our organic visibility.", "Rasedul Islam", "Chief of Staff, Oren"]]]];
+  var tabs=document.getElementById('ns-geo-tabs'), panel=document.getElementById('ns-geo-panel');
+  if(!tabs||!panel) return;
+  function draw(k){
+    var g=GEO.filter(function(x){return x[0]===k})[0]; if(!g) return;
+    panel.innerHTML='';
+    g[2].forEach(function(q){
+      var a=document.createElement('article'); a.className='ns-q';
+      var b=document.createElement('blockquote'); b.textContent='\u201c'+q[0]+'\u201d';
+      var w=document.createElement('div'); w.className='ns-q-who';
+      var nm=document.createElement('b'); nm.textContent=q[1];
+      var ro=document.createElement('span'); ro.textContent=q[2];
+      w.appendChild(nm); w.appendChild(ro); a.appendChild(b); a.appendChild(w);
+      panel.appendChild(a);
+    });
+  }
+  tabs.querySelectorAll('button').forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-selected','false')});
+      t.setAttribute('aria-selected','true'); draw(t.dataset.g);
+    });
+  });
+  draw('us');
 })();
 </script>
 </body>
