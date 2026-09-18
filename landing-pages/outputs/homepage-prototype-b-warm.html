@@ -112,9 +112,9 @@ h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-w
 /* ---------- logo band ---------- */
 .logoband{margin:0 auto;position:relative;z-index:5;width:min(var(--maxw),100% - 56px);padding:80px 0}
 /* Figma: 1320x312 #E7E7E3 panel behind two rows of bordered white cells */
-.logoband-in{position:relative;background:var(--cell);border-radius:6px;display:grid;grid-template-columns:260px repeat(6,1fr);grid-auto-rows:156px}
+.logoband-in{position:relative;background:var(--cell);border-radius:6px;display:grid;grid-template-columns:260px repeat(6,1fr);grid-auto-rows:120px}
 .lb-lead,.lb-cell{background:#fff;border:1px solid var(--cell);border-radius:6px;display:flex;align-items:center;transition:.2s}
-.lb-lead{padding:24px;flex-direction:column;align-items:flex-start;justify-content:center}
+.lb-lead{padding:24px;flex-direction:column;align-items:flex-start;justify-content:center;grid-row:span 4}
 .lb-lead b{display:block;font-family:'Playfair Display',Georgia,serif;font-size:20px;line-height:25px;font-weight:500;letter-spacing:-.2px;color:var(--ink)}
 .lb-lead span{display:block;font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:19px;letter-spacing:.0675px;color:var(--muted);margin-top:6px}
 .lb-cell{position:relative;justify-content:center;padding:24px 8px;font-size:14px;font-weight:600;color:#6E6759;text-align:center}
@@ -256,6 +256,75 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
   .do:nth-child(even){padding-left:0;border-left:0}
   .cs-stats{gap:24px}
 }
+
+/* ---------- imported homepage sections ---------- */
+.ns{padding:76px 0}
+.ns .wrap{width:min(var(--maxw),100% - 48px);margin:0 auto}
+.ns-head{max-width:62ch;margin-bottom:36px}
+.ns-head h2{font-family:var(--font-head);font-size:clamp(28px,3.4vw,44px);line-height:1.14;font-weight:550;letter-spacing:-.01em;color:var(--ink)}
+.ns-head p{margin-top:14px;font-size:17px;line-height:1.55;color:var(--muted)}
+.ns-lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);font-weight:600;margin-bottom:14px}
+.ns-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ns-chips span{border:1px solid var(--line);border-radius:99px;padding:7px 14px;font-size:13.5px;color:var(--ink);background:var(--paper)}
+
+/* why */
+.ns-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ns-col{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px}
+.ns-col h3{font-family:var(--font-head);font-size:22px;line-height:1.2;font-weight:550;color:var(--ink);padding-bottom:16px;border-bottom:1px solid var(--line)}
+.ns-col ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:16px}
+.ns-col li b{display:block;font-size:15px;font-weight:650;color:var(--ink);margin-bottom:4px}
+.ns-col li span{display:block;font-size:14.5px;line-height:1.5;color:var(--muted)}
+
+/* ecosystem */
+.ns-eco-in{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:36px}
+.ns-eco-in h2{font-family:var(--font-head);font-size:clamp(26px,3vw,36px);line-height:1.16;font-weight:550;letter-spacing:-.01em;color:var(--ink);margin-bottom:22px}
+.ns-awards{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.ns-awards li{display:flex;gap:14px;align-items:flex-start;padding-top:14px;border-top:1px solid var(--line)}
+.ns-awards li:first-child{padding-top:0;border-top:0}
+.ns-awards b{font-size:15px;font-weight:650;color:var(--ink);flex:1}
+.ns-awards em{font-style:normal;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--rust);border:1px solid var(--rust);border-radius:99px;padding:4px 10px;white-space:nowrap}
+.ns-awards span{display:block;font-size:13.5px;color:var(--muted);margin-top:3px}
+
+/* comparison */
+.ns-cmp-table{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.ns-cmp-hd{background:var(--paper);padding:16px 22px;font-size:15px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:9px}
+.ns-cmp-hd i{font-style:normal;width:20px;height:20px;border-radius:99px;display:grid;place-items:center;font-size:11px;color:#fff}
+.ns-cmp-hd.ok i{background:var(--rust)}
+.ns-cmp-hd.no i{background:#B9B4AC}
+.ns-cmp-cell{background:var(--paper);padding:20px 22px}
+.ns-cmp-cell.no{background:var(--sand)}
+.ns-cmp-cell b{display:block;font-size:15px;font-weight:650;color:var(--ink);margin-bottom:6px}
+.ns-cmp-cell.no b{color:var(--muted)}
+.ns-cmp-cell p{font-size:14.5px;line-height:1.5;color:var(--muted)}
+
+/* news */
+.ns-news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ns-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.ns-thumb{height:168px;background:var(--sand);position:relative}
+.ns-thumb::after{content:"Image placeholder";position:absolute;left:14px;bottom:12px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:.7}
+.ns-card-body{padding:22px}
+.ns-kicker{display:inline-block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--rust);margin-bottom:10px}
+.ns-card h3{font-family:var(--font-head);font-size:20px;line-height:1.24;font-weight:550;color:var(--ink);margin-bottom:8px}
+.ns-card p{font-size:14.5px;line-height:1.5;color:var(--muted)}
+
+/* events */
+.ns-ev-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:30px}
+.ns-ev-shot{aspect-ratio:4/3;border-radius:16px;background:var(--sand);position:relative;overflow:hidden}
+.ns-ev-shot::after{content:"Image placeholder";position:absolute;left:12px;bottom:10px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:.7}
+.ns-ev-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:28px}
+
+/* faq */
+.ns-faq-list{border-top:1px solid var(--line)}
+.ns-faq-list details{border-bottom:1px solid var(--line)}
+.ns-faq-list summary{list-style:none;cursor:pointer;padding:20px 44px 20px 0;position:relative;font-family:var(--font-head);font-size:19px;line-height:1.3;font-weight:550;color:var(--ink)}
+.ns-faq-list summary::-webkit-details-marker{display:none}
+.ns-faq-list summary::after{content:"+";position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:var(--font-body);font-size:22px;font-weight:400;color:var(--rust)}
+.ns-faq-list details[open] summary::after{content:"\2212"}
+.ns-faq-list details p{padding:0 60px 22px 0;font-size:15.5px;line-height:1.6;color:var(--muted);max-width:78ch}
+@media(max-width:900px){
+  .ns-why-grid,.ns-news-grid,.ns-cmp-table,.ns-eco-in{grid-template-columns:1fr}
+  .ns-ev-strip{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
@@ -275,12 +344,12 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
   <div class="hero-in">
     <div>
       <span class="hero-badge">&#9733; 2024 Amazon Ads Partner Awards Finalist</span>
-      <h1><span id="h-t1">Marketplaces Growth</span><br><em id="h-t2">That Shows Up In the P&amp;L</em></h1>
-      <p class="hero-sub" id="h-sub">Growisto combines your ads, organic, and affiliate marketing strategies to scale marketplace revenue profitably.</p>
+      <h1><span id="h-t1">Be Profitable</span><br><em id="h-t2">on Every Marketplace</em></h1>
+      <p class="hero-sub" id="h-sub">Grow customers, increase conversions, and diversify on over 20+ global marketplaces. We combine ads, organic, and affiliate marketing strategies in one team. So every layer of your account is optimized to drive sales.</p>
       <form class="urlbar" onsubmit="return false">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20"/></svg>
         <input type="text" placeholder="Website URL or storefront URL" aria-label="Website URL or storefront URL">
-        <button class="btn btn-rust" type="submit">Find Your Growth Gaps</button>
+        <button class="btn btn-rust" type="submit">Get a Growth Audit</button>
       </form>
       <p class="hero-note">Nykaa, Unilever, Tata Cliq, and 50+ brands started with an audit</p>
     </div>
@@ -330,13 +399,31 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
 
 <!-- LOGO BAND -->
 <div class="logoband"><div class="logoband-in">
-  <div class="lb-lead"><b>US &amp; global brands</b><span>Selling into the US, UK and the Gulf</span></div>
-  <a class="lb-cell link" href="#cases"><img src="figma-assets/assets/logo-puma.png" alt="PUMA"></a><a class="lb-cell link" href="#cases"><img src="figma-assets/assets/logo-gurunanda.png" alt="GuruNanda"></a><div class="lb-cell">Ultrahuman</div>
-  <div class="lb-cell"><img src="figma-assets/assets/logo-justrite.png" alt="Justrite"></div><div class="lb-cell"><img src="figma-assets/assets/logo-msi.png" alt="MSI"></div><div class="lb-cell">Puriya</div>
-
-  <div class="lb-lead"><b>India's category leaders</b><span>Beauty, home, retail and consumer tech</span></div>
-  <div class="lb-cell"><img src="figma-assets/assets/logo-nykaa.png" alt="Nykaa"></div><div class="lb-cell"><img src="figma-assets/assets/logo-godrej.png" alt="Godrej Interio"></div><a class="lb-cell link" href="#cases"><img src="figma-assets/assets/logo-borosil.png" alt="Borosil"></a>
-  <div class="lb-cell"><img src="figma-assets/assets/logo-kama.png" alt="Kama Ayurveda"></div><div class="lb-cell"><img src="figma-assets/assets/logo-kaya.png" alt="Kaya Clinic"></div><div class="lb-cell"><img src="figma-assets/assets/logo-tatacliq.png" alt="Tata CLiQ"></div>
+  <div class="lb-lead"><b>Trusted by 300+ global brands</b><span>Selling into the US, the UK, the Gulf and India</span></div>
+  <div class="lb-cell">Unilever</div>
+  <div class="lb-cell"><img src="figma-assets/assets/logo-puma.png" alt="Puma"></div>
+  <div class="lb-cell"><img src="figma-assets/assets/logo-msi.png" alt="MSI"></div>
+  <div class="lb-cell">Wella</div>
+  <div class="lb-cell"><img src="figma-assets/assets/logo-gurunanda.png" alt="GuruNanda"></div>
+  <div class="lb-cell">GNC</div>
+  <div class="lb-cell">Ubeauty</div>
+  <div class="lb-cell">Neuma Beauty</div>
+  <div class="lb-cell">Mayorga Coffee</div>
+  <div class="lb-cell">Octavia Morgan</div>
+  <div class="lb-cell"><img src="figma-assets/assets/logo-nykaa.png" alt="Nykaa"></div>
+  <div class="lb-cell">Boat</div>
+  <div class="lb-cell">Atomberg</div>
+  <div class="lb-cell"><img src="figma-assets/assets/logo-tatacliq.png" alt="Tata Cliq"></div>
+  <div class="lb-cell">Go Colors</div>
+  <div class="lb-cell"><img src="figma-assets/assets/logo-godrej.png" alt="Godrej Interio"></div>
+  <div class="lb-cell"><img src="figma-assets/assets/logo-borosil.png" alt="Borosil"></div>
+  <div class="lb-cell">Oziva</div>
+  <div class="lb-cell">Waterscience</div>
+  <div class="lb-cell">Kaff</div>
+  <div class="lb-cell">Friends Diaper</div>
+  <div class="lb-cell"><img src="figma-assets/assets/logo-kama.png" alt="Kama Ayurveda"></div>
+  <div class="lb-cell"><img src="figma-assets/assets/logo-kaya.png" alt="Kaya"></div>
+  <div class="lb-cell">Technosports</div>
 </div></div>
 
 <!-- THREE QUESTIONS -->
@@ -441,6 +528,79 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
   <div class="progress" id="prog"><i class="on"></i><i></i><i></i></div>
 </div></section>
 
+<!-- WHY BRANDS CHOOSE -->
+<section class="ns ns-why"><div class="wrap">
+  <div class="ns-head"><h2>Why Brands Choose Growisto</h2><p>The specific capabilities that drive profitable growth for your business</p></div>
+  <div class="ns-why-grid">
+    <article class="ns-col">
+      <h3>Marketplaces</h3>
+      <ul>
+        <li><b>Full-funnel management for profitable growth</b><span>We run your ads, AMC+DSP, organic, affiliate, and operations together.</span></li>
+        <li><b>Growth across every marketplace</b><span>We expand you from Amazon into TikTok, Walmart, and more.</span></li>
+        <li><b>Profit-focused strategy</b><span>We track TACOS, not just ACOS.</span></li>
+        <li><b>Expand market share</b><span>We map your next geography or product launch, and plan through sale seasons.</span></li>
+      </ul>
+    </article>
+    <article class="ns-col">
+      <h3>GEO + SEO</h3>
+      <ul>
+        <li><b>Organic revenue</b><span>We connect SEO and GEO with tech.</span></li>
+        <li><b>B2B lead gen</b><span>We optimize your strategy to deliver lead generation through organic channels.</span></li>
+        <li><b>AI visibility</b><span>Our 7-pillar framework spans SEO, GEO, AIO, and RAG to get you seen on ChatGPT, Claude, Perplexity, and other AI.</span></li>
+        <li><b>AI citations</b><span>We measure your LLM citations and AI share of voice, and build to improve citations.</span></li>
+      </ul>
+    </article>
+    <article class="ns-col">
+      <h3>Tech + CRO</h3>
+      <ul>
+        <li><b>Conversion-first builds</b><span>Every choice on platform, theme, feature, and test is suggested to convert more.</span></li>
+        <li><b>A 600+ parameter CRO audit</b><span>We find every conversion gap and turn it into a clear growth roadmap.</span></li>
+        <li><b>CTO/CPO-level tech planning</b><span>We plan your stack two years ahead, with senior tech expertise.</span></li>
+        <li><b>Zero-loss migrations</b><span>We migrate or rebuild your platform with zero data loss and zero downtime, with SEO preserved.</span></li>
+      </ul>
+    </article>
+  </div>
+</div></section>
+
+<!-- ECOSYSTEM -->
+<section class="ns ns-eco"><div class="wrap">
+  <div class="ns-eco-in">
+    <div>
+      <h2>Trusted by the Ecosystem</h2>
+      <ul class="ns-awards">
+        <li><div><b>Amazon Ads Partner Awards 2024</b><span>Geographic Expansion category</span></div><em>Finalist</em></li>
+        <li><div><b>Amazon Ads Partner Awards 2026</b><span>Strategic Localization category</span></div><em>Semi-finalist</em></li>
+        <li><div><b>Amazon Ads Partner Awards 2026</b><span>Challenger Strategy category</span></div><em>Semi-finalist</em></li>
+      </ul>
+    </div>
+    <div>
+      <p class="ns-lbl">Platform partners</p>
+      <div class="ns-chips"><span>Official Amazon Ads Partner</span><span>Shopify Select Partner</span><span>Klaviyo</span><span>TikTok Shop Partners</span><span>Atom11</span><span>Levanta</span><span>Microsoft Partners</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- COMPARISON -->
+<section class="ns ns-cmp"><div class="wrap">
+  <div class="ns-head"><h2>Your Marketing Team's Growth Partner</h2><p>What separates us from other agencies</p></div>
+  <div class="ns-cmp-table">
+    <div class="ns-cmp-hd ok"><i>&#10003;</i> Growisto</div>
+    <div class="ns-cmp-hd no"><i>&#10007;</i> Typical agencies</div>
+    <div class="ns-cmp-cell ok"><b>Profitability-first growth strategy</b><p>We optimize for margins, and profitability analysis ensures revenue growth translates to actual profit.</p></div>
+    <div class="ns-cmp-cell no"><b>Revenue-only focus</b><p>Top-line sales growth is celebrated without tracking actual profitability impact on the business.</p></div>
+    <div class="ns-cmp-cell ok"><b>Dedicated strategic team</b><p>Each account managed by a maximum of 2 to 3 team members, giving you direct access and faster turnaround on optimizations.</p></div>
+    <div class="ns-cmp-cell no"><b>Shared resources</b><p>One account manager handles 10 to 20+ brands, resulting in delayed responses and generic strategies.</p></div>
+    <div class="ns-cmp-cell ok"><b>Full-funnel management</b><p>We own your overall channel profitability targets: advertising, CRO, operations and technical support, and pricing strategy.</p></div>
+    <div class="ns-cmp-cell no"><b>Ads-only focus</b><p>Limited to single service management, with minimal support for strategic growth planning.</p></div>
+    <div class="ns-cmp-cell ok"><b>Proactive operations and crisis management</b><p>We prepare 4+ weeks ahead, flag inventory issues before stockouts, and optimize campaigns 24/7 during peak periods.</p></div>
+    <div class="ns-cmp-cell no"><b>Reactive support</b><p>Sale optimization begins days before events; they wait for instructions and respond after issues hit performance.</p></div>
+    <div class="ns-cmp-cell ok"><b>Category-specific expertise</b><p>300+ accounts in beauty, fashion, and food and beverage; we understand your unique buying patterns and conversion drivers.</p></div>
+    <div class="ns-cmp-cell no"><b>Generic tactics across categories</b><p>Non-specialized tactics miss category-specific opportunities that impact your bottom line.</p></div>
+    <div class="ns-cmp-cell ok"><b>AI-first reporting and analysis</b><p>Advanced AI-powered tools for SKU-level profitability tracking and competitor insights.</p></div>
+    <div class="ns-cmp-cell no"><b>Limited data and reporting access</b><p>Restricted tool access yields surface-level metrics without deep profitability or competitive context.</p></div>
+  </div>
+</div></section>
+
 <!-- SERVICES -->
 <section class="services" id="services"><div class="wrap">
   <div class="svc-head">
@@ -512,6 +672,44 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
   </div>
 </div></section>
 
+<!-- NEWS -->
+<section class="ns ns-news"><div class="wrap">
+  <div class="ns-head"><h2>News, insights and client stories</h2><p>Fresh thinking from the team running these accounts every day.</p></div>
+  <div class="ns-news-grid">
+    <article class="ns-card"><div class="ns-thumb"></div><div class="ns-card-body"><span class="ns-kicker">Insight</span><h3>Article title to be confirmed</h3><p>Placeholder card. The three titles in the draft read as directional, not published pieces.</p></div></article>
+    <article class="ns-card"><div class="ns-thumb"></div><div class="ns-card-body"><span class="ns-kicker">Client story</span><h3>Article title to be confirmed</h3><p>Placeholder card. Swap in a real story once the list is signed off.</p></div></article>
+    <article class="ns-card"><div class="ns-thumb"></div><div class="ns-card-body"><span class="ns-kicker">News</span><h3>Article title to be confirmed</h3><p>Placeholder card. Swap in a real piece once the list is signed off.</p></div></article>
+  </div>
+</div></section>
+
+<!-- EVENTS -->
+<section class="ns ns-events"><div class="wrap">
+  <div class="ns-head"><h2>We Bring Industry Leaders Together to Solve the Hardest Problems in Ecommerce</h2><p>Our roundtables on ecommerce strategy bring together senior leaders from top ecommerce brands globally, to share what is actually working.</p></div>
+  <div class="ns-ev-strip">
+    <div class="ns-ev-shot"></div>
+    <div class="ns-ev-shot"></div>
+    <div class="ns-ev-shot"></div>
+    <div class="ns-ev-shot"></div>
+  </div>
+  <p class="ns-lbl">Where we have been</p>
+  <div class="ns-chips"><span>Mumbai</span><span>Delhi</span><span>New York</span><span>Boston</span><span>NRF (New York)</span><span>Amazon unBoxed (Austin, TX)</span></div>
+  <div class="ns-ev-foot"><a class="btn btn-rust" href="#cta">See Our Next Event in Your City</a></div>
+</div></section>
+
+<!-- FAQ -->
+<section class="ns ns-faq"><div class="wrap">
+  <div class="ns-head"><h2>Questions we get asked</h2></div>
+  <div class="ns-faq-list">
+    <details open><summary>What exactly do you do?</summary><p>We run three growth lines under one team: marketplace growth (Amazon, TikTok Shop and 20+ marketplaces), website development and CRO (Shopify and Magento), and GEO/AIO/SEO. Most clients start with one line and expand once the team proves out.</p></details>
+    <details><summary>How is Growisto different from other agencies?</summary><p>Every engagement starts with a free retrospective audit, not a sales pitch, and each account gets a capped team of 2 to 3 people instead of being spread across ten.</p></details>
+    <details><summary>How do you measure success?</summary><p>Against the business outcome you are paying for: profit and TACoS on marketplaces, conversion and revenue on the website, qualified organic traffic and AI citations on GEO/SEO. Not clicks or impressions.</p></details>
+    <details><summary>How long before we see results?</summary><p>The free audit takes about a week. Most engagements show a first measurable shift within the first 90 days, tracked in your monthly impact report.</p></details>
+    <details><summary>What does it cost?</summary><p>Marketplaces and Website retainers run $1,000 to $5,000 a month; GEO/AIO/SEO runs $1,000 to $3,000 a month, scoped to your channel and complexity. We also take fixed-scope, one-time projects. The free audit gives you a specific, prioritized number before you commit to anything.</p></details>
+    <details><summary>Do you work with B2B and SaaS, or only e-commerce?</summary><p>Both. E-commerce brands get all three lines; funded B2B and SaaS companies work with us on GEO/AIO/SEO to build organic and AI-referred pipeline.</p></details>
+    <details><summary>Where are you based, and do you work with US brands?</summary><p>We are headquartered in India with a US entity and a US-based sales team who respond within 24 hours of a form fill.</p></details>
+  </div>
+</div></section>
+
 <!-- CTA -->
 <section class="cta" id="cta"><div class="wrap cta-in">
   <div>
@@ -519,7 +717,7 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
     <p>Free, no call required, and you keep the audit whether or not we end up working together.</p>
     <form class="urlbar" onsubmit="return false">
       <input type="text" placeholder="Your website or storefront URL" aria-label="Your website or storefront URL">
-      <button class="btn btn-rust" type="submit">Get a free audit</button>
+      <button class="btn btn-rust" type="submit">Get a Growth Audit</button>
     </form>
     <p class="trustline">7 days delivery · Zero cost or commitment · 100% confidential</p>
   </div>
@@ -552,14 +750,14 @@ footer{background:#191713;color:rgba(251,248,243,.6);padding:54px 0 30px;font-si
 // hero rail accordion
 // hero proof points: the Figma card, one point at a time, 7s apart
 var PROOF={
-  m:[{n:'GuruNanda',c:'Amazon',s:'$1M \u2192 $5M',p:'Revenue growth in the first two years',k:'gurunanda'},
-     {n:'Puma',c:'',s:'1.7x',p:'Revenue increase in 5 months, 32% increase in customer reviews',k:'puma'},
+  m:[{n:'GuruNanda',c:'Amazon',s:'312%',p:'Revenue growth, #1 in US & CA oral care',k:'gurunanda'},
+     {n:'Puma',c:'Amazon',s:'1.7x',p:'Revenue increase in 5 months',k:'puma'},
      {n:'US pet accessories & outdoor gear brand',c:'TikTok',s:'30%',p:'Revenue growth in 90 days',k:''}],
-  w:[{n:'Atomberg',c:'',s:'177%',p:'Conversion rate growth over an 8-year partnership',k:''},
-     {n:'Premium US hair care brand',c:'Name withheld per agreement',s:'222%',p:'Gross sales growth in 4 months post-migration',k:''},
-     {n:'Tyrensmore',c:'',s:'53%',p:'Overall revenue increase, 120% growth in add-to-cart',k:''}],
-  g:[{n:'Avaana',c:'SEO + GEO',s:'13x',p:'ROI, compliance consulting',k:''},
-     {n:'Borosil',c:'SEO',s:'3.4x',p:'Organic revenue, D2C kitchenware',k:''}]
+  w:[{n:'Atomberg',c:'Shopify Plus',s:'177%',p:'Conversion rate growth over an 8-year partnership',k:''},
+     {n:'Premium US hair care brand',c:'Shopify',s:'222%',p:'Gross sales growth in 4 months post-migration',k:''},
+     {n:'Tyresnmore',c:'Magento',s:'53%',p:'Overall revenue increase',k:''}],
+  g:[{n:'Avaana',c:'B2B \u00b7 SEO + GEO',s:'13x',p:'ROI',k:''},
+     {n:'Borosil',c:'D2C \u00b7 SEO',s:'3.4x',p:'Organic revenue',k:''}]
 };
 var PLINK={m:'Explore the strategy',w:'See the build process',g:'See how we get cited'};
 
@@ -619,9 +817,9 @@ var pfRotate=(function(){
 
 (function(){
 var copy={
-  m:['Marketplaces Growth','That Shows Up In the P&L','Growisto combines your ads, organic, and affiliate marketing strategies to scale marketplace revenue profitably.'],
-  s:['Shopify and Magento Websites','Built to Increase Sales','Growisto combines technical and category-level expertise with CRO to take websites from code to conversion.'],
-  g:['Be the Brand Buyers See First','on Google and AI','Growisto combines GEO, SEO, and AI optimization to help your brand rank on Google and get recommended by leading AI platforms like ChatGPT, Perplexity, and Claude.']
+  m:['Be Profitable','on Every Marketplace','Grow customers, increase conversions, and diversify on over 20+ global marketplaces. We combine ads, organic, and affiliate marketing strategies in one team. So every layer of your account is optimized to drive sales.'],
+  s:['Shopify and Magento Websites','Built to Increase Sales','Drive sales on Shopify and Magento websites that are fast, agile, and conversion-optimized. We combine our SEO with tech capabilities in one team so you grow your organic traffic into organic revenue.'],
+  g:['Be the Brand Buyers Discover First','on Google and AI','Rank on Google and get recommended by leading AI platforms like ChatGPT, Perplexity, and Claude. We combine GEO, SEO, and AI optimization with tech capabilities to get traffic and convert it to revenue and lead generation.']
 };
 document.querySelectorAll('.rail-item').forEach(function(item){
   item.querySelector('.rail-tab').addEventListener('click',function(){
