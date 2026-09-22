@@ -18,8 +18,7 @@
   --line:#D9D7D1; --line-2:#BDB4A6;
   --band:#1C1C1C; --cta:#180F0B; --case:#012C3C;
   --cta-glow:radial-gradient(ellipse 60% 71% at 50% 29%,rgba(170,80,42,1) 0%,rgba(170,80,42,.60) 30%,rgba(170,80,42,.15) 60%,rgba(170,80,42,0) 80%);
-  --hero-wash:linear-gradient(97deg,rgba(8,50,65,.94) 0%,rgba(8,50,65,.79) 20%,rgba(8,50,65,.40) 40%,rgba(8,50,65,.17) 50%,rgba(8,50,65,0) 64%);
-  --hero-band:linear-gradient(180deg,rgba(8,50,65,0) 0%,rgba(8,50,65,.48) 100%);
+  --hero-wash:linear-gradient(90deg,rgba(8,50,65,.90) 0%,rgba(8,50,65,.62) 12%,rgba(8,50,65,.32) 24%,rgba(8,50,65,.12) 32%,rgba(8,50,65,0) 42%),linear-gradient(180deg,rgba(8,50,65,0) 52%,rgba(8,50,65,.34) 80%,rgba(8,50,65,.60) 100%);
   --hero-rgb:8,50,65; --scrim-rgb:8,50,65;
   --maxw:1440px; --pad:56px;
   /* Figma headline face is Season Mix-TRIAL (unlicensed) -- Newsreader substituted, as in A and B */
@@ -48,10 +47,9 @@ h1,h2,h3{font-family:var(--font-head);font-weight:400;letter-spacing:-.01em}
 /* ---------- HERO (Figma 354:49, 1440x771) ---------- */
 .hero{position:relative;min-height:771px;overflow:hidden;background:#3A2A55 url('figma-assets/assets/hero-photo-opt.jpg') center/cover no-repeat;display:flex;flex-direction:column}
 .hero::before{content:"";position:absolute;inset:0;background:var(--hero-wash)}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:272px;background:var(--hero-band)}
 .hero>*{position:relative;z-index:2}
 .navbar{padding:24px 0;position:relative}
-.navbar::before{content:"";position:absolute;left:0;right:0;top:0;height:120px;z-index:-1;background:linear-gradient(180deg,rgba(var(--scrim-rgb),.42) 0%,rgba(var(--scrim-rgb),0) 100%)}
+.navbar::before{content:"";position:absolute;left:0;right:0;top:0;height:120px;z-index:-1;background:none}
 .nav-in{width:min(1328px,100% - 2*var(--pad));margin:0 auto;background:#fff;border-radius:99px;height:59px;display:flex;align-items:center;justify-content:space-between;padding:0 10px 0 0}
 .logo{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border-radius:99px;height:59px;padding:0 26px;font-family:var(--font-head);font-size:24px;font-weight:500;text-decoration:none;letter-spacing:-.01em}
 .logo img{width:22px;height:21px;filter:invert(1)}
