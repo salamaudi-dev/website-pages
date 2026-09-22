@@ -141,17 +141,21 @@ h1,h2,h3{font-family:var(--font-head);font-weight:400;letter-spacing:-.01em}
 .cc-who span{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-3);margin-top:2px}
 /* ---------- SERVICES (Figma 354:264) ---------- */
 .services{background:#fff}
-.svc-panel{position:relative;background:var(--tint-3);border-radius:20px;padding:40px;display:grid;grid-template-columns:minmax(0,470px) minmax(0,1fr);gap:40px;overflow:hidden}
-.svc-panel::before{content:"";position:absolute;left:0;bottom:0;width:360px;height:330px;opacity:.5;background:repeating-linear-gradient(135deg,transparent 0 22px,var(--tint) 22px 30px)}
+.services .wrap{width:min(1320px,100% - 120px)}
+.services .sec-head{grid-template-columns:minmax(0,645px) minmax(0,614px);margin-bottom:40px}
+.services .sec-head .right{padding-top:8px}
+.svc-panel{position:relative;background:var(--tint-3);border-radius:20px;padding:44px;display:grid;grid-template-columns:534px minmax(0,653px);gap:44px;min-height:972px;overflow:hidden}
+.svc-panel::before{content:"";position:absolute;left:0;bottom:0;width:731px;height:419px;opacity:.45;background:repeating-linear-gradient(135deg,transparent 0 26px,var(--tint) 26px 36px)}
+.svc-panel::after{content:"";position:absolute;left:20px;top:44px;width:6px;height:528px;border-radius:99px;background:var(--violet)}
 .svc-panel>*{position:relative;z-index:2}
-.svc-left h3{font-size:36px;line-height:1.1;color:var(--ink);padding-left:16px;border-left:3px solid var(--violet);margin-bottom:18px}
-.svc-left>p{font-size:16px;line-height:1.5;color:var(--muted);margin-bottom:22px;max-width:44ch}
+.svc-left h3{font-size:36px;line-height:44px;color:var(--ink);margin-bottom:0}
+.svc-left>p{font-size:16px;line-height:1.5;color:var(--muted);padding:12px 0 20px;max-width:421px}
 .svc-explore{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-size:14px;font-weight:500;color:var(--violet);text-decoration:none;border-bottom:1px solid var(--violet);padding-bottom:4px}
-.acc{margin-top:40px;border-top:1px solid var(--line)}
+.acc{margin-top:32px;border-top:1px solid var(--line)}
 .acc button{width:100%;background:0;border:0;border-bottom:1px solid var(--line);padding:22px 4px;display:flex;align-items:center;justify-content:space-between;font-family:var(--font-head);font-size:20px;font-weight:400;color:var(--ink);cursor:pointer;text-align:left}
 .acc button[aria-selected="true"]{display:none}
 .acc button i{font-style:normal;width:26px;height:26px;border-radius:99px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-size:12px;color:var(--muted)}
-.svc-card{background:#fff;border:1px solid var(--line-2);border-radius:16px;padding:26px}
+.svc-card{background:#fff;border:1px solid var(--line-2);border-radius:14px;padding:22px 24px 24px}
 .svc-card .lbl{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-3);margin-bottom:14px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
 .chip{border:1px solid var(--line);border-radius:99px;padding:7px 14px;font-size:12px;font-weight:500;color:var(--muted-2)}
@@ -168,28 +172,28 @@ h1,h2,h3{font-family:var(--font-head);font-weight:400;letter-spacing:-.01em}
 
 /* ---------- TESTIMONIALS (Figma 354:575) ---------- */
 .tsec{background:#fff;text-align:center}
-.tsec h2{font-size:52px;line-height:1.1;color:var(--ink);margin:16px 0 52px}
+.tsec h2{font-size:52px;line-height:49px;color:var(--ink);margin:16px 0 48px}
 .trail{position:relative;margin-right:-56px}
 .ttrack{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px;text-align:left}
 .ttrack::-webkit-scrollbar{display:none}
 .tcard{flex:0 0 613px;scroll-snap-align:start;background:var(--tint-3);border:1px solid var(--line-2);border-radius:16px;padding:28px 32px;display:flex;flex-direction:column;min-height:400px}
-.tcard .who-top{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:6px 12px 6px 6px;align-self:flex-start;margin-bottom:20px}
-.tcard .who-top i{width:22px;height:22px;border-radius:5px;flex:none;background-color:#2B2B2B;background-position:center;background-repeat:no-repeat;background-size:78%}
+.tcard .who-top{display:inline-flex;align-items:center;gap:8px;background:#fff;border:0;border-radius:8px;padding:5px 10px 5px 5px;align-self:flex-start;margin-bottom:28px}
+.tcard .who-top i{width:22px;height:22px;border-radius:4px;flex:none;background-color:#2B2B2B;background-position:center;background-repeat:no-repeat;background-size:78%}
 .tcard .who-top b{font-size:12px;font-weight:700;color:var(--ink)}
 .tcard .who-top em{font-style:normal;font-family:var(--font-ui);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-3)}
-.tcard blockquote{font-family:var(--font-ui);font-size:17px;line-height:1.5;color:var(--ink-3);margin-bottom:auto}
-.tfoot{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
-.tfoot .p{display:flex;align-items:center;gap:12px}
-.tfoot .p i{width:40px;height:40px;border-radius:99px;flex:none;background:#CFC6E8 center/cover no-repeat}
+.tcard blockquote{font-family:var(--font-ui);font-size:20px;line-height:30px;color:var(--ink-2);margin-bottom:auto}
+.tfoot{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
+.tfoot .p{display:flex;align-items:center;gap:14px}
+.tfoot .p i{width:52px;height:52px;border-radius:99px;flex:none;background:#CFC6E8 center/cover no-repeat}
 .tfoot .p b{display:block;font-size:15px;font-weight:500;color:var(--ink)}
 .tfoot .p span{display:block;font-family:var(--font-ui);font-size:13px;color:var(--muted-3);margin-top:2px}
 .tfoot .s{text-align:right;flex:none}
-.tfoot .s b{display:block;font-size:24px;font-weight:700;color:var(--violet);letter-spacing:-.02em}
+.tfoot .s b{display:block;font-size:24px;line-height:1.1;font-weight:700;color:var(--violet);letter-spacing:-.02em}
 .tfoot .s span{display:block;font-family:var(--font-mono);font-size:9.5px;line-height:1.5;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-3);margin-top:4px}
 .tnext{position:absolute;right:28px;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:99px;border:0;background:var(--ink);color:#fff;font-size:17px;cursor:pointer;display:grid;place-items:center;box-shadow:0 8px 22px rgba(15,8,38,.22)}
-.ttrust{display:inline-flex;align-items:center;gap:14px;margin-top:48px;background:var(--tint-3);border:1px solid var(--line);border-radius:99px;padding:12px 22px;font-size:14px;color:var(--muted-2)}
+.ttrust{display:inline-flex;align-items:center;gap:16px;margin-top:44px;background:var(--tint-3);border:1px solid var(--line);border-radius:8px;padding:14px 22px;font-size:15px;color:var(--muted-2)}
 .ttrust b{color:var(--ink);font-weight:700}
-.ttrust span{width:1px;height:16px;background:var(--line)}
+.ttrust span{width:1px;height:18px;background:#34D399}
 
 /* ---------- CTA (Figma 354:731, #140A33) ---------- */
 .cta{position:relative;background:var(--cta);overflow:hidden;margin-top:10px}
@@ -428,7 +432,7 @@ footer p{max-width:34ch;margin-top:14px;line-height:1.55}
         <span class="who-top"><i style="background-color:#000000;background-image:url('figma-assets/assets/chip-puma.png')"></i><b>PUMA</b><em>Marketplaces</em></span>
         <blockquote>&ldquo;We have worked with Growisto for Amazon marketing and the creation of business intelligence dashboards. Their extensive e-commerce expertise, coupled with an always on their toes approach is why they are a class apart.&rdquo;</blockquote>
         <div class="tfoot">
-          <div class="p"><i style="background-image:url('figma-assets/assets/case-avatar-c.png')"></i><div><b>Ankit Madhogaria</b><span>Head, Online Demand, PUMA India</span></div></div>
+          <div class="p"><i style="background-image:url('figma-assets/assets/face-ankit-d.png')"></i><div><b>Ankit Madhogaria</b><span>Head, Online Demand, PUMA India</span></div></div>
           <div class="s"><b>1.7x</b><span>YoY revenue in 5 months</span></div>
         </div>
       </article>
@@ -436,7 +440,7 @@ footer p{max-width:34ch;margin-top:14px;line-height:1.55}
         <span class="who-top"><i style="background-color:#1C1C1C;background-image:url('figma-assets/assets/logo-msi.png')"></i><b>Atomberg</b><em>Website &amp; CRO</em></span>
         <blockquote>&ldquo;The new site developed by Growisto performs flawlessly, enhancing the user experience. Load times have significantly improved, and navigation is seamless.&rdquo;</blockquote>
         <div class="tfoot">
-          <div class="p"><i style="background-image:url('figma-assets/assets/case-portrait-a.jpg')"></i><div><b>Arindam Paul</b><span>Founding Member &amp; CBO, Atomberg Technologies</span></div></div>
+          <div class="p"><i style="background-image:url('figma-assets/assets/face-arindam-d.png')"></i><div><b>Arindam Paul</b><span>Founding Member &amp; CBO, Atomberg Technologies</span></div></div>
           <div class="s"><b>177%</b><span>Conversion rate growth</span></div>
         </div>
       </article>
@@ -468,7 +472,7 @@ footer p{max-width:34ch;margin-top:14px;line-height:1.55}
         <span class="who-top"><i style="background-color:#BD4541;background-image:url('figma-assets/assets/logo-kama.png')"></i><b>Kama Ayurveda</b><em>Website &amp; CRO</em></span>
         <blockquote>&ldquo;Since we began working together, the performance of our website has also significantly improved. The continuous maintenance assistance has been excellent.&rdquo;</blockquote>
         <div class="tfoot">
-          <div class="p"><i style="background-image:url('figma-assets/assets/testimonial-portrait.jpg')"></i><div><b>Yash Jaiswal</b><span>AGM Ecommerce, Kama Ayurveda</span></div></div>
+          <div class="p"><i style="background-image:url('figma-assets/assets/face-yash-d.png')"></i><div><b>Yash Jaiswal</b><span>AGM Ecommerce, Kama Ayurveda</span></div></div>
           <div class="s"><b>4.2x</b><span>Increase in AI citations</span></div>
         </div>
       </article>
