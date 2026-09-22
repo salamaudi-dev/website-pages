@@ -44,7 +44,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:400;letter-spacing:-.01em}
 .proto-flag{background:var(--band);color:rgba(255,255,255,.72);font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:9px 16px}
 .proto-flag b{color:#fff}
 /* ---------- HERO (Figma 354:49, 1440x771) ---------- */
-.hero{position:relative;min-height:771px;overflow:hidden;background:#3A2A55 url('figma-assets/assets/hero-photo-b.jpg') center/cover no-repeat;display:flex;flex-direction:column}
+.hero{position:relative;min-height:771px;overflow:hidden;background:#3A2A55 url('figma-assets/assets/hero-photo-opt.jpg') center/cover no-repeat;display:flex;flex-direction:column}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(97deg,rgba(var(--hero-rgb),.92) 0%,rgba(var(--hero-rgb),.62) 30%,rgba(var(--hero-rgb),.16) 58%,rgba(var(--hero-rgb),0) 78%)}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:272px;background:linear-gradient(180deg,rgba(var(--scrim-rgb),0) 0%,rgba(var(--scrim-rgb),.74) 100%)}
 .hero>*{position:relative;z-index:2}
@@ -117,9 +117,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:400;letter-spacing:-.01em}
 .wben p{font-size:16px;line-height:1.45;color:var(--muted)}
 
 /* ---------- CASE STUDIES (Figma 354:171) ---------- */
-.case-panel{position:relative;background:var(--case);border-radius:16px;padding:0 48px 48px;min-height:800px;overflow:hidden}
-.case-panel::before{content:"";position:absolute;inset:0;opacity:.5;background-image:radial-gradient(circle,rgba(255,255,255,.16) 1.1px,transparent 1.2px);background-size:14px 14px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 62%);mask-image:linear-gradient(180deg,#000,transparent 62%)}
-.case-panel::after{content:"";position:absolute;left:50%;top:-30%;width:900px;height:640px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(120,86,255,.55),transparent 66%)}
+.case-panel{position:relative;background:#2B0F6B url('figma-assets/assets/case-panel-orange.jpg') center/100% 100% no-repeat;border-radius:16px;padding:0 48px 48px;min-height:800px;overflow:hidden}
 .case-panel>*{position:relative;z-index:2}
 .case-chips{display:flex;align-items:center;justify-content:center;gap:12px;height:122px}
 .cchip{width:52px;height:52px;border-radius:12px;border:2px solid transparent;padding:0;cursor:pointer;background-color:#2B2B2B;background-position:center;background-repeat:no-repeat;background-size:76%;font-size:0;transition:.18s}
@@ -249,8 +247,6 @@ footer p{max-width:34ch;margin-top:14px;line-height:1.55}
 }
 
 /* Options 5 and 6 keep the case card light: text column 528, media panel 584, gap 44 */
-.case-panel{background:linear-gradient(162deg,#FCC451 0%,#FB952F 28%,#F05E0A 70%,#D9481A 100%)}
-.case-panel::after{display:none}
 .case-card{grid-template-columns:528px minmax(0,584px);gap:44px}
 .cc-left{background:transparent;border-radius:0;padding:32px 16px;color:var(--ink)}
 .cc-brand em{color:var(--muted-3)}
