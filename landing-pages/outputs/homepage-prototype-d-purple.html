@@ -17,6 +17,7 @@
   --muted:#6B6380; --muted-2:#5E5873; --muted-3:#8B87A0; --faint:#B5B0C8;
   --line:#D4D0E0; --line-2:#C9C2E6;
   --band:#0F0826; --cta:#140A33; --case:#2B0F6B;
+  --cta-glow:radial-gradient(ellipse 60% 71% at 50% 29%,rgba(120,86,255,.55) 0%,rgba(67,24,224,.30) 35%,rgba(91,43,255,.15) 70%,rgba(20,10,51,0) 100%);
   --hero-rgb:91,43,255; --scrim-rgb:20,10,51;
   --maxw:1440px; --pad:56px;
   /* Figma headline face is Season Mix-TRIAL (unlicensed) -- Newsreader substituted, as in A and B */
@@ -199,14 +200,14 @@ h1,h2,h3{font-family:var(--font-head);font-weight:400;letter-spacing:-.01em}
 
 /* ---------- CTA (Figma 354:731, #140A33) ---------- */
 .cta{position:relative;background:var(--cta);overflow:hidden;margin-top:10px}
-.cta::before{content:"";position:absolute;left:-10%;top:-40%;width:760px;height:620px;background:radial-gradient(ellipse at center,rgba(91,43,255,.55),transparent 65%)}
+.cta::before{content:"";position:absolute;left:0;right:0;top:-1px;height:548px;background:var(--cta-glow)}
 .cta-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,684px) minmax(0,1fr);gap:40px;align-items:center;padding:79px 0 80px}
 .cta h2{font-size:42px;line-height:1.14;color:#fff;margin-bottom:20px}
 .cta p{font-size:18px;line-height:1.5;color:rgba(255,255,255,.76);max-width:46ch;margin-bottom:34px}
 .cta-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
 .cta-row a.alt{font-size:14px;color:rgba(255,255,255,.8);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:3px}
 .cta-note{margin-top:32px;font-size:14px;color:rgba(255,255,255,.55)}
-.cta-art{position:relative;height:250px}
+.cta-art{position:relative;height:250px;color:var(--violet)}
 .cta-art i{position:absolute;bottom:0;border-radius:14px 14px 0 0;background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);border-bottom:0}
 .cta-art i:nth-child(1){left:6%;width:76px;height:96px}
 .cta-art i:nth-child(2){left:34%;width:76px;height:158px}
@@ -499,7 +500,7 @@ footer p{max-width:34ch;margin-top:14px;line-height:1.55}
     <svg viewBox="0 0 340 250" fill="none" preserveAspectRatio="none" aria-hidden="true">
       <path d="M14 224 C90 214 150 170 196 118 C232 76 264 44 300 22" stroke="rgba(255,255,255,.55)" stroke-width="3" stroke-linecap="round"/>
       <path d="M284 20 h22 v22" stroke="rgba(255,255,255,.55)" stroke-width="3" stroke-linecap="round"/>
-      <circle cx="196" cy="118" r="7" fill="#5B2BFF"/>
+      <circle cx="196" cy="118" r="7" fill="currentColor"/>
     </svg>
   </div>
 </div></section>
