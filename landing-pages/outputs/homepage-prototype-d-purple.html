@@ -1,742 +1,498 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Growisto Homepage — Direction D (Purple)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- TYPEFACE: change this URL and the --font-head/--font-body vars below together -->
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --cream:#FAF8FF; --cream-2:#EFE9FF; --paper:#FFFFFF;
-  --ink:#111111; --ink-2:#141414; --muted:#6B6380;
+  /* Figma Option 7 (node 354:48) */
+  --violet:#5B2BFF; --violet-2:#7856FF; --violet-dk:#4A1FD9;
+  --tint:#EDE7FF; --tint-2:#EFE9FF; --tint-3:#FAF8FF;
+  --ink:#111111; --ink-2:#141414; --ink-3:#373737;
+  --muted:#6B6380; --muted-2:#5E5873; --muted-3:#8B87A0; --faint:#B5B0C8;
   --line:#D4D0E0; --line-2:#C9C2E6;
-  --violet:#5B2BFF; --violet-2:#7856FF;
-  --rust:#5B2BFF; --rust-h:#4A1FD9; --rust-lt:#EFE9FF;
-  --teal:#071A31; --teal-2:#0C2540;
-  --sand:#F4F1FF; --cell:#E6E2F2; --hair:#DED9EC;
-  --hero-img:url('figma-assets/assets/hero-photo-b.jpg');
-  --case-img:url('figma-assets/assets/case-photo-b.jpg');
-  --maxw:1320px;
-  /* TYPEFACE — swap here, and keep the Google Fonts <link> above in sync */
-  /* Figma: headline Season Mix-TRIAL 420 -- Newsreader substituted (trial font, not licensed) */
+  --band:#0F0826; --cta:#140A33; --case:#2B0F6B;
+  --maxw:1440px; --pad:56px;
+  /* Figma headline face is Season Mix-TRIAL (unlicensed) -- Newsreader substituted, as in A and B */
   --font-head:'Newsreader',Georgia,'Times New Roman',serif;
-  /* Figma: body Satoshi 400 -- exact, free via Fontshare */
   --font-body:'Satoshi','Inter',system-ui,sans-serif;
+  --font-ui:'Inter',system-ui,sans-serif;
   --font-mono:'IBM Plex Mono',ui-monospace,monospace;
 }
+*,::before,::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--font-body);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
-.wrap{width:min(var(--maxw),100% - 56px);margin:0 auto;padding:0}
+body{background:#fff;color:var(--ink);font-family:var(--font-body);font-size:16px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
 [hidden]{display:none!important}
-.proto-flag{background:#111111;color:#FAF8FF;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:7px 16px}
-.proto-flag b{color:#7856FF;font-weight:600}
-
-h1,h2,h3{font-family:var(--font-head);letter-spacing:-.025em;font-weight:500;line-height:1.12}
-h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;letter-spacing:-.99px;font-weight:420}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12px;line-height:15.6px;letter-spacing:1.68px;text-transform:uppercase;color:#111111;margin-bottom:0}
-.eyebrow::before{content:"";width:8px;height:8px;background:var(--rust);flex:none}
-.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-family:var(--font-body);font-size:14px;line-height:18.9px;font-weight:500;text-decoration:none;border-radius:999px;padding:12px 22px;transition:.18s;white-space:nowrap}
-.btn-rust{background:var(--rust);color:#fff}
-.btn-rust:hover{background:var(--rust-h)}
-.btn-outline{background:transparent;color:var(--rust);border:1px solid var(--rust)}
-.btn-outline:hover{background:var(--rust);color:#fff}
+.wrap{width:min(1328px,100% - 2*var(--pad));margin:0 auto}
+h1,h2,h3{font-family:var(--font-head);font-weight:400;letter-spacing:-.01em}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
+.eyebrow::before{content:"";width:8px;height:8px;background:var(--violet)}
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:99px;font-family:var(--font-body);font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:.18s;padding:14px 22px}
+.btn-violet{background:var(--violet);color:#fff}
+.btn-violet:hover{background:var(--violet-dk)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000}
 .btn-white{background:#fff;color:var(--ink)}
-.btn-white:hover{background:var(--cream-2)}
-.arw{transition:transform .18s}
-.btn:hover .arw{transform:translateX(3px)}
-
-/* ---------- hero ---------- */
-.hero{position:relative;min-height:900px;padding:18px 0 0;overflow:hidden;isolation:isolate}
-/* Figma: Generated Image ... 1520x914 @ -26,-6 — full-bleed photo slot */
-.hero-photo{position:absolute;inset:-6px -26px auto -26px;height:914px;z-index:0;
-  background:var(--hero-img,linear-gradient(115deg,#20323A 0%,#3A5560 38%,#6E8A85 72%,#A8B79E 100%)) center/cover no-repeat}
-/* Figma: four #071A31 scrims — left-to-right, top, and bottom */
-.hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none}
-.hero-scrim::before{content:"";position:absolute;inset:0;
-  background:linear-gradient(270.69deg, rgba(8,50,65,0) 38.97%, rgba(8,50,65,.5) 68.75%, #071A31 98.53%)}
-.hero-scrim::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg, rgba(8,50,65,0) 0%, rgba(8,50,65,.3) 62%, rgba(8,50,65,.6) 100%)}
-
-.navbar{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:4}
-.nav-in{background:#fff;border-radius:999px;padding:11px 12px 11px 26px;display:flex;align-items:center;gap:36px;box-shadow:0 10px 34px rgba(17,17,17,.18)}
-.logo{font-weight:600;font-size:19px;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
-.nav-links{display:flex;gap:26px;flex:1;justify-content:center}
-.nav-links a{font-size:14px;color:var(--ink-2);text-decoration:none}
-.nav-links a:hover{color:var(--rust)}
-.hero-in{width:min(var(--maxw),100% - 56px);margin:0 auto;padding:64px 0 72px;display:grid;grid-template-columns:minmax(0,730px) 374px;gap:48px;align-items:start;position:relative;z-index:2}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);color:#fff;font-size:12px;border-radius:999px;padding:6px 14px;margin-bottom:26px;backdrop-filter:blur(4px)}
-.hero h1{color:#fff;font-size:clamp(30px,4.4vw,54px);font-weight:420;line-height:1.19;letter-spacing:0;margin-bottom:18px}
-.hero h1 em{font-style:normal;color:rgba(255,255,255,.72)}
-.hero-sub{color:rgba(255,255,255,.78);font-size:18px;line-height:1.53;max-width:48ch;margin-bottom:28px}
-.urlbar{display:flex;align-items:center;gap:6px;background:#fff;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:6px 6px 6px 8px;max-width:520px}
-.urlbar>svg{margin-left:12px}
-.urlbar .btn{padding:12px 24px;min-width:160px;justify-content:center}
-.urlbar svg{opacity:.4;flex:none}
-.urlbar input{flex:1;border:0;outline:0;font:inherit;font-size:14px;background:transparent;min-width:0}
-.urlbar input::placeholder{color:#A5A093}
-
-/* hero right rail */
-.rail{display:flex;flex-direction:column;gap:10px;align-items:stretch}
-/* Figma: Sidebar tabs 374x57 r20, white, 1px rgba(255,255,255,.7) */
-.rail{gap:12px}
-.rail-tab{background:#fff;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:11px 21px;min-height:57px;font-family:var(--font-head);font-size:24px;line-height:1.1;font-weight:580;text-align:center;cursor:pointer;color:var(--rust);box-shadow:inset 0 0 3.3px rgba(255,255,255,.5);transition:.18s}
-.rail-tab:hover{background:var(--cream-2)}
-/* Figma: the selected tab becomes the head of a bordered group holding its card */
-.rail-item{display:flex;flex-direction:column;align-items:center;border:1px solid transparent;border-radius:20px;transition:.18s}
-.rail-item[aria-expanded="true"]{border-color:rgba(255,255,255,.7);box-shadow:inset 0 0 3.3px rgba(255,255,255,.5);padding-bottom:12px;gap:0}
-.rail-item .rail-tab{width:100%}
-.rail-item[aria-expanded="true"] .rail-tab{background:var(--rust);color:#fff;border:0;border-radius:20px 20px 0 0;min-height:48px;padding:11px 20px;backdrop-filter:blur(7.5px)}
-.rail-body{position:relative;width:calc(100% - 22px);min-height:415px}
-/* Figma: Sidebar 353x150 rgba(255,255,255,.3) blur 18 r16 */
-.stat-card{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(18px);border-radius:16px;padding:18px 20px 16px}
-.stat-card .lbl{font-family:var(--font-mono);font-size:10px;line-height:13px;letter-spacing:1.52px;text-transform:uppercase;color:var(--rust)}
-.stat-card b{display:block;font-family:var(--font-head);font-size:32px;line-height:39px;font-weight:580;letter-spacing:-.576px;color:var(--ink-2);margin:12px 0 0}
-.stat-card p{font-size:14px;line-height:16px;font-weight:500;color:var(--muted);margin:8px 0 14px}
-@keyframes pfin{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.pf li{animation:none}}
-.stat-card.pf-swap .lbl,.stat-card.pf-swap b,.stat-card.pf-swap p{animation:pfin .45s ease both}
-.stat-card b.sm{font-size:24px;line-height:31px;letter-spacing:-.4px}
+.proto-flag{background:var(--band);color:rgba(255,255,255,.72);font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:9px 16px}
+.proto-flag b{color:#fff}
+/* ---------- HERO (Figma 354:49, 1440x771) ---------- */
+.hero{position:relative;min-height:771px;overflow:hidden;background:#3A2A55 url('figma-assets/assets/hero-photo-b.jpg') center/cover no-repeat;display:flex;flex-direction:column}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(97deg,#2A1155 0%,rgba(42,17,85,.86) 30%,rgba(50,25,95,.35) 58%,rgba(60,35,110,0) 78%)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:272px;background:linear-gradient(180deg,rgba(15,8,38,0) 0%,rgba(15,8,38,.72) 100%)}
+.hero>*{position:relative;z-index:2}
+.navbar{padding:24px 0}
+.nav-in{width:min(1328px,100% - 2*var(--pad));margin:0 auto;background:#fff;border-radius:99px;height:59px;display:flex;align-items:center;justify-content:space-between;padding:0 10px 0 0}
+.logo{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border-radius:99px;height:59px;padding:0 26px;font-family:var(--font-head);font-size:24px;font-weight:500;text-decoration:none;letter-spacing:-.01em}
+.logo img{width:22px;height:21px;filter:invert(1)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:14px;font-weight:500;color:var(--ink);text-decoration:none}
+.nav-links a:hover{color:var(--violet)}
+.hero-in{flex:1;width:min(1328px,100% - 2*var(--pad));margin:0 auto;padding:36px 0 60px;display:grid;grid-template-columns:minmax(0,700px) 1fr;align-items:start}
+.htabs{display:flex;gap:8px;margin-bottom:44px}
+.htab{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(14px);border-radius:10px;padding:9px 16px;font-family:var(--font-body);font-size:14px;font-weight:700;color:rgba(255,255,255,.82);cursor:pointer;transition:.18s}
+.htab:hover{background:rgba(255,255,255,.2)}
+.htab[aria-selected="true"]{background:#fff;color:var(--ink);border-color:#fff}
+.htab i{font-style:normal;width:22px;height:22px;border-radius:6px;background:rgba(255,255,255,.22);display:grid;place-items:center;font-size:11px;color:#fff}
+.htab[aria-selected="true"] i{background:var(--ink);color:#fff}
+.hero h1{font-size:54px;line-height:1.14;color:#fff;max-width:14ch;margin-bottom:26px}
+.hero-sub{font-size:20px;line-height:1.5;color:rgba(255,255,255,.82);max-width:46ch;margin-bottom:38px}
+.urlbar{display:flex;align-items:center;gap:12px;background:#fff;border-radius:99px;padding:8px 8px 8px 22px;width:min(540px,100%)}
+.urlbar svg{flex:none;color:var(--muted-3)}
+.urlbar input{flex:1;border:0;outline:0;font-family:var(--font-body);font-size:14px;color:var(--ink);background:transparent;min-width:0}
+.urlbar input::placeholder{color:var(--muted-3)}
+.hero-note{margin-top:16px;font-size:13px;line-height:19px;color:rgba(255,255,255,.66)}
+/* hero proof card (Figma Sidebar 250x152, bottom right) */
+.hcard{justify-self:end;align-self:end;width:250px;background:#fff;border-radius:14px;padding:18px 20px 16px;box-shadow:0 18px 44px rgba(15,8,38,.28)}
+.hcard .lbl{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-3)}
+.hcard .stat{display:block;font-family:var(--font-head);font-size:32px;line-height:1.1;font-weight:500;color:var(--ink);margin:8px 0 0;letter-spacing:-.02em}
+.hcard .stat em{font-style:normal;font-size:22px}
+.hcard .cap{display:block;font-size:13px;line-height:18px;color:var(--muted);margin:6px 0 12px}
+.hcard .go{font-family:var(--font-ui);font-size:12px;font-weight:500;color:var(--violet);text-decoration:none;border-bottom:1px solid var(--violet);padding-bottom:3px}
 .pf-dots{display:flex;gap:6px;margin-top:14px}
-.pf-dot{width:6px;height:6px;padding:0;border:0;border-radius:99px;background:rgba(61,56,84,.24);cursor:pointer;transition:width .3s cubic-bezier(.4,0,.2,1),background .3s}
-.pf-dot.on{width:18px;background:var(--rust)}
+.pf-dot{width:6px;height:6px;padding:0;border:0;border-radius:99px;background:var(--line);cursor:pointer;transition:width .3s cubic-bezier(.4,0,.2,1),background .3s}
+.pf-dot.on{width:18px;background:var(--violet)}
 @media(prefers-reduced-motion:reduce){.pf-dot{transition:none}}
-.hero-note{color:rgba(255,255,255,.62);font-size:13px;line-height:19px;margin:14px 0 0}
-.stat-card a{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',system-ui,sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--ink-2);padding-bottom:6px}
 
-/* ---------- logo band ---------- */
-.logoband{margin:0 auto;position:relative;z-index:5;width:min(var(--maxw),100% - 56px);padding:80px 0}
-/* Figma: 1320x312 #E6E2F2 panel behind two rows of bordered white cells */
-.logoband-in{position:relative;background:var(--teal);border-radius:6px;display:grid;grid-template-columns:260px repeat(6,1fr);grid-auto-rows:120px}
-.lb-lead,.lb-cell{background:var(--teal);border:1px solid rgba(255,255,255,.10);border-radius:6px;display:flex;align-items:center;transition:.2s}
-.lb-lead{padding:24px;flex-direction:column;align-items:flex-start;justify-content:center;grid-row:span 4}
-.lb-lead b{display:block;font-family:'Playfair Display',Georgia,serif;font-size:20px;line-height:25px;font-weight:500;letter-spacing:-.2px;color:#fff}
-.lb-lead span{display:block;font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:19px;letter-spacing:.0675px;color:rgba(255,255,255,.62);margin-top:6px}
-.lb-cell{position:relative;justify-content:center;padding:24px 8px;font-size:14px;font-weight:600;color:rgba(255,255,255,.80);text-align:center}
-.lb-cell img{width:110px;height:42px;object-fit:contain;opacity:.82;transition:.2s}
-.lb-cell:hover img{opacity:1}
-.lb-cell:hover{color:#fff;background:rgba(255,255,255,.06)}
-/* Figma: 32px #F0EEF8 badge on cells that link to a case study */
-.lb-cell.link::after{content:"\2197";position:absolute;right:12px;top:12px;width:32px;height:32px;border-radius:16px;background:#F0EEF8;display:grid;place-items:center;font-size:13px;color:#55554F}
+/* ---------- LOGO BAND (Figma 354:122, #0F0826) ---------- */
+.band{background:var(--band);padding:58px 0 60px;text-align:center}
+.band p{font-family:var(--font-ui);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:38px}
+.band-grid{display:grid;grid-template-columns:repeat(6,1fr);row-gap:38px;width:min(1159px,100%);margin:0 auto}
+.band-grid span{position:relative;display:grid;place-items:center;min-height:62px;color:rgba(255,255,255,.84);font-size:14.5px;font-weight:600;letter-spacing:.01em}
+.band-grid img{width:104px;height:40px;object-fit:contain;opacity:.86}
+.band-grid span:hover img{opacity:1}
+.band-grid span+span::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:30px;background:rgba(255,255,255,.18)}
+.band-grid span:nth-child(6n+1)::before{display:none}
+/* ---------- section shell ---------- */
+.sec{padding:78px 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,634px) minmax(0,634px);gap:60px;align-items:start;margin-bottom:44px}
+.sec-head h2{font-size:52px;line-height:1.1;color:var(--ink);margin-top:14px}
+.sec-head .right{padding-top:18px}
+.sec-head .right p{font-size:20px;line-height:1.5;color:var(--muted)}
+.sec-head .right .btn{margin-top:22px}
 
-/* ---------- three questions ---------- */
-.questions{padding:80px 0}
-.q-grid{display:grid;grid-template-columns:342px repeat(3,1fr);gap:0}
-.q-intro{padding:0 48px 0 0}
-.q-intro h2{margin:24px 0 0}
-.q-intro h2 span{color:#111111;display:block}
-.q-intro .btn{margin-top:36px}
-.qcol{padding:0 24px;border-left:1.5px dashed #B5B0C8}
-.qcol:last-child{border-left-color:rgba(50,28,4,.5)}
-.qcol .lbl{font-family:var(--font-mono);font-size:10px;line-height:13px;letter-spacing:1.68px;text-transform:uppercase;color:#111111;margin:0}
-.qico{height:200px;width:100%;padding:20px 0;margin:0 0 12px;display:block}
-.qcol h3{font-family:var(--font-head);font-size:20px;font-weight:420;line-height:26px;letter-spacing:0;margin:0 0 12px}
-.qcol p{font-family:'Inter',system-ui,sans-serif;font-size:13.5px;line-height:22.4px;color:rgba(107,99,128,.7)}
+/* ---------- WHY / OUTCOMES (Figma 354:448) ---------- */
+.why-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+.wcard{border:0;border-radius:16px;background:var(--tint-2);padding:20px;cursor:pointer;height:270px;display:flex;flex-direction:column;justify-content:flex-start;gap:10px;font-family:inherit;transition:.2s}
+.wcard:hover{background:var(--tint)}
+.wcard[aria-selected="true"]{background:linear-gradient(152deg,var(--violet) 0%,var(--violet-2) 100%)}
+.wcard b{display:block;text-align:center;font-family:var(--font-head);font-size:20px;font-weight:500;color:var(--ink)}
+.wcard[aria-selected="true"] b{color:#fff}
+.wcard svg{width:100%;height:170px;margin:auto;display:block;color:var(--ink)}
+.wcard[aria-selected="true"] svg{color:#fff}
+.why-panel{border:1px solid var(--line);border-radius:16px;padding:14px 32px;display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.wben{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.wben:nth-last-child(-n+2){border-bottom:0}
+.wben i{flex:none;width:44px;height:44px;border-radius:12px;background:var(--tint);display:grid;place-items:center;color:var(--violet)}
+.wben b{display:block;font-family:var(--font-body);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em}
+.wben p{font-size:16px;line-height:1.45;color:var(--muted)}
 
-/* ---------- case studies ---------- */
-.cases{padding:80px 0}
-.cases-head{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-bottom:34px}
-.cases-head p{color:rgba(107,99,128,.7);max-width:662px;font-size:18px;line-height:24px;padding-top:12px}
-.head-actions{display:flex;gap:10px;justify-content:flex-end;align-items:center}
-.rnd{width:44px;height:44px;border-radius:12px;border:1px solid #CFC9E2;background:#FDFCFF;cursor:pointer;font-size:16px;color:var(--ink);display:grid;place-items:center}
-.rnd:hover{border-color:var(--rust);color:var(--rust)}
-.cs{background:var(--teal);border-radius:20px;overflow:hidden;color:#ECE7FA}
-.cs-in{display:grid;grid-template-columns:1fr 1fr;min-height:520px}
-.cs-copy{padding:46px;display:flex;flex-direction:column}
-.cs-brand{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);border-radius:8px;padding:6px 11px;font-size:12px;align-self:flex-start;margin-bottom:20px}
-.cs-brand b{font-weight:600}
-.cs-brand::before{content:'';width:26px;height:26px;flex:none;border-radius:3px;background:#512C1D url('figma-assets/assets/chip-gurunanda-b.png') center/76% no-repeat}
-.cs-brand span{color:rgba(237,231,255,.6);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
-.cs h3{font-size:clamp(19px,2.2vw,26px);font-weight:500;line-height:1.28;margin-bottom:auto;max-width:26ch}
-.cs-stats{display:flex;gap:40px;margin:28px 0 22px}
-.cs-stats b{display:block;font-size:30px;font-weight:500;letter-spacing:-.03em}
-.cs-stats span{display:block;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:rgba(237,231,255,.55);margin-top:6px;line-height:1.5}
-.cs-media{position:relative;background:#D4CEF5 var(--case-img,linear-gradient(150deg,#C9C2E6,#7856FF 50%,#C97A4E)) center/cover no-repeat}
-.cs-media .play{position:absolute;inset:0;margin:auto;width:60px;height:60px;border-radius:70px;background:#fff;display:grid;place-items:center}
-.cs-media .play::after{content:"";border-left:22px solid var(--rust);border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:5px}
-.progress{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.progress i{display:block;height:3.95px;background:#CFC9E2}
-.progress i.on{background:var(--rust)}
+/* ---------- CASE STUDIES (Figma 354:171) ---------- */
+.cases{padding-bottom:0}
+.case-panel{position:relative;background:var(--case);border-radius:0;padding:34px 56px 56px;margin-top:8px;overflow:hidden}
+.case-panel::before{content:"";position:absolute;inset:0;opacity:.5;background-image:radial-gradient(circle,rgba(255,255,255,.16) 1.1px,transparent 1.2px);background-size:14px 14px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 62%);mask-image:linear-gradient(180deg,#000,transparent 62%)}
+.case-panel::after{content:"";position:absolute;left:50%;top:-30%;width:900px;height:640px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(120,86,255,.55),transparent 66%)}
+.case-panel>*{position:relative;z-index:2}
+.case-chips{display:flex;justify-content:center;gap:12px;margin-bottom:26px}
+.cchip{width:52px;height:52px;border-radius:12px;border:2px solid transparent;padding:0;cursor:pointer;background-color:#2B2B2B;background-position:center;background-repeat:no-repeat;background-size:76%;font-size:0;transition:.18s}
+.cchip[aria-selected="true"]{border-color:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.14)}
+.case-card{background:#fff;border-radius:16px;padding:16px;display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:16px}
+.cc-left{background:var(--cta);border-radius:12px;padding:24px;display:flex;flex-direction:column;color:#fff}
+.cc-brand{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;margin-bottom:22px}
+.cc-brand i{width:26px;height:26px;border-radius:5px;flex:none;background-color:#2B2B2B;background-position:center;background-repeat:no-repeat;background-size:78%}
+.cc-brand em{font-style:normal;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.cc-left h3{font-size:26px;line-height:1.2;font-weight:400;margin-bottom:auto}
+.cc-stats{display:flex;gap:26px;margin:26px 0 22px}
+.cc-stats b{display:block;font-family:var(--font-head);font-size:30px;font-weight:400;letter-spacing:-.02em}
+.cc-stats span{display:block;font-family:var(--font-mono);font-size:9.5px;line-height:1.5;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.58);margin-top:7px}
+.cc-foot{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.cc-right{display:flex;flex-direction:column;gap:16px}
+.cc-media{position:relative;flex:1;min-height:290px;border-radius:12px;background:#D9CFEA center/cover no-repeat}
+.cc-media i{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:96px;height:96px;border-radius:14px;background-color:#2B2B2B;background-position:center;background-repeat:no-repeat;background-size:74%;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.cc-quote{background:var(--tint-3);border-radius:12px;padding:22px 24px}
+.cc-quote blockquote{font-family:var(--font-ui);font-size:16px;line-height:1.45;color:var(--ink);margin-bottom:16px}
+.cc-who{display:flex;align-items:center;gap:12px}
+.cc-who i{width:38px;height:38px;border-radius:99px;flex:none;background:#CFC6E8 center/cover no-repeat}
+.cc-who b{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.cc-who span{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-3);margin-top:2px}
+/* ---------- SERVICES (Figma 354:264) ---------- */
+.services{background:#fff}
+.svc-panel{position:relative;background:var(--tint-3);border-radius:20px;padding:40px;display:grid;grid-template-columns:minmax(0,470px) minmax(0,1fr);gap:40px;overflow:hidden}
+.svc-panel::before{content:"";position:absolute;left:0;bottom:0;width:360px;height:330px;opacity:.5;background:repeating-linear-gradient(135deg,transparent 0 22px,var(--tint) 22px 30px)}
+.svc-panel>*{position:relative;z-index:2}
+.svc-left h3{font-size:36px;line-height:1.1;color:var(--ink);padding-left:16px;border-left:3px solid var(--violet);margin-bottom:18px}
+.svc-left>p{font-size:16px;line-height:1.5;color:var(--muted);margin-bottom:22px;max-width:44ch}
+.svc-explore{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-size:14px;font-weight:500;color:var(--violet);text-decoration:none;border-bottom:1px solid var(--violet);padding-bottom:4px}
+.acc{margin-top:40px;border-top:1px solid var(--line)}
+.acc button{width:100%;background:0;border:0;border-bottom:1px solid var(--line);padding:22px 4px;display:flex;align-items:center;justify-content:space-between;font-family:var(--font-head);font-size:20px;font-weight:400;color:var(--ink);cursor:pointer;text-align:left}
+.acc button[aria-selected="true"]{display:none}
+.acc button i{font-style:normal;width:26px;height:26px;border-radius:99px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-size:12px;color:var(--muted)}
+.svc-card{background:#fff;border:1px solid var(--line-2);border-radius:16px;padding:26px}
+.svc-card .lbl{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-3);margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{border:1px solid var(--line);border-radius:99px;padding:7px 14px;font-size:12px;font-weight:500;color:var(--muted-2)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.do-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-bottom:26px}
+.do{padding:18px 0;border-bottom:1px solid var(--line)}
+.do:nth-last-child(-n+2){border-bottom:0}
+.do em{font-style:normal;display:block;font-family:var(--font-mono);font-size:10px;color:var(--faint);margin-bottom:8px}
+.do b{display:block;font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px}
+.do p{font-size:14px;line-height:1.45;color:var(--muted)}
+.toolchips{display:flex;flex-wrap:wrap;gap:8px}
+.toolchip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:99px;padding:7px 13px;font-size:12px;font-weight:500;color:var(--muted-2)}
+.toolchip::before{content:"";width:6px;height:6px;border-radius:99px;background:var(--violet-2)}
 
-/* ---------- services ---------- */
-.services{padding:80px 0}
-.svc-head{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end;margin-bottom:28px}
-.svc-head h2{max-width:14ch}
-.svc-right{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
-.svc-right p{color:rgba(50,28,4,.7);font-size:18px;line-height:26px;max-width:46ch}
-.svc-panel{background:var(--sand);border-radius:20px;padding:44px;display:grid;grid-template-columns:534.59fr 653.41fr;gap:44px;align-items:start}
-.svc-left h3{font-size:36px;line-height:44px;font-weight:420;letter-spacing:-.54px;margin-bottom:12px}
-.svc-left>p{font-size:16px;color:var(--ink-2);line-height:24px;margin-bottom:20px;max-width:421px}
-.svc-explore{font-size:13.5px;color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(91,43,255,.4);padding-bottom:2px}
-/* Figma: 510.59 card, 67px rows, Newsreader 20px */
-.acc{margin-top:34px;background:#FDFCFF;border-radius:12px;overflow:hidden}
-.acc button{width:100%;background:transparent;border:0;border-bottom:1px solid var(--hair);padding:20px 22px;min-height:67px;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-head);font-size:20px;line-height:20px;color:#8B87A0;cursor:pointer;transition:.18s}
-.acc button:last-child{border-bottom:0}
-.acc button:hover{color:var(--ink-2)}
-.acc button[aria-selected="true"]{color:var(--rust)}
-.acc button i{font-style:normal;width:26px;height:26px;flex:none;border:1px solid #CFC9E2;border-radius:7px;display:grid;place-items:center;font-size:12px;color:#8B87A0;font-family:var(--font-body)}
-.acc button[aria-selected="true"] i{background:var(--rust);border-color:var(--rust);color:#EFE9FF}
-/* Figma: 653.41x884.88 #FDFCFF, 1px #DED9EC, r14 */
-.svc-card{background:#FDFCFF;border:1px solid var(--hair);border-radius:14px;padding:22px 24px 24px;box-shadow:0 20px 44px rgba(20,20,20,.09)}
-.svc-card .lbl{font-family:var(--font-mono);font-size:10px;line-height:13px;font-weight:500;letter-spacing:1.6px;text-transform:uppercase;color:#8B87A0;margin-bottom:0}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
-.chip{font-size:12px;line-height:16px;font-weight:500;border:1px solid #CFC9E2;border-radius:999px;padding:7px 13px;color:#5E5873;background:transparent;cursor:default}
-.chip.on{background:#141414;color:#EFE9FF;border-color:#141414}
-.do-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--hair)}
-.do{padding:18px 0;border-bottom:1px solid var(--hair)}
-.do:nth-child(even){padding-left:24px;border-left:1px solid var(--hair)}
-.do em{font-style:normal;font-family:var(--font-mono);font-size:10px;line-height:13px;letter-spacing:1.33px;color:#BDB4A6;display:block}
-.do b{display:block;font-size:16px;line-height:22px;font-weight:500;letter-spacing:-.203px;color:var(--ink);margin-top:14px}
-.do p{font-size:14px;line-height:20px;color:#5E5873;margin-top:8px}
-.toolchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.toolchip{font-size:12px;line-height:16px;font-weight:500;background:#FDFCFF;border:1px solid #CFC9E2;border-radius:999px;padding:7px 13px;color:#5E5873;display:flex;gap:7px;align-items:center}
-.toolchip::before{content:"";width:6px;height:6px;border-radius:50%;background:#5E5873;flex:none}
+/* ---------- TESTIMONIALS (Figma 354:575) ---------- */
+.tsec{background:#fff;text-align:center}
+.tsec h2{font-size:52px;line-height:1.1;color:var(--ink);margin:16px 0 44px}
+.trail{position:relative}
+.ttrack{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px;text-align:left}
+.ttrack::-webkit-scrollbar{display:none}
+.tcard{flex:0 0 calc(50% - 12px);scroll-snap-align:start;background:var(--tint-3);border:1px solid var(--line-2);border-radius:16px;padding:26px;display:flex;flex-direction:column;min-height:236px}
+.tcard .who-top{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:6px 12px 6px 6px;align-self:flex-start;margin-bottom:20px}
+.tcard .who-top i{width:22px;height:22px;border-radius:5px;flex:none;background-color:#2B2B2B;background-position:center;background-repeat:no-repeat;background-size:78%}
+.tcard .who-top b{font-size:12px;font-weight:700;color:var(--ink)}
+.tcard .who-top em{font-style:normal;font-family:var(--font-ui);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-3)}
+.tcard blockquote{font-family:var(--font-ui);font-size:17px;line-height:1.5;color:var(--ink-3);margin-bottom:auto}
+.tfoot{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
+.tfoot .p{display:flex;align-items:center;gap:12px}
+.tfoot .p i{width:40px;height:40px;border-radius:99px;flex:none;background:#CFC6E8 center/cover no-repeat}
+.tfoot .p b{display:block;font-size:15px;font-weight:500;color:var(--ink)}
+.tfoot .p span{display:block;font-family:var(--font-ui);font-size:13px;color:var(--muted-3);margin-top:2px}
+.tfoot .s{text-align:right;flex:none}
+.tfoot .s b{display:block;font-size:24px;font-weight:700;color:var(--violet);letter-spacing:-.02em}
+.tfoot .s span{display:block;font-family:var(--font-mono);font-size:9.5px;line-height:1.5;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-3);margin-top:4px}
+.tnext{position:absolute;right:-18px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:99px;border:0;background:var(--ink);color:#fff;font-size:17px;cursor:pointer;display:grid;place-items:center;box-shadow:0 8px 22px rgba(15,8,38,.22)}
+.ttrust{display:inline-flex;align-items:center;gap:14px;margin-top:40px;background:var(--tint-3);border:1px solid var(--line);border-radius:99px;padding:12px 22px;font-size:14px;color:var(--muted-2)}
+.ttrust b{color:var(--ink);font-weight:700}
+.ttrust span{width:1px;height:16px;background:var(--line)}
 
-/* ---------- market ---------- */
-.market{padding:80px 0}
-.market-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:20px}
-.market-head p{color:var(--muted);max-width:52ch;margin-top:12px;font-size:14.5px}
-.market-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;position:relative}
-#worldmap{width:100%;height:auto;display:block}
-.mq{position:absolute;right:26px;top:50%;transform:translateY(-50%);width:min(350px,46%);background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 18px 50px rgba(17,17,17,.12);display:flex;gap:14px}
-.mq-photo{width:74px;flex:none;border-radius:10px;background:linear-gradient(150deg,#C9B49A,#7E6A52)}
-.mq h4{font-size:15px;font-weight:500;margin-bottom:6px}
-.mq p{font-size:12.5px;color:var(--muted);line-height:1.5}
-.mq .who{font-size:11px;color:var(--ink-2);margin-top:8px}
+/* ---------- CTA (Figma 354:731, #140A33) ---------- */
+.cta{position:relative;background:var(--cta);overflow:hidden;margin-top:10px}
+.cta::before{content:"";position:absolute;left:-10%;top:-40%;width:760px;height:620px;background:radial-gradient(ellipse at center,rgba(91,43,255,.55),transparent 65%)}
+.cta-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,684px) minmax(0,1fr);gap:40px;align-items:center;padding:80px 0}
+.cta h2{font-size:42px;line-height:1.14;color:#fff;margin-bottom:20px;max-width:18ch}
+.cta p{font-size:18px;line-height:1.5;color:rgba(255,255,255,.76);max-width:46ch;margin-bottom:34px}
+.cta-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.cta-row a.alt{font-size:14px;color:rgba(255,255,255,.8);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:3px}
+.cta-note{margin-top:28px;font-size:14px;color:rgba(255,255,255,.55)}
+.cta-art{position:relative;height:250px}
+.cta-art i{position:absolute;bottom:0;border-radius:14px 14px 0 0;background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);border-bottom:0}
+.cta-art i:nth-child(1){left:6%;width:76px;height:96px}
+.cta-art i:nth-child(2){left:34%;width:76px;height:158px}
+.cta-art i:nth-child(3){left:62%;width:76px;height:232px}
+.cta-art svg{position:absolute;inset:0;width:100%;height:100%}
 
-/* ---------- cta ---------- */
-.cta{background:var(--teal);color:#ECE7FA;padding:74px 0}
-.cta-in{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
-.cta h2{color:#fff;max-width:15ch}
-.cta>.wrap>div>p{color:rgba(237,231,255,.7);margin-top:14px;max-width:44ch}
-.cta .urlbar{margin:24px 0 12px}
-.trustline{font-size:12px;color:rgba(237,231,255,.55);max-width:none}
-.cta-list{border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:22px;background:rgba(255,255,255,.05)}
-.cta-list h4{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(237,231,255,.6);margin-bottom:12px}
-.cta-list li{list-style:none;font-size:14px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.1);display:flex;gap:10px}
-.cta-list li:last-child{border-bottom:0}
-.cta-list li::before{content:"";width:15px;height:15px;border-radius:4px;background:var(--rust);flex:none;margin-top:3px}
-
-/* ---------- footer ---------- */
-footer{background:#111111;color:rgba(250,248,255,.6);padding:54px 0 30px;font-size:13px}
-.f-top{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:30px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.1)}
-.f-top .logo{color:#FAF8FF;display:block;margin-bottom:12px}
-.f-col p{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,248,255,.42);margin-bottom:12px}
-.f-col a{display:block;color:rgba(250,248,255,.72);text-decoration:none;padding:5px 0}
+footer{background:var(--band);color:rgba(255,255,255,.7);padding:56px 0 28px;font-size:14px}
+.f-top{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:28px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12)}
+.f-top .logo{background:transparent;padding:0;height:auto;color:#fff}
+footer p{max-width:34ch;margin-top:14px;line-height:1.55}
+.f-col p{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin:0 0 14px}
+.f-col a{display:block;color:rgba(255,255,255,.78);text-decoration:none;padding:5px 0}
 .f-col a:hover{color:#fff}
-.f-bot{padding-top:20px;display:flex;justify-content:space-between;gap:20px;font-size:12px;color:rgba(250,248,255,.4)}
+.f-bot{display:flex;justify-content:space-between;padding-top:22px;font-size:13px;color:rgba(255,255,255,.5)}
 
-.q-lede{color:rgba(61,56,84,.72);font-size:16px;line-height:1.55;max-width:34ch;margin-bottom:22px}
-.cs-copy .cs-person{font-size:13px;line-height:1.5;color:rgba(237,231,255,.7);margin-bottom:4px}
-.cs-slide[data-i="1"] .cs-brand::before{background-color:#BD4541;background-image:url('figma-assets/assets/logo-kama.png')}
-.cs-slide[data-i="2"] .cs-brand::before{background-color:#000;background-image:url('figma-assets/assets/chip-puma.png')}
-@media(max-width:1080px){
+@media(max-width:1100px){
+  .hero-in,.sec-head,.cta-in{grid-template-columns:1fr}
+  .hcard{justify-self:start;margin-top:32px}
+  .svc-panel{grid-template-columns:1fr}
+  .tcard{flex-basis:88%}
+  .cta-art{display:none}
+}
+@media(max-width:820px){
+  :root{--pad:20px}
   .nav-links{display:none}
-  .hero-in,.logoband-in,.cs-in,.cases-head,.svc-head,.svc-panel,.cta-in{grid-template-columns:1fr}
-  .q-grid{grid-template-columns:1fr 1fr}
-  .q-intro{grid-column:1 / -1;padding-right:0}
-  .logoband-in{grid-template-columns:repeat(3,1fr);grid-auto-rows:minmax(120px,auto)}
-  .lb-lead{grid-column:1 / -1}
-  .hero-in{grid-template-columns:1fr}
-  .mq{position:static;transform:none;width:auto;margin-top:18px}
+  .hero h1{font-size:38px}
+  .sec-head h2,.tsec h2{font-size:34px}
+  .why-cards,.why-panel,.do-grid,.case-card,.cc-right{grid-template-columns:1fr}
+  .band-grid{grid-template-columns:repeat(3,1fr)}
+  .band-grid span:nth-child(6n+1)::before{display:block}
+  .band-grid span:nth-child(3n+1)::before{display:none}
   .f-top{grid-template-columns:1fr 1fr}
 }
-@media(max-width:720px){
-  .wrap,.navbar,.logoband{padding-left:18px;padding-right:18px}
-  .nav-links{display:none}
-  .q-grid,.do-grid{grid-template-columns:1fr}
-  .logoband-in{grid-template-columns:1fr 1fr}
-  .qcol{border-left:0;border-top:1.5px dashed #B5B0C8;padding:24px 0 0}
-  .svc-panel{padding:24px}
-  .do:nth-child(even){padding-left:0;border-left:0}
-  .cs-stats{gap:24px}
-}
-
-/* ---------- imported homepage sections ---------- */
-.ns{padding:76px 0}
-.ns .wrap{width:min(var(--maxw),100% - 48px);margin:0 auto}
-.ns-head{max-width:62ch;margin-bottom:36px}
-.ns-head h2{font-family:var(--font-head);font-size:clamp(28px,3.4vw,44px);line-height:1.14;font-weight:550;letter-spacing:-.01em;color:var(--ink)}
-.ns-head p{margin-top:14px;font-size:17px;line-height:1.55;color:var(--muted)}
-.ns-lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);font-weight:600;margin-bottom:14px}
-.ns-chips{display:flex;flex-wrap:wrap;gap:8px}
-.ns-chips span{border:1px solid var(--line);border-radius:99px;padding:7px 14px;font-size:13.5px;color:var(--ink);background:var(--paper)}
-
-/* why */
-.ns-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.ns-col{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px}
-.ns-col h3{font-family:var(--font-head);font-size:22px;line-height:1.2;font-weight:550;color:var(--ink);padding-bottom:16px;border-bottom:1px solid var(--line)}
-.ns-col ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:16px}
-.ns-col li b{display:block;font-size:15px;font-weight:650;color:var(--ink);margin-bottom:4px}
-.ns-col li span{display:block;font-size:14.5px;line-height:1.5;color:var(--muted)}
-
-/* ecosystem */
-.ns-eco-in{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:36px}
-.ns-eco-in h2{font-family:var(--font-head);font-size:clamp(26px,3vw,36px);line-height:1.16;font-weight:550;letter-spacing:-.01em;color:var(--ink);margin-bottom:22px}
-.ns-awards{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
-.ns-awards li{display:flex;gap:14px;align-items:flex-start;padding-top:14px;border-top:1px solid var(--line)}
-.ns-awards li:first-child{padding-top:0;border-top:0}
-.ns-awards b{font-size:15px;font-weight:650;color:var(--ink);flex:1}
-.ns-awards em{font-style:normal;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--rust);border:1px solid var(--rust);border-radius:99px;padding:4px 10px;white-space:nowrap}
-.ns-awards span{display:block;font-size:13.5px;color:var(--muted);margin-top:3px}
-
-/* comparison */
-.ns-cmp-table{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.ns-cmp-hd{background:var(--paper);padding:16px 22px;font-size:15px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:9px}
-.ns-cmp-hd i{font-style:normal;width:20px;height:20px;border-radius:99px;display:grid;place-items:center;font-size:11px;color:#fff}
-.ns-cmp-hd.ok i{background:var(--rust)}
-.ns-cmp-hd.no i{background:#B9B4AC}
-.ns-cmp-cell{background:var(--paper);padding:20px 22px}
-.ns-cmp-cell.no{background:var(--sand)}
-.ns-cmp-cell b{display:block;font-size:15px;font-weight:650;color:var(--ink);margin-bottom:6px}
-.ns-cmp-cell.no b{color:var(--muted)}
-.ns-cmp-cell p{font-size:14.5px;line-height:1.5;color:var(--muted)}
-
-/* news */
-.ns-news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.ns-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
-.ns-thumb{height:168px;background:var(--sand);position:relative}
-.ns-thumb::after{content:"Image placeholder";position:absolute;left:14px;bottom:12px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:.7}
-.ns-card-body{padding:22px}
-.ns-kicker{display:inline-block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--rust);margin-bottom:10px}
-.ns-card h3{font-family:var(--font-head);font-size:20px;line-height:1.24;font-weight:550;color:var(--ink);margin-bottom:8px}
-.ns-card p{font-size:14.5px;line-height:1.5;color:var(--muted)}
-
-/* events */
-.ns-ev-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:30px}
-.ns-ev-shot{aspect-ratio:4/3;border-radius:16px;background:var(--sand);position:relative;overflow:hidden}
-.ns-ev-shot::after{content:"Image placeholder";position:absolute;left:12px;bottom:10px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:.7}
-.ns-ev-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:28px}
-
-/* faq */
-.ns-faq-list{border-top:1px solid var(--line)}
-.ns-faq-list details{border-bottom:1px solid var(--line)}
-.ns-faq-list summary{list-style:none;cursor:pointer;padding:20px 44px 20px 0;position:relative;font-family:var(--font-head);font-size:19px;line-height:1.3;font-weight:550;color:var(--ink)}
-.ns-faq-list summary::-webkit-details-marker{display:none}
-.ns-faq-list summary::after{content:"+";position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:var(--font-body);font-size:22px;font-weight:400;color:var(--rust)}
-.ns-faq-list details[open] summary::after{content:"\2212"}
-.ns-faq-list details p{padding:0 60px 22px 0;font-size:15.5px;line-height:1.6;color:var(--muted);max-width:78ch}
-@media(max-width:900px){
-  .ns-why-grid,.ns-news-grid,.ns-cmp-table,.ns-eco-in{grid-template-columns:1fr}
-  .ns-ev-strip{grid-template-columns:1fr 1fr}
-}
-
-/* geo testimonials */
-.ns-geo{margin-top:34px}
-.ns-geo-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.ns-geo-tabs button{border:1px solid var(--line);background:var(--paper);border-radius:99px;padding:9px 18px;font-family:inherit;font-size:14px;font-weight:550;color:var(--muted);cursor:pointer;transition:.18s}
-.ns-geo-tabs button:hover{color:var(--ink)}
-.ns-geo-tabs button[aria-selected="true"]{background:var(--rust);border-color:var(--rust);color:#fff}
-.ns-geo-panel{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.ns-q{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column}
-.ns-q blockquote{font-family:var(--font-head);font-size:17px;line-height:1.45;font-weight:550;color:var(--ink);margin:0 0 auto}
-.ns-q .ns-q-who{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
-.ns-q .ns-q-who b{display:block;font-size:14px;font-weight:650;color:var(--ink)}
-.ns-q .ns-q-who span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
-@media(max-width:900px){.ns-geo-panel{grid-template-columns:1fr}}
-
-.ocl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.ocl li{padding:14px 0;border-top:1px solid var(--line)}
-.ocl li:first-child{border-top:0;padding-top:4px}
-.ocl b{display:block;font-family:var(--font-body);font-size:14.5px;font-weight:650;line-height:1.35;color:var(--ink);margin-bottom:4px;letter-spacing:0;text-transform:none}
-.ocl span{display:block;font-family:var(--font-body);font-size:13.5px;line-height:1.5;color:var(--muted)}
 </style>
+
 </head>
 <body>
-<div class="proto-flag">Prototype <b>Direction D</b> &nbsp;·&nbsp; Purple, from Figma Option 7 &nbsp;·&nbsp; Growisto homepage &nbsp;·&nbsp; portraits are stock placeholders, not the named people</div>
-
-<!-- HERO -->
+<div class="proto-flag">Prototype <b>Direction D</b> &nbsp;&middot;&nbsp; Purple &nbsp;&middot;&nbsp; Figma Option 7 (node 354:48) &nbsp;&middot;&nbsp; portraits are stock placeholders, not the named people</div>
 <section class="hero">
-  <div class="hero-photo" role="img" aria-label="Growisto team"></div>
-  <div class="hero-scrim"></div>
-  <div class="navbar">
-    <div class="nav-in">
-      <a class="logo" href="#"><img src="figma-assets/assets/mark-g.png" alt="" width="22" height="21" style="vertical-align:-3px;margin-right:7px">Growisto</a>
-      <nav class="nav-links"><a href="#services">Services</a><a href="#">Industries</a><a href="#cases">Clients</a><a href="#">Resources</a><a href="#">Company</a></nav>
-      <a class="btn btn-rust" href="#cta">Book a strategy call</a>
-    </div>
-  </div>
+  <div class="navbar"><div class="nav-in">
+    <a class="logo" href="#"><img src="figma-assets/assets/mark-g.png" alt="">Growisto</a>
+    <nav class="nav-links"><a href="#services">Services</a><a href="#">Industries</a><a href="#cases">Clients</a><a href="#">Resources</a><a href="#">Company</a></nav>
+    <a class="btn btn-dark" href="#cta">Book a strategy call</a>
+  </div></div>
   <div class="hero-in">
     <div>
-      <span class="hero-badge">&#9733; 2024 Amazon Ads Partner Awards Finalist</span>
-      <h1><span id="h-t1">Be Profitable</span><br><em id="h-t2">on Every Marketplace</em></h1>
+      <div class="htabs" role="tablist">
+        <button class="htab" role="tab" aria-selected="true"  data-h="m"><i>&#9635;</i>Marketplaces</button>
+        <button class="htab" role="tab" aria-selected="false" data-h="w"><i>&#9634;</i>Website &amp; CRO</button>
+        <button class="htab" role="tab" aria-selected="false" data-h="g"><i>&#9737;</i>GEO, AIO &amp; SEO</button>
+      </div>
+      <h1 id="h-title">Be Profitable on Every Marketplace</h1>
       <p class="hero-sub" id="h-sub">Grow customers, increase conversions, and diversify on over 20+ global marketplaces. We combine ads, organic, and affiliate marketing strategies in one team. So every layer of your account is optimized to drive sales.</p>
       <form class="urlbar" onsubmit="return false">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20"/></svg>
         <input type="text" placeholder="Website URL or storefront URL" aria-label="Website URL or storefront URL">
-        <button class="btn btn-rust" type="submit">Get a Growth Audit</button>
+        <button class="btn btn-violet" type="submit">Get a Growth Audit</button>
       </form>
       <p class="hero-note">Nykaa, Unilever, Tata Cliq, and 50+ brands started with an audit</p>
     </div>
-
-    <div class="rail">
-      <div class="rail-item" aria-expanded="false">
-        <button class="rail-tab" aria-selected="false" data-k="s">Website &amp; CRO</button>
-        <div class="rail-body" data-k="s" hidden>
-          
-          <div class="stat-card">
-            <span class="lbl"></span>
-            <b></b>
-            <p></p>
-            <a href="#services"></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="rail-item" aria-expanded="true">
-        <button class="rail-tab" aria-selected="true" data-k="m">Marketplaces</button>
-        <div class="rail-body" data-k="m">
-          
-          <div class="stat-card">
-            <span class="lbl"></span>
-            <b></b>
-            <p></p>
-            <a href="#services"></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="rail-item" aria-expanded="false">
-        <button class="rail-tab" aria-selected="false" data-k="g">GEO, AIO &amp; SEO</button>
-        <div class="rail-body" data-k="g" hidden>
-          
-          <div class="stat-card">
-            <span class="lbl"></span>
-            <b></b>
-            <p></p>
-            <a href="#services"></a>
-          </div>
-        </div>
-      </div>
+    <div class="hcard">
+      <span class="lbl"></span>
+      <span class="stat"></span>
+      <span class="cap"></span>
+      <a class="go" href="#cases">Explore the strategy</a>
     </div>
   </div>
 </section>
 
-<!-- LOGO BAND -->
-<div class="logoband"><div class="logoband-in">
-  <div class="lb-lead"><b>Trusted by 300+ global brands</b><span>Selling into the US, the UK, the Gulf and India</span></div>
-  <div class="lb-cell">Unilever</div>
-  <div class="lb-cell"><img src="figma-assets/assets/logo-puma.png" alt="Puma"></div>
-  <div class="lb-cell"><img src="figma-assets/assets/logo-msi.png" alt="MSI"></div>
-  <div class="lb-cell">Wella</div>
-  <div class="lb-cell"><img src="figma-assets/assets/logo-gurunanda.png" alt="GuruNanda"></div>
-  <div class="lb-cell">GNC</div>
-  <div class="lb-cell">Ubeauty</div>
-  <div class="lb-cell">Neuma Beauty</div>
-  <div class="lb-cell">Mayorga Coffee</div>
-  <div class="lb-cell">Octavia Morgan</div>
-  <div class="lb-cell"><img src="figma-assets/assets/logo-nykaa.png" alt="Nykaa"></div>
-  <div class="lb-cell">Boat</div>
-  <div class="lb-cell">Atomberg</div>
-  <div class="lb-cell"><img src="figma-assets/assets/logo-tatacliq.png" alt="Tata Cliq"></div>
-  <div class="lb-cell">Go Colors</div>
-  <div class="lb-cell"><img src="figma-assets/assets/logo-godrej.png" alt="Godrej Interio"></div>
-  <div class="lb-cell"><img src="figma-assets/assets/logo-borosil.png" alt="Borosil"></div>
-  <div class="lb-cell">Oziva</div>
-  <div class="lb-cell">Waterscience</div>
-  <div class="lb-cell">Kaff</div>
-  <div class="lb-cell">Friends Diaper</div>
-  <div class="lb-cell"><img src="figma-assets/assets/logo-kama.png" alt="Kama Ayurveda"></div>
-  <div class="lb-cell"><img src="figma-assets/assets/logo-kaya.png" alt="Kaya"></div>
-  <div class="lb-cell">Technosports</div>
-</div></div>
-
-<!-- THREE QUESTIONS -->
-<section class="questions"><div class="wrap">
-  <div class="q-grid">
-    <div class="q-intro">
-      <span class="eyebrow">What you get</span>
-      <h2>Your Growth Aligned With Your Business Goals</h2>
-      <p class="q-lede">The specific capabilities that drive profitable growth for your business</p>
-      <a class="btn btn-outline" href="#cta">Get the honest answer <span class="arw">&rarr;</span></a>
-    </div>
-
-    <div class="qcol">
-      <p class="lbl">Marketplaces</p>
-      <svg class="qico" viewBox="0 0 90 74" fill="none" stroke="#5B2BFF" stroke-width="1.6" stroke-linecap="round">
-        <path d="M14 18h58l-7 34H21z"/><path d="M14 18l-5-9H2"/><circle cx="30" cy="63" r="5"/><circle cx="60" cy="63" r="5"/><path d="M28 28l6 14M56 28l-6 14"/>
-      </svg>
-      <ul class="ocl">
-        <li><b>Full-funnel management for profitable growth</b><span>We run your ads, AMC+DSP, organic, affiliate, and operations together.</span></li>
-        <li><b>Growth across every marketplace</b><span>We expand you from Amazon into TikTok, Walmart, and more.</span></li>
-        <li><b>Profit-focused strategy</b><span>We track TACOS, not just ACOS.</span></li>
-        <li><b>Expand market share</b><span>We map your next geography or product launch, and plan through sale seasons.</span></li>
-      </ul>
-    
-    </div>
-
-    <div class="qcol">
-      <p class="lbl">Website &amp; CRO</p>
-      <svg class="qico" viewBox="0 0 90 74" fill="none" stroke="#5B2BFF" stroke-width="1.6" stroke-linecap="round">
-        <rect x="10" y="12" width="70" height="50" rx="6"/><path d="M10 26h70"/><path d="M22 42h24M22 52h14"/><path d="M56 54l8-14 8 8"/>
-      </svg>
-      <ul class="ocl">
-        <li><b>Conversion-first builds</b><span>Every choice on platform, theme, feature, and test is suggested to convert more.</span></li>
-        <li><b>A 600+ parameter CRO audit</b><span>We find every conversion gap and turn it into a clear growth roadmap.</span></li>
-        <li><b>CTO/CPO-level tech planning</b><span>We plan your stack two years ahead, with senior tech expertise.</span></li>
-        <li><b>Zero-loss migrations</b><span>We migrate or rebuild your platform with zero data loss and zero downtime, with SEO preserved.</span></li>
-      </ul>
-    
-    </div>
-
-    <div class="qcol">
-      <p class="lbl">GEO, AIO &amp; SEO</p>
-      <svg class="qico" viewBox="0 0 90 74" fill="none" stroke="#5B2BFF" stroke-width="1.6" stroke-linecap="round">
-        <path d="M8 58l18-20 14 12 16-24 18 14"/><circle cx="26" cy="38" r="3.4"/><circle cx="56" cy="26" r="3.4"/><path d="M8 66h74"/>
-      </svg>
-      <ul class="ocl">
-        <li><b>Organic revenue</b><span>We connect SEO and GEO with tech.</span></li>
-        <li><b>B2B lead gen</b><span>We optimize your strategy to deliver lead generation through organic channels.</span></li>
-        <li><b>AI visibility</b><span>Our 7-pillar framework spans SEO, GEO, AIO, and RAG to get you seen on ChatGPT, Claude, Perplexity, and other AI.</span></li>
-        <li><b>AI citations</b><span>We measure your LLM citations and AI share of voice, and build to improve citations.</span></li>
-      </ul>
-    
-    </div>
+<section class="band"><div class="wrap">
+  <p>Trusted by 300+ global brands</p>
+  <div class="band-grid">
+    <span>Unilever</span>
+    <span><img src="figma-assets/assets/logo-puma.png" alt="Puma"></span>
+    <span><img src="figma-assets/assets/logo-msi.png" alt="MSI"></span>
+    <span>Wella</span>
+    <span><img src="figma-assets/assets/logo-gurunanda.png" alt="GuruNanda"></span>
+    <span>GNC</span>
+    <span>Ubeauty</span>
+    <span>Neuma Beauty</span>
+    <span>Mayorga Coffee</span>
+    <span>Octavia Morgan</span>
+    <span><img src="figma-assets/assets/logo-nykaa.png" alt="Nykaa"></span>
+    <span>Boat</span>
+    <span>Atomberg</span>
+    <span><img src="figma-assets/assets/logo-tatacliq.png" alt="Tata Cliq"></span>
+    <span>Go Colors</span>
+    <span><img src="figma-assets/assets/logo-godrej.png" alt="Godrej Interio"></span>
+    <span><img src="figma-assets/assets/logo-borosil.png" alt="Borosil"></span>
+    <span>Oziva</span>
+    <span>Waterscience</span>
+    <span>Kaff</span>
+    <span>Friends Diaper</span>
+    <span><img src="figma-assets/assets/logo-kama.png" alt="Kama Ayurveda"></span>
+    <span><img src="figma-assets/assets/logo-kaya.png" alt="Kaya"></span>
+    <span>Technosports</span>
   </div>
 </div></section>
 
-<!-- CASE STUDIES -->
-<section class="cases" id="cases"><div class="wrap">
-  <div class="cases-head">
-    <div>
-      <span class="eyebrow">Case studies</span>
-      <h2>What changed because we were involved.</h2>
-    </div>
-    <div>
-      <p style="margin-bottom:14px">No vanity charts. Pick a brand, read the numbers that moved, and see who put their name to them.</p>
-      <div class="head-actions">
-        <button class="rnd" id="prev" aria-label="Previous case study">&#8249;</button>
-        <button class="rnd" id="next" aria-label="Next case study">&#8250;</button>
-        <a class="btn btn-rust" href="#">All case studies <span class="arw">&rarr;</span></a>
-      </div>
-    </div>
+<section class="sec" id="outcomes"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="eyebrow">What you get</span>
+      <h2>Your Growth Aligned With Your Business Goals</h2></div>
+    <div class="right"><p>The specific capabilities that drive profitable growth for your business</p></div>
   </div>
+  <div class="why-cards" role="tablist">
+    <button class="wcard" type="button" aria-selected="true" data-w="m">
+      <svg viewBox="0 0 148 104" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 26h14l10 44h52l10-34H36"/><circle cx="50" cy="84" r="6"/><circle cx="86" cy="84" r="6"/><path d="M112 46l18-18M130 28h-14M130 28v14"/></svg>
+      <b>Marketplaces</b>
+    </button>
+    <button class="wcard" type="button" aria-selected="false" data-w="w">
+      <svg viewBox="0 0 148 104" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="20" width="96" height="66" rx="8"/><path d="M16 38h96"/><path d="M30 54h34M30 68h22"/><path d="M78 72l14-20 12 12 16-26"/></svg>
+      <b>Website &amp; CRO</b>
+    </button>
+    <button class="wcard" type="button" aria-selected="false" data-w="g">
+      <svg viewBox="0 0 148 104" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="22" width="92" height="20" rx="6"/><rect x="16" y="52" width="72" height="12" rx="6"/><rect x="16" y="74" width="54" height="12" rx="6"/><circle cx="108" cy="72" r="18"/><path d="M121 85l14 14"/></svg>
+      <b>GEO, AIO &amp; SEO</b>
+    </button>
+  </div>
+  <div class="why-panel" id="why-panel"></div>
+</div></section>
 
-  <div class="cs">
-    <div class="cs-in cs-slide" data-i="0">
-      <div class="cs-copy">
-        <span class="cs-brand"><b>GuruNanda</b><span>Oral care &middot; US</span></span>
-        <h3>&ldquo;Consistent pro-activeness and constant innovation are two defining qualities the Growisto team has always exhibited.&rdquo;</h3>
-        <p class="cs-person">Puneet Nanda<br>Founder &amp; CEO, GuruNanda</p>
-        <div class="cs-stats">
-          <div><b>$1M &rarr; $5M</b><span>Revenue growth,<br>first two years</span></div>
-          <div><b>$50M+</b><span>Annual revenue<br>today</span></div>
+<section class="sec cases" id="cases"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="eyebrow">Case studies</span>
+      <h2>What changed because we were involved.</h2></div>
+    <div class="right"><p>No vanity charts. Pick a brand, read the numbers that moved, and see who put their name to them.</p>
+      <a class="btn btn-dark" href="#">All case studies <span>&rarr;</span></a></div>
+  </div>
+</div>
+<div class="case-panel">
+  <div class="wrap">
+    <div class="case-chips" role="tablist">
+      <button class="cchip" type="button" aria-selected="true" data-c="gn" aria-label="GuruNanda" style="background-color:#512C1D;background-image:url('figma-assets/assets/chip-gurunanda.png')"></button>
+      <button class="cchip" type="button" aria-selected="false" data-c="ka" aria-label="Kama Ayurveda" style="background-color:#BD4541;background-image:url('figma-assets/assets/logo-kama.png')"></button>
+      <button class="cchip" type="button" aria-selected="false" data-c="pu" aria-label="PUMA" style="background-color:#000000;background-image:url('figma-assets/assets/chip-puma.png')"></button>
+    </div>
+    <div class="case-card" id="cs-gn">
+      <div class="cc-left">
+        <span class="cc-brand"><i style="background-color:#512C1D;background-image:url('figma-assets/assets/chip-gurunanda.png')"></i>GuruNanda <em>Oral care &middot; US</em></span>
+        <h3>Category-specific playbook scales brand from $1M to $50M+ as #1 leader</h3>
+        <div class="cc-stats"><div><b>$1M &rarr; $5M</b><span>Revenue growth, first two years</span></div><div><b>$50M+</b><span>Annual revenue today</span></div></div>
+        <a class="btn btn-white" href="#" style="align-self:flex-start">Read the story <span>&rarr;</span></a>
+        <div class="cc-foot">Oral care &middot; United States &middot; 6+ international markets</div>
+      </div>
+      <div class="cc-right">
+        <div class="cc-media" style="background-image:url('figma-assets/assets/case-photo-b.jpg')"><i style="background-color:#512C1D;background-image:url('figma-assets/assets/chip-gurunanda.png')"></i></div>
+        <div class="cc-quote"><blockquote>&ldquo;Consistent pro-activeness and constant innovation are two defining qualities the Growisto team has always exhibited.&rdquo;</blockquote>
+          <div class="cc-who"><i style="background-image:url('figma-assets/assets/case-portrait-a.jpg')"></i><div><b>Puneet Nanda</b><span>CEO, GuruNanda</span></div></div>
         </div>
-        <a class="btn btn-white" href="#" style="align-self:flex-start">Read the story <span class="arw">&rarr;</span></a>
       </div>
-      <div class="cs-media"><i class="play"></i></div>
     </div>
-
-    <div class="cs-in cs-slide" data-i="1" hidden>
-      <div class="cs-copy">
-        <span class="cs-brand"><b>Kama Ayurveda</b><span>Beauty &middot; Multi-market</span></span>
-        <h3>&ldquo;One roadmap covering storefront, marketplace and search meant we stopped reconciling three different versions of the truth.&rdquo;</h3>
-        <p class="cs-person">Brand leadership<br>Kama Ayurveda</p>
-        <div class="cs-stats">
-          <div><b>4.2x</b><span>Average increase<br>in AI citations</span></div>
-          <div><b>145%</b><span>Average organic<br>traffic increase</span></div>
+    <div class="case-card" id="cs-ka" hidden>
+      <div class="cc-left">
+        <span class="cc-brand"><i style="background-color:#BD4541;background-image:url('figma-assets/assets/logo-kama.png')"></i>Kama Ayurveda <em>Beauty &middot; Multi-market</em></span>
+        <h3>One roadmap across storefront, marketplace and search, cited across four AI engines</h3>
+        <div class="cc-stats"><div><b>4.2x</b><span>Average increase in AI citations</span></div><div><b>145%</b><span>Average organic traffic increase</span></div></div>
+        <a class="btn btn-white" href="#" style="align-self:flex-start">Read the story <span>&rarr;</span></a>
+        <div class="cc-foot">Beauty &amp; personal care &middot; India and the Gulf</div>
+      </div>
+      <div class="cc-right">
+        <div class="cc-media" style="background-image:url('figma-assets/assets/case-photo-c.jpg')"><i style="background-color:#BD4541;background-image:url('figma-assets/assets/logo-kama.png')"></i></div>
+        <div class="cc-quote"><blockquote>&ldquo;After a protracted search process involving several organizations, we ultimately opted to collaborate with Growisto. The continuous maintenance assistance has been excellent.&rdquo;</blockquote>
+          <div class="cc-who"><i style="background-image:url('figma-assets/assets/testimonial-portrait.jpg')"></i><div><b>Yash Jaiswal</b><span>AGM Ecommerce, Kama Ayurveda</span></div></div>
         </div>
-        <a class="btn btn-white" href="#" style="align-self:flex-start">Read the story <span class="arw">&rarr;</span></a>
       </div>
-      <div class="cs-media" style="background:linear-gradient(150deg,#C4B49C,#7E6F58 50%,#453B2E)"><i class="play"></i></div>
     </div>
-
-    <div class="cs-in cs-slide" data-i="2" hidden>
-      <div class="cs-copy">
-        <span class="cs-brand"><b>PUMA</b><span>Sportswear &middot; Marketplaces</span></span>
-        <h3>&ldquo;They operate like an in-house team. The reporting is honest, including the weeks that did not go our way.&rdquo;</h3>
-        <p class="cs-person">Ankit Madhogaria<br>Head, Online Demand, PUMA</p>
-        <div class="cs-stats">
-          <div><b>56%</b><span>Average ACOS reduction,<br>18 months+</span></div>
-          <div><b>$6Mn+</b><span>Ad spend managed<br>per quarter</span></div>
+    <div class="case-card" id="cs-pu" hidden>
+      <div class="cc-left">
+        <span class="cc-brand"><i style="background-color:#000000;background-image:url('figma-assets/assets/chip-puma.png')"></i>PUMA <em>Sportswear &middot; Marketplaces</em></span>
+        <h3>Ads and organic run as one plan, measured on a single TACoS number</h3>
+        <div class="cc-stats"><div><b>56%</b><span>Average ACOS reduction, 18 months+</span></div><div><b>$6Mn+</b><span>Ad spend managed per quarter</span></div></div>
+        <a class="btn btn-white" href="#" style="align-self:flex-start">Read the story <span>&rarr;</span></a>
+        <div class="cc-foot">Sportswear &middot; Marketplaces across 3 regions</div>
+      </div>
+      <div class="cc-right">
+        <div class="cc-media" style="background-image:url('figma-assets/assets/case-bg-a.jpg')"><i style="background-color:#000000;background-image:url('figma-assets/assets/chip-puma.png')"></i></div>
+        <div class="cc-quote"><blockquote>&ldquo;Their extensive e-commerce expertise, coupled with an always on their toes approach is why they are a class apart.&rdquo;</blockquote>
+          <div class="cc-who"><i style="background-image:url('figma-assets/assets/case-avatar-c.png')"></i><div><b>Ankit Madhogaria</b><span>Head of Online Demand, PUMA India</span></div></div>
         </div>
-        <a class="btn btn-white" href="#" style="align-self:flex-start">Read the story <span class="arw">&rarr;</span></a>
       </div>
-      <div class="cs-media" style="background:linear-gradient(150deg,#B0A896,#6C6555 50%,#3A362C)"><i class="play"></i></div>
     </div>
   </div>
-  <div class="progress" id="prog"><i class="on"></i><i></i><i></i></div>
-</div></section>
+</div>
+</section>
 
-<!-- ECOSYSTEM -->
-<section class="ns ns-eco"><div class="wrap">
-  <div class="ns-eco-in">
-    <div>
-      <h2>Trusted by the Ecosystem</h2>
-      <ul class="ns-awards">
-        <li><div><b>Amazon Ads Partner Awards 2024</b><span>Geographic Expansion category</span></div><em>Finalist</em></li>
-        <li><div><b>Amazon Ads Partner Awards 2026</b><span>Strategic Localization category</span></div><em>Semi-finalist</em></li>
-        <li><div><b>Amazon Ads Partner Awards 2026</b><span>Challenger Strategy category</span></div><em>Semi-finalist</em></li>
-      </ul>
-    </div>
-    <div>
-      <p class="ns-lbl">Platform partners</p>
-      <div class="ns-chips"><span>Official Amazon Ads Partner</span><span>Shopify Select Partner</span><span>Klaviyo</span><span>TikTok Shop Partners</span><span>Atom11</span><span>Levanta</span><span>Microsoft Partners</span></div>
-    </div>
+<section class="sec services" id="services"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="eyebrow">Services</span>
+      <h2>Our capabilities built to run your growth from every angle</h2></div>
+    <div class="right"><p>300+ clients serviced across marketplaces, storefront and search, with founder-level access on every account.</p>
+      <a class="btn btn-dark" href="#cta">Book a strategy call</a></div>
   </div>
-</div></section>
-
-<!-- COMPARISON -->
-<section class="ns ns-cmp"><div class="wrap">
-  <div class="ns-head"><h2>Your Marketing Team's Growth Partner</h2><p>What separates us from other agencies</p></div>
-  <div class="ns-cmp-table">
-    <div class="ns-cmp-hd ok"><i>&#10003;</i> Growisto</div>
-    <div class="ns-cmp-hd no"><i>&#10007;</i> Typical agencies</div>
-    <div class="ns-cmp-cell ok"><b>Profitability-first growth strategy</b><p>We optimize for margins, and profitability analysis ensures revenue growth translates to actual profit.</p></div>
-    <div class="ns-cmp-cell no"><b>Revenue-only focus</b><p>Top-line sales growth is celebrated without tracking actual profitability impact on the business.</p></div>
-    <div class="ns-cmp-cell ok"><b>Dedicated strategic team</b><p>Each account managed by a maximum of 2 to 3 team members, giving you direct access and faster turnaround on optimizations.</p></div>
-    <div class="ns-cmp-cell no"><b>Shared resources</b><p>One account manager handles 10 to 20+ brands, resulting in delayed responses and generic strategies.</p></div>
-    <div class="ns-cmp-cell ok"><b>Full-funnel management</b><p>We own your overall channel profitability targets: advertising, CRO, operations and technical support, and pricing strategy.</p></div>
-    <div class="ns-cmp-cell no"><b>Ads-only focus</b><p>Limited to single service management, with minimal support for strategic growth planning.</p></div>
-    <div class="ns-cmp-cell ok"><b>Proactive operations and crisis management</b><p>We prepare 4+ weeks ahead, flag inventory issues before stockouts, and optimize campaigns 24/7 during peak periods.</p></div>
-    <div class="ns-cmp-cell no"><b>Reactive support</b><p>Sale optimization begins days before events; they wait for instructions and respond after issues hit performance.</p></div>
-    <div class="ns-cmp-cell ok"><b>Category-specific expertise</b><p>300+ accounts in beauty, fashion, and food and beverage; we understand your unique buying patterns and conversion drivers.</p></div>
-    <div class="ns-cmp-cell no"><b>Generic tactics across categories</b><p>Non-specialized tactics miss category-specific opportunities that impact your bottom line.</p></div>
-    <div class="ns-cmp-cell ok"><b>AI-first reporting and analysis</b><p>Advanced AI-powered tools for SKU-level profitability tracking and competitor insights.</p></div>
-    <div class="ns-cmp-cell no"><b>Limited data and reporting access</b><p>Restricted tool access yields surface-level metrics without deep profitability or competitive context.</p></div>
-  </div>
-</div></section>
-
-<!-- SERVICES -->
-<section class="services" id="services"><div class="wrap">
-  <div class="svc-head">
-    <div>
-      <span class="eyebrow">Services</span>
-      <h2>One team for every channel that carries your revenue. Not six vendors.</h2>
-    </div>
-    <div class="svc-right">
-      <p>300+ clients serviced across marketplaces, storefront and search, with founder-level access on every account.</p>
-      <a class="btn btn-rust" href="#cta">Book a strategy call</a>
-    </div>
-  </div>
-
   <div class="svc-panel">
     <div class="svc-left">
       <h3 id="svc-title">Marketplace Consulting</h3>
       <p id="svc-blurb">Run every marketplace as one P&amp;L. Amazon, Walmart, TikTok Shop and quick commerce on one team, measured on TACoS rather than channel-by-channel ACOS.</p>
-      <a class="svc-explore" href="#">Explore the line &rarr;</a>
+      <a class="svc-explore" href="#">Explore the line <span>&rarr;</span></a>
       <div class="acc">
-        <button aria-selected="true" data-s="m">Marketplace Consulting <i>&minus;</i></button>
-        <button aria-selected="false" data-s="w">Website Development <i>+</i></button>
-        <button aria-selected="false" data-s="g">GEO, AIO &amp; SEO <i>+</i></button>
-        <button aria-selected="false" data-s="b">B2B &amp; SaaS Search <i>+</i></button>
+        <button type="button" aria-selected="true"  data-s="m">Marketplace Consulting <i>&#9662;</i></button>
+        <button type="button" aria-selected="false" data-s="w">Website Development <i>&#9662;</i></button>
+        <button type="button" aria-selected="false" data-s="g">GEO, AIO &amp; SEO <i>&#9662;</i></button>
+        <button type="button" aria-selected="false" data-s="b">B2B &amp; SaaS Search <i>&#9662;</i></button>
       </div>
     </div>
-
     <div class="svc-card">
-      <p class="lbl">What we actually do</p>
-      <div class="chips" id="chips">
-        <span class="chip on">Amazon</span><span class="chip">TikTok Shop</span><span class="chip">Walmart &amp; Target</span><span class="chip">Flipkart, Myntra &amp; Nykaa</span><span class="chip">Quick commerce</span>
-      </div>
-      <div class="do-grid" id="dogrid">
-        <div class="do"><em>01</em><b>Strategic growth plans</b><p>A category-specific growth roadmap for the channel, not a month-to-month campaign plan.</p></div>
-        <div class="do"><em>02</em><b>Campaign strategy &amp; planning</b><p>Campaign structure, negative keyword framework and budget allocation across types and catalog priority tiers.</p></div>
-        <div class="do"><em>03</em><b>Amazon DSP</b><p>Reaching Amazon audiences on and off the platform, before they search, upper funnel.</p></div>
-        <div class="do"><em>04</em><b>Amazon Marketing Cloud</b><p>Custom audience targeting, new-to-brand attribution and path-to-purchase analysis.</p></div>
-        <div class="do"><em>05</em><b>Advertising audit</b><p>Full account audit covering campaign structure, keyword coverage and negative keyword gaps.</p></div>
-        <div class="do"><em>06</em><b>Keyword research</b><p>Keyword research and search-term harvesting, mapped against what your ads and listings already rank for.</p></div>
-        <div class="do"><em>07</em><b>Campaign management</b><p>Sponsored Products, Sponsored Brands and Sponsored Display managed against a single TACoS target.</p></div>
-        <div class="do"><em>08</em><b>Ads analytics &amp; reporting</b><p>Weekly reporting on ACoS, TACoS, ad sales, ROAS and share of voice, in one view.</p></div>
-      </div>
-      <p class="lbl">AI agents working inside this line</p>
-      <div class="toolchips">
-        <span class="toolchip">Search-term harvester</span><span class="toolchip">Bid &amp; budget optimizer</span><span class="toolchip">Listing quality monitor</span><span class="toolchip">Competitor price watch</span><span class="toolchip">Inventory risk flagger</span>
-      </div>
+      <span class="lbl">What we actually do</span>
+      <div class="chips" id="chips"></div>
+      <div class="do-grid" id="dogrid"></div>
+      <span class="lbl">AI agents working inside this line</span>
+      <div class="toolchips" id="tools"></div>
     </div>
   </div>
 </div></section>
 
-<!-- MARKET -->
-<section class="market"><div class="wrap">
-  <div class="market-head">
-    <div>
-      <h2>Entering a new market shouldn't<br>mean starting from zero.</h2>
-      <p>We grew GuruNanda to #1 in US and Canada oral care, and Ultrahuman's Amazon UK revenue roughly 6x in two months. The playbook adapts to local market behavior.</p>
+<section class="sec tsec"><div class="wrap">
+  <span class="eyebrow">Testimonials</span>
+  <h2>Our clients speak to the results we deliver</h2>
+  <div class="trail">
+    <div class="ttrack" id="ttrack">
+      <article class="tcard">
+        <span class="who-top"><i style="background-color:#000000;background-image:url('figma-assets/assets/chip-puma.png')"></i><b>PUMA</b><em>Marketplaces</em></span>
+        <blockquote>&ldquo;We have worked with Growisto for Amazon marketing and the creation of business intelligence dashboards. Their extensive e-commerce expertise, coupled with an always on their toes approach is why they are a class apart.&rdquo;</blockquote>
+        <div class="tfoot">
+          <div class="p"><i style="background-image:url('figma-assets/assets/case-avatar-c.png')"></i><div><b>Ankit Madhogaria</b><span>Head, Online Demand, PUMA India</span></div></div>
+          <div class="s"><b>1.7x</b><span>YoY revenue in 5 months</span></div>
+        </div>
+      </article>
+      <article class="tcard">
+        <span class="who-top"><i style="background-color:#1C1C1C;background-image:url('figma-assets/assets/logo-msi.png')"></i><b>Atomberg</b><em>Website &amp; CRO</em></span>
+        <blockquote>&ldquo;The new site developed by Growisto performs flawlessly, enhancing the user experience. Load times have significantly improved, and navigation is seamless.&rdquo;</blockquote>
+        <div class="tfoot">
+          <div class="p"><i style="background-image:url('figma-assets/assets/case-portrait-a.jpg')"></i><div><b>Arindam Paul</b><span>Founding Member &amp; CBO, Atomberg Technologies</span></div></div>
+          <div class="s"><b>177%</b><span>Conversion rate growth</span></div>
+        </div>
+      </article>
+      <article class="tcard">
+        <span class="who-top"><i style="background-color:#1C1C1C;background-image:url('figma-assets/assets/logo-justrite.png')"></i><b>Tyresnmore</b><em>Website &amp; CRO</em></span>
+        <blockquote>&ldquo;What I appreciate most about working with Growisto is the depth and rigour they bring to every audit, be it CRO, technical infra and performance, GA4 tracking, or UI/UX.&rdquo;</blockquote>
+        <div class="tfoot">
+          <div class="p"><i style="background-image:url('figma-assets/assets/testimonial-portrait.jpg')"></i><div><b>Manoj Reddy</b><span>Chief Growth Officer, Tyresnmore</span></div></div>
+          <div class="s"><b>53%</b><span>Overall revenue increase</span></div>
+        </div>
+      </article>
+      <article class="tcard">
+        <span class="who-top"><i style="background-color:#1C1C1C;background-image:url('figma-assets/assets/logo-borosil.png')"></i><b>Nobero</b><em>Marketplaces</em></span>
+        <blockquote>&ldquo;Growisto suggested we build visibility ahead of the season and this really worked out well for us.&rdquo;</blockquote>
+        <div class="tfoot">
+          <div class="p"><i style="background-image:url('figma-assets/assets/case-avatar-c.png')"></i><div><b>Bala Satish</b><span>Co-Founder, Nobero</span></div></div>
+          <div class="s"><b>176%</b><span>Ad sales growth, Q3 to Q4</span></div>
+        </div>
+      </article>
+      <article class="tcard">
+        <span class="who-top"><i style="background-color:#512C1D;background-image:url('figma-assets/assets/logo-gurunanda.png')"></i><b>The Tea Spot</b><em>Marketplaces</em></span>
+        <blockquote>&ldquo;Growisto has met or exceeded every expectation they set with us for how our expansion on Amazon would unroll.&rdquo;</blockquote>
+        <div class="tfoot">
+          <div class="p"><i style="background-image:url('figma-assets/assets/case-portrait-a.jpg')"></i><div><b>Maria Uspenski</b><span>CEO, The Tea Spot</span></div></div>
+          <div class="s"><b>300+</b><span>Brands serviced worldwide</span></div>
+        </div>
+      </article>
+      <article class="tcard">
+        <span class="who-top"><i style="background-color:#BD4541;background-image:url('figma-assets/assets/logo-kama.png')"></i><b>Kama Ayurveda</b><em>Website &amp; CRO</em></span>
+        <blockquote>&ldquo;Since we began working together, the performance of our website has also significantly improved. The continuous maintenance assistance has been excellent.&rdquo;</blockquote>
+        <div class="tfoot">
+          <div class="p"><i style="background-image:url('figma-assets/assets/testimonial-portrait.jpg')"></i><div><b>Yash Jaiswal</b><span>AGM Ecommerce, Kama Ayurveda</span></div></div>
+          <div class="s"><b>4.2x</b><span>Increase in AI citations</span></div>
+        </div>
+      </article>
     </div>
-    <a class="btn btn-rust" href="#cta">Book a strategy call</a>
+    <button class="tnext" id="tnext" type="button" aria-label="Next testimonial">&rarr;</button>
   </div>
-  <div class="market-panel">
-    <svg id="worldmap" viewBox="0 0 640 230" aria-label="Markets we operate in"></svg>
-    <div class="mq">
-      <div class="mq-photo"></div>
-      <div>
-        <h4>Zero cut-over downtime</h4>
-        <p>"Growisto's highly experienced technical team managed our website for three years. They helped us successfully re-platform our online store."</p>
-        <p class="who">Douglas J. Stang · Ex-Vice President, Ecommerce</p>
-      </div>
-    </div>
-  </div>
-  <div class="ns-geo">
-    <p class="ns-lbl">Trusted by brands scaling across markets</p>
-    <div class="ns-geo-tabs" id="ns-geo-tabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-g="us">United States</button><button type="button" role="tab" aria-selected="false" data-g="uk">United Kingdom</button><button type="button" role="tab" aria-selected="false" data-g="au">Australia</button><button type="button" role="tab" aria-selected="false" data-g="sg">Singapore</button><button type="button" role="tab" aria-selected="false" data-g="in">India</button></div>
-    <div class="ns-geo-panel" id="ns-geo-panel"></div>
-  </div>
+  <div class="ttrust"><b>95%</b> average client satisfaction score <span></span> Official <b>Amazon Ads Partner</b></div>
 </div></section>
 
-<!-- NEWS -->
-<section class="ns ns-news"><div class="wrap">
-  <div class="ns-head"><h2>News, insights and client stories</h2><p>Fresh thinking from the team running these accounts every day.</p></div>
-  <div class="ns-news-grid">
-    <article class="ns-card"><div class="ns-thumb"></div><div class="ns-card-body"><span class="ns-kicker">Insight</span><h3>Article title to be confirmed</h3><p>Placeholder card. The three titles in the draft read as directional, not published pieces.</p></div></article>
-    <article class="ns-card"><div class="ns-thumb"></div><div class="ns-card-body"><span class="ns-kicker">Client story</span><h3>Article title to be confirmed</h3><p>Placeholder card. Swap in a real story once the list is signed off.</p></div></article>
-    <article class="ns-card"><div class="ns-thumb"></div><div class="ns-card-body"><span class="ns-kicker">News</span><h3>Article title to be confirmed</h3><p>Placeholder card. Swap in a real piece once the list is signed off.</p></div></article>
-  </div>
-</div></section>
-
-<!-- EVENTS -->
-<section class="ns ns-events"><div class="wrap">
-  <div class="ns-head"><h2>We Bring Industry Leaders Together to Solve the Hardest Problems in Ecommerce</h2><p>Our roundtables on ecommerce strategy bring together senior leaders from top ecommerce brands globally, to share what is actually working.</p></div>
-  <div class="ns-ev-strip">
-    <div class="ns-ev-shot"></div>
-    <div class="ns-ev-shot"></div>
-    <div class="ns-ev-shot"></div>
-    <div class="ns-ev-shot"></div>
-  </div>
-  <p class="ns-lbl">Where we have been</p>
-  <div class="ns-chips"><span>Mumbai</span><span>Delhi</span><span>New York</span><span>Boston</span><span>NRF (New York)</span><span>Amazon unBoxed (Austin, TX)</span></div>
-  <div class="ns-ev-foot"><a class="btn btn-rust" href="#cta">See Our Next Event in Your City</a></div>
-</div></section>
-
-<!-- FAQ -->
-<section class="ns ns-faq"><div class="wrap">
-  <div class="ns-head"><h2>Questions we get asked</h2></div>
-  <div class="ns-faq-list">
-    <details open><summary>What exactly do you do?</summary><p>We run three growth lines under one team: marketplace growth (Amazon, TikTok Shop and 20+ marketplaces), website development and CRO (Shopify and Magento), and GEO/AIO/SEO. Most clients start with one line and expand once the team proves out.</p></details>
-    <details><summary>How is Growisto different from other agencies?</summary><p>Every engagement starts with a free retrospective audit, not a sales pitch, and each account gets a capped team of 2 to 3 people instead of being spread across ten.</p></details>
-    <details><summary>How do you measure success?</summary><p>Against the business outcome you are paying for: profit and TACoS on marketplaces, conversion and revenue on the website, qualified organic traffic and AI citations on GEO/SEO. Not clicks or impressions.</p></details>
-    <details><summary>How long before we see results?</summary><p>The free audit takes about a week. Most engagements show a first measurable shift within the first 90 days, tracked in your monthly impact report.</p></details>
-    <details><summary>What does it cost?</summary><p>Marketplaces and Website retainers run $1,000 to $5,000 a month; GEO/AIO/SEO runs $1,000 to $3,000 a month, scoped to your channel and complexity. We also take fixed-scope, one-time projects. The free audit gives you a specific, prioritized number before you commit to anything.</p></details>
-    <details><summary>Do you work with B2B and SaaS, or only e-commerce?</summary><p>Both. E-commerce brands get all three lines; funded B2B and SaaS companies work with us on GEO/AIO/SEO to build organic and AI-referred pipeline.</p></details>
-    <details><summary>Where are you based, and do you work with US brands?</summary><p>We are headquartered in India with a US entity and a US-based sales team who respond within 24 hours of a form fill.</p></details>
-  </div>
-</div></section>
-
-<!-- CTA -->
 <section class="cta" id="cta"><div class="wrap cta-in">
   <div>
     <h2>See What Your Account Is Losing Before You Decide Anything</h2>
     <p>Free, no call required. You keep it whether or not we end up working together.</p>
-    <form class="urlbar" onsubmit="return false">
-      <input type="text" placeholder="Your website or storefront URL" aria-label="Your website or storefront URL">
-      <button class="btn btn-rust" type="submit">Get Your Free Retrospective Audit</button>
-    </form>
-    <p class="trustline">7 days delivery · Zero cost or commitment · 100% confidential</p>
-    <p class="trustline"><a href="#" style="color:inherit">Prefer to talk it through? Book a 30-minute call</a></p>
+    <div class="cta-row">
+      <a class="btn btn-white" href="#">Get Your Free Retrospective Audit <span>&rarr;</span></a>
+      <a class="alt" href="#">Or book a 30-minute call</a>
+    </div>
+    <p class="cta-note">Replies within one working day &middot; Offices in India, operating on US, UK and Gulf hours</p>
   </div>
-  <div class="cta-list">
-    <h4>What you get back</h4>
-    <ul>
-      <li>Full audit of ad performance, TACoS trends and listing gaps</li>
-      <li>SKU-level profitability analysis using Brand Analytics data</li>
-      <li>Category-specific growth roadmap for your portfolio</li>
-      <li>30-minute call with a senior consultant</li>
-    </ul>
+  <div class="cta-art">
+    <i></i><i></i><i></i>
+    <svg viewBox="0 0 340 250" fill="none" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M14 224 C90 214 150 170 196 118 C232 76 264 44 300 22" stroke="rgba(255,255,255,.55)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M284 20 h22 v22" stroke="rgba(255,255,255,.55)" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="196" cy="118" r="7" fill="#5B2BFF"/>
+    </svg>
   </div>
 </div></section>
 
@@ -744,52 +500,39 @@ footer{background:#111111;color:rgba(250,248,255,.6);padding:54px 0 30px;font-si
   <div class="f-top">
     <div>
       <a class="logo" href="#">Growisto</a>
-      <p style="max-width:34ch">A certified e-commerce growth partner running marketplaces, storefront tech and search for 300+ brands.</p>
+      <p>A certified e-commerce growth partner running marketplaces, storefront tech and search for 300+ brands.</p>
     </div>
     <div class="f-col"><p>Services</p><a href="#">Marketplace Consulting</a><a href="#">Website Development</a><a href="#">GEO, AIO &amp; SEO</a><a href="#">Data &amp; BI</a></div>
     <div class="f-col"><p>Marketplaces</p><a href="#">Amazon</a><a href="#">Walmart</a><a href="#">TikTok Shop</a><a href="#">Quick commerce</a></div>
     <div class="f-col"><p>Company</p><a href="#">About</a><a href="#">Careers</a><a href="#">Case studies</a><a href="#">Contact</a></div>
     <div class="f-col"><p>Resources</p><a href="#">Blog</a><a href="#">Playbooks</a><a href="#">Free audit</a><a href="#">Newsletter</a></div>
   </div>
-  <div class="f-bot"><span>© 2026 Growisto. All rights reserved.</span><span>Privacy · Terms</span></div>
+  <div class="f-bot"><span>&copy; 2026 Growisto. All rights reserved.</span><span>Privacy &middot; Terms</span></div>
 </div></footer>
-
 <script>
-// hero rail accordion
-// hero proof points: the Figma card, one point at a time, 7s apart
-var PROOF={
-  m:[{n:'GuruNanda',c:'Amazon',s:'312%',p:'Revenue growth, #1 in US & CA oral care',k:'gurunanda'},
-     {n:'Puma',c:'Amazon',s:'1.7x',p:'Revenue increase in 5 months',k:'puma'},
-     {n:'US pet accessories & outdoor gear brand',c:'TikTok',s:'30%',p:'Revenue growth in 90 days',k:''}],
-  w:[{n:'Atomberg',c:'Shopify Plus',s:'177%',p:'Conversion rate growth over an 8-year partnership',k:''},
-     {n:'Premium US hair care brand',c:'Shopify',s:'222%',p:'Gross sales growth in 4 months post-migration',k:''},
-     {n:'Tyresnmore',c:'Magento',s:'53%',p:'Overall revenue increase',k:''}],
-  g:[{n:'Avaana',c:'B2B \u00b7 SEO + GEO',s:'13x',p:'ROI',k:''},
-     {n:'Borosil',c:'D2C \u00b7 SEO',s:'3.4x',p:'Organic revenue',k:''}]
-};
-var PLINK={m:'Explore the strategy',w:'See the build process',g:'See how we get cited'};
-
+// ---- hero: tabs rewrite the headline, subhead and proof card; proof rotates every 7s
+var HERO={"m": ["Be Profitable on Every Marketplace", "Grow customers, increase conversions, and diversify on over 20+ global marketplaces. We combine ads, organic, and affiliate marketing strategies in one team. So every layer of your account is optimized to drive sales.", [["GuruNanda", "Amazon", "312%", "Revenue growth, #1 in US & CA oral care"], ["Puma", "Amazon", "1.7x", "Revenue increase in 5 months"], ["US pet accessories & outdoor gear brand", "TikTok", "30%", "Revenue growth in 90 days"]]], "w": ["Shopify and Magento Websites Built to Increase Sales", "Drive sales on Shopify and Magento websites that are fast, agile, and conversion-optimized. We combine our SEO with tech capabilities in one team so you grow your organic traffic into organic revenue.", [["Atomberg", "Shopify Plus", "177%", "Conversion rate growth over an 8-year partnership"], ["Premium US hair care brand", "Shopify", "222%", "Gross sales growth in 4 months post-migration"], ["Tyresnmore", "Magento", "53%", "Overall revenue increase"]]], "g": ["Be the Brand Buyers Discover First on Google and AI", "Rank on Google and get recommended by leading AI platforms like ChatGPT, Perplexity, and Claude. We combine GEO, SEO, and AI optimization with tech capabilities to get traffic and convert it to revenue and lead generation.", [["Avaana", "B2B · SEO + GEO", "13x", "ROI"], ["Borosil", "D2C · SEO", "3.4x", "Organic revenue"]]]};
 var pfRotate=(function(){
   var t=null,i=0,cur='m';
-  function card(){return document.querySelector('.rail-item[aria-expanded="true"] .stat-card')}
+  function card(){return document.querySelector('.hcard')}
   function dotsEl(c){
     var d=c.querySelector('.pf-dots');
     if(!d){d=document.createElement('div');d.className='pf-dots';c.appendChild(d)}
     return d;
   }
   function render(c,d){
-    c.querySelector('.lbl').textContent=d.n+(d.c?' \u00b7 '+d.c:'');
-    var st=c.querySelector('b');
-    st.textContent=d.s; st.className=(d.s.length>5?'sm':'');
-    c.querySelector('p').textContent=d.p;
-    c.querySelector('a').textContent=PLINK[cur];
+    c.querySelector('.lbl').textContent=d[0]+(d[1]?' \u00b7 '+d[1]:'');
+    var st=c.querySelector('.stat'), u=String(d[2]).match(/^(.*?)([%x])$/);
+    st.textContent='';
+    if(u){st.appendChild(document.createTextNode(u[1]));var e=document.createElement('em');e.textContent=u[2];st.appendChild(e)}
+    else{st.textContent=d[2]}
+    c.querySelector('.cap').textContent=d[3];
   }
   function build(){
     var c=card(); if(!c) return;
-    var d=dotsEl(c), n=PROOF[cur].length;
+    var d=dotsEl(c), n=HERO[cur][2].length;
     if(n<2){d.innerHTML='';d.hidden=true;return}
-    d.hidden=false;
-    if(d.children.length===n) return;
+    d.hidden=false; if(d.children.length===n) return;
     d.innerHTML='';
     for(var x=0;x<n;x++){
       var b=document.createElement('button');
@@ -800,10 +543,9 @@ var pfRotate=(function(){
     }
   }
   function paint(){
-    var c=card(), set=PROOF[cur]; if(!c||!set) return;
+    var c=card(), set=HERO[cur][2]; if(!c) return;
     if(i>=set.length) i=0;
     render(c,set[i]);
-    c.classList.remove('pf-swap'); void c.offsetWidth; c.classList.add('pf-swap');
     var d=dotsEl(c);
     for(var y=0;y<d.children.length;y++){
       d.children[y].className='pf-dot'+(y===i?' on':'');
@@ -811,57 +553,59 @@ var pfRotate=(function(){
     }
   }
   function size(){
-    var c=card(), set=PROOF[cur]; if(!c) return;
+    var c=card(), set=HERO[cur][2]; if(!c) return;
     c.style.minHeight=''; var max=0;
     for(var x=0;x<set.length;x++){render(c,set[x]); if(c.offsetHeight>max) max=c.offsetHeight}
     c.style.minHeight=max+'px';
   }
-  function arm(){
-    clearInterval(t);
-    if(PROOF[cur].length>1) t=setInterval(function(){i++;paint()},7000);
-  }
+  function arm(){clearInterval(t); if(HERO[cur][2].length>1) t=setInterval(function(){i++;paint()},7000)}
   return function(k){ if(k) cur=k; i=0; build(); size(); paint(); arm(); };
 })();
-
-(function(){
-var copy={
-  m:['Be Profitable','on Every Marketplace','Grow customers, increase conversions, and diversify on over 20+ global marketplaces. We combine ads, organic, and affiliate marketing strategies in one team. So every layer of your account is optimized to drive sales.'],
-  s:['Shopify and Magento Websites','Built to Increase Sales','Drive sales on Shopify and Magento websites that are fast, agile, and conversion-optimized. We combine our SEO with tech capabilities in one team so you grow your organic traffic into organic revenue.'],
-  g:['Be the Brand Buyers Discover First','on Google and AI','Rank on Google and get recommended by leading AI platforms like ChatGPT, Perplexity, and Claude. We combine GEO, SEO, and AI optimization with tech capabilities to get traffic and convert it to revenue and lead generation.']
-};
-document.querySelectorAll('.rail-item').forEach(function(item){
-  item.querySelector('.rail-tab').addEventListener('click',function(){
-    document.querySelectorAll('.rail-item').forEach(function(x){
-      x.setAttribute('aria-expanded','false');
-      x.querySelector('.rail-tab').setAttribute('aria-selected','false');
-      x.querySelector('.rail-body').hidden=true;
-    });
-    item.setAttribute('aria-expanded','true');
-    item.querySelector('.rail-tab').setAttribute('aria-selected','true');
-    item.querySelector('.rail-body').hidden=false;
-    var c=copy[item.querySelector('.rail-tab').dataset.k];
-    document.getElementById('h-t1').textContent=c[0];
-    document.getElementById('h-t2').textContent=c[1];
-    document.getElementById('h-sub').textContent=c[2];
-    pfRotate(item.querySelector('.rail-tab').dataset.k==='s'?'w':item.querySelector('.rail-tab').dataset.k);
+document.querySelectorAll('.htab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.htab').forEach(function(x){x.setAttribute('aria-selected','false')});
+    t.setAttribute('aria-selected','true');
+    var c=HERO[t.dataset.h];
+    document.getElementById('h-title').textContent=c[0];
+    document.getElementById('h-sub').textContent=c[1];
+    pfRotate(t.dataset.h);
   });
 });
-})();
 pfRotate();
 
-// case study carousel
-(function(){
-  var i=0, slides=document.querySelectorAll('.cs-slide'), bars=document.querySelectorAll('#prog i');
-  function go(n){
-    i=(n+slides.length)%slides.length;
-    slides.forEach(function(s,k){s.hidden=(k!==i)});
-    bars.forEach(function(b,k){b.classList.toggle('on',k===i)});
-  }
-  document.getElementById('next').addEventListener('click',function(){go(i+1)});
-  document.getElementById('prev').addEventListener('click',function(){go(i-1)});
-})();
+// ---- outcomes cards
+var WHYD={"m": [["&#128722;", "Full-funnel management for profitable growth", "We run your ads, AMC+DSP, organic, affiliate, and operations together."], ["&#127758;", "Growth across every marketplace", "We expand you from Amazon into TikTok, Walmart, and more."], ["&#128200;", "Profit-focused strategy", "We track TACOS, not just ACOS."], ["&#127919;", "Expand market share", "We map your next geography or product launch, and plan through sale seasons."]], "w": [["&#9889;", "Conversion-first builds", "Every choice on platform, theme, feature, and test is suggested to convert more."], ["&#128269;", "A 600+ parameter CRO audit", "We find every conversion gap and turn it into a clear growth roadmap."], ["&#128736;", "CTO/CPO-level tech planning", "We plan your stack two years ahead, with senior tech expertise."], ["&#128260;", "Zero-loss migrations", "We migrate or rebuild your platform with zero data loss and zero downtime, with SEO preserved."]], "g": [["&#128201;", "Organic revenue", "We connect SEO and GEO with tech."], ["&#128188;", "B2B lead gen", "We optimize your strategy to deliver lead generation through organic channels."], ["&#128172;", "AI visibility", "Our 7-pillar framework spans SEO, GEO, AIO, and RAG to get you seen on ChatGPT, Claude, Perplexity, and other AI."], ["&#128270;", "AI citations", "We measure your LLM citations and AI share of voice, and build to improve citations."]]};
+function drawWhy(k){
+  var p=document.getElementById('why-panel'); p.innerHTML='';
+  WHYD[k].forEach(function(r){
+    var d=document.createElement('div'); d.className='wben';
+    var ic=document.createElement('i'); ic.innerHTML=r[0];
+    var box=document.createElement('div');
+    var b=document.createElement('b'); b.textContent=r[1];
+    var t=document.createElement('p'); t.textContent=r[2];
+    box.appendChild(b); box.appendChild(t); d.appendChild(ic); d.appendChild(box);
+    p.appendChild(d);
+  });
+}
+document.querySelectorAll('.wcard').forEach(function(c){
+  c.addEventListener('click',function(){
+    document.querySelectorAll('.wcard').forEach(function(x){x.setAttribute('aria-selected','false')});
+    c.setAttribute('aria-selected','true'); drawWhy(c.dataset.w);
+  });
+});
+drawWhy('m');
 
-// services accordion
+// ---- case study chips
+document.querySelectorAll('.cchip').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.cchip').forEach(function(x){x.setAttribute('aria-selected','false')});
+    document.querySelectorAll('.case-card').forEach(function(c){c.hidden=true});
+    t.setAttribute('aria-selected','true');
+    document.getElementById('cs-'+t.dataset.c).hidden=false;
+  });
+});
+
+// ---- services accordion
 (function(){
   var data={
     m:{t:'Marketplace Consulting',
@@ -913,68 +657,35 @@ pfRotate();
               ['ABM landing pages','Account-specific pages built from one template, shipped in days.']],
        tools:['Pipeline attribution model','Comparison page builder','Review-site monitor','Committee keyword map','AI answer tracker']}
   };
+  function draw(k){
+    var d=data[k];
+    document.getElementById('svc-title').innerHTML=d.t;
+    document.getElementById('svc-blurb').textContent=d.b;
+    document.getElementById('chips').innerHTML=d.chips.map(function(c,i){return '<span class="chip'+(i===0?' on':'')+'">'+c+'</span>'}).join('');
+    document.getElementById('dogrid').innerHTML=d.items.map(function(it,i){
+      return '<div class="do"><em>'+String(i+1).padStart(2,'0')+'</em><b>'+it[0]+'</b><p>'+it[1]+'</p></div>';
+    }).join('');
+    document.getElementById('tools').innerHTML=d.tools.map(function(t){return '<span class="toolchip">'+t+'</span>'}).join('');
+  }
   document.querySelectorAll('.acc button').forEach(function(b){
     b.addEventListener('click',function(){
-      document.querySelectorAll('.acc button').forEach(function(x){x.setAttribute('aria-selected','false');x.querySelector('i').textContent='+'});
-      b.setAttribute('aria-selected','true'); b.querySelector('i').textContent='−';
-      var d=data[b.dataset.s];
-      document.getElementById('svc-title').innerHTML=d.t;
-      document.getElementById('svc-blurb').textContent=d.b;
-      document.getElementById('chips').innerHTML=d.chips.map(function(c,i){return '<span class="chip'+(i===0?' on':'')+'">'+c+'</span>'}).join('');
-      document.getElementById('dogrid').innerHTML=d.items.map(function(it,i){
-        return '<div class="do"><em>'+String(i+1).padStart(2,'0')+'</em><b>'+it[0]+'</b><p>'+it[1]+'</p></div>';
-      }).join('');
-      document.querySelector('.toolchips').innerHTML=d.tools.map(function(t){return '<span class="toolchip">'+t+'</span>'}).join('');
+      document.querySelectorAll('.acc button').forEach(function(x){x.setAttribute('aria-selected','false')});
+      b.setAttribute('aria-selected','true'); draw(b.dataset.s);
     });
   });
+  draw('m');
 })();
 
-// dotted world map
+// ---- testimonial rail
 (function(){
-  var svg=document.getElementById('worldmap'); if(!svg) return;
-  var blobs=[[11,5.5,7,3.5],[13.5,8.8,3,2],[19,1.6,2.6,1.2],[17,13.5,3,3],[18.4,17,1.9,2.3],
-             [31,4.4,3.6,2],[28,3,1.1,1],[32,10,4,3],[33.5,14,2.6,2.2],[36.4,8,2.6,1.6],
-             [44,4,9,3],[42,9,2.6,2],[48,7.4,4,2.5],[50.4,12,3,1],[53,15,3.6,2],[54.4,5.6,1,1.6]];
-  var pins=[[11,6,'United States'],[28,3,'United Kingdom'],[37,8,'UAE'],[42,9,'India'],[53,15,'Australia'],[50,11,'Singapore']];
-  var COLS=64,ROWS=22,sx=640/COLS,sy=230/ROWS,out='';
-  function inside(x,y){return blobs.some(function(b){var dx=(x-b[0])/b[2],dy=(y-b[1])/b[3];return dx*dx+dy*dy<=1})}
-  for(var r=0;r<ROWS;r++)for(var c=0;c<COLS;c++){
-    if(!inside(c,r))continue;
-    out+='<circle cx="'+((c+.5)*sx).toFixed(1)+'" cy="'+((r+.5)*sy).toFixed(1)+'" r="2.1" fill="#CEC5EC"/>';
-  }
-  pins.forEach(function(p){
-    var x=((p[0]+.5)*sx).toFixed(1),y=((p[1]+.5)*sy).toFixed(1);
-    out+='<circle cx="'+x+'" cy="'+y+'" r="8" fill="#5B2BFF" opacity=".14"/>';
-    out+='<circle cx="'+x+'" cy="'+y+'" r="3.6" fill="#5B2BFF"><title>'+p[2]+'</title></circle>';
+  var tr=document.getElementById('ttrack'), nx=document.getElementById('tnext');
+  if(!tr||!nx) return;
+  nx.addEventListener('click',function(){
+    var card=tr.querySelector('.tcard'); if(!card) return;
+    var step=card.getBoundingClientRect().width+24;
+    if(tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-4) tr.scrollTo({left:0,behavior:'smooth'});
+    else tr.scrollBy({left:step,behavior:'smooth'});
   });
-  svg.innerHTML=out;
-})();
-
-// geo testimonials
-(function(){
-  var GEO=[["us", "United States", [["Consistent pro-activeness and constant innovation are two defining qualities that the Growisto team has always exhibited. Our partnership is based on taking challenges head-on and exploring uncharted territory on Amazon!", "Puneet Nanda", "CEO, GuruNanda"], ["We have been most pleased with Growisto's handling of our brand on Amazon. Most notably, Growisto has met or exceeded every expectation they set with us for how our expansion on Amazon would unroll.", "Maria Uspenski", "CEO, The Tea Spot"], ["Working with Growisto over the past two years has been a game-changer for us.", "Matthew Henley", "Chief Operating Officer, Centerline Communications"]]], ["uk", "United Kingdom", [["I had the pleasure of working with Growisto for my business, and I can confidently say that their SEO services have gone above and beyond and are truly exceptional.", "Connie Wright", "Senior Digital Marketing Manager, Dext"]]], ["au", "Australia", [["In just six months, we saw a 3.2x lift in non-branded organic traffic and over half our core keywords rank in the top 10. Importantly, we now have a meaningful share of revenue coming from organic search, beyond just paid channels.", "Rohan Pardasani", "Chief Executive Officer, Avaana"]]], ["sg", "Singapore", [["We have worked with Growisto for overall SEO marketing for our counselling platform in Singapore. The local SEO efforts helped us to scale our business by helping us to generate leads from local listings and Google My Business.", "Fiona Maher O'Sullivan", "Director, Incontact"]]], ["in", "India", [["Their SEO and marketplaces team played a crucial role in our growth journey, boosting online visibility and driving increased conversions. They've been invaluable partners in elevating our digital presence.", "Arindam Paul", "Founding Member & Chief Business Officer, Atomberg"], ["Their extensive e-commerce expertise, coupled with an 'always on their toes' approach is why they're a class apart.", "Ankit Madhogaria", "Head of Online Demand, PUMA India"], ["The last two years journey with Growisto on Amazon has been a remarkable story. The right strategy at the right time and precise execution with a data-driven approach helped us in the growth story.", "Bala Krishna", "Founder, Nobero"], ["After a protracted search process involving several organizations, we ultimately opted to collaborate with Growisto. The continuous maintenance assistance has been excellent, with prompt reaction times and proactive problem-solving.", "Yash Jaiswal", "AGM Ecommerce, Kama Ayurveda"], ["What I appreciate most about working with Growisto is the depth and rigour they bring to every audit, be it CRO, technical infra/performance, GA4 tracking, or UI/UX.", "Manoj Reddy", "Chief Growth Officer, Tyresnmore"], ["Growisto has been instrumental in increasing the organic visibility on our website. The inherent obsession with customer success is what makes Growisto a highly valued partner for us.", "Shaan Shah", "COO, Freakins"], ["The in-depth knowledge that the Growisto team has on ecommerce marketing is a distinguishing factor which none of the digital marketing agencies provided us in the past.", "Prabhkiran Singh", "Founder, Bewakoof.com"], ["We worked with Growisto on SEO strategy and optimisation for Oren's website. Their structured approach across technical SEO, on-page optimisation, content recommendations, and keyword strategy helped us strengthen our organic visibility.", "Rasedul Islam", "Chief of Staff, Oren"]]]];
-  var tabs=document.getElementById('ns-geo-tabs'), panel=document.getElementById('ns-geo-panel');
-  if(!tabs||!panel) return;
-  function draw(k){
-    var g=GEO.filter(function(x){return x[0]===k})[0]; if(!g) return;
-    panel.innerHTML='';
-    g[2].forEach(function(q){
-      var a=document.createElement('article'); a.className='ns-q';
-      var b=document.createElement('blockquote'); b.textContent='\u201c'+q[0]+'\u201d';
-      var w=document.createElement('div'); w.className='ns-q-who';
-      var nm=document.createElement('b'); nm.textContent=q[1];
-      var ro=document.createElement('span'); ro.textContent=q[2];
-      w.appendChild(nm); w.appendChild(ro); a.appendChild(b); a.appendChild(w);
-      panel.appendChild(a);
-    });
-  }
-  tabs.querySelectorAll('button').forEach(function(t){
-    t.addEventListener('click',function(){
-      tabs.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-selected','false')});
-      t.setAttribute('aria-selected','true'); draw(t.dataset.g);
-    });
-  });
-  draw('us');
 })();
 </script>
 </body>
