@@ -17,6 +17,7 @@
   --muted:#5C534A; --muted-2:#725D4D; --muted-3:#8E8579; --faint:#BDB4A6;
   --line:#D9D7D1; --line-2:#BDB4A6;
   --band:#1C1C1C; --cta:#180F0B; --case:#F05E0A;
+  --hero-rgb:255,73,0; --scrim-rgb:255,73,0;
   --maxw:1440px; --pad:56px;
   /* Figma headline face is Season Mix-TRIAL (unlicensed) -- Newsreader substituted, as in A and B */
   --font-head:'Newsreader',Georgia,'Times New Roman',serif;
@@ -43,10 +44,11 @@ h1,h2,h3{font-family:var(--font-head);font-weight:400;letter-spacing:-.01em}
 .proto-flag b{color:#fff}
 /* ---------- HERO (Figma 354:49, 1440x771) ---------- */
 .hero{position:relative;min-height:771px;overflow:hidden;background:#3A2A55 url('figma-assets/assets/hero-photo-b.jpg') center/cover no-repeat;display:flex;flex-direction:column}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(97deg,#2A1155 0%,rgba(42,17,85,.86) 30%,rgba(50,25,95,.35) 58%,rgba(60,35,110,0) 78%)}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:272px;background:linear-gradient(180deg,rgba(15,8,38,0) 0%,rgba(15,8,38,.72) 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(97deg,rgba(var(--hero-rgb),.92) 0%,rgba(var(--hero-rgb),.62) 30%,rgba(var(--hero-rgb),.16) 58%,rgba(var(--hero-rgb),0) 78%)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:272px;background:linear-gradient(180deg,rgba(var(--scrim-rgb),0) 0%,rgba(var(--scrim-rgb),.74) 100%)}
 .hero>*{position:relative;z-index:2}
-.navbar{padding:24px 0}
+.navbar{padding:24px 0;position:relative}
+.navbar::before{content:"";position:absolute;left:0;right:0;top:0;height:120px;z-index:-1;background:linear-gradient(180deg,rgba(var(--scrim-rgb),.55) 0%,rgba(var(--scrim-rgb),0) 100%)}
 .nav-in{width:min(1328px,100% - 2*var(--pad));margin:0 auto;background:#fff;border-radius:99px;height:59px;display:flex;align-items:center;justify-content:space-between;padding:0 10px 0 0}
 .logo{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border-radius:99px;height:59px;padding:0 26px;font-family:var(--font-head);font-size:24px;font-weight:500;text-decoration:none;letter-spacing:-.01em}
 .logo img{width:22px;height:21px;filter:invert(1)}
