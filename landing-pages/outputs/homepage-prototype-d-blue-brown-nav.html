@@ -281,6 +281,131 @@ footer p{max-width:34ch;margin-top:14px;line-height:1.55}
 .nd-list a{padding:10px 12px;border-radius:10px;font-size:14px;color:var(--ink);text-decoration:none;transition:background .15s}
 .nd-list a:hover{background:var(--tint-3);color:var(--violet)}
 @media(max-width:900px){.nd-grid,.nd-cols,.nd-list{grid-template-columns:1fr}}
+
+/* ---------- GROWTH GAP CALCULATOR (scoped to #calculator) ---------- */
+#calculator .btn{justify-content:center;font-size:15px;padding:15px 24px}
+#calculator .btn-line{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+#calculator .btn-line:hover{background:var(--ink);color:#fff}
+/* ---------- how it works ---------- */
+#calculator .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-bottom:40px}
+#calculator .steps li{padding:22px 24px 0 0;display:flex;gap:14px;align-items:flex-start}
+#calculator .steps li+li{padding-left:24px;border-left:1px solid var(--line)}
+#calculator .steps em{flex:none;font-style:normal;font-family:var(--font-mono);font-size:12px;color:var(--violet);padding-top:3px}
+#calculator .steps b{display:block;font-size:16px;font-weight:500;margin-bottom:4px}
+#calculator .steps span{font-size:14.5px;line-height:1.45;color:var(--muted)}
+/* ---------- calculator shell ---------- */
+#calculator .calc{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 24px 60px rgba(30,26,22,.06)}
+#calculator .ctabs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line);background:var(--tint-3)}
+#calculator .ctab{border:0;background:transparent;font-family:inherit;text-align:left;padding:20px 26px;cursor:pointer;display:flex;gap:14px;align-items:center;position:relative;transition:background .18s}
+#calculator .ctab+.ctab{border-left:1px solid var(--line)}
+#calculator .ctab:hover{background:var(--tint-2)}
+#calculator .ctab i{flex:none;width:40px;height:40px;border-radius:10px;background:var(--tint);color:var(--violet);display:grid;place-items:center}
+#calculator .ctab b{display:block;font-size:17px;font-weight:500;color:var(--ink)}
+#calculator .ctab small{display:block;font-size:13px;color:var(--muted-3);margin-top:2px}
+#calculator .ctab[aria-selected="true"]{background:#fff}
+#calculator .ctab[aria-selected="true"] i{background:var(--violet);color:#fff}
+#calculator .ctab[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--violet)}
+#calculator .cbody{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr)}
+/* inputs */
+#calculator .cin{background:var(--tint-2);padding:34px 36px 36px;border-right:1px solid var(--line);display:flex;flex-direction:column}
+#calculator .cin h3{font-size:24px;line-height:1.2;margin-bottom:6px}
+#calculator .cin .lede{font-size:14.5px;line-height:1.5;color:var(--muted);margin-bottom:24px}
+#calculator .field{margin-bottom:16px}
+#calculator .field label{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2);margin-bottom:7px}
+#calculator .field label span{letter-spacing:0;text-transform:none;font-family:var(--font-ui);color:var(--muted-3)}
+#calculator .field select,#calculator .field input{width:100%;height:50px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:0 14px;font-family:var(--font-body);font-size:16px;color:var(--ink);outline:0;appearance:none;-webkit-appearance:none}
+#calculator .field select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%235C534A' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 16px center;padding-right:40px}
+#calculator .field input:focus,#calculator .field select:focus{border-color:var(--violet);box-shadow:0 0 0 3px rgba(170,80,42,.14)}
+#calculator .pre{position:relative}
+#calculator .pre input{padding-left:30px}
+#calculator .pre::before{content:attr(data-pre);position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted-3);font-size:16px}
+#calculator .post input{padding-right:40px}
+#calculator .post{position:relative}
+#calculator .post::after{content:attr(data-post);position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--muted-3);font-size:15px}
+#calculator .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#calculator .cin .btn{width:100%;margin-top:10px}
+#calculator .cin .fine{font-size:12.5px;line-height:1.5;color:var(--muted-3);margin-top:12px;text-align:center}
+/* results */
+#calculator .cout{background:var(--case);color:#fff;padding:34px 40px 36px;position:relative;overflow:hidden;min-height:620px;display:flex;flex-direction:column}
+#calculator .cout::before{content:"";position:absolute;right:-160px;top:-200px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(170,80,42,.38) 0%,rgba(170,80,42,0) 68%);pointer-events:none}
+#calculator .cout>*{position:relative}
+#calculator .empty{margin:auto;text-align:center;max-width:380px;color:rgba(255,255,255,.7)}
+#calculator .empty svg{margin:0 auto 18px;display:block;opacity:.8}
+#calculator .empty b{display:block;font-family:var(--font-head);font-weight:400;font-size:28px;color:#fff;margin-bottom:10px}
+#calculator .empty p{font-size:15px;line-height:1.55}
+#calculator .lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+#calculator .big{font-family:var(--font-head);font-size:60px;line-height:1.02;letter-spacing:-.02em;margin:10px 0 4px}
+#calculator .big small{font-size:24px;color:rgba(255,255,255,.62)}
+#calculator .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16);margin:22px 0 24px}
+#calculator .kpis div{padding:16px 0}
+#calculator .kpis div+div{padding-left:20px;border-left:1px solid rgba(255,255,255,.16)}
+#calculator .kpis b{display:block;font-family:var(--font-head);font-weight:400;font-size:28px;line-height:1.1}
+#calculator .kpis span{display:block;font-size:12.5px;color:rgba(255,255,255,.6);margin-top:5px}
+#calculator .bench{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;margin-bottom:26px}
+#calculator .bar b{display:flex;justify-content:space-between;font-size:13px;font-weight:500;margin-bottom:8px;color:rgba(255,255,255,.86)}
+#calculator .bar b em{font-style:normal;color:rgba(255,255,255,.55);font-weight:400}
+#calculator .track{height:8px;border-radius:99px;background:rgba(255,255,255,.12);position:relative}
+#calculator .track i{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:var(--violet-2);transition:width .6s cubic-bezier(.4,0,.2,1)}
+#calculator .track u{position:absolute;top:-4px;bottom:-4px;width:2px;background:#fff;transition:left .6s cubic-bezier(.4,0,.2,1)}
+#calculator .legend{display:flex;gap:18px;font-size:12px;color:rgba(255,255,255,.55);margin:-12px 0 24px}
+#calculator .legend span{display:inline-flex;align-items:center;gap:7px}
+#calculator .legend span::before{content:"";width:10px;height:8px;border-radius:99px;background:var(--violet-2)}
+#calculator .legend span+span::before{width:2px;height:12px;background:#fff;border-radius:0}
+#calculator .fixes{list-style:none;margin-bottom:24px}
+#calculator .fixes li{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:start;padding:14px 0;border-top:1px solid rgba(255,255,255,.12)}
+#calculator .fixes li:first-child{border-top:0}
+#calculator .fixes em{font-style:normal;font-family:var(--font-mono);font-size:12px;color:var(--violet-2);padding-top:3px}
+#calculator .fixes b{display:block;font-size:15.5px;font-weight:500;margin-bottom:3px}
+#calculator .fixes p{font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.62)}
+#calculator .fixes strong{font-family:var(--font-head);font-weight:400;font-size:20px;white-space:nowrap}
+#calculator .fixes strong small{font-size:12px;color:rgba(255,255,255,.55);font-family:var(--font-body)}
+#calculator .fixes li.ok strong{font-family:var(--font-body);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);padding-top:4px}
+#calculator .capture{display:flex;background:#fff;border-radius:99px;padding:6px;gap:6px;margin-top:auto}
+#calculator .capture input{flex:1;min-width:0;border:0;outline:0;background:transparent;padding:0 16px;font-family:var(--font-body);font-size:15px;color:var(--ink)}
+#calculator .capture .btn{padding:13px 20px;font-size:14px;white-space:nowrap}
+#calculator .sent{margin-top:auto;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:14px 18px;font-size:14px;line-height:1.5}
+#calculator .model{font-size:12px;line-height:1.5;color:rgba(255,255,255,.5);margin-top:12px}
+#calculator .reveal{animation:rise .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* ---------- talk it through ---------- */
+#calculator .talk{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-top:28px;padding:26px 30px;border-radius:14px;background:var(--tint-2)}
+#calculator .talk h3{font-size:26px;line-height:1.2}
+#calculator .contacts{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:8px;font-size:14.5px;color:var(--muted)}
+#calculator .contacts a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+#calculator .contacts a:hover{border-color:var(--violet);color:var(--violet)}
+#calculator .contacts .tbd{font-family:var(--font-mono);font-size:12px;color:var(--violet)}
+@media(max-width:1100px){
+#calculator .steps{grid-template-columns:1fr 1fr}
+#calculator .steps li:nth-child(3){padding-left:0;border-left:0}
+#calculator .steps li:nth-child(n+3){border-top:1px solid var(--line);margin-top:20px}
+#calculator .cbody{grid-template-columns:1fr}
+#calculator .cin{border-right:0;border-bottom:1px solid var(--line)}
+#calculator .cout{min-height:0}
+#calculator .empty{padding:40px 0}
+}
+@media(max-width:680px){
+#calculator .steps{grid-template-columns:1fr}
+#calculator .steps li,#calculator .steps li+li{padding:16px 0 0;border-left:0;margin-top:0}
+#calculator .steps li+li{border-top:1px solid var(--line);margin-top:16px}
+#calculator .ctabs{grid-template-columns:1fr}
+#calculator .ctab+.ctab{border-left:0;border-top:1px solid var(--line)}
+#calculator .ctab{padding:14px 18px}
+#calculator .cin,#calculator .cout{padding:26px 20px}
+#calculator .big{font-size:40px}
+#calculator .kpis div+div{padding-left:12px}
+#calculator .kpis b{font-size:21px}
+#calculator .kpis span{font-size:11.5px}
+#calculator .bench{grid-template-columns:1fr}
+#calculator .fixes li{grid-template-columns:28px 1fr}
+#calculator .fixes strong{grid-column:2}
+#calculator .capture{flex-direction:column;border-radius:14px}
+#calculator .capture input{height:44px}
+#calculator .talk{padding:22px 20px}
+}
+@media(prefers-reduced-motion:reduce){
+#calculator .reveal{animation:none}
+#calculator .track i,#calculator .track u{transition:none}
+}
 </style>
 
 </head>
@@ -449,6 +574,61 @@ footer p{max-width:34ch;margin-top:14px;line-height:1.55}
       </div>
     </div>
   </div>
+</div></section>
+
+<section class="sec" id="calculator"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="eyebrow">Free revenue gap calculator</span>
+      <h2>See What Your Growth Gap Is Actually Costing You</h2></div>
+    <div class="right"><p>Enter your numbers. Get back a specific, prioritized read on where you're losing revenue, free and with no call required. You keep the report whether or not we work together.</p></div>
+  </div>
+
+  <ol class="steps">
+    <li><em>01</em><div><b>Pick your channel</b><span>Marketplaces, Website &amp; CRO, or GEO/AIO/SEO.</span></div></li>
+    <li><em>02</em><div><b>Enter your current numbers</b><span>Revenue, ad spend, conversion rate, or organic traffic.</span></div></li>
+    <li><em>03</em><div><b>See your gap against category benchmarks</b><span>In dollars, not just percentages.</span></div></li>
+    <li><em>04</em><div><b>Get a prioritized fix list</b><span>One you can act on right away.</span></div></li>
+  </ol>
+
+  <div class="calc">
+    <div class="ctabs" role="tablist" aria-label="Choose your channel">
+      <button class="ctab" role="tab" aria-selected="true" data-tab="mkt">
+        <i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l1.5-5h15L21 9M3 9h18M3 9v11h18V9M9 20v-6h6v6"/></svg></i>
+        <span><b>Marketplaces</b><small>Amazon, Walmart, TikTok Shop</small></span>
+      </button>
+      <button class="ctab" role="tab" aria-selected="false" data-tab="cro">
+        <i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8M7 14l3-3 2 2 4-4"/></svg></i>
+        <span><b>Website &amp; CRO</b><small>Shopify, Magento, custom stores</small></span>
+      </button>
+      <button class="ctab" role="tab" aria-selected="false" data-tab="seo">
+        <i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21M8 10.5h5M10.5 8v5"/></svg></i>
+        <span><b>GEO/AIO/SEO</b><small>Organic search and AI answers</small></span>
+      </button>
+    </div>
+
+    <div class="cbody">
+      <form class="cin" id="form" novalidate>
+        <div id="fields"></div>
+        <button class="btn btn-violet" type="submit">Calculate Your Revenue Gap <span>&rarr;</span></button>
+        <p class="fine">No email needed to see your number.</p>
+      </form>
+
+      <div class="cout" id="out" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="talk">
+    <div>
+      <h3>Prefer to Talk It Through?</h3>
+      <div class="contacts">
+        <a href="#">Email <span class="tbd">[address]</span></a>
+        <a href="#">US <span class="tbd">[number]</span></a>
+        <a href="#">India <span class="tbd">[number]</span></a>
+      </div>
+    </div>
+    <a class="btn btn-line" href="#">Book a 30-Minute Call <span>&rarr;</span></a>
+  </div>
+
 </div></section>
 
 <section class="sec services" id="services"><div class="wrap">
@@ -776,6 +956,181 @@ document.querySelectorAll('.cchip').forEach(function(t){
     if(open && !e.target.closest('.nd-p')) close();
   });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close() });
+})();
+</script>
+<script>
+(function(){
+  var CATS=[['beauty','Beauty & personal care'],['supp','Supplements & wellness'],['home','Home & kitchen'],['elec','Electronics accessories'],['apparel','Apparel']];
+  var money=function(n){return '$'+Math.round(n).toLocaleString('en-US')};
+  var short=function(n){n=Math.round(n);return n>=1e6?'$'+(n/1e6).toFixed(1)+'M':n>=1e3?'$'+(n/1e3).toFixed(n<1e4?1:0).replace('.0','')+'K':money(n)};
+  var pct=function(n,d){return (+n).toFixed(d==null?1:d)+'%'};
+  var opts=function(list,sel){return list.map(function(o){return '<option value="'+o[0]+'"'+(o[0]===sel?' selected':'')+'>'+o[1]+'</option>'}).join('')};
+
+  /* Every benchmark below is a placeholder pending real account data. */
+  var M={
+    mkt:{
+      title:'Your marketplace numbers',
+      lede:'Monthly figures for one marketplace. Use your last full month.',
+      fields:[
+        {id:'mp',label:'Marketplace',type:'select',opts:[['amzus','Amazon US'],['amzuk','Amazon UK'],['walmart','Walmart'],['tiktok','TikTok Shop']],val:'amzus'},
+        {id:'cat',label:'Category',type:'select',opts:CATS,val:'beauty'},
+        {id:'rev',label:'Monthly sales',pre:'$',val:150000},
+        {id:'ads',label:'Monthly ad spend',pre:'$',val:30000},
+        {id:'cvr',label:'Unit session %',hint:'Conversion rate',post:'%',val:9,step:.1}
+      ],
+      calc:function(v){
+        var cvrB={beauty:13,supp:15,home:11,elec:10,apparel:9}[v.cat];
+        var tacB={beauty:12,supp:14,home:10,elec:9,apparel:13}[v.cat];
+        var mpx={amzus:1,amzuk:.95,walmart:.8,tiktok:.7}[v.mp];
+        cvrB=+(cvrB*mpx).toFixed(1);
+        var tac=v.rev>0?v.ads/v.rev*100:0;
+        var conv=v.cvr>0&&v.cvr<cvrB?v.rev*(cvrB/v.cvr-1)*.6:0;
+        var waste=Math.max(0,v.ads-v.rev*tacB/100)*.7;
+        var org=v.rev*(tac>tacB?.08:.04);
+        return {
+          current:v.rev,
+          levers:[
+            {t:'Lift conversion on your top listings',d:'Your unit session rate is '+pct(v.cvr)+' against a '+pct(cvrB)+' category median. Images, A+ content and reviews on your top 10 products come first.',v:conv},
+            {t:'Cut ad spend that isn’t returning sales',d:'Your TACoS is '+pct(tac)+' against a '+pct(tacB,0)+' median. Negative keywords, bid caps and dayparting recover most of the excess.',v:waste},
+            {t:'Win back organic share of search',d:'Ranking organically for the terms you already pay for lowers the cost of every sale.',v:org}
+          ],
+          bars:[
+            {l:'Unit session %',you:v.cvr,bench:cvrB,max:Math.max(v.cvr,cvrB)*1.3,f:pct},
+            {l:'TACoS',you:tac,bench:tacB,max:Math.max(tac,tacB)*1.3,f:function(n){return pct(n)},low:true}
+          ],
+          model:'Model: conversion gap × 60% achievable + ad spend above median TACoS × 70% recoverable + 4–8% organic share lift. Benchmarks are placeholders pending real account data.'
+        };
+      }
+    },
+    cro:{
+      title:'Your store numbers',
+      lede:'Monthly figures for your own website. Use your last full month.',
+      fields:[
+        {id:'plat',label:'Platform',type:'select',opts:[['shopify','Shopify'],['magento','Magento'],['woo','WooCommerce'],['custom','Custom build']],val:'shopify'},
+        {id:'cat',label:'Category',type:'select',opts:CATS,val:'beauty'},
+        {id:'ses',label:'Monthly sessions',val:80000},
+        {half:[{id:'cvr',label:'Conversion rate',post:'%',val:1.6,step:.1},{id:'aov',label:'Order value',pre:'$',val:65}]},
+        {id:'load',label:'Mobile load time',post:'sec',val:4.2,step:.1}
+      ],
+      calc:function(v){
+        var cvrB={beauty:3.2,supp:3.0,home:2.4,elec:1.9,apparel:2.6}[v.cat];
+        var cur=v.ses*v.cvr/100*v.aov;
+        var gap=v.cvr<cvrB?v.ses*(cvrB-v.cvr)/100*v.aov*.6:0;
+        var over=Math.max(0,v.load-2.5);
+        var speed=cur*Math.min(.35,over*.07);
+        return {
+          current:cur,
+          levers:[
+            {t:'Fix product page friction',d:'Your conversion rate is '+pct(v.cvr)+' against a '+pct(cvrB)+' category median. Clearer offers, reviews and sizing info above the fold close most of the gap.',v:gap*.55},
+            {t:'Shorten the checkout',d:'Fewer steps, guest checkout and express wallets cut cart abandonment.',v:gap*.45},
+            {t:'Speed up mobile pages',d:'Your pages load in '+v.load.toFixed(1)+'s on mobile. Each second over 2.5s costs roughly 7% of conversions.',v:speed}
+          ],
+          bars:[
+            {l:'Conversion rate',you:v.cvr,bench:cvrB,max:Math.max(v.cvr,cvrB)*1.3,f:function(n){return pct(n)}},
+            {l:'Mobile load time',you:v.load,bench:2.5,max:Math.max(v.load,2.5)*1.3,f:function(n){return n.toFixed(1)+'s'},low:true}
+          ],
+          model:'Model: sessions × conversion gap to category median × order value × 60% achievable, plus 7% of revenue per second of load time over 2.5s. Benchmarks are placeholders pending real account data.'
+        };
+      }
+    },
+    seo:{
+      title:'Your search numbers',
+      lede:'Organic traffic from Google plus visits from AI answers (ChatGPT, Perplexity, AI Overviews).',
+      fields:[
+        {id:'cat',label:'Category',type:'select',opts:CATS,val:'beauty'},
+        {id:'geo',label:'Primary geography',type:'select',opts:[['us','United States'],['uk','United Kingdom'],['gulf','Gulf (UAE, KSA)'],['in','India']],val:'us'},
+        {id:'org',label:'Monthly organic sessions',val:25000},
+        {half:[{id:'cvr',label:'Organic conv. rate',post:'%',val:2,step:.1},{id:'aov',label:'Order value',pre:'$',val:45}]}
+      ],
+      calc:function(v){
+        var base={beauty:2.4,supp:2.0,home:2.8,elec:2.1,apparel:3.2}[v.cat];
+        var geo={us:1,uk:.38,gulf:.22,in:.9}[v.geo];
+        var searches=base*geo*1e6;
+        var pot=searches*.04;
+        var gapS=Math.max(0,pot-v.org);
+        var per=v.cvr/100*v.aov;
+        return {
+          current:v.org*per,
+          levers:[
+            {t:'Build non-branded content clusters',d:'About '+Math.round(searches/1e3).toLocaleString('en-US')+'K modelled monthly category searches. You capture '+pct(v.org/searches*100)+' against a 4% achievable share.',v:gapS*.6*per},
+            {t:'Get cited in AI answers',d:'Structured product data, FAQ content and third-party mentions decide whether AI tools recommend you.',v:gapS*.25*per*1.4},
+            {t:'Fix technical SEO blockers',d:'Crawl errors, slow templates and missing schema hold back pages you already have.',v:gapS*.15*per}
+          ],
+          bars:[
+            {l:'Organic sessions',bl:'Achievable ',you:v.org,bench:pot,max:Math.max(v.org,pot)*1.15,f:function(n){return Math.round(n/1e3).toLocaleString('en-US')+'K'}},
+            {l:'Share of category search',bl:'Achievable ',you:v.org/searches*100,bench:4,max:Math.max(v.org/searches*100,4)*1.3,f:function(n){return pct(n)}}
+          ],
+          model:'Model: modelled category searches × 4% achievable share, minus current sessions, × conversion rate × order value. AI-referred visits weighted 1.4×. Benchmarks are placeholders pending real account data.'
+        };
+      }
+    }
+  };
+
+  var tab='mkt', shown={mkt:false,cro:false,seo:false}, state={}, sent=false;
+  var fieldsEl=document.getElementById('fields'), out=document.getElementById('out');
+
+  function input(f){
+    var val=state[tab]&&state[tab][f.id]!=null?state[tab][f.id]:f.val;
+    var lab='<label for="f-'+f.id+'">'+f.label+(f.hint?'<span>'+f.hint+'</span>':'')+'</label>';
+    if(f.type==='select') return '<div class="field">'+lab+'<select id="f-'+f.id+'" data-id="'+f.id+'">'+opts(f.opts,val)+'</select></div>';
+    var cls=f.pre?'pre':f.post?'post':'', attr=f.pre?' data-pre="'+f.pre+'"':f.post?' data-post="'+f.post+'"':'';
+    return '<div class="field">'+lab+'<div class="'+cls+'"'+attr+'><input id="f-'+f.id+'" data-id="'+f.id+'" type="number" inputmode="decimal" min="0" step="'+(f.step||1)+'" value="'+val+'"></div></div>';
+  }
+  function renderForm(){
+    var m=M[tab];
+    fieldsEl.innerHTML='<h3>'+m.title+'</h3><p class="lede">'+m.lede+'</p>'+m.fields.map(function(f){
+      return f.half?'<div class="two">'+f.half.map(input).join('')+'</div>':input(f);
+    }).join('');
+  }
+  function read(){
+    var v={};
+    fieldsEl.querySelectorAll('[data-id]').forEach(function(el){v[el.dataset.id]=el.tagName==='SELECT'?el.value:Math.max(0,parseFloat(el.value)||0)});
+    state[tab]=v; return v;
+  }
+  function renderEmpty(){
+    out.innerHTML='<div class="empty"><svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#fff" stroke-width="1.6"><path d="M8 44h40M14 36l9-10 7 6 12-15"/><path d="M36 17h6v6"/></svg><b>Your gap shows up here</b><p>Enter your numbers and hit calculate. You’ll see the dollar gap against your category benchmark and the three fixes worth the most.</p></div>';
+  }
+  function renderResult(anim){
+    var r=M[tab].calc(read());
+    var total=r.levers.reduce(function(s,l){return s+l.v},0);
+    var lo=total*.85, hi=total*1.15;
+    var ranked=r.levers.slice().sort(function(a,b){return b.v-a.v});
+    var lift=r.current>0?total/r.current*100:0;
+    var h='<div class="'+(anim?'reveal':'')+'" style="display:flex;flex-direction:column;flex:1">';
+    h+='<span class="lbl">Estimated monthly revenue gap</span>';
+    h+= total>0?'<div class="big">'+short(lo)+' to '+short(hi)+' <small>/ mo</small></div>':'<div class="big">On benchmark</div>';
+    h+='<div class="kpis"><div><b>'+short(total*12)+'</b><span>Annual gap, midpoint</span></div><div><b>'+short(r.current)+'</b><span>Your monthly revenue today</span></div><div><b>+'+Math.round(lift)+'%</b><span>Upside vs. today</span></div></div>';
+    h+='<div class="bench">'+r.bars.map(function(b){
+      var w=Math.min(100,b.you/b.max*100), m=Math.min(100,b.bench/b.max*100);
+      return '<div class="bar"><b>'+b.l+' <em>You '+b.f(b.you)+' &middot; '+(b.bl||(b.low?'Target ':'Median '))+b.f(b.bench)+'</em></b><div class="track"><i style="width:'+w+'%"></i><u style="left:calc('+m+'% - 1px)"></u></div></div>';
+    }).join('')+'</div>';
+    h+='<div class="legend"><span>You</span><span>Category benchmark</span></div>';
+    h+='<span class="lbl" style="margin-bottom:6px">Your prioritized fix list</span><ol class="fixes">'+ranked.map(function(l,i){
+      var ok=l.v<1;
+      return '<li class="'+(ok?'ok':'')+'"><em>'+String(i+1).padStart(2,'0')+'</em><div><b>'+l.t+'</b><p>'+l.d+'</p></div><strong>'+(ok?'On benchmark':short(l.v)+'<small> /mo</small>')+'</strong></li>';
+    }).join('')+'</ol>';
+    h+= sent?'<div class="sent">Report requested. In the live build the full breakdown lands in your inbox within one working day.</div>'
+      :'<form class="capture" id="cap"><input type="email" placeholder="Work email for the full report" aria-label="Work email" required><button class="btn btn-violet" type="submit">Send My Full Report</button></form>';
+    h+='<p class="model">'+r.model+' Directional, not a forecast.</p></div>';
+    out.innerHTML=h;
+    var cap=document.getElementById('cap');
+    if(cap) cap.addEventListener('submit',function(e){e.preventDefault();if(!cap.querySelector('input').checkValidity()){cap.querySelector('input').focus();return}sent=true;renderResult(false)});
+  }
+  function refresh(anim){shown[tab]?renderResult(anim):renderEmpty()}
+
+  document.querySelectorAll('.ctab').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(b.dataset.tab===tab) return;
+      read();
+      document.querySelectorAll('.ctab').forEach(function(x){x.setAttribute('aria-selected',x===b)});
+      tab=b.dataset.tab; renderForm(); refresh(true);
+    });
+  });
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();shown[tab]=true;renderResult(true)});
+  fieldsEl.addEventListener('input',function(){if(shown[tab]) renderResult(false)});
+  fieldsEl.addEventListener('change',function(){if(shown[tab]) renderResult(false)});
+
+  renderForm(); renderEmpty();
 })();
 </script>
 </body>
