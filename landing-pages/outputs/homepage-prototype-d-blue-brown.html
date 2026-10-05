@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Growisto Homepage — Direction D (Blue & brown)</title>
+<link rel="preload" as="image" href="figma-assets/assets/hero-geo-care.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -46,6 +47,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:400;letter-spacing:-.01em}
 .proto-flag b{color:#fff}
 /* ---------- HERO (Figma 354:49, 1440x771) ---------- */
 .hero{position:relative;min-height:771px;overflow:hidden;background:#3A2A55 url('figma-assets/assets/hero-photo-opt.jpg') center/cover no-repeat;display:flex;flex-direction:column}
+.hero.is-geo{background-image:url('figma-assets/assets/hero-geo-care.jpg')}
 .hero::before{content:"";position:absolute;inset:0;background:var(--hero-wash)}
 .hero>*{position:relative;z-index:2}
 .navbar{padding:24px 0;position:relative}
@@ -592,6 +594,7 @@ document.querySelectorAll('.htab').forEach(function(t){
     document.getElementById('h-title').textContent=c[0];
     document.getElementById('h-sub').textContent=c[1];
     pfRotate(t.dataset.h);
+    document.querySelector('.hero').classList.toggle('is-geo',t.dataset.h==='g');
   });
 });
 pfRotate();
