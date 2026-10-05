@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Growisto Homepage — Direction D (Blue &amp; brown, interactive menu)</title>
 <link rel="preload" as="image" href="figma-assets/assets/hero-geo-care.jpg">
+<link rel="preload" as="image" href="figma-assets/assets/hero-mkt-delivery.jpg">
+<link rel="preload" as="image" href="figma-assets/assets/hero-web-shopper.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -48,6 +50,8 @@ h1,h2,h3{font-family:var(--font-head);font-weight:400;letter-spacing:-.01em}
 /* ---------- HERO (Figma 354:49, 1440x771) ---------- */
 .hero{position:relative;min-height:771px;overflow:hidden;background:#3A2A55 url('figma-assets/assets/hero-photo-opt.jpg') center/cover no-repeat;display:flex;flex-direction:column}
 .hero.is-geo{background-image:url('figma-assets/assets/hero-geo-care.jpg')}
+.hero.is-mkt{background-image:url('figma-assets/assets/hero-mkt-delivery.jpg')}
+.hero.is-web{background-image:url('figma-assets/assets/hero-web-shopper.jpg')}
 .hero::before{content:"";position:absolute;inset:0;background:var(--hero-wash)}
 .hero>*{position:relative;z-index:2}
 .navbar{padding:24px 0;position:relative;z-index:30}
@@ -814,10 +818,17 @@ document.querySelectorAll('.htab').forEach(function(t){
     document.getElementById('h-title').textContent=c[0];
     document.getElementById('h-sub').textContent=c[1];
     pfRotate(t.dataset.h);
-    document.querySelector('.hero').classList.toggle('is-geo',t.dataset.h==='g');
+    var hero=document.querySelector('.hero'), k=t.dataset.h;
+    hero.classList.toggle('is-mkt',k==='m');
+    hero.classList.toggle('is-web',k==='w');
+    hero.classList.toggle('is-geo',k==='g');
   });
 });
 pfRotate();
+(function(){
+  var sel=document.querySelector('.htab[aria-selected="true"]')||document.querySelector('.htab');
+  if(sel) document.querySelector('.hero').classList.add('is-'+({m:'mkt',w:'web',g:'geo'}[sel.dataset.h]));
+})();
 
 // ---- outcomes cards
 var WHYD={"m": [["&#128722;", "Full-funnel management for profitable growth", "We run your ads, AMC+DSP, organic, affiliate, and operations together."], ["&#127758;", "Growth across every marketplace", "We expand you from Amazon into TikTok, Walmart, and more."], ["&#128200;", "Profit-focused strategy", "We track TACOS, not just ACOS."], ["&#127919;", "Expand market share", "We map your next geography or product launch, and plan through sale seasons."]], "w": [["&#9889;", "Conversion-first builds", "Every choice on platform, theme, feature, and test is suggested to convert more."], ["&#128269;", "A 600+ parameter CRO audit", "We find every conversion gap and turn it into a clear growth roadmap."], ["&#128736;", "CTO/CPO-level tech planning", "We plan your stack two years ahead, with senior tech expertise."], ["&#128260;", "Zero-loss migrations", "We migrate or rebuild your platform with zero data loss and zero downtime, with SEO preserved."]], "g": [["&#128201;", "Organic revenue", "We connect SEO and GEO with tech."], ["&#128188;", "B2B lead gen", "We optimize your strategy to deliver lead generation through organic channels."], ["&#128172;", "AI visibility", "Our 7-pillar framework spans SEO, GEO, AIO, and RAG to get you seen on ChatGPT, Claude, Perplexity, and other AI."], ["&#128270;", "AI citations", "We measure your LLM citations and AI share of voice, and build to improve citations."]]};
