@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How Avaana grew non-brand clicks 32x in twelve months</title>
+<meta name="description" content="An Australian NDIS consultancy built non-brand demand and AI visibility, and returned 13x on SEO and GEO.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{--acc:#AA502A;--ln:#BDB4A6}
+
+*,::before,::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#FFFFFF;color:#1E1A16;font-family:'Satoshi','Inter',system-ui,sans-serif;font-size:16px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+.wrap{width:min(1200px,100% - 80px);margin:0 auto}
+h1,h2,h3{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1.14}
+.sec{padding:62px 0}
+.sec.dark{background:#012C3C;color:#fff}
+.sec.grey{background:#FCFCFA}
+.eyebrow{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8E8579;margin-bottom:12px}
+.dark .eyebrow{color:rgba(255,255,255,.6)}
+.h-lg{font-size:40px}
+.h-md{font-size:36px}
+.lede{font-size:15px;line-height:1.55;color:#5C534A;max-width:74ch}
+.dark .lede{color:rgba(255,255,255,.74)}
+.btn{display:inline-flex;align-items:center;gap:9px;border:0;border-radius:99px;padding:13px 24px;font-family:'Satoshi','Inter',system-ui,sans-serif;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:.15s}
+.btn-dark{background:#AA502A;color:#fff}
+.btn-dark:hover{filter:brightness(1.12)}
+.btn-white{background:#fff;color:#1E1A16}
+.btn-line{background:0;border:1px solid #D9D7D1;color:#1E1A16}
+.dark .btn-line{border-color:rgba(255,255,255,.35);color:#fff}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;margin-bottom:34px;flex-wrap:wrap}
+.ph{background:#F1EDE7;border:1px solid #D9D7D1;border-radius:14px;position:relative;display:grid;place-items:center;color:#8E8579;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:12px}
+.proto-flag{background:#012C3C;color:rgba(255,255,255,.7);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:9px 16px}
+.proto-flag b{color:#fff}
+
+/* nav */
+.nav{border-bottom:1px solid #D9D7D1;background:#FFFFFF;position:sticky;top:0;z-index:50}
+.nav-in{height:67px;display:flex;align-items:center;gap:24px}
+.logo{width:84px;height:18px;border-radius:2px;background:#AA502A;flex:none}
+.nav-links{display:flex;gap:22px;margin-left:36px}
+.nav-links a{font-size:12px;color:#5C534A;text-decoration:none}
+.nav-links a:first-child{color:#1E1A16;font-weight:500}
+.nav-links a:hover{color:#AA502A}
+.nav .btn{margin-left:auto;padding:9px 15px;font-size:12px;border-radius:10px}
+
+/* hero */
+.hero{background:#012C3C;color:#fff;padding:0}
+.hero-in{display:grid;grid-template-columns:573px 1fr;gap:52px;align-items:start;padding:137px 0 138px}
+.hero h1{font-size:47px;line-height:1.08;margin-bottom:24px}
+.hero .sub{font-size:17px;line-height:1.5;color:rgba(255,255,255,.76);max-width:46ch;margin-bottom:30px}
+.hero-form{display:flex;align-items:center;gap:10px;background:#fff;border-radius:10px;padding:6px 6px 6px 18px;width:min(470px,100%)}
+.hero-form input{flex:1;border:0;outline:0;background:0;font-family:inherit;font-size:14px;color:#1E1A16;min-width:0}
+.hero-form input::placeholder{color:#8E8579}
+.hero-alt{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:10px;color:rgba(255,255,255,.62)}
+.hero-alt a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:2px}
+.hero-trust{margin-top:44px;font-size:14px;font-weight:500;color:rgba(255,255,255,.8);max-width:52ch}
+.hero-vis{position:relative}
+.hero-vis .ph{height:425px}
+.hero-card{position:absolute;right:16px;bottom:-34px;width:250px;background:#fff;border-radius:14px;padding:16px 18px;color:#1E1A16;box-shadow:0 18px 40px rgba(0,0,0,.28)}
+.hero-card .k{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8E8579}
+.hero-card .s{display:block;font-family:'Newsreader',Georgia,serif;font-size:34px;font-weight:700;line-height:1.05;margin:6px 0 4px}
+.hero-card .c{font-size:12px;color:#5C534A}
+.hero-card a{display:inline-block;margin-top:10px;font-size:11px;color:#AA502A;text-decoration:none;border-bottom:1px solid #AA502A;padding-bottom:2px}
+
+/* logo band */
+.band{padding:52px 0;text-align:center;border-bottom:1px solid #D9D7D1}
+.band p{font-size:11px;color:#8E8579;margin-bottom:32px}
+.band-track{display:flex;gap:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.band-row{display:flex;gap:0;flex:none;animation:march 42s linear infinite}
+.band-row span{flex:none;width:174px;display:grid;place-items:center;font-size:10px;color:#5C534A}
+.band-row span i{font-style:normal;display:block;width:104px;height:34px;border-radius:2px;background:#F1EDE7;border:1px solid #D9D7D1;display:grid;place-items:center;font-size:10px;color:#8E8579}
+@keyframes march{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+@media(prefers-reduced-motion:reduce){.band-row{animation:none}}
+
+/* case studies */
+.filters{display:flex;gap:10px;margin-bottom:26px}
+.filters button{border:1px solid #D9D7D1;background:#FFFFFF;border-radius:99px;padding:8px 16px;font-family:inherit;font-size:13px;font-weight:500;color:#5C534A;cursor:pointer}
+.filters button[aria-selected="true"]{background:#AA502A;border-color:#AA502A;color:#fff}
+.case-rail{display:grid;grid-auto-flow:column;grid-auto-columns:856px;gap:20px;overflow-x:auto;scrollbar-width:none;padding-bottom:8px}
+.case-rail::-webkit-scrollbar{display:none}
+.case{background:#FFFFFF;border:1px solid #D9D7D1;border-radius:14px;display:grid;grid-template-columns:538px 316px;min-height:565px;overflow:hidden}
+.case-main{padding:34px;display:flex;flex-direction:column}
+.case .k{font-size:10px;color:#8E8579;margin-bottom:14px}
+.case h3{font-size:23px;line-height:1.24;margin-bottom:16px;max-width:22ch}
+.case-main>p{font-size:14px;line-height:1.5;color:#5C534A;max-width:44ch;margin-bottom:auto}
+.slots{display:grid;grid-template-columns:88px 1fr 1fr;gap:12px;margin:26px 0 22px}
+.slot{height:150px;border:1px dashed #BDB4A6;border-radius:10px;background:#FCFCFA}
+.case-link{align-self:flex-start;font-size:13px;font-weight:500;color:#AA502A;text-decoration:none;border:1px solid #D9D7D1;border-radius:99px;padding:10px 18px}
+.case .fnote{font-size:12px;color:#8E8579;margin-top:12px}
+.case-side{position:relative;background:#FCFCFA;border-left:1px solid #D9D7D1;padding:26px;display:flex;flex-direction:column}
+.case-side .tag{font-size:10px;color:#8E8579;border:1px solid #D9D7D1;border-radius:99px;padding:5px 11px;align-self:flex-start;background:#FFFFFF}
+.case-side .play{margin:auto;width:56px;height:56px;border-radius:99px;background:#FFFFFF;border:1px solid #D9D7D1;display:grid;place-items:center;font-size:15px;color:#5C534A}
+.case-side .dur{position:absolute;right:26px;bottom:104px;font-size:10px;color:#8E8579;background:#FFFFFF;border:1px solid #D9D7D1;border-radius:4px;padding:4px 9px}
+.case-side .by{margin-top:auto;padding-top:16px;border-top:1px solid #D9D7D1}
+.case-side .by b{display:block;font-size:14px;font-weight:500}
+.case-side .by span{display:block;font-size:12px;color:#8E8579;margin-top:3px}
+.case-side.approach .vis{flex:1;margin-top:18px}
+
+/* traffic */
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.tcard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:22px;display:flex;flex-direction:column}
+.tcard .hd{font-size:18px;font-weight:700;line-height:1.3;margin-bottom:18px;min-height:70px}
+.tcard .vis{height:120px;margin-bottom:18px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.5)}
+.tcard .br{font-size:13px;font-weight:600;color:#fff;margin-bottom:6px}
+.tcard p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.66);margin-bottom:auto}
+.tcard .st{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.16)}
+.tcard .st div+div{margin-top:10px}
+.tcard .st b{font-family:'Newsreader',Georgia,serif;font-size:20px;font-weight:700}
+.tcard .st span{display:block;font-size:11px;color:rgba(255,255,255,.6);margin-top:3px}
+
+/* problems */
+.bubbles{display:flex;flex-direction:column;gap:14px;align-items:center}
+.bub{background:#FFFFFF;border:1px solid #D9D7D1;border-radius:999px;padding:16px 30px;font-size:24px;font-weight:700;line-height:1.25;max-width:76%;text-align:center}
+.bub:nth-child(even){align-self:flex-start;margin-left:6%;text-align:left}
+.bub:nth-child(odd){align-self:flex-end;margin-right:6%;text-align:right}
+
+/* what you get */
+.quad{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.qcard .vis{height:118px;margin-bottom:16px}
+.qcard h3{font-size:17px;font-weight:500;line-height:1.3;margin-bottom:8px}
+.qcard p{font-size:13px;line-height:1.5;color:#5C534A}
+
+/* mid ctas */
+.cta-band{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.cta-band h2{margin:8px 0 14px;max-width:22ch}
+.cta-band p{font-size:15px;line-height:1.55;color:rgba(255,255,255,.72);max-width:64ch}
+.cta-actions{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+
+/* proof */
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:36px}
+.shot .bar{display:flex;justify-content:space-between;font-size:10px;color:#8E8579;margin-bottom:8px}
+.shot .vis{height:168px}
+.map{position:relative;border:1px solid #D9D7D1;border-radius:14px;background:#FCFCFA;padding:34px;min-height:380px}
+.map svg{width:100%;height:300px;display:block;color:#BDB4A6}
+.pin{position:absolute;text-align:center}
+.pin b{display:block;font-family:'Newsreader',Georgia,serif;font-size:36px;font-weight:700;line-height:1}
+.pin .cy{font-size:12px;color:#8E8579}
+.pin span{display:block;font-size:13px;color:#5C534A;margin-top:4px;max-width:18ch}
+.pin:nth-child(2){left:5%;top:38%}
+.pin:nth-child(3){left:38%;top:22%}
+.pin:nth-child(4){right:24%;top:44%}
+.pin:nth-child(5){right:8%;bottom:12%}
+
+/* testimonial */
+.testi{display:grid;grid-template-columns:420px 1fr;gap:56px;align-items:center;margin-top:30px}
+.testi .vis{height:250px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.5)}
+.testi blockquote{font-family:'Newsreader',Georgia,serif;font-size:26px;line-height:1.35;font-weight:400}
+.testi .who{margin-top:26px;font-size:14px;font-weight:500}
+.testi .role{font-size:12px;color:rgba(255,255,255,.62);margin-top:3px}
+
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cat{border:1px solid #D9D7D1;border-radius:14px;padding:20px;background:#FFFFFF}
+.cat em{font-style:normal;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;color:#8E8579}
+.cat h3{font-size:17px;font-weight:500;margin:10px 0 8px}
+.cat p{font-size:12px;line-height:1.5;color:#5C534A}
+
+/* system */
+.sys{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:start}
+.sys-nav{border-top:1px solid #D9D7D1}
+.sys-nav button{width:100%;text-align:left;background:0;border:0;border-bottom:1px solid #D9D7D1;padding:18px 4px;font-family:'Newsreader',Georgia,serif;font-size:17px;font-weight:400;color:#5C534A;cursor:pointer}
+.sys-nav button[aria-selected="true"]{color:#1E1A16;font-weight:700}
+.sys-panel{border:1px solid #D9D7D1;border-radius:14px;padding:26px;background:#FFFFFF}
+.sys-tabs{display:flex;gap:26px;border-bottom:1px solid #D9D7D1;margin-bottom:22px}
+.sys-tabs button{background:0;border:0;padding:0 0 12px;font-family:inherit;font-size:18px;font-weight:500;color:#8E8579;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.sys-tabs button[aria-selected="true"]{color:#1E1A16;border-bottom-color:#AA502A}
+.sys-head{font-size:24px;font-weight:700;margin-bottom:8px}
+.sys-lead{font-size:15px;line-height:1.5;color:#5C534A;margin-bottom:24px;max-width:70ch}
+.sys-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px}
+.sys-item{padding:18px 0;border-top:1px solid #D9D7D1}
+.sys-item em{font-style:normal;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:#8E8579}
+.sys-item b{display:block;font-size:17px;font-weight:700;margin:8px 0 6px}
+.sys-item p{font-size:14px;line-height:1.45;color:#5C534A}
+
+/* process */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:30px}
+.phase{border:1px solid #D9D7D1;border-radius:14px;padding:22px;background:#FFFFFF}
+.phase em{font-style:normal;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8E8579}
+.phase h3{font-size:17px;font-weight:500;margin:10px 0 18px}
+.phase .lbl{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8E8579;margin-bottom:10px}
+.phase ul{list-style:none}
+.phase li{font-size:13px;line-height:1.5;color:#5C534A;padding:9px 0 9px 18px;position:relative;border-top:1px solid #D9D7D1}
+.phase li::before{content:"";position:absolute;left:0;top:16px;width:6px;height:6px;border-radius:99px;background:#AA502A}
+.note{margin-top:18px;font-size:14px;font-weight:500;color:#1E1A16}
+
+/* faq */
+.faq{border-top:1px solid #D9D7D1;max-width:960px}
+.faq details{border-bottom:1px solid #D9D7D1}
+.faq summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;position:relative;font-size:17px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:20px;color:#AA502A}
+.faq details[open] summary::after{content:"\2212"}
+.faq p{padding:0 40px 22px 0;font-size:15px;line-height:1.6;color:#5C534A}
+.faq-more{display:inline-block;margin-top:18px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#AA502A;text-decoration:none;border-bottom:1px solid #AA502A;padding-bottom:3px}
+.faq-foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:34px;padding-top:20px;border-top:1px solid #D9D7D1;max-width:960px}
+.faq-foot b{font-size:16px;font-weight:500}
+.faq-foot span{font-size:12px;color:#5C534A}
+
+/* final cta */
+.fin{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.fin h2{font-size:30px;margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chips span{border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:6px 12px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+.fin-alt{margin-top:14px;font-size:13px;color:rgba(255,255,255,.7)}
+.fin-alt a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4)}
+.fin .vis{height:250px;background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.5)}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18)}
+.contacts em{font-style:normal;display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px}
+.contacts b{font-size:14px;font-weight:400;color:#fff}
+footer{background:#012C3C;color:rgba(255,255,255,.6);padding:40px 0 34px;border-top:1px solid rgba(255,255,255,.14)}
+.f-in{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:13px}
+
+@media(max-width:1100px){
+  .hero-in,.testi,.fin,.sys,.cta-band{grid-template-columns:1fr}
+  .quad,.shots,.cats,.phases,.tri,.sys-grid{grid-template-columns:1fr 1fr}
+  .hero-card{position:static;width:auto;margin-top:18px;box-shadow:none;border:1px solid #D9D7D1}
+  .case-rail{grid-auto-columns:min(88%,620px)}
+  .case{grid-template-columns:1fr;min-height:0}
+  .case-side{border-left:0;border-top:1px solid #D9D7D1}
+  .pin{position:static;text-align:left;margin-bottom:18px}
+}
+@media(max-width:760px){
+  .wrap{width:min(1200px,100% - 40px)}
+  .quad,.shots,.cats,.phases,.tri,.sys-grid,.contacts{grid-template-columns:1fr}
+  .hero h1{font-size:34px}.h-lg{font-size:30px}.h-md{font-size:28px}
+  .bub{max-width:100%;font-size:18px}
+  .nav-links{display:none}
+}
+
+.phases.five{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1200px){.phases.five{grid-template-columns:repeat(2,1fr)}}
+
+/* amazon: image-left case cards, external channels, sub-tabbed system, testimonial carousel */
+.case.amz{grid-template-columns:340px 1fr}
+.case.amz .case-vis{background:#FCFCFA;border-right:1px solid #D9D7D1;display:grid;place-items:center;color:#8E8579;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:16px}
+.case.amz .figs{display:flex;flex-direction:column;gap:14px;margin:24px 0 22px}
+.case.amz .figs div{display:flex;gap:14px;align-items:baseline}
+.case.amz .figs b{font-family:'Newsreader',Georgia,serif;font-size:26px;font-weight:700;line-height:1;min-width:92px}
+.case.amz .figs span{font-size:13px;color:#5C534A}
+.hero-card.rot{min-height:132px}
+.ext{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ext .c{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);border-radius:14px;padding:24px;display:flex;flex-direction:column}
+.ext .c em{font-style:normal;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.ext .c h3{font-size:20px;font-weight:700;margin:12px 0 10px;color:#fff}
+.ext .c p{font-size:14px;line-height:1.5;color:rgba(255,255,255,.7)}
+.ext .c .ph{margin-top:20px;height:120px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.5)}
+.pgroup{margin-bottom:34px}
+.pgroup h3{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8E8579;margin-bottom:14px}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pcard{border:1px solid #D9D7D1;border-radius:14px;overflow:hidden;background:#FFFFFF}
+.pcard .ph{height:190px;border:0;border-bottom:1px solid #D9D7D1;border-radius:0}
+.pcard .t{padding:18px}
+.pcard b{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+.pcard p{font-size:13px;line-height:1.5;color:#5C534A}
+.sub-tabs{display:flex;flex-direction:column;border-top:1px solid #D9D7D1}
+.sub-tabs button{text-align:left;background:0;border:0;border-bottom:1px solid #D9D7D1;padding:15px 4px;font-family:inherit;font-size:14px;font-weight:500;color:#5C534A;cursor:pointer}
+.sub-tabs button[aria-selected="true"]{color:#AA502A;font-weight:700}
+.dlist{list-style:none;margin-top:18px}
+.dlist li{position:relative;padding:11px 0 11px 20px;border-top:1px solid #D9D7D1;font-size:14px;line-height:1.5;color:#5C534A}
+.dlist li::before{content:"";position:absolute;left:0;top:19px;width:6px;height:6px;border-radius:99px;background:#AA502A}
+.agents{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.agrp{border:1px solid #D9D7D1;border-radius:14px;padding:20px;background:#FFFFFF}
+.agrp h4{font-size:15px;font-weight:600;margin-bottom:12px}
+.agrp span{display:block;font-size:13px;color:#5C534A;padding:8px 0;border-top:1px solid #D9D7D1}
+.tslide{display:none}
+.tslide.on{display:block}
+.tdots{display:flex;gap:8px;margin-top:24px}
+.tdots button{width:7px;height:7px;padding:0;border:0;border-radius:99px;background:rgba(255,255,255,.3);cursor:pointer;transition:width .3s,background .3s}
+.tdots button[aria-current="true"]{width:20px;background:#fff}
+@media(max-width:1100px){.ext,.pgrid,.agents{grid-template-columns:1fr}.case.amz{grid-template-columns:1fr}.case.amz .case-vis{border-right:0;border-bottom:1px solid #D9D7D1;min-height:180px}}
+
+/* ---- MSI case study page, Figma 337:529 ---- */
+.page{width:min(1168px,100% - 112px);margin:0 auto}
+.crumb{display:flex;gap:9px;align-items:center;padding:39px 0 0;font-size:14px;color:#8E8579}
+.crumb a{color:#8E8579;text-decoration:none}
+.crumb a:hover{color:#AA502A}
+.crumb span:last-child{color:#1E1A16}
+
+.m1{padding:26px 0 64px}
+.m1-in{display:grid;grid-template-columns:575px minmax(0,1fr);gap:64px;align-items:start}
+.m1 .badge{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:700;letter-spacing:.1em;border:1px solid #D9D7D1;border-radius:10px;padding:5px 10px;color:#1E1A16}
+.m1 .kick{font-size:15px;color:#5C534A;margin:14px 0 23px}
+.m1 h1{font-size:58px;line-height:1.1;letter-spacing:-.02em;color:#1E1A16;margin-bottom:23px}
+.m1 .sub{font-size:19px;line-height:1.55;color:#5C534A}
+.m1 .by{display:flex;gap:22px;margin-top:30px;font-size:14px;color:#8E8579}
+.m1 .ph{height:397px;border-radius:10px}
+
+.m2{background:#FCFCFA;padding:64px 0 56px}
+.m2 .top{display:flex;justify-content:space-between;align-items:baseline;gap:32px;margin-bottom:30px}
+.m2 h2{font-size:36px;color:#1E1A16}
+.m2 .period{font-size:15px;color:#5C534A}
+.m2 .grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #BDB4A6;padding-top:24px}
+.m2 .grid>div{padding-right:28px}
+.m2 .grid>div+div{padding-left:30px;border-left:1px solid #D9D7D1}
+.m2 b{display:block;font-family:'Newsreader',Georgia,serif;font-size:78px;font-weight:600;line-height:1;letter-spacing:-.03em;color:#1E1A16}
+.m2 .lb{display:block;font-size:16px;font-weight:600;color:#1E1A16;margin:14px 0 8px}
+.m2 .ex{display:block;font-size:14px;line-height:1.45;color:#5C534A}
+.m2 .note{margin-top:30px;font-size:15px;font-weight:500;color:#AA502A;border-bottom:1px solid #AA502A;display:inline-block;padding-bottom:2px;cursor:pointer}
+
+.story{display:grid;grid-template-columns:748px 340px;gap:80px;align-items:start;padding:88px 0 40px}
+.aside{position:sticky;top:24px;border:1px solid #D9D7D1;border-radius:14px;background:#FCFCFA;padding:24px 24px 22px}
+.aside h3,.aside .lb{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;font-weight:600;letter-spacing:.04em;color:#1E1A16}
+.aside p{font-size:15px;line-height:1.55;color:#5C534A;margin:12px 0 20px}
+.aside .lb{display:block;margin-bottom:10px}
+.aside .row{border-top:1px solid #D9D7D1;padding-top:16px;margin-top:16px}
+.aside .tags{display:flex;flex-wrap:wrap;gap:7px}
+.aside .tags span{border:1px solid #D9D7D1;border-radius:99px;padding:5px 11px;font-size:13px;font-weight:600;color:#5C534A;background:#FFFFFF}
+.aside .per{font-size:15px;font-weight:500;color:#1E1A16}
+
+.mod{padding-bottom:88px}
+.mod .k{display:block;font-size:14px;font-weight:600;color:#AA502A;margin-bottom:12px}
+.mod h2{font-size:36px;line-height:1.16;color:#1E1A16;margin-bottom:20px}
+.mod p{font-size:16px;line-height:1.62;color:#5C534A}
+.mod p+p{margin-top:14px}
+
+.nils{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}
+.nils div{border:1px solid #D9D7D1;border-radius:10px;background:#FCFCFA;padding:22px 20px;font-size:20px;font-weight:700;color:#1E1A16}
+.obj{border-left:2px solid #AA502A;padding:4px 0 4px 22px}
+.obj h3{font-size:16px;font-weight:700;color:#1E1A16;margin-bottom:10px}
+
+.step{border-top:1px solid #D9D7D1;padding-top:30px;margin-top:40px}
+.step .sk{display:flex;gap:10px;font-size:14px;font-weight:600;color:#AA502A;margin-bottom:14px}
+.step h3{font-size:32px;line-height:1.2;color:#1E1A16;margin-bottom:14px}
+.step h3.sm{font-size:26px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:26px 0 20px}
+.cmp>div{border:1px solid #D9D7D1;border-radius:10px;padding:20px 22px;background:#FFFFFF}
+.cmp>div:last-child{border-color:#AA502A}
+.cmp h4{font-size:16px;font-weight:600;color:#1E1A16;margin-bottom:8px}
+.cmp .s{font-size:14px;color:#5C534A}
+.ctab{width:100%;border-collapse:collapse;margin-top:8px}
+.ctab th,.ctab td{text-align:left;padding:14px 12px;border-bottom:1px solid #D9D7D1;font-size:13px}
+.ctab th{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8E8579;font-weight:400}
+.ctab td:first-child{font-size:15px;color:#1E1A16;width:46%}
+.ctab .yes{font-weight:600;color:#AA502A}
+.ctab .no{color:#8E8579}
+.phz{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0 18px}
+.phz article{border:1px solid #D9D7D1;border-radius:10px;background:#FFFFFF;padding:18px 16px}
+.phz .p{font-size:14px;font-weight:600;color:#AA502A;margin-bottom:10px}
+.phz h4{font-size:18px;line-height:1.26;color:#1E1A16;margin-bottom:8px}
+.phz .w{font-size:14px;color:#5C534A}
+.phz .t{display:block;font-size:13px;color:#8E8579;margin-top:10px;border-top:1px solid #D9D7D1;padding-top:10px}
+.foot-n{font-size:15px;font-weight:600;color:#1E1A16;margin-top:4px}
+.chart{border:1px solid #D9D7D1;border-radius:10px;background:#FCFCFA;padding:22px 24px 16px;margin:24px 0 10px}
+.chart .plot{height:132px;position:relative;border-bottom:1px solid #BDB4A6}
+.chart .plot i{position:absolute;left:0;right:0;bottom:0;height:100%;background:
+  linear-gradient(90deg,transparent 0 6%,#AA502A 6% 6.6%,transparent 6.6%) no-repeat 0 100%/100% 0;}
+.chart svg{width:100%;height:132px;display:block}
+.chart .ax{display:flex;justify-content:space-between;font-size:11px;color:#8E8579;margin-top:8px}
+.chart .nt{font-size:11px;color:#8E8579;margin-top:6px}
+.outg{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
+.outg>div{border:1px solid #D9D7D1;border-radius:10px;padding:24px;background:#FFFFFF}
+.outg b{display:block;font-family:'Newsreader',Georgia,serif;font-size:40px;font-weight:600;line-height:1;color:#1E1A16;margin-bottom:12px}
+.outg .c{font-size:15px;line-height:1.5;color:#5C534A}
+.outg .s{display:block;font-size:13px;color:#8E8579;margin-top:12px}
+.outg .dim{font-size:13px;line-height:1.5;color:#8E8579}
+.voice{border-top:1px solid #D9D7D1;padding-top:28px}
+.voice blockquote{font-family:'Newsreader',Georgia,serif;font-size:24px;line-height:1.4;color:#5C534A}
+.voice figcaption{font-size:14px;font-weight:600;color:#8E8579;margin-top:16px}
+
+.m10{background:#FCFCFA;padding:80px 0}
+.m10-in{display:grid;grid-template-columns:525px minmax(0,1fr);gap:56px;align-items:start}
+.m10 h2{font-size:36px;line-height:1.16;color:#1E1A16;margin-bottom:12px}
+.m10 .sub{font-size:17px;line-height:1.5;color:#5C534A;margin-bottom:34px}
+.m10 .sideh{font-size:18px;font-weight:700;line-height:1.3;color:#1E1A16;margin-bottom:20px}
+.m10 .stp{display:flex;gap:14px;padding:16px 0;border-top:1px solid #D9D7D1}
+.m10 .stp i{font-style:normal;flex:none;width:22px;height:22px;border-radius:99px;background:#AA502A;color:#fff;font-size:12px;font-weight:600;display:grid;place-items:center}
+.m10 .stp b{display:block;font-size:14px;font-weight:600;color:#1E1A16}
+.m10 .stp span{display:block;font-size:14px;color:#5C534A;margin-top:3px}
+.form{background:#FFFFFF;border:1px solid #D9D7D1;border-radius:6px;padding:30px 32px 28px}
+.form h3{font-size:19px;font-weight:700;color:#1E1A16;margin-bottom:22px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg label,.fw label{display:block;font-size:13px;font-weight:500;color:#1E1A16;margin-bottom:7px}
+.fg input,.fw input,.fw textarea,.fg select{width:100%;border:1px solid #D9D7D1;border-radius:10px;padding:11px 13px;font-family:inherit;font-size:14px;color:#1E1A16;background:#FFFFFF;outline:0}
+.fg input::placeholder,.fw textarea::placeholder{color:#8E8579}
+.fg input:focus,.fw textarea:focus{border-color:#AA502A}
+.fw{margin-top:16px}
+.fw textarea{min-height:84px;resize:vertical}
+.form .btn{width:100%;justify-content:center;margin-top:18px}
+.form .pv{font-size:12px;color:#8E8579;margin-top:12px;text-align:center}
+.trust{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px;font-size:13px;color:#5C534A}
+.trust span{display:flex;align-items:center;gap:7px}
+.trust span::before{content:"";width:9px;height:6px;border-left:1.5px solid #AA502A;border-bottom:1.5px solid #AA502A;transform:rotate(-45deg)}
+
+.m11{padding:80px 0 88px}
+.m11 .top{display:flex;justify-content:space-between;align-items:center;gap:32px;margin-bottom:36px}
+.m11 h2{font-size:43px;color:#1E1A16}
+.m11 .all{background:#012C3C;color:#fff;border-radius:99px;padding:10px 16px;font-size:14px;font-weight:600;text-decoration:none}
+.sims{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sims a{display:block;border:1px solid #D9D7D1;border-radius:6px;background:#FFFFFF;text-decoration:none;overflow:hidden}
+.sims a:hover{border-color:#BDB4A6}
+.sims .ph{height:200px;border:0;border-radius:0;border-bottom:1px solid #D9D7D1}
+.sims .bd{padding:20px 22px 22px}
+.sims .k{display:inline-block;font-size:12px;font-weight:600;color:#AA502A;margin-bottom:10px}
+.sims h3{font-size:18px;line-height:1.3;color:#1E1A16;margin-bottom:10px}
+.sims p{font-size:14px;line-height:1.5;color:#5C534A;margin-bottom:16px}
+.sims .rs{font-size:14px;font-weight:600;color:#1E1A16}
+
+@media(max-width:1180px){
+ .page{width:min(1168px,100% - 48px)}
+ .m1-in,.story,.m10-in{grid-template-columns:1fr;gap:34px}
+ .aside{position:static}
+ .m1 h1{font-size:36px}
+ .m2 .grid,.phz,.sims{grid-template-columns:1fr 1fr}
+ .m2 .grid>div+div{padding-left:0;border-left:0}
+ .m2 .grid>div{padding:16px 0;border-top:1px solid #D9D7D1}
+ .cmp,.nils,.outg{grid-template-columns:1fr}
+ .step h3{font-size:25px}
+ .m11 h2{font-size:30px}
+}
+
+/* proof visuals built from the case data */
+.fnl{border:1px solid #D9D7D1;border-radius:10px;background:#FCFCFA;padding:24px 26px 16px;margin:24px 0 10px}
+.fnl-r{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;align-items:center;padding:12px 0}
+.fnl-r+.fnl-r{border-top:1px solid #D9D7D1}
+.fnl-n{font-family:'Newsreader',Georgia,serif;font-size:28px;font-weight:600;line-height:1;color:#1E1A16}
+.fnl-b{display:block;height:10px;border-radius:99px;background:#AA502A;opacity:.85;grid-column:2;margin-bottom:7px}
+.fnl-l{font-size:13.5px;color:#5C534A;grid-column:2}
+.fnl-r{grid-template-areas:"n b" "n l"}
+.fnl-n{grid-area:n}.fnl-b{grid-area:b}.fnl-l{grid-area:l}
+.sb{display:flex;gap:6px;height:76px;align-items:stretch}
+.sb>div{background:#AA502A;opacity:.85;border-radius:10px;display:grid;place-items:center;color:#fff;padding:8px}
+.sb>div.alt{background:#012C3C;opacity:1}
+.sb b{font-size:13px;font-weight:600;text-align:center;line-height:1.3}
+.evt .ctab td:last-child{font-weight:600}
+.evt .ctab tr:last-child td:last-child{color:#AA502A}
+</style>
+</head><body>
+<div class="proto-flag"><b>Prototype</b> &nbsp;&middot;&nbsp; Case study page &mdash; Avaana &nbsp;&middot;&nbsp; MSI layout (Figma 337:529) &nbsp;&middot;&nbsp; Blue &amp; brown, Option 6 palette</div>
+<header class="nav"><div class="page nav-in"><span class="logo"></span><nav class="nav-links"><a href="#">Services</a><a href="#">Industries</a><a href="#">Case Studies</a><a href="#">AI Agents</a><a href="#">About</a></nav><a class="btn btn-dark" href="#call">Free audit</a></div></header><div class="page"><nav class="crumb"><a href="#">Resources</a><span>&rsaquo;</span><a href="#">Case studies</a><span>&rsaquo;</span><span>GEO, AIO &amp; SEO</span></nav></div><section class="m1"><div class="page m1-in"><div><span class="badge">Avaana</span><p class="kick">Avaana, an Australian NDIS registration consultancy</p><h1>How Avaana Grew Non-Brand Clicks 32x and Returned 13x on SEO and GEO</h1><p class="sub">Avaana helps Australian businesses through NDIS provider registration and growth. Almost all of its search visibility was branded, which meant it could only be found by people who already knew the name. The work was to build demand from people who did not.</p><p class="by"><span>Written by Growisto</span><span>15th Jun 2025</span></p></div><div><div class="ph">Dummy image &mdash; replace with client-cleared Avaana asset</div></div></div></section><section class="m2"><div class="page"><div class="top"><h2>Results</h2><span class="period">12-month engagement, ROI measured across 2025</span></div><div class="grid"><div><b>32x</b><span class="lb">Increase in non-brand clicks</span><span class="ex">From 16 to 516 clicks a month over twelve months</span></div><div><b>73%</b><span class="lb">Core keywords in the Google top 10</span><span class="ex">Measured across the core business keyword set</span></div><div><b>13x</b><span class="lb">Return on investment from SEO and GEO</span><span class="ex">Across 2025</span></div><div><b>20%</b><span class="lb">Organic traffic boost from LLM sessions</span><span class="ex">Contributed by 100+ sessions originating in AI assistants</span></div></div><span class="note">How these numbers were measured</span></div></section><div class="page"><div class="story"><div><section class="mod"><span class="k">Their story</span><h2>A consultancy that could only be found by people who knew its name</h2><p>Avaana works at the regulated end of Australian healthcare: NDIS provider registration, audit coaching, and the business strategy that follows. Its buyers are operators with a specific compliance problem and a deadline.</p><p>Those buyers were searching. They were not searching for Avaana, because they had no reason to know it existed. Revenue leaned on paid channels because organic was carrying almost nothing that was not branded.</p></section><section class="mod"><span class="k">The challenge</span><h2>All the visibility was branded, and branded does not scale</h2><p>Increase organic traffic through on-page, off-page and technical SEO, focused on how operators actually search for NDIS regulation, registration, and provider services.</p><div class="nils"><div>16 non-brand clicks</div><div>Paid-dependent revenue</div><div>No AI presence</div></div><div class="obj"><h3>Objectives</h3><p>Build non-brand demand around regulation, registration and services intent, and be present when those same questions are asked of an AI assistant rather than typed into a search box.</p></div></section><section class="mod"><span class="k">The solution</span><h2>Map the demand, earn the pages, then be citable</h2><p>Three moves carried the engagement: a content map built from real keyword demand, a technical and on-page program against the pages that could rank, and content shaped to be quoted by LLMs as well as ranked by Google.</p><div class="step"><p class="sk"><span>01</span><span>The map</span></p><h3>900+ keywords analyzed, then narrowed to what could actually rank</h3><p>Coverage was decided by demand and winnability, not by volume alone.</p><div class="fnl"><div class="fnl-r"><span class="fnl-n">900+</span><span class="fnl-b" style="width:100%"></span><span class="fnl-l">High-relevance keywords analyzed</span></div><div class="fnl-r"><span class="fnl-n">62</span><span class="fnl-b" style="width:46%"></span><span class="fnl-l">Unique blog pages mapped</span></div><div class="fnl-r"><span class="fnl-n">17</span><span class="fnl-b" style="width:22%"></span><span class="fnl-l">Priority pages optimized</span></div><p class="nt">Each stage narrows to what the site could realistically own, rather than publishing against every term.</p></div><p style="margin-top:16px;font-size:15px">The narrowing is the work. Mapping 900 keywords to 62 pages, and then concentrating on 17, is what made a small site competitive on regulated-sector terms.</p></div><div class="step"><p class="sk"><span>02</span><span>The build</span></p><h3 class="sm">On-page, technical and authority, run together</h3><div class="phz"><article><p class="p">Phase 1</p><h4>Content strategy</h4><p class="w">900+ keywords analyzed and mapped to intent</p><span class="t">Regulation, registration, services</span></article><article><p class="p">Phase 2</p><h4>On-page optimization</h4><p class="w">17 priority pages rewritten and restructured</p></article><article><p class="p">Phase 3</p><h4>Technical audit</h4><p class="w">Page speed, coverage issues and site parameters</p></article><article><p class="p">Phase 4</p><h4>Authority</h4><p class="w">Targeted backlinking against the priority pages</p></article></div><p class="foot-n">Non-brand clicks moved from 16 a month to 516 over the twelve months.</p></div><div class="step"><p class="sk"><span>03</span><span>The real test</span></p><h3 class="sm">Being found by an AI assistant, not just by Google</h3><p>Content was optimized to surface inside AI and LLM results, not only in Google&rsquo;s organic listings. Over 100 sessions arrived from AI assistants, contributing a 20% lift to organic traffic. For a regulated category where buyers ask an assistant what the rules are before they ask who can help, that channel is the leading indicator.</p><div class="chart"><div class="sb"><div style="flex:80"><b>Conventional organic</b></div><div class="alt" style="flex:20"><b>LLM-sourced</b></div></div><p class="nt">Share of organic traffic contributed by sessions originating in AI assistants</p></div></div></section><section class="mod"><span class="k">The outcome</span><h2>What changed beyond the click count</h2><div class="outg"><div><b>13x</b><p class="c">Return on investment from SEO and GEO across 2025, with a meaningful share of revenue now arriving through organic search rather than paid channels.</p><span class="s">[ROI calculation basis to be confirmed]</span></div><div><p class="dim">73% of core business keywords now rank in the Google top 10, including priority terms like &ldquo;NDIS consultants&rdquo;.</p></div></div></section><section class="mod voice"><blockquote>&ldquo;Working with Growisto has had a tangible impact for Avaana. Since kicking off our SEO partnership, we&rsquo;ve seen a significant lift in non-branded organic traffic, with priority keywords like &lsquo;NDIS consultants&rsquo; consistently ranking in the top positions. The structured, data-driven approach has helped us reach more NDIS and aged care providers and diversify revenue away from just paid channels.&rdquo;</blockquote><figcaption>Rohan Pardasani, Chief Executive Officer, Avaana</figcaption></section></div><aside class="aside"><h3>About</h3><p>Avaana is an Australian consultancy that helps businesses through NDIS provider registration and growth, covering application preparation, audit coaching, and tailored business strategy.</p><div class="row"><span class="lb">Services</span><div class="tags"><span>GEO, AIO &amp; SEO</span></div></div><div class="row"><span class="lb">Period</span><span class="per">12 months</span></div></aside></div></div><div id="call"></div><section class="m10"><div class="page m10-in"><div><h2>See How We Can Do This for Your Brand</h2><p class="sub">MSI&rsquo;s launch started with a call. Yours can too. If there&rsquo;s no business case, we&rsquo;ll say so.</p><p class="sideh">Built for businesses like yours. Let&rsquo;s connect</p><div class="stp"><i>1</i><div><b>Fill out the form</b><span>Share your contact information to get started</span></div></div><div class="stp"><i>2</i><div><b>Speak to an expert</b><span>A member of our team will get in touch with you</span></div></div><div class="trust"><span>Zero Cost or Commitment</span><span>100% Confidential</span><span>We&rsquo;ll respond within 24 hours</span></div></div><form class="form" onsubmit="return false"><h3>Tell us where to reach you</h3><div class="fg"><div><label>Full name</label><input placeholder="Full name"></div><div><label>Work email</label><input placeholder="name@company.com"></div><div><label>Company</label><input placeholder="Company name"></div><div><label>Service you need</label><input placeholder="Select one"></div></div><div class="fw"><label>What are you trying to solve? (optional)</label><textarea placeholder="Brand, marketplace or storefront, and the problem"></textarea></div><button class="btn btn-dark" type="submit">Book a call</button><p class="pv">[Privacy line and terms, pending]</p></form></div></section><section class="m11"><div class="page"><div class="top"><h2>Proof is in the numbers</h2><a class="all" href="homepage-prototypes-index.html">View all case studies</a></div><div class="sims"><a href="case-study-msi-brand.html"><div class="ph">Dummy image</div><div class="bd"><span class="k">Marketplaces</span><h3>How a Challenger Brand Hit #1 BSR on Amazon KSA in 5 Months</h3><p>Zero-to-one launch against Apple and HP. 110% increase in ad sales.</p><span class="rs">Read story &rarr;</span></div></a><a href="case-study-gurunanda-brand.html"><div class="ph">Dummy image</div><div class="bd"><span class="k">Marketplaces</span><h3>How GuruNanda Scaled to a Global Category Leader with 312% Revenue Growth</h3><p>New-market launch: Amazon UK and Canada. 312% increase in total revenue.</p><span class="rs">Read story &rarr;</span></div></a><a href="case-study-powerlook-brand.html"><div class="ph">Dummy image</div><div class="bd"><span class="k">Website &amp; Tech</span><h3>How Powerlook Recovered $105K+ a Month After a Platform Migration</h3><p>Shopify Plus in three months, zero downtime. 80% festive revenue growth.</p><span class="rs">Read story &rarr;</span></div></a></div></div></section>
+</body></html>
